@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+}
+
+/* Remove default link underlines */
+a {
+    text-decoration: none;
+}
+
+.nav-transparent {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.card {
+    background-color: #141414;
+    border: 1px solid #2A2A2A;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.1);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00c8ff, transparent);
+    opacity: 0.5;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00c8ff);
+}
+
+/* Adding card hover effects to match the original */
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #00c8ff;
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(20, 20, 20, 0.9) 0%, rgba(20, 20, 20, 0.7) 70%, rgba(0, 0, 0, 0) 100%);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.card-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.card-image img {
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Added highlight-text class to match original HTML exactly */
+.highlight-text {
+    color: #00c8ff;
+}
+
+/* Adding the primary button styles from the original HTML */
+.btn-primary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #00c8ff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 200, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
+    color: #00c8ff;
+}
+
+/* Adding section heading styles to match the original */
+.section-heading {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 2px;
+    background: #00c8ff;
+}
+
+/* Adding fade-in animation styles to match the original */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

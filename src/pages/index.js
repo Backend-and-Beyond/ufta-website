@@ -8,74 +8,28 @@ import Navigation from "../components/navigation"
 import HeroSection from "../components/hero-section"
 import Footer from "../components/footer"
 import Seo from "../components/seo"
+import { pageAnimations, hoverAnimations, viewportSettings } from "../utils/animations"
 
-const IndexPage = () => {
-  // Animation variants
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  }
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  }
-
-  const slideInLeft = {
-    hidden: { opacity: 0, x: -60 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 0.7, ease: "easeOut" }
-    }
-  }
-
-  const slideInRight = {
-    hidden: { opacity: 0, x: 60 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 0.7, ease: "easeOut" }
-    }
-  }
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  }
-
-  const cardVariant = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
-  }
+const IndexPage = ({ location }) => {
+  // Get animations for this page
+  const {
+    fadeInUp,
+    fadeIn,
+    slideInLeft,
+    slideInRight,
+    staggerContainer,
+    cardVariant
+  } = pageAnimations.standard;
 
   // Enhanced animation variants for Welcome section
   const floatVariant = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { 
-        duration: 0.8, 
+      transition: {
+        duration: 0.8,
         ease: "easeOut",
         type: "spring",
         stiffness: 100
@@ -140,12 +94,12 @@ const IndexPage = () => {
 
   return (
     <UftaLayout>
-      <Navigation />
-      
+      <Navigation location={location} />
+
       <HeroSection />
-      
+
       {/* Tagline Section */}
-      <motion.section 
+      <motion.section
         className="py-10 border-t border-b border-[#2A2A2A]"
         initial="hidden"
         whileInView="visible"
@@ -153,7 +107,7 @@ const IndexPage = () => {
         variants={fadeIn}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2 
+          <motion.h2
             className="text-2xl md:text-3xl font-bold font-poppins"
             variants={fadeInUp}
           >
@@ -163,7 +117,7 @@ const IndexPage = () => {
       </motion.section>
 
       {/* Elite Training Programs Section */}
-      <motion.section 
+      <motion.section
         className="py-20"
         initial="hidden"
         whileInView="visible"
@@ -171,7 +125,7 @@ const IndexPage = () => {
         variants={fadeIn}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
+          <motion.h2
             className="text-3xl font-bold section-heading mb-12 font-poppins"
             variants={fadeInUp}
           >
@@ -182,7 +136,7 @@ const IndexPage = () => {
               At UFTA, we take pride in offering exceptional fitness education and training programs that set the industry standard. Our courses blend cutting-edge science with practical application, creating fitness professionals who excel in their field.
             </p>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-3 gap-8"
             variants={staggerContainer}
           >
@@ -277,7 +231,7 @@ const IndexPage = () => {
               </div>
             </motion.div>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="text-right mt-6"
             variants={fadeInUp}
           >
@@ -289,7 +243,7 @@ const IndexPage = () => {
       </motion.section>
 
       {/* High Performance Training Section */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-[#0c0c0e]"
         initial="hidden"
         whileInView="visible"
@@ -298,7 +252,7 @@ const IndexPage = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
+            <motion.div
               className="order-2 md:order-1"
               variants={slideInLeft}
             >
@@ -310,26 +264,26 @@ const IndexPage = () => {
                 height={400}
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               className="order-1 md:order-2"
               variants={slideInRight}
             >
               <h2 className="text-3xl font-bold section-heading mb-8 font-poppins">
                 High Performance <span className="highlight-text">Training Clinic</span>
               </h2>
-              
+
               <p className="text-gray-300 mb-6 leading-relaxed font-poppins">
                 Our specialized High Performance Clinic offers cutting-edge training methodologies for athletes seeking to maximize their performance potential.
               </p>
-              
+
               <p className="text-gray-300 mb-6 leading-relaxed font-poppins">
                 From biomechanical analysis and sports rehabilitation to advanced strength conditioning and metabolic optimization, our services are tailored to your specific goals and athletic demands.
               </p>
-              
+
               <p className="text-gray-300 mb-8 leading-relaxed font-poppins">
                 Our team of experts includes sports scientists, rehabilitation specialists, and elite coaches who provide evidence-based training solutions.
               </p>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -344,105 +298,142 @@ const IndexPage = () => {
       </motion.section>
 
       {/* Approved Providers Section */}
-      <motion.section 
-        className="py-16 bg-black"
+      <motion.section
+        className="py-16 bg-gradient-to-b from-black to-[#0A0A0A]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeIn}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
-            className="text-3xl font-bold text-center mb-16 font-poppins"
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-12"
             variants={fadeInUp}
           >
-            Approved <span className="text-[#00c8ff]">Providers</span>
-          </motion.h2>
-          
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-5 gap-8"
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-3 font-poppins"
+              variants={fadeInUp}
+            >
+              Approved <span className="text-[#00c8ff]">Providers</span>
+            </motion.h2>
+            <motion.p
+              className="text-gray-400 font-poppins"
+              variants={fadeInUp}
+            >
+              Recognized by leading institutions worldwide
+            </motion.p>
+          </motion.div>
+
+          {/* Provider Logos Grid */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-8"
             variants={staggerContainer}
           >
-            <motion.div 
-              className="bg-[#141414] border border-[#2A2A2A] p-8 flex items-center justify-center min-h-[120px]"
+            <motion.div
+              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 flex items-center justify-center min-h-[120px] group hover:border-[#00c8ff]/30 transition-all duration-300 relative overflow-hidden"
               variants={cardVariant}
+              whileHover={{ y: -5, scale: 1.02 }}
+              custom={0}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <StaticImage
                 src="../images/provider1.webp"
-                alt="Provider 1"
-                className="max-h-12 max-w-full object-contain"
+                alt="PROPTA USA"
+                className="max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={48}
-                style={{ maxHeight: '48px', maxWidth: '100%', objectFit: 'contain' }}
               />
             </motion.div>
-            
-            <motion.div 
-              className="bg-[#141414] border border-[#2A2A2A] p-8 flex items-center justify-center min-h-[120px]"
+
+            <motion.div
+              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 flex items-center justify-center min-h-[120px] group hover:border-[#00c8ff]/30 transition-all duration-300 relative overflow-hidden"
               variants={cardVariant}
+              whileHover={{ y: -5, scale: 1.02 }}
+              custom={1}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <StaticImage
                 src="../images/provider2.png"
-                alt="Provider 2"
-                className="max-h-12 max-w-full object-contain"
+                alt="UGC Approved"
+                className="max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={48}
               />
             </motion.div>
-            
-            <motion.div 
-              className="bg-[#141414] border border-[#2A2A2A] p-8 flex items-center justify-center min-h-[120px]"
+
+            <motion.div
+              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 flex items-center justify-center min-h-[120px] group hover:border-[#00c8ff]/30 transition-all duration-300 relative overflow-hidden"
               variants={cardVariant}
+              whileHover={{ y: -5, scale: 1.02 }}
+              custom={2}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <StaticImage
                 src="../images/provider3.png"
-                alt="Provider 3"
-                className="max-h-12 max-w-full object-contain"
+                alt="CASES UK"
+                className="max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={48}
               />
             </motion.div>
-            
-            <motion.div 
-              className="bg-[#141414] border border-[#2A2A2A] p-8 flex items-center justify-center min-h-[120px]"
+
+            <motion.div
+              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 flex items-center justify-center min-h-[120px] group hover:border-[#00c8ff]/30 transition-all duration-300 relative overflow-hidden"
               variants={cardVariant}
+              whileHover={{ y: -5, scale: 1.02 }}
+              custom={3}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <StaticImage
                 src="../images/provider4.png"
-                alt="Provider 4"
-                className="max-h-12 max-w-full object-contain"
+                alt="University Partner"
+                className="max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={48}
               />
             </motion.div>
-            
-            <motion.div 
-              className="bg-[#141414] border border-[#2A2A2A] p-8 flex items-center justify-center min-h-[120px]"
+
+            <motion.div
+              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 flex items-center justify-center min-h-[120px] group hover:border-[#00c8ff]/30 transition-all duration-300 relative overflow-hidden"
               variants={cardVariant}
+              whileHover={{ y: -5, scale: 1.02 }}
+              custom={4}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <StaticImage
                 src="../images/provider5.png"
-                alt="Provider 5"
-                className="max-h-12 max-w-full object-contain"
+                alt="International Body"
+                className="max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={48}
               />
             </motion.div>
           </motion.div>
-          
-          <motion.div 
-            className="text-center mt-10"
+
+          {/* Compact Stats */}
+          <motion.div
+            className="flex flex-wrap justify-center items-center gap-6"
             variants={fadeInUp}
           >
-            <p className="text-gray-400 text-sm font-poppins">
-              UFTA is recognized and approved by leading fitness and educational institutions worldwide.
-            </p>
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-[#00c8ff] rounded-full"></div>
+              <span className="text-sm text-gray-400">199 Countries Recognition</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-[#00c8ff] rounded-full"></div>
+              <span className="text-sm text-gray-400">International Standards</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-[#00c8ff] rounded-full"></div>
+              <span className="text-sm text-gray-400">Global Accreditation</span>
+            </div>
           </motion.div>
         </div>
       </motion.section>
 
       {/* About Us Section */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-[#0F0F0F] relative overflow-hidden"
         initial="hidden"
         whileInView="visible"
@@ -451,28 +442,28 @@ const IndexPage = () => {
       >
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <motion.div 
+          <motion.div
             className="absolute top-10 left-10 w-20 h-20 border border-[#00c8ff]"
             custom={0}
             variants={backgroundElementVariant}
             initial="hidden"
             animate="visible"
           ></motion.div>
-          <motion.div 
+          <motion.div
             className="absolute bottom-20 right-20 w-32 h-32 border border-[#00c8ff]/30"
             custom={1}
             variants={backgroundElementVariant}
             initial="hidden"
             animate="visible"
           ></motion.div>
-          <motion.div 
+          <motion.div
             className="absolute top-1/2 left-1/4 w-16 h-16 border border-[#00c8ff]/20"
             custom={2}
             variants={backgroundElementVariant}
             initial="hidden"
             animate="visible"
           ></motion.div>
-          <motion.div 
+          <motion.div
             className="absolute top-1/3 right-1/3 w-12 h-12 border border-[#00c8ff]/10"
             custom={3}
             variants={backgroundElementVariant}
@@ -483,28 +474,28 @@ const IndexPage = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Enhanced Header Section */}
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             variants={staggerContainer}
           >
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold mb-4 font-poppins bg-gradient-to-r from-white via-[#00c8ff] to-white bg-clip-text text-transparent"
               variants={floatVariant}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.3 }
               }}
             >
               Welcome to UFTA
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mx-auto mb-6"
               variants={floatVariant}
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
               transition={{ duration: 1, delay: 0.5 }}
             ></motion.div>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-400 max-w-3xl mx-auto font-poppins"
               variants={floatVariant}
               initial={{ opacity: 0, y: 30 }}
@@ -516,7 +507,7 @@ const IndexPage = () => {
           </motion.div>
 
           {/* Enhanced Stats Section with Counter Animation */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
             variants={staggerContainer}
           >
@@ -526,13 +517,13 @@ const IndexPage = () => {
               { number: "50+", label: "Training Programs", delay: 0.4 },
               { number: "100%", label: "Job Placement Support", delay: 0.6 }
             ].map((stat, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 className="text-center bg-[#141414] border border-[#2A2A2A] p-6 rounded-lg hover:border-[#00c8ff]/50 transition-all duration-300 group relative overflow-hidden"
                 custom={index}
                 variants={statsCounterVariant}
-                whileHover={{ 
-                  y: -8, 
+                whileHover={{
+                  y: -8,
                   scale: 1.03,
                   boxShadow: "0 10px 40px rgba(0, 200, 255, 0.1)",
                   transition: { duration: 0.3 }
@@ -544,15 +535,15 @@ const IndexPage = () => {
                   className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={false}
                 />
-                <motion.div 
+                <motion.div
                   className="text-3xl md:text-4xl font-bold text-[#00c8ff] mb-2 font-poppins group-hover:scale-110 transition-transform duration-300 relative z-10"
                   initial={{ opacity: 0, scale: 0, rotateY: -180 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    scale: 1, 
+                  whileInView={{
+                    opacity: 1,
+                    scale: 1,
                     rotateY: 0,
-                    transition: { 
-                      delay: stat.delay + 0.3, 
+                    transition: {
+                      delay: stat.delay + 0.3,
                       duration: 0.8,
                       type: "spring",
                       stiffness: 100
@@ -562,7 +553,7 @@ const IndexPage = () => {
                 >
                   {stat.number}
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="text-gray-400 text-sm font-poppins relative z-10"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -576,12 +567,12 @@ const IndexPage = () => {
           </motion.div>
 
           {/* Enhanced Content Grid */}
-          <motion.div 
+          <motion.div
             className="grid lg:grid-cols-2 gap-12 items-start mb-12"
             variants={staggerContainer}
           >
             {/* Left Content */}
-            <motion.div 
+            <motion.div
               className="space-y-6"
               variants={staggerContainer}
             >
@@ -591,11 +582,11 @@ const IndexPage = () => {
                   content: "Universal Fitness Training Academy (UFTA), established in 2006, is a premier institution in India dedicated to providing comprehensive health and fitness education. With a steadfast commitment to excellence, UFTA has trained and certified over 2,500 fitness professionals."
                 },
                 {
-                  title: "Our Mission", 
+                  title: "Our Mission",
                   content: "To foster a new generation of fitness leaders through rigorous academic programs, practical training, and a passion for advancing sport and exercise sciences. We ensure our graduates are well-equipped to excel in the dynamic fitness industry."
                 }
               ].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="bg-[#141414] border border-[#2A2A2A] p-8 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-500 relative overflow-hidden group"
                   custom={index}
@@ -611,7 +602,7 @@ const IndexPage = () => {
                     initial={false}
                     transition={{ duration: 0.5 }}
                   />
-                  <motion.h3 
+                  <motion.h3
                     className="text-2xl font-bold mb-4 text-[#00c8ff] font-poppins relative z-10"
                     initial={{ x: -20, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -620,7 +611,7 @@ const IndexPage = () => {
                   >
                     {item.title}
                   </motion.h3>
-                  <motion.p 
+                  <motion.p
                     className="text-gray-300 leading-relaxed font-poppins relative z-10"
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
@@ -634,7 +625,7 @@ const IndexPage = () => {
             </motion.div>
 
             {/* Right Content */}
-            <motion.div 
+            <motion.div
               className="space-y-6"
               variants={staggerContainer}
             >
@@ -648,7 +639,7 @@ const IndexPage = () => {
                   content: "Our internationally recognized courses range from degree programs like B.Sc. in Fitness & Athletic Conditioning to specialized certifications, approved by leading fitness organizations worldwide."
                 }
               ].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="bg-[#141414] border border-[#2A2A2A] p-8 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-500 relative overflow-hidden group"
                   custom={index + 2}
@@ -664,7 +655,7 @@ const IndexPage = () => {
                     initial={false}
                     transition={{ duration: 0.5 }}
                   />
-                  <motion.h3 
+                  <motion.h3
                     className="text-2xl font-bold mb-4 text-[#00c8ff] font-poppins relative z-10"
                     initial={{ x: 20, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -673,7 +664,7 @@ const IndexPage = () => {
                   >
                     {item.title}
                   </motion.h3>
-                  <motion.p 
+                  <motion.p
                     className="text-gray-300 leading-relaxed font-poppins relative z-10"
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
@@ -688,10 +679,10 @@ const IndexPage = () => {
           </motion.div>
 
           {/* Enhanced Interactive CTA Section */}
-          <motion.div 
+          <motion.div
             className="text-center bg-gradient-to-r from-[#141414] via-[#1a1a1a] to-[#141414] border border-[#2A2A2A] p-8 rounded-xl relative overflow-hidden group"
             variants={floatVariant}
-            whileHover={{ 
+            whileHover={{
               scale: 1.02,
               boxShadow: "0 20px 60px rgba(0, 200, 255, 0.1)",
               transition: { duration: 0.3 }
@@ -703,8 +694,8 @@ const IndexPage = () => {
               initial={false}
               transition={{ duration: 0.5 }}
             />
-            
-            <motion.h3 
+
+            <motion.h3
               className="text-2xl font-bold mb-4 font-poppins relative z-10"
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -713,7 +704,7 @@ const IndexPage = () => {
             >
               Ready to Transform Your Future?
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="text-gray-400 mb-6 font-poppins relative z-10"
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -722,8 +713,8 @@ const IndexPage = () => {
             >
               Join thousands of successful fitness professionals who started their journey with UFTA
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10"
               variants={staggerContainer}
               initial="hidden"
@@ -732,23 +723,23 @@ const IndexPage = () => {
             >
               <motion.div
                 variants={cardVariant}
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   y: -3,
                   boxShadow: "0 10px 30px rgba(0, 200, 255, 0.3)",
                   transition: { duration: 0.3 }
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
-                  to="/about" 
+                <Link
+                  to="/about"
                   className="inline-flex items-center bg-gradient-to-r from-[#00c8ff] to-[#0099cc] hover:from-[#0099cc] hover:to-[#00c8ff] text-white px-8 py-3 font-medium font-poppins transition-all duration-300 no-underline rounded-lg shadow-lg hover:shadow-[#00c8ff]/25"
                 >
                   Learn More About Us
-                  <motion.svg 
-                    className="ml-2 w-5 h-5" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <motion.svg
+                    className="ml-2 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
@@ -757,11 +748,11 @@ const IndexPage = () => {
                   </motion.svg>
                 </Link>
               </motion.div>
-              
+
               <motion.div
                 variants={cardVariant}
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   y: -3,
                   borderColor: "#00c8ff",
                   boxShadow: "0 10px 30px rgba(0, 200, 255, 0.2)",
@@ -769,15 +760,15 @@ const IndexPage = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
-                  to="/courses" 
+                <Link
+                  to="/courses"
                   className="inline-flex items-center border-2 border-[#00c8ff] text-[#00c8ff] hover:bg-[#00c8ff] hover:text-black px-8 py-3 font-medium font-poppins transition-all duration-300 no-underline rounded-lg"
                 >
                   View Our Courses
-                  <motion.svg 
-                    className="ml-2 w-5 h-5" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <motion.svg
+                    className="ml-2 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                     animate={{ rotateY: [0, 180, 0] }}
                     transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
@@ -792,7 +783,7 @@ const IndexPage = () => {
       </motion.section>
 
       {/* Our Services Section */}
-      <motion.section 
+      <motion.section
         className="py-20"
         initial="hidden"
         whileInView="visible"
@@ -800,7 +791,7 @@ const IndexPage = () => {
         variants={fadeIn}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
+          <motion.h2
             className="text-3xl font-bold mb-12 font-poppins"
             variants={fadeInUp}
           >
@@ -832,7 +823,7 @@ const IndexPage = () => {
               <p className="text-gray-400 font-poppins">Dedicated support to help our graduates find rewarding careers in fitness.</p>
             </div>
           </div>
-          <motion.div 
+          <motion.div
             className="text-center mt-12"
             variants={fadeInUp}
           >
@@ -849,7 +840,7 @@ const IndexPage = () => {
       </motion.section>
 
       {/* Head Coach Section */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-[#0F0F0F]"
         initial="hidden"
         whileInView="visible"
@@ -857,18 +848,18 @@ const IndexPage = () => {
         variants={fadeIn}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
+          <motion.h2
             className="text-3xl font-bold mb-12"
             variants={fadeInUp}
           >
             Head Coach, UFTA
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="card p-8 rounded-sm"
             variants={fadeInUp}
           >
             <div className="grid md:grid-cols-3 gap-10 items-center">
-              <motion.div 
+              <motion.div
                 className="md:col-span-1"
                 variants={slideInLeft}
               >
@@ -880,7 +871,7 @@ const IndexPage = () => {
                   height={240}
                 />
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="md:col-span-2"
                 variants={slideInRight}
               >
@@ -893,7 +884,7 @@ const IndexPage = () => {
                 </p>
               </motion.div>
             </div>
-            <motion.div 
+            <motion.div
               className="mt-12"
               variants={fadeInUp}
             >
@@ -917,369 +908,424 @@ const IndexPage = () => {
         </div>
       </motion.section>
 
-      {/* Faculty Members Section */}
-      <motion.section 
-        className="py-20"
+      {/* Our Esteemed Faculty Section */}
+      <motion.section
+        className="py-20 bg-[#0A0A0A] relative overflow-hidden"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeIn}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
-            className="text-3xl font-bold mb-12"
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-16"
             variants={fadeInUp}
           >
-            Faculty Members
-          </motion.h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="card p-6 rounded-sm text-center">
-              <StaticImage
-                src="../images/faculty1.png"
-                alt="Archana Thakuria"
-                className="w-32 h-32 rounded-full object-cover mx-auto mb-6 border-2 border-amber-400/20"
-                width={128}
-                height={128}
-              />
-              <h3 className="text-xl font-semibold">Archana Thakuria</h3>
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold mb-4 font-poppins text-white"
+              variants={fadeInUp}
+            >
+              Your Fitness
+            </motion.h2>
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold mb-6 font-poppins"
+              variants={fadeInUp}
+            >
+              <span className="text-[#00c8ff]">Goals, Their Expertise</span>
+            </motion.h2>
+            <motion.p
+              className="text-lg text-gray-400 max-w-3xl mx-auto font-poppins leading-relaxed"
+              variants={fadeInUp}
+            >
+              Our Team of Certified Trainers Brings Unparalleled Expertise to Help You Achieve Your Fitness Goals.
+            </motion.p>
+          </motion.div>
+
+          {/* Faculty Grid */}
+          <motion.div 
+            className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto"
+            variants={staggerContainer}
+          >
+            {/* Bibhu Moni Singha */}
+            <motion.div
+              className="text-center group"
+              custom={0}
+              variants={contentCardVariant}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Image Container with Hexagonal Effect */}
+              <motion.div
+                className="relative mb-8"
+                initial={{ scale: 0, rotate: -10 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0, duration: 0.6, type: "spring" }}
+                viewport={{ once: true }}
+              >
+                {/* Background Shape */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 transform rotate-3 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-tl from-[#00c8ff]/5 to-transparent transform -rotate-3 rounded-2xl"></div>
+                
+                {/* Image */}
+                <div className="relative bg-[#141414] p-4 rounded-2xl border border-[#2A2A2A] group-hover:border-[#00c8ff]/50 transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <StaticImage
+                    src="../images/bhibhu.png"
+                    alt="Bibhu Moni Singha - Founder & Director UFTA"
+                    className="w-full h-80 object-cover rounded-xl"
+                    width={300}
+                    height={320}
+                  />
+                  
+                  {/* Overlay Effect */}
+                  <motion.div
+                    className="absolute inset-4 rounded-xl bg-gradient-to-t from-[#00c8ff]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100"
+                    initial={false}
+                    transition={{ duration: 0.3 }}
+                  ></motion.div>
+                </div>
+              </motion.div>
+
+              {/* Faculty Name & Title */}
+              <motion.h3
+                className="text-2xl font-bold text-white font-poppins group-hover:text-[#00c8ff] transition-colors duration-300 mb-2"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Bibhu Moni Singha
+              </motion.h3>
+              
+              <motion.p
+                className="text-lg text-[#00c8ff] font-medium font-poppins"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Founder & Director
+              </motion.p>
+            </motion.div>
+
+            {/* Archana Thakuria */}
+            <motion.div
+              className="text-center group"
+              custom={1}
+              variants={contentCardVariant}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Image Container with Hexagonal Effect */}
+              <motion.div
+                className="relative mb-8"
+                initial={{ scale: 0, rotate: -10 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.2, duration: 0.6, type: "spring" }}
+                viewport={{ once: true }}
+              >
+                {/* Background Shape */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 transform rotate-3 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-tl from-[#00c8ff]/5 to-transparent transform -rotate-3 rounded-2xl"></div>
+                
+                {/* Image */}
+                <div className="relative bg-[#141414] p-4 rounded-2xl border border-[#2A2A2A] group-hover:border-[#00c8ff]/50 transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <StaticImage
+                    src="../images/faculty1.png"
+                    alt="Archana Thakuria - Strength & Conditioning Faculty"
+                    className="w-full h-80 object-cover rounded-xl"
+                    width={300}
+                    height={320}
+                  />
+                  
+                  {/* Overlay Effect */}
+                  <motion.div
+                    className="absolute inset-4 rounded-xl bg-gradient-to-t from-[#00c8ff]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100"
+                    initial={false}
+                    transition={{ duration: 0.3 }}
+                  ></motion.div>
+                </div>
+              </motion.div>
+
+              {/* Faculty Name & Title */}
+              <motion.h3
+                className="text-2xl font-bold text-white font-poppins group-hover:text-[#00c8ff] transition-colors duration-300 mb-2"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Archana Thakuria
+              </motion.h3>
+              
+              <motion.p
+                className="text-lg text-[#00c8ff] font-medium font-poppins"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Faculty S&C & Fitness
+              </motion.p>
+            </motion.div>
+
+            {/* Alvi Yusuf */}
+            <motion.div
+              className="text-center group"
+              custom={2}
+              variants={contentCardVariant}
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Image Container with Hexagonal Effect */}
+              <motion.div
+                className="relative mb-8"
+                initial={{ scale: 0, rotate: -10 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.4, duration: 0.6, type: "spring" }}
+                viewport={{ once: true }}
+              >
+                {/* Background Shape */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 transform rotate-3 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-tl from-[#00c8ff]/5 to-transparent transform -rotate-3 rounded-2xl"></div>
+                
+                {/* Image */}
+                <div className="relative bg-[#141414] p-4 rounded-2xl border border-[#2A2A2A] group-hover:border-[#00c8ff]/50 transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <StaticImage
+                    src="../images/faculty2.png"
+                    alt="Alvi Yusuf - Nutrition & Strength & Conditioning Faculty"
+                    className="w-full h-80 object-cover rounded-xl"
+                    width={300}
+                    height={320}
+                  />
+                  
+                  {/* Overlay Effect */}
+                  <motion.div
+                    className="absolute inset-4 rounded-xl bg-gradient-to-t from-[#00c8ff]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100"
+                    initial={false}
+                    transition={{ duration: 0.3 }}
+                  ></motion.div>
+                </div>
+              </motion.div>
+
+              {/* Faculty Name & Title */}
+              <motion.h3
+                className="text-2xl font-bold text-white font-poppins group-hover:text-[#00c8ff] transition-colors duration-300 mb-2"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Alvi Yusuf
+              </motion.h3>
+              
+              <motion.p
+                className="text-lg text-[#00c8ff] font-medium font-poppins"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Faculty Nutrition & S&C
+              </motion.p>
+            </motion.div>
+          </motion.div>
+
+          {/* Decorative Elements */}
+          <motion.div
+            className="flex justify-center mt-12"
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex space-x-2">
+              <div className="w-2 h-2 bg-[#00c8ff] rounded-full"></div>
+              <div className="w-2 h-2 bg-[#00c8ff]/60 rounded-full"></div>
+              <div className="w-2 h-2 bg-[#00c8ff]/30 rounded-full"></div>
             </div>
-            <div className="card p-6 rounded-sm text-center">
-              <StaticImage
-                src="../images/faculty2.png"
-                alt="Alvi Yusuf"
-                className="w-32 h-32 rounded-full object-cover mx-auto mb-6 border-2 border-amber-400/20"
-                width={128}
-                height={128}
-              />
-              <h3 className="text-xl font-semibold">Alvi Yusuf</h3>
-            </div>
-            <div className="card p-6 rounded-sm text-center">
-              <StaticImage
-                src="../images/faculty3.jpg"
-                alt="Sangeeta Singha"
-                className="w-32 h-32 rounded-full object-cover mx-auto mb-6 border-2 border-amber-400/20"
-                width={128}
-                height={128}
-              />
-              <h3 className="text-xl font-semibold">Sangeeta Singha</h3>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
-      {/* Enhanced Why Choose UFTA Section */}
-      <motion.section 
+      {/* Why Choose Us Section - New Layout */}
+      <motion.section
         className="py-20 bg-[#0F0F0F] relative overflow-hidden"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <motion.div 
-            className="absolute top-20 left-10 w-24 h-24 border border-[#00c8ff]"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          ></motion.div>
-          <motion.div 
-            className="absolute bottom-20 right-20 w-32 h-32 border border-[#00c8ff]/30"
-            animate={{ rotate: -360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          ></motion.div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* Enhanced Header */}
-          <motion.div 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <motion.div
             className="text-center mb-16"
-            variants={staggerContainer}
+            variants={fadeInUp}
           >
-            <motion.h2 
-              className="text-4xl md:text-5xl font-bold mb-4 font-poppins bg-gradient-to-r from-white via-[#00c8ff] to-white bg-clip-text text-transparent"
-              variants={floatVariant}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.3 }
-              }}
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold mb-4 font-poppins text-white"
+              variants={fadeInUp}
             >
-              Why Choose UFTA?
+              Why Choose Us
             </motion.h2>
-            <motion.div 
-              className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mx-auto mb-6"
-              variants={floatVariant}
-              initial={{ width: 0 }}
-              whileInView={{ width: 96 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            ></motion.div>
-            <motion.p 
-              className="text-xl text-gray-400 max-w-3xl mx-auto font-poppins"
-              variants={floatVariant}
+            <motion.p
+              className="text-lg text-gray-400 max-w-2xl mx-auto font-poppins"
+              variants={fadeInUp}
             >
               Discover what makes UFTA the premier choice for fitness education and professional development
             </motion.p>
           </motion.div>
 
-          {/* Key Features Grid */}
-          <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-            variants={staggerContainer}
-          >
-            {[
-              {
-                icon: "🏆",
-                title: "World-Class Education",
-                description: "Internationally recognized courses with cutting-edge curriculum designed by industry experts.",
-                gradient: "from-[#00c8ff]/10 to-[#0099cc]/5"
-              },
-              {
-                icon: "🤝",
-                title: "Prestigious Affiliations",
-                description: "Partnered with BASES UK, USAW, NSCA, NASM, and ACSM for global recognition.",
-                gradient: "from-[#00c8ff]/10 to-[#0066ff]/5"
-              },
-              {
-                icon: "👨‍🏫",
-                title: "Expert Faculty",
-                description: "Learn from seasoned professionals with decades of real-world experience in fitness.",
-                gradient: "from-[#0099cc]/10 to-[#00c8ff]/5"
-              },
-              {
-                icon: "🔬",
-                title: "Evidence-Based Training",
-                description: "Scientific approach to fitness education backed by latest research and methodologies.",
-                gradient: "from-[#0066ff]/10 to-[#00c8ff]/5"
-              },
-              {
-                icon: "💼",
-                title: "Career Support",
-                description: "100% job placement assistance and ongoing career guidance for all graduates.",
-                gradient: "from-[#00c8ff]/10 to-[#0099cc]/5"
-              },
-              {
-                icon: "🌐",
-                title: "Global Recognition",
-                description: "Certifications recognized worldwide, opening doors to international opportunities.",
-                gradient: "from-[#0099cc]/10 to-[#0066ff]/5"
-              }
-            ].map((feature, index) => (
-              <motion.div 
-                key={index}
-                className={`bg-gradient-to-br ${feature.gradient} border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden`}
-                custom={index}
-                variants={contentCardVariant}
-                whileHover="hover"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                {/* Animated background effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 opacity-0 group-hover:opacity-100"
-                  initial={false}
-                  transition={{ duration: 0.5 }}
-                />
-                
-                <motion.div 
-                  className="text-4xl mb-4 relative z-10"
-                  initial={{ scale: 0, rotate: -180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: index * 0.1 + 0.2, duration: 0.6, type: "spring" }}
-                  viewport={{ once: true }}
-                >
-                  {feature.icon}
-                </motion.div>
-                <motion.h3 
-                  className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10"
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  {feature.title}
-                </motion.h3>
-                <motion.p 
-                  className="text-gray-300 leading-relaxed font-poppins relative z-10"
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  {feature.description}
-                </motion.p>
-
-                {/* Hover decoration */}
-                <motion.div
-                  className="absolute top-4 right-4 w-2 h-2 bg-[#00c8ff] rounded-full opacity-0 group-hover:opacity-100"
-                  initial={false}
-                  transition={{ delay: 0.2 }}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Enhanced Statistics Section */}
-          <motion.div 
-            className="bg-gradient-to-r from-[#141414] via-[#1a1a1a] to-[#141414] border border-[#2A2A2A] p-8 md:p-12 rounded-xl mb-12 relative overflow-hidden group"
-            variants={floatVariant}
-            whileHover={{ 
-              scale: 1.02,
-              boxShadow: "0 20px 60px rgba(0, 200, 255, 0.1)",
-              transition: { duration: 0.3 }
-            }}
-          >
-            {/* Animated pulse background */}
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-3 gap-12 items-start">
+            {/* Left Content - Features Grid */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/5 via-[#00c8ff]/10 to-[#00c8ff]/5 opacity-0 group-hover:opacity-100"
-              initial={false}
-              transition={{ duration: 0.5 }}
-            />
-            
-            <motion.div 
-              className="text-center mb-8 relative z-10"
+              className="lg:col-span-2"
               variants={staggerContainer}
             >
-              <motion.h3 
-                className="text-2xl md:text-3xl font-bold mb-4 font-poppins text-white"
-                variants={floatVariant}
-              >
-                Trusted by Thousands of Professionals
-              </motion.h3>
-              <motion.p 
-                className="text-gray-300 text-lg font-poppins"
-                variants={floatVariant}
-              >
-                Join our community of successful fitness professionals who have transformed their careers with UFTA
-              </motion.p>
-            </motion.div>
-
-            <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10"
-              variants={staggerContainer}
-            >
-              {[
-                { number: "2500+", label: "Certified Graduates", delay: 0 },
-                { number: "19+", label: "Years of Excellence", delay: 0.2 },
-                { number: "100%", label: "Job Placement Rate", delay: 0.4 },
-                { number: "50+", label: "Training Programs", delay: 0.6 }
-              ].map((stat, index) => (
-                <motion.div 
-                  key={index}
-                  className="text-center"
-                  initial={{ opacity: 0, y: 30, scale: 0.8 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1,
-                    transition: { 
-                      delay: stat.delay, 
-                      duration: 0.6,
-                      type: "spring",
-                      stiffness: 100
-                    }
-                  }}
-                  viewport={{ once: true }}
-                >
-                  <motion.div 
-                    className="text-3xl md:text-4xl font-bold text-[#00c8ff] mb-2 font-poppins"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  {
+                    icon: (
+                      <div className="w-12 h-12 bg-[#00c8ff]/10 rounded-full flex items-center justify-center border border-[#00c8ff]/20">
+                        <div className="w-6 h-6 bg-[#00c8ff] rounded-full"></div>
+                      </div>
+                    ),
+                    title: "Expert Training Programs",
+                    description: "Comprehensive certification programs designed by industry experts with decades of experience."
+                  },
+                  {
+                    icon: (
+                      <div className="w-12 h-12 bg-[#00c8ff]/10 rounded-full flex items-center justify-center border border-[#00c8ff]/20">
+                        <div className="w-6 h-6 bg-[#00c8ff] rounded-full"></div>
+                      </div>
+                    ),
+                    title: "Global Recognition",
+                    description: "Internationally recognized certifications that open doors to worldwide opportunities."
+                  },
+                  {
+                    icon: (
+                      <div className="w-12 h-12 bg-[#00c8ff]/10 rounded-full flex items-center justify-center border border-[#00c8ff]/20">
+                        <div className="w-6 h-6 bg-[#00c8ff] rounded-full"></div>
+                      </div>
+                    ),
+                    title: "Career Support",
+                    description: "100% job placement assistance and ongoing career guidance for all our graduates."
+                  },
+                  {
+                    icon: (
+                      <div className="w-12 h-12 bg-[#00c8ff]/10 rounded-full flex items-center justify-center border border-[#00c8ff]/20">
+                        <div className="w-6 h-6 bg-[#00c8ff] rounded-full"></div>
+                      </div>
+                    ),
+                    title: "Industry Partnerships",
+                    description: "Partnered with leading organizations like BASES UK, USAW, NSCA, and ACSM."
+                  }
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-[#141414] border border-[#2A2A2A] p-6 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-300 group"
+                    custom={index}
+                    variants={contentCardVariant}
+                    whileHover="hover"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
                   >
-                    {stat.number}
+                    <motion.div
+                      className="mb-4"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ delay: index * 0.1, duration: 0.5, type: "spring" }}
+                      viewport={{ once: true }}
+                    >
+                      {feature.icon}
+                    </motion.div>
+                    <motion.h3
+                      className="text-xl font-semibold mb-3 text-white font-poppins group-hover:text-[#00c8ff] transition-colors"
+                      initial={{ x: -20, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.1 + 0.1, duration: 0.5 }}
+                      viewport={{ once: true }}
+                    >
+                      {feature.title}
+                    </motion.h3>
+                    <motion.p
+                      className="text-gray-400 leading-relaxed font-poppins"
+                      initial={{ y: 20, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
+                      viewport={{ once: true }}
+                    >
+                      {feature.description}
+                    </motion.p>
                   </motion.div>
-                  <div className="text-gray-400 text-sm font-poppins">{stat.label}</div>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </motion.div>
-          </motion.div>
 
-          {/* Enhanced Call-to-Action */}
-          <motion.div 
-            className="text-center bg-gradient-to-r from-[#00c8ff]/10 via-[#00c8ff]/5 to-[#00c8ff]/10 border border-[#00c8ff]/30 p-8 rounded-xl relative overflow-hidden group"
-            variants={floatVariant}
-            whileHover={{ 
-              scale: 1.02,
-              boxShadow: "0 20px 60px rgba(0, 200, 255, 0.15)",
-              transition: { duration: 0.3 }
-            }}
-          >
-            {/* Animated background pulse */}
+            {/* Right Content - Images */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/10 via-[#00c8ff]/20 to-[#00c8ff]/10 opacity-0 group-hover:opacity-100"
-              initial={false}
-              transition={{ duration: 0.5 }}
-            />
-            
-            <motion.div
-              className="absolute top-4 left-4 w-16 h-16 border border-[#00c8ff]/20 rounded-full opacity-30"
-              animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="absolute bottom-4 right-4 w-12 h-12 border border-[#00c8ff]/30 rounded-full opacity-20"
-              animate={{ rotate: -360, scale: [1, 0.8, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
-            
-            <motion.h3 
-              className="text-2xl md:text-3xl font-bold mb-4 font-poppins text-white relative z-10"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              Ready to Join the Elite?
-            </motion.h3>
-            <motion.p 
-              className="text-gray-300 mb-6 text-lg font-poppins relative z-10"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Become part of India's most prestigious fitness education community
-            </motion.p>
-            
-            <motion.div 
-              className="relative z-10"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              className="lg:col-span-1 space-y-6"
+              variants={staggerContainer}
             >
               <motion.div
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -3,
-                  boxShadow: "0 15px 40px rgba(0, 200, 255, 0.3)",
-                  transition: { duration: 0.3 }
-                }}
-                whileTap={{ scale: 0.95 }}
+                className="relative rounded-lg overflow-hidden border border-[#2A2A2A] hover:border-[#00c8ff]/30 transition-all duration-300"
+                variants={slideInRight}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
-                <Link 
-                  to="/courses" 
-                  className="inline-flex items-center bg-gradient-to-r from-[#00c8ff] to-[#0099cc] hover:from-[#0099cc] hover:to-[#00c8ff] text-white px-8 py-4 font-semibold font-poppins transition-all duration-300 no-underline rounded-lg shadow-lg hover:shadow-[#00c8ff]/25 text-lg"
-                >
-                  Start Your Journey Today
-                  <motion.svg 
-                    className="ml-3 w-6 h-6" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </motion.svg>
-                </Link>
+                <StaticImage
+                  src="../images/placeholder1.jpg"
+                  alt="UFTA Training Facilities"
+                  className="w-full h-64 object-cover"
+                  width={400}
+                  height={250}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h4 className="text-white font-semibold text-lg font-poppins mb-1">
+                    State-of-the-Art Facilities
+                  </h4>
+                  <p className="text-gray-300 text-sm font-poppins">
+                    Modern training equipment and learning environments
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="relative rounded-lg overflow-hidden border border-[#2A2A2A] hover:border-[#00c8ff]/30 transition-all duration-300"
+                variants={slideInRight}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
+                <StaticImage
+                  src="../images/placeholder2.png"
+                  alt="UFTA Expert Instructors"
+                  className="w-full h-64 object-cover"
+                  width={400}
+                  height={250}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h4 className="text-white font-semibold text-lg font-poppins mb-1">
+                    Expert Instructors
+                  </h4>
+                  <p className="text-gray-300 text-sm font-poppins">
+                    Learn from industry professionals and certified experts
+                  </p>
+                </div>
               </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </motion.section>
 
       {/* Call to Action Section */}
-      <motion.section 
+      <motion.section
         className="py-20"
         initial="hidden"
         whileInView="visible"
@@ -1287,19 +1333,19 @@ const IndexPage = () => {
         variants={fadeIn}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold mb-6"
             variants={fadeInUp}
           >
             Ready to Start Your Fitness Journey?
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-xl text-gray-300 mb-10"
             variants={fadeInUp}
           >
             Join UFTA today and transform your passion for fitness into a thriving career.
           </motion.p>
-          <motion.div 
+          <motion.div
             className="flex justify-center space-x-6"
             variants={staggerContainer}
           >
@@ -1326,8 +1372,8 @@ const IndexPage = () => {
       </motion.section>
 
       {/* Enhanced Get In Touch Section */}
-      <motion.section 
-        id="contact" 
+      <motion.section
+        id="contact"
         className="py-20 bg-[#0F0F0F] relative overflow-hidden"
         initial="hidden"
         whileInView="visible"
@@ -1336,17 +1382,17 @@ const IndexPage = () => {
       >
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-5">
-          <motion.div 
+          <motion.div
             className="absolute top-10 left-10 w-20 h-20 border border-[#00c8ff]"
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           ></motion.div>
-          <motion.div 
+          <motion.div
             className="absolute bottom-20 right-20 w-32 h-32 border border-[#00c8ff]/30"
             animate={{ rotate: -360 }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           ></motion.div>
-          <motion.div 
+          <motion.div
             className="absolute top-1/2 left-1/4 w-16 h-16 border border-[#00c8ff]/20"
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -1355,28 +1401,28 @@ const IndexPage = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             variants={staggerContainer}
           >
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold mb-4 font-poppins bg-gradient-to-r from-white via-[#00c8ff] to-white bg-clip-text text-transparent"
               variants={floatVariant}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.3 }
               }}
             >
               Get In Touch
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mx-auto mb-6"
               variants={floatVariant}
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
               transition={{ duration: 1, delay: 0.5 }}
             ></motion.div>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-400 max-w-3xl mx-auto font-poppins"
               variants={floatVariant}
             >
@@ -1385,13 +1431,13 @@ const IndexPage = () => {
           </motion.div>
 
           {/* Contact Cards Grid */}
-          <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          <motion.div
+            className="flex flex-col md:flex-row gap-8 mb-16 justify-center items-center md:items-stretch w-full"
             variants={staggerContainer}
           >
             {/* Phone Contact Card */}
-            <motion.div 
-              className="bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden"
+            <motion.div
+              className="bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
               variants={contentCardVariant}
               whileHover="hover"
               initial="hidden"
@@ -1403,7 +1449,7 @@ const IndexPage = () => {
                 initial={false}
                 transition={{ duration: 0.5 }}
               />
-              <motion.div 
+              <motion.div
                 className="text-4xl mb-4 relative z-10"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
@@ -1412,7 +1458,7 @@ const IndexPage = () => {
               >
                 📞
               </motion.div>
-              <motion.h3 
+              <motion.h3
                 className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10"
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -1421,7 +1467,7 @@ const IndexPage = () => {
               >
                 Call Us
               </motion.h3>
-              <motion.p 
+              <motion.p
                 className="text-gray-300 mb-4 font-poppins relative z-10"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -1430,17 +1476,17 @@ const IndexPage = () => {
               >
                 Speak directly with our admissions counselors
               </motion.p>
-              <motion.a 
+              <motion.a
                 href="tel:+919864047046"
                 className="text-[#00c8ff] hover:text-white font-semibold font-poppins transition-colors duration-300 relative z-10 inline-flex items-center group"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
                 +91 98640 47046
-                <motion.svg 
-                  className="ml-2 w-4 h-4" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <motion.svg
+                  className="ml-2 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                   animate={{ x: [0, 3, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
@@ -1451,8 +1497,8 @@ const IndexPage = () => {
             </motion.div>
 
             {/* Email Contact Card */}
-            <motion.div 
-              className="bg-gradient-to-br from-[#0099cc]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden"
+            <motion.div
+              className="bg-gradient-to-br from-[#0099cc]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
               variants={contentCardVariant}
               whileHover="hover"
               initial="hidden"
@@ -1464,7 +1510,7 @@ const IndexPage = () => {
                 initial={false}
                 transition={{ duration: 0.5 }}
               />
-              <motion.div 
+              <motion.div
                 className="text-4xl mb-4 relative z-10"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
@@ -1473,7 +1519,7 @@ const IndexPage = () => {
               >
                 ✉️
               </motion.div>
-              <motion.h3 
+              <motion.h3
                 className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10"
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -1482,7 +1528,7 @@ const IndexPage = () => {
               >
                 Email Us
               </motion.h3>
-              <motion.p 
+              <motion.p
                 className="text-gray-300 mb-4 font-poppins relative z-10"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -1491,17 +1537,17 @@ const IndexPage = () => {
               >
                 Get detailed information about our programs
               </motion.p>
-              <motion.a 
+              <motion.a
                 href="mailto:info@ufta.in"
                 className="text-[#00c8ff] hover:text-white font-semibold font-poppins transition-colors duration-300 relative z-10 inline-flex items-center group"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
                 info@ufta.in
-                <motion.svg 
-                  className="ml-2 w-4 h-4" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <motion.svg
+                  className="ml-2 w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                   animate={{ x: [0, 3, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
@@ -1512,8 +1558,8 @@ const IndexPage = () => {
             </motion.div>
 
             {/* Location Contact Card */}
-            <motion.div 
-              className="bg-gradient-to-br from-[#0066ff]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden md:col-span-2 lg:col-span-1"
+            <motion.div
+              className="bg-gradient-to-br from-[#0066ff]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
               variants={contentCardVariant}
               whileHover="hover"
               initial="hidden"
@@ -1525,7 +1571,7 @@ const IndexPage = () => {
                 initial={false}
                 transition={{ duration: 0.5 }}
               />
-              <motion.div 
+              <motion.div
                 className="text-4xl mb-4 relative z-10"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
@@ -1534,7 +1580,7 @@ const IndexPage = () => {
               >
                 📍
               </motion.div>
-              <motion.h3 
+              <motion.h3
                 className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10"
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -1543,7 +1589,7 @@ const IndexPage = () => {
               >
                 Visit Our Campus
               </motion.h3>
-              <motion.p 
+              <motion.p
                 className="text-gray-300 mb-4 font-poppins relative z-10"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -1552,7 +1598,7 @@ const IndexPage = () => {
               >
                 Experience our world-class facilities firsthand
               </motion.p>
-              <motion.p 
+              <motion.p
                 className="text-[#00c8ff] font-semibold font-poppins relative z-10"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -1565,10 +1611,10 @@ const IndexPage = () => {
           </motion.div>
 
           {/* Contact Form Section */}
-          <motion.div 
+          <motion.div
             className="bg-gradient-to-r from-[#141414] via-[#1a1a1a] to-[#141414] border border-[#2A2A2A] p-8 md:p-12 rounded-xl relative overflow-hidden group"
             variants={floatVariant}
-            whileHover={{ 
+            whileHover={{
               scale: 1.01,
               boxShadow: "0 20px 60px rgba(0, 200, 255, 0.1)",
               transition: { duration: 0.3 }
@@ -1579,20 +1625,20 @@ const IndexPage = () => {
               initial={false}
               transition={{ duration: 0.5 }}
             />
-            
+
             <div className="grid lg:grid-cols-2 gap-12 items-start relative z-10">
               {/* Left Column - Contact Info */}
-              <motion.div 
+              <motion.div
                 className="space-y-6"
                 variants={staggerContainer}
               >
-                <motion.h3 
+                <motion.h3
                   className="text-2xl md:text-3xl font-bold mb-6 font-poppins text-white"
                   variants={floatVariant}
                 >
                   Ready to Begin Your Journey?
                 </motion.h3>
-                <motion.p 
+                <motion.p
                   className="text-gray-300 text-lg leading-relaxed font-poppins mb-8"
                   variants={floatVariant}
                 >
@@ -1600,11 +1646,11 @@ const IndexPage = () => {
                 </motion.p>
 
                 {/* Additional Contact Methods */}
-                <motion.div 
+                <motion.div
                   className="space-y-4"
                   variants={staggerContainer}
                 >
-                  <motion.div 
+                  <motion.div
                     className="flex items-center space-x-4"
                     variants={cardVariant}
                   >
@@ -1616,8 +1662,8 @@ const IndexPage = () => {
                       <p className="text-gray-400 font-poppins">Mon - Sat: 9:00 AM - 6:00 PM</p>
                     </div>
                   </motion.div>
-                  
-                  <motion.div 
+
+                  <motion.div
                     className="flex items-center space-x-4"
                     variants={cardVariant}
                   >
@@ -1630,7 +1676,7 @@ const IndexPage = () => {
                     </div>
                   </motion.div>
 
-                  <motion.div 
+                  <motion.div
                     className="flex items-center space-x-4"
                     variants={cardVariant}
                   >
@@ -1646,11 +1692,11 @@ const IndexPage = () => {
               </motion.div>
 
               {/* Right Column - CTA */}
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-br from-[#00c8ff]/10 via-[#00c8ff]/5 to-[#00c8ff]/10 border border-[#00c8ff]/30 p-8 rounded-xl text-center"
                 variants={floatVariant}
               >
-                <motion.h4 
+                <motion.h4
                   className="text-xl font-bold mb-4 font-poppins text-white"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -1659,7 +1705,7 @@ const IndexPage = () => {
                 >
                   Start Your Fitness Career Today
                 </motion.h4>
-                <motion.p 
+                <motion.p
                   className="text-gray-300 mb-6 font-poppins"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -1668,8 +1714,8 @@ const IndexPage = () => {
                 >
                   Join thousands of successful fitness professionals who chose UFTA as their launchpad to success
                 </motion.p>
-                
-                <motion.div 
+
+                <motion.div
                   className="space-y-4"
                   variants={staggerContainer}
                   initial="hidden"
@@ -1678,23 +1724,23 @@ const IndexPage = () => {
                 >
                   <motion.div
                     variants={cardVariant}
-                    whileHover={{ 
-                      scale: 1.05, 
+                    whileHover={{
+                      scale: 1.05,
                       y: -3,
                       boxShadow: "0 15px 40px rgba(0, 200, 255, 0.3)",
                       transition: { duration: 0.3 }
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <a 
+                    <a
                       href="tel:+919864047046"
                       className="inline-flex items-center bg-gradient-to-r from-[#00c8ff] to-[#0099cc] hover:from-[#0099cc] hover:to-[#00c8ff] text-white px-8 py-4 font-semibold font-poppins transition-all duration-300 no-underline rounded-lg shadow-lg hover:shadow-[#00c8ff]/25 w-full justify-center"
                     >
                       Call Now for Free Consultation
-                      <motion.svg 
-                        className="ml-3 w-5 h-5" 
-                        fill="none" 
-                        stroke="currentColor" 
+                      <motion.svg
+                        className="ml-3 w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
                         viewBox="0 0 24 24"
                         animate={{ x: [0, 3, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
@@ -1706,8 +1752,8 @@ const IndexPage = () => {
 
                   <motion.div
                     variants={cardVariant}
-                    whileHover={{ 
-                      scale: 1.05, 
+                    whileHover={{
+                      scale: 1.05,
                       y: -3,
                       borderColor: "#00c8ff",
                       boxShadow: "0 10px 30px rgba(0, 200, 255, 0.2)",
@@ -1715,15 +1761,15 @@ const IndexPage = () => {
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <a 
+                    <a
                       href="mailto:info@ufta.in"
                       className="inline-flex items-center border-2 border-[#00c8ff] text-[#00c8ff] hover:bg-[#00c8ff] hover:text-black px-8 py-4 font-semibold font-poppins transition-all duration-300 no-underline rounded-lg w-full justify-center"
                     >
                       Send Us an Email
-                      <motion.svg 
-                        className="ml-3 w-5 h-5" 
-                        fill="none" 
-                        stroke="currentColor" 
+                      <motion.svg
+                        className="ml-3 w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
                         viewBox="0 0 24 24"
                         animate={{ rotateY: [0, 180, 0] }}
                         transition={{ duration: 2, repeat: Infinity, repeatDelay: 4 }}

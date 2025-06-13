@@ -3,8 +3,22 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { motion, AnimatePresence } from "framer-motion"
 
-const Navigation = () => {
+const Navigation = ({ location }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  
+  // Helper function to check if current path matches link
+  const isActive = (path) => {
+    // Get current pathname from location prop or window.location as fallback
+    const currentPath = location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '')
+    
+    if (path === '/' && currentPath === '/') return true
+    if (path !== '/' && currentPath === path) return true
+    // Handle trailing slash variations
+    if (path !== '/' && currentPath === path + '/') return true
+    if (path !== '/' && currentPath + '/' === path) return true
+    
+    return false
+  }
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
@@ -119,10 +133,17 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/" className="text-white text-sm font-medium no-underline hover:text-gray-300 relative group">
+                <Link 
+                  to="/" 
+                  className={`text-sm font-medium no-underline relative group ${
+                    isActive('/') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
+                  }`}
+                >
                   Home
                   <motion.div 
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00c8ff] group-hover:w-full transition-all duration-300"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
+                      isActive('/') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -133,10 +154,17 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/about" className="text-white text-sm font-medium no-underline hover:text-gray-300 relative group">
+                <Link 
+                  to="/about" 
+                  className={`text-sm font-medium no-underline relative group ${
+                    isActive('/about') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
+                  }`}
+                >
                   About Us
                   <motion.div 
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00c8ff] group-hover:w-full transition-all duration-300"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
+                      isActive('/about') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -147,10 +175,17 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/courses" className="text-white text-sm font-medium no-underline hover:text-gray-300 relative group">
+                <Link 
+                  to="/courses" 
+                  className={`text-sm font-medium no-underline relative group ${
+                    isActive('/courses') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
+                  }`}
+                >
                   Courses
                   <motion.div 
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00c8ff] group-hover:w-full transition-all duration-300"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
+                      isActive('/courses') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -161,10 +196,17 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/services" className="text-white text-sm font-medium no-underline hover:text-gray-300 relative group">
+                <Link 
+                  to="/services" 
+                  className={`text-sm font-medium no-underline relative group ${
+                    isActive('/services') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
+                  }`}
+                >
                   Services
                   <motion.div 
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00c8ff] group-hover:w-full transition-all duration-300"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
+                      isActive('/services') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -175,10 +217,17 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/membership" className="text-white text-sm font-medium no-underline hover:text-gray-300 relative group">
+                <Link 
+                  to="/membership" 
+                  className={`text-sm font-medium no-underline relative group ${
+                    isActive('/membership') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
+                  }`}
+                >
                   Membership
                   <motion.div 
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00c8ff] group-hover:w-full transition-all duration-300"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
+                      isActive('/membership') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -189,10 +238,17 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/events" className="text-white text-sm font-medium no-underline hover:text-gray-300 relative group">
+                <Link 
+                  to="/events" 
+                  className={`text-sm font-medium no-underline relative group ${
+                    isActive('/events') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
+                  }`}
+                >
                   Events
                   <motion.div 
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00c8ff] group-hover:w-full transition-all duration-300"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
+                      isActive('/events') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -203,10 +259,17 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/high-performance" className="text-white text-sm font-medium no-underline hover:text-gray-300 relative group">
+                <Link 
+                  to="/high-performance" 
+                  className={`text-sm font-medium no-underline relative group ${
+                    isActive('/high-performance') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
+                  }`}
+                >
                   High Performance
                   <motion.div 
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00c8ff] group-hover:w-full transition-all duration-300"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
+                      isActive('/high-performance') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -217,10 +280,17 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link to="/job-placement" className="text-white text-sm font-medium no-underline hover:text-gray-300 relative group">
+                <Link 
+                  to="/job-placement" 
+                  className={`text-sm font-medium no-underline relative group ${
+                    isActive('/job-placement') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
+                  }`}
+                >
                   Job Placement
                   <motion.div 
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00c8ff] group-hover:w-full transition-all duration-300"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
+                      isActive('/job-placement') ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                   />
                 </Link>
               </motion.div>
@@ -282,28 +352,84 @@ const Navigation = () => {
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               <motion.div variants={mobileItemVariants}>
-                <Link to="/" className="block px-3 py-2 text-white no-underline hover:bg-gray-800 transition-colors duration-200">Home</Link>
+                <Link 
+                  to="/" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  Home
+                </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link to="/about" className="block px-3 py-2 text-white no-underline hover:bg-gray-800 transition-colors duration-200">About Us</Link>
+                <Link 
+                  to="/about" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/about') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  About Us
+                </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link to="/courses" className="block px-3 py-2 text-white no-underline hover:bg-gray-800 transition-colors duration-200">Courses</Link>
+                <Link 
+                  to="/courses" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/courses') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  Courses
+                </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link to="/services" className="block px-3 py-2 text-white no-underline hover:bg-gray-800 transition-colors duration-200">Services</Link>
+                <Link 
+                  to="/services" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/services') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  Services
+                </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link to="/membership" className="block px-3 py-2 text-white no-underline hover:bg-gray-800 transition-colors duration-200">Membership</Link>
+                <Link 
+                  to="/membership" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/membership') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  Membership
+                </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link to="/events" className="block px-3 py-2 text-white no-underline hover:bg-gray-800 transition-colors duration-200">Events</Link>
+                <Link 
+                  to="/events" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/events') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  Events
+                </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link to="/high-performance" className="block px-3 py-2 text-white no-underline hover:bg-gray-800 transition-colors duration-200">High Performance</Link>
+                <Link 
+                  to="/high-performance" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/high-performance') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  High Performance
+                </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link to="/job-placement" className="block px-3 py-2 text-white no-underline hover:bg-gray-800 transition-colors duration-200">Job Placement</Link>
+                <Link 
+                  to="/job-placement" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/job-placement') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  Job Placement
+                </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
                 <Link to="/signup" className="block px-3 py-2 mt-2 text-white no-underline border border-[#00c8ff] hover:bg-[#00c8ff]/10 transition-colors duration-200">Sign Up</Link>

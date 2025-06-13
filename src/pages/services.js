@@ -1,12 +1,18 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import { motion } from "framer-motion"
 
 import UftaLayout from "../components/ufta-layout"
 import Navigation from "../components/navigation"
 import Footer from "../components/footer"
 import Seo from "../components/seo"
+import PageHero from "../components/page-hero"
+import { pageAnimations, hoverAnimations, viewportSettings } from "../utils/animations"
 
-const ServicesPage = () => {
+const ServicesPage = ({ location }) => {
+  // Get animation variants from centralized configuration
+  const { fadeInUp, slideInLeft, staggerContainer, scaleIn } = pageAnimations.standard;
+
   React.useEffect(() => {
     // Add smooth scrolling
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -40,62 +46,15 @@ const ServicesPage = () => {
 
   return (
     <UftaLayout>
-      <Navigation />
+      <Navigation location={location} />
       
-      {/* Hero Section */}
-      <section className="min-h-[60vh] flex items-center relative overflow-hidden bg-[#0A0A0A] pt-20">
-        {/* Custom gradient background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.6)] via-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0.8)] z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#00c8ff]/10 via-transparent to-[#00c8ff]/5 z-20"></div>
-          
-          {/* Hero Image */}
-          <div className="absolute right-0 top-0 w-1/2 md:w-3/5 h-full z-0">
-            <div className="absolute -left-24 inset-y-0 w-24 z-10 bg-gradient-to-r from-[#0A0A0A] to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/30 to-[#0A0A0A]/10"></div>
-            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0A0A0A] to-transparent z-10"></div>
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
-            <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 mix-blend-overlay"></div>
-            
-            <StaticImage
-              src="../images/hero.png"
-              alt="UFTA Services"
-              className="w-full h-full object-cover"
-              placeholder="blurred"
-              layout="constrained"
-            />
-          </div>
-        </div>
-        
-        <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Our <span className="text-[#00c8ff] inline-block relative">
-                Services
-                <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent"></span>
-              </span>
-            </h1>
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              Discover our comprehensive range of professional fitness and training services designed to elevate your performance and transform your health journey.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#overview" className="bg-transparent border border-[#00c8ff] text-white hover:bg-[#00c8ff]/10 px-8 py-3 rounded transition-all duration-300 font-medium">
-                Explore Services
-              </a>
-              <a href="#contact-form" className="px-8 py-3 rounded bg-transparent text-white font-medium border border-white/20 hover:border-white/40 transition-all duration-300">
-                Contact Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Tagline Section */}
-      <section className="py-8 border-t border-b border-[#2A2A2A]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xl md:text-2xl font-medium">"<span className="text-[#00c8ff]">Excellence</span> in Fitness Training"</h2>
-        </div>
-      </section>
+      <PageHero
+        title="Our"
+        titleHighlight={{ text: "Services", color: "text-[#00c8ff]" }}
+        subtitle="Discover our comprehensive range of professional fitness and training services designed to elevate your performance and transform your health journey."
+        tagline={<>"<span className="text-[#00c8ff]">Excellence</span> in Fitness Training"</>}
+        imageAlt="UFTA Services Hero Image"
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Overview Section */}

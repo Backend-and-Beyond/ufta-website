@@ -273,7 +273,7 @@ const IndexPage = ({ location }) => {
                   <motion.div className="md:col-span-1" variants={slideInLeft}>
                     <StaticImage
                       src="../images/bhibhu.png"
-                      alt="Bibhu Moni Singha"
+                      alt="Dr. Bibhu Moni Singha"
                       className="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover mx-auto border-4 border-amber-400/20"
                       width={240}
                       height={240}
@@ -281,10 +281,10 @@ const IndexPage = ({ location }) => {
                   </motion.div>
                   <motion.div className="md:col-span-2" variants={slideInRight}>
                     <h3 className="text-3xl font-bold text-white mb-4 font-poppins">
-                      Dr. Bibhu Moni Singha
+                      Dr. Dr. Bibhu Moni Singha
                     </h3>
                     <p className="text-gray-300 leading-relaxed mb-4 font-poppins">
-                      Bibhu Moni Singha is one of India's leading fitness
+                      Dr. Bibhu Moni Singha is one of India's leading fitness
                       experts and sports nutritionists with over 20 years of
                       experience in the fitness industry. Recognized with
                       prestigious awards, including the "Excellent Personal

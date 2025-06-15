@@ -272,7 +272,7 @@ const UniversityApprovalsSection = ({ openModal }) => {
       </motion.div>
 
       {/* Additional Info Section */}
-      <motion.div 
+      {/* <motion.div 
         className="mt-16 text-center"
         variants={gentleFadeUp}
       >
@@ -286,7 +286,7 @@ const UniversityApprovalsSection = ({ openModal }) => {
           </svg>
           <span className="text-gray-300 font-medium">Maintaining Excellence Since 2006</span>
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </motion.section>
   );
 };

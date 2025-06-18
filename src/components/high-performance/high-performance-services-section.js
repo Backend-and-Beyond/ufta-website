@@ -261,14 +261,14 @@ const HighPerformanceServicesSection = () => {
               
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 mt-auto">
-                <motion.a 
+                {/* <motion.a 
                   href="#contact" 
                   className={`flex-1 inline-block bg-${service.color}-600 hover:bg-${service.color}-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 text-sm text-center`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
                   Book Service
-                </motion.a>
+                </motion.a> */}
                 <motion.button 
                   className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-[#00c8ff]/30 text-gray-300 hover:text-[#00c8ff] font-medium py-3 px-4 rounded-lg transition duration-300 text-sm text-center"
                   whileHover={{ scale: 1.03 }}

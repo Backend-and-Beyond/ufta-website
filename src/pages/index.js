@@ -26,25 +26,27 @@ const IndexPage = ({ location }) => {
 
       <HeroSection />
 
+      <WelcomeToUftaSection />
+
       <TaglineSection />
 
+      <HeadCoachSection />
+
       <EliteTrainingProgramsSection />
+
+      <OurServicesSection />
 
       <HighPerformanceTrainingSection />
 
       <ApprovedProvidersSection />
 
-      <WelcomeToUftaSection />
+      
 
-      <OurServicesSection />
-
-      <HeadCoachSection />
-
-      <OurEsteemedFacultySection />
+      {/* <OurEsteemedFacultySection /> */}
 
       <WhyChooseUsSection />
 
-      <CallToActionSection />
+      {/* <CallToActionSection /> */}
 
       <GetInTouchSection />
 

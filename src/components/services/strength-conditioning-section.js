@@ -252,7 +252,7 @@ const StrengthConditioningSection = () => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10">Enroll Now</span>
+            <span className="relative z-10">Enquire Now</span>
             <motion.span 
               className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/0 via-[#00c8ff]/20 to-[#00c8ff]/0 transform translate-x-[-100%]"
               animate={{ translateX: ['100%', '-100%'] }}

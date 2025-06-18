@@ -1,6 +1,6 @@
-import * as React from "react"
-import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
+import * as React from "react";
+import { motion } from "framer-motion";
+import { pageAnimations } from "../../utils/animations";
 
 const TaglineSection = () => {
   const { fadeIn, fadeInUp } = pageAnimations.standard;
@@ -18,11 +18,12 @@ const TaglineSection = () => {
           className="text-2xl md:text-3xl font-bold font-poppins"
           variants={fadeInUp}
         >
-          "Advanced Training, <span className="highlight-text">Extraordinary Results</span>"
+          Advanced Training,{" "}
+          <span className="highlight-text">Extraordinary Results</span>
         </motion.h2>
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default TaglineSection
+export default TaglineSection;

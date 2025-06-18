@@ -278,7 +278,7 @@ const GymEquipmentSection = () => {
             variants={scaleUp}
             custom={3}
           >
-            <span className="relative z-10">Inquire About Equipment</span>
+            <span className="relative z-10">Enquire About Equipment</span>
             <motion.span 
               className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/20 to-cyan-500/0 transform translate-x-[-100%]"
               animate={{ translateX: ['100%', '-100%'] }}

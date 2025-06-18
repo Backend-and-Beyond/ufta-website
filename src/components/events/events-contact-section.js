@@ -71,7 +71,7 @@ const EventsContactSection = () => {
             
             <div className="text-center md:text-left">
               <h2 className="text-4xl md:text-5xl font-bold text-white relative">
-                Stay <span className="text-[#00c8ff]">Updated</span> & <span className="text-purple-400">Inquire</span>
+                Stay <span className="text-[#00c8ff]">Updated</span> & <span className="text-purple-400">Enquire</span>
               </h2>
               <div className="h-1 w-32 bg-gradient-to-r from-[#00c8ff] to-purple-500 mt-4 mx-auto md:mx-0"></div>
             </div>

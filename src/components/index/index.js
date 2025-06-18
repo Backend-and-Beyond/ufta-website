@@ -1,0 +1,12 @@
+// Index page components index
+export { default as TaglineSection } from './tagline-section'
+export { default as EliteTrainingProgramsSection } from './elite-training-programs-section'
+export { default as HighPerformanceTrainingSection } from './high-performance-training-section'
+export { default as ApprovedProvidersSection } from './approved-providers-section'
+export { default as WelcomeToUftaSection } from './welcome-to-ufta-section'
+export { default as OurServicesSection } from './our-services-section'
+export { default as HeadCoachSection } from './head-coach-section'
+export { default as OurEsteemedFacultySection } from './our-esteemed-faculty-section'
+export { default as WhyChooseUsSection } from './why-choose-us-section'
+export { default as CallToActionSection } from './call-to-action-section'
+export { default as GetInTouchSection } from './get-in-touch-section'

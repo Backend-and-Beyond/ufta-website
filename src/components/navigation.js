@@ -265,7 +265,7 @@ const Navigation = ({ location }) => {
                     isActive('/high-performance') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
                   }`}
                 >
-                  High Performance
+                  High Performance Clinic
                   <motion.div 
                     className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
                       isActive('/high-performance') ? 'w-full' : 'w-0 group-hover:w-full'
@@ -296,7 +296,7 @@ const Navigation = ({ location }) => {
               </motion.div>
             </motion.div>
             
-            {/* Sign Up button */}
+            {/* Get in Touch button */}
             <motion.div variants={navItemVariants}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -304,7 +304,7 @@ const Navigation = ({ location }) => {
                 transition={{ duration: 0.2 }}
               >
                 <Link to="/signup" className="px-5 py-1.5 text-sm font-medium border border-[#00c8ff] text-white no-underline hover:bg-[#00c8ff]/10 transition-colors duration-200">
-                  Sign Up
+                  Get in Touch
                 </Link>
               </motion.div>
             </motion.div>
@@ -418,7 +418,7 @@ const Navigation = ({ location }) => {
                     isActive('/high-performance') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
                   }`}
                 >
-                  High Performance
+                  High Performance Clinic
                 </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>

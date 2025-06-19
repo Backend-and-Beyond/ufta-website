@@ -304,7 +304,7 @@ const MerchandiseSection = () => {
         </motion.div>
         
         {/* Notify button */}
-        <motion.button
+{/*         <motion.button
           className="mt-8 px-8 py-3 bg-transparent border border-[#00c8ff] text-white rounded relative overflow-hidden group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -316,7 +316,7 @@ const MerchandiseSection = () => {
             whileHover={{ x: "100%" }}
             transition={{ duration: 0.5 }}
           />
-        </motion.button>
+        </motion.button> */}
       </motion.div>
       
       {/* Product detail modal */}

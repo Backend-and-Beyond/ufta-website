@@ -1,11 +1,12 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
+import * as React from "react";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
+import { pageAnimations } from "../../utils/animations";
 
 const EliteTrainingProgramsSection = () => {
-  const { fadeIn, fadeInUp, staggerContainer, cardVariant } = pageAnimations.standard;
+  const { fadeIn, fadeInUp, staggerContainer, cardVariant } =
+    pageAnimations.standard;
 
   return (
     <motion.section
@@ -24,7 +25,10 @@ const EliteTrainingProgramsSection = () => {
         </motion.h2>
         <motion.div className="mb-8" variants={fadeInUp}>
           <p className="text-gray-300 font-poppins">
-            At UFTA, we take pride in offering exceptional fitness education and training programs that set the industry standard. Our courses blend cutting-edge science with practical application, creating fitness professionals who excel in their field.
+            At UFTA, we take pride in offering exceptional fitness education and
+            training programs that set the industry standard. Our courses blend
+            cutting-edge science with practical application, creating fitness
+            professionals who excel in their field.
           </p>
         </motion.div>
         <motion.div
@@ -47,14 +51,17 @@ const EliteTrainingProgramsSection = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 font-poppins">
-                  Personal <span className="highlight-text">Training Certification</span>
+                  Personal{" "}
+                  <span className="highlight-text">Training Certification</span>
                 </h3>
                 <p className="text-gray-400 mb-4 font-poppins">
-                  Comprehensive certification program that transforms passionate fitness enthusiasts into professional personal trainers ready for industry success.
+                  Comprehensive certification program that transforms passionate
+                  fitness enthusiasts into professional personal trainers ready
+                  for industry success.
                 </p>
-                <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
+                {/* <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
                   View Details →
-                </Link>
+                </Link> */}
               </div>
               <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-xs px-3 py-1 rounded-sm border border-[#00c8ff]/30">
                 <span className="text-[#00c8ff]">Level 5</span>
@@ -77,14 +84,17 @@ const EliteTrainingProgramsSection = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 font-poppins">
-                  Strength & <span className="highlight-text">Conditioning</span>
+                  Strength &{" "}
+                  <span className="highlight-text">Conditioning</span>
                 </h3>
                 <p className="text-gray-400 mb-4 font-poppins">
-                  Advanced training in scientific principles and techniques to maximize athletic performance through proper strength and conditioning methodologies.
+                  Advanced training in scientific principles and techniques to
+                  maximize athletic performance through proper strength and
+                  conditioning methodologies.
                 </p>
-                <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
+                {/* <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
                   View Details →
-                </Link>
+                </Link> */}
               </div>
               <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-xs px-3 py-1 rounded-sm border border-[#00c8ff]/30">
                 <span className="text-[#00c8ff]">Advanced</span>
@@ -110,11 +120,13 @@ const EliteTrainingProgramsSection = () => {
                   Sports <span className="highlight-text">Nutrition</span>
                 </h3>
                 <p className="text-gray-400 mb-4 font-poppins">
-                  Evidence-based nutritional strategies to enhance athletic performance, optimize recovery, and promote long-term health and wellness.
+                  Evidence-based nutritional strategies to enhance athletic
+                  performance, optimize recovery, and promote long-term health
+                  and wellness.
                 </p>
-                <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
+                {/* <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
                   View Details →
-                </Link>
+                </Link> */}
               </div>
               <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-xs px-3 py-1 rounded-sm border border-[#00c8ff]/30">
                 <span className="text-[#00c8ff]">Specialized</span>
@@ -122,17 +134,14 @@ const EliteTrainingProgramsSection = () => {
             </div>
           </motion.div>
         </motion.div>
-        <motion.div
-          className="text-right mt-6"
-          variants={fadeInUp}
-        >
-          <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
+        <motion.div className="text-right mt-6" variants={fadeInUp}>
+          {/*  <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
             View All Programs →
-          </Link>
+          </Link> */}
         </motion.div>
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default EliteTrainingProgramsSection
+export default EliteTrainingProgramsSection;

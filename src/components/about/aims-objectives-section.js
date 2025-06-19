@@ -77,7 +77,7 @@ const AimsObjectivesSection = () => {
           <h2 className="text-4xl font-bold text-white text-center relative">
             Our Aims & <span className="text-[#00c8ff]">Objectives</span>
             <motion.span 
-              className="absolute -top-2 -right-2 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
+              className="absolute -top-4 -right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
@@ -248,32 +248,6 @@ const AimsObjectivesSection = () => {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
-      {/* Call to Action */}
-      <motion.div
-        className="mt-20 p-8 bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl text-center relative overflow-hidden"
-        variants={fadeInUp}
-      >
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#00c8ff] to-blue-600 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 opacity-30"></div>
-        </div>
-
-        <motion.h3 
-          className="text-2xl md:text-3xl font-bold text-white mb-4"
-          variants={scaleIn}
-        >
-          Join Our Mission for a <span className="text-[#00c8ff]">Healthier India</span>
-        </motion.h3>
-        <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-          Whether you're a student, fitness enthusiast, or organization, UFTA provides pathways to excellence in fitness education and career development.
-        </p>
-        <motion.button
-          className="px-8 py-3 bg-[#00c8ff] text-black font-semibold rounded-lg shadow-lg hover:bg-[#00c8ff]/90 transition-all duration-300"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Explore Our Programs
-        </motion.button>
       </motion.div>
     </motion.section>
   );

@@ -60,7 +60,7 @@ const HighPerformanceIntroSection = () => {
                 className="text-lg text-gray-300 leading-relaxed border-l-2 border-[#00c8ff]/30 pl-4"
                 variants={fadeInUp}
               >
-                At UFTA, we extend our expertise beyond education to offer specialized services at our High Performance Clinic. 
+                At UFTA, we extend our expertise beyond education to offer specialized services at our High Performance Clinic Clinic. 
                 Utilizing cutting-edge technology and evidence-based practices, our clinic is dedicated to helping athletes and individuals 
                 achieve optimal physical health, recover from injuries, and enhance their performance.
               </motion.p>

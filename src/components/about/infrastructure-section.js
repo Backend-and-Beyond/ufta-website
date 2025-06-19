@@ -1,85 +1,158 @@
-import * as React from "react"
-import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
-import Placeholder1 from "../../images/placeholder1.jpg"
-import Placeholder2 from "../../images/placeholder2.png"
-import Placeholder3 from "../../images/placeholder3.jpg"
+import * as React from "react";
+import { motion } from "framer-motion";
+import { pageAnimations } from "../../utils/animations";
+import Placeholder1 from "../../images/placeholder1.jpg";
+import Placeholder2 from "../../images/placeholder2.png";
+import Placeholder3 from "../../images/placeholder3.jpg";
 
 const InfrastructureSection = () => {
-  const { staggerContainer, gentleFadeUp, cardVariant, fadeInUp, slideInLeft, slideInRight } = pageAnimations.standard;
+  const {
+    staggerContainer,
+    gentleFadeUp,
+    cardVariant,
+    fadeInUp,
+    slideInLeft,
+    slideInRight,
+  } = pageAnimations.standard;
 
   const facilities = [
     {
       title: "Spacious Gym Floor",
-      description: "A 2500 sq ft air-conditioned gym with latest strength training equipment for diverse fitness disciplines.",
+      description:
+        "A 2500 sq ft air-conditioned gym with latest strength training equipment for diverse fitness disciplines.",
       color: "from-green-500 to-green-600",
       icon: (
-        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        <svg
+          className="w-10 h-10 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          />
         </svg>
       ),
-      image: Placeholder1
+      image: Placeholder1,
     },
     {
       title: "Smart Lab & Classroom",
-      description: "1000 sq ft smart lab with Interactive Digital Board and 3D software for immersive learning.",
+      description:
+        "1000 sq ft smart lab with Interactive Digital Board and 3D software for immersive learning.",
       color: "from-blue-500 to-blue-600",
       icon: (
-        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <svg
+          className="w-10 h-10 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
         </svg>
       ),
-      image: Placeholder2
+      image: Placeholder2,
     },
     {
       title: "Biomechanics Lab",
-      description: "Advanced lab with high-speed cameras, GAIT analysis, and force transducers for performance assessment.",
+      description:
+        "Advanced lab with high-speed cameras, GAIT analysis, and force transducers for performance assessment.",
       color: "from-purple-500 to-purple-600",
       icon: (
-        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+        <svg
+          className="w-10 h-10 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+          />
         </svg>
       ),
-      image: Placeholder3
+      image: Placeholder3,
     },
     {
       title: "Cutting-Edge Technology",
-      description: "Utilizing tools like force transducers for Velocity-Based Training (VBT) to enhance athletic performance.",
+      description:
+        "Utilizing tools like force transducers for Velocity-Based Training (VBT) to enhance athletic performance.",
       color: "from-pink-500 to-pink-600",
       icon: (
-        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <svg
+          className="w-10 h-10 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          />
         </svg>
       ),
-      image: Placeholder1
+      image: Placeholder1,
     },
     {
       title: "Online Digital Library",
-      description: "Access to extensive online resources, journals, and publications in sports science and medicine.",
+      description:
+        "Access to extensive online resources, journals, and publications in sports science and medicine.",
       color: "from-orange-500 to-orange-600",
       icon: (
-        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        <svg
+          className="w-10 h-10 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          />
         </svg>
       ),
-      image: Placeholder2
+      image: Placeholder2,
     },
     {
       title: "Sports Medicine & Rehab",
-      description: "In-house facilities for Sports Injury Rehabilitation & Reconditioning for athletes and individuals.",
+      description:
+        "In-house facilities for Sports Injury Rehabilitation & Reconditioning for athletes and individuals.",
       color: "from-lime-500 to-lime-600",
       icon: (
-        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        <svg
+          className="w-10 h-10 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          />
         </svg>
       ),
-      image: Placeholder3
-    }
+      image: Placeholder3,
+    },
   ];
 
   return (
-    <motion.section 
-      id="infrastructure" 
+    <motion.section
+      id="infrastructure"
       className="py-24"
       initial="hidden"
       whileInView="visible"
@@ -87,28 +160,36 @@ const InfrastructureSection = () => {
       variants={staggerContainer}
     >
       {/* Section Header */}
-      <motion.div 
+      <motion.div
         className="flex items-center justify-center mb-16"
         variants={gentleFadeUp}
       >
-        <motion.svg 
-          className="w-12 h-12 mr-4 text-[#00c8ff]" 
-          xmlns="http://www.w3.org/2000/svg" 
-          fill="none" 
-          viewBox="0 0 24 24" 
-          strokeWidth="1.5" 
+        <motion.svg
+          className="w-12 h-12 mr-4 text-[#00c8ff]"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
           stroke="currentColor"
           whileHover={{ rotate: 5, scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M2.25 12a8.963 8.963 0 0 1 11.484 0l2.016 2.016" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M11.475 21.075a2.25 2.25 0 0 0 1.05 1.675H18a2.25 2.25 0 0 0 2.25-2.25v-2.625a2.25 2.25 0 0 0-1.05-1.675L12 12.75M2.25 12l6.225-6.225a2.25 2.25 0 0 1 3.182 0l6.225 6.225m0 0a2.25 2.25 0 0 1-3.182 3.182L12 17.25l-2.018-2.018m4.743-4.743-3.182-3.182a2.25 2.25 0 0 0-3.182 0L2.25 12" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M2.25 12a8.963 8.963 0 0 1 11.484 0l2.016 2.016"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M11.475 21.075a2.25 2.25 0 0 0 1.05 1.675H18a2.25 2.25 0 0 0 2.25-2.25v-2.625a2.25 2.25 0 0 0-1.05-1.675L12 12.75M2.25 12l6.225-6.225a2.25 2.25 0 0 1 3.182 0l6.225 6.225m0 0a2.25 2.25 0 0 1-3.182 3.182L12 17.25l-2.018-2.018m4.743-4.743-3.182-3.182a2.25 2.25 0 0 0-3.182 0L2.25 12"
+          />
         </motion.svg>
         <div>
           <h2 className="text-4xl font-bold text-white text-center relative">
             Infrastructure & <span className="text-[#00c8ff]">Facilities</span>
-            <motion.span 
-              className="absolute -top-2 -right-2 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
+            <motion.span
+              className="absolute -top-4 -right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
@@ -119,17 +200,20 @@ const InfrastructureSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-[#00c8ff] to-transparent mt-2"></div>
         </div>
       </motion.div>
-      
+
       {/* Intro Text */}
-      <motion.p 
+      <motion.p
         className="text-center text-gray-300 max-w-3xl mx-auto mb-16"
         variants={fadeInUp}
       >
-        UFTA boasts state-of-the-art facilities designed to provide an optimal learning and training environment. Our infrastructure combines cutting-edge technology with thoughtfully designed spaces to nurture the next generation of fitness professionals.
+        UFTA boasts state-of-the-art facilities designed to provide an optimal
+        learning and training environment. Our infrastructure combines
+        cutting-edge technology with thoughtfully designed spaces to nurture the
+        next generation of fitness professionals.
       </motion.p>
-      
+
       {/* Featured Facility */}
-      <motion.div 
+      <motion.div
         className="bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff]/30 rounded-xl p-8 relative overflow-hidden shadow-xl mb-16"
         variants={cardVariant}
         whileHover={{ y: -3 }}
@@ -140,60 +224,72 @@ const InfrastructureSection = () => {
           <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#00c8ff] to-blue-600 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
           <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#00c8ff] to-blue-600 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-20"></div>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-10 relative z-10">
           {/* Image Column */}
-          <motion.div 
-            className="relative"
-            variants={slideInLeft}
-          >
+          <motion.div className="relative" variants={slideInLeft}>
             <div className="absolute -top-2 -left-2 bg-[#00c8ff] text-black text-xs font-bold px-2 py-1 rounded-md">
               Featured Facility
             </div>
             <div className="rounded-lg overflow-hidden shadow-2xl border-2 border-[#2A2A2A]">
-              <img 
-                src={Placeholder1} 
-                alt="UFTA Gym Facility" 
+              <img
+                src={Placeholder1}
+                alt="UFTA Gym Facility"
                 className="w-full h-72 object-cover object-center"
               />
             </div>
             <div className="flex justify-center mt-4">
-              <motion.div 
+              <motion.div
                 className="w-2 h-2 bg-[#00c8ff] rounded-full mx-1"
                 whileHover={{ scale: 1.5 }}
               ></motion.div>
-              <motion.div 
+              <motion.div
                 className="w-2 h-2 bg-gray-500 rounded-full mx-1"
                 whileHover={{ scale: 1.5 }}
               ></motion.div>
-              <motion.div 
+              <motion.div
                 className="w-2 h-2 bg-gray-500 rounded-full mx-1"
                 whileHover={{ scale: 1.5 }}
               ></motion.div>
             </div>
           </motion.div>
-          
+
           {/* Content Column */}
-          <motion.div 
+          <motion.div
             className="flex flex-col justify-center"
             variants={slideInRight}
           >
             <div className="bg-[#1a1a1a]/50 p-6 rounded-lg border border-[#2A2A2A]">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                 <span className="inline-block w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3">
-                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  <svg
+                    className="w-5 h-5 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    />
                   </svg>
                 </span>
                 Premium Fitness Center
               </h3>
               <p className="text-gray-300 leading-relaxed mb-6">
-                Our 2500 sq ft air-conditioned gym features the latest strength training equipment for diverse fitness disciplines. The facility is designed to provide both practical training for students and a premium workout environment.
+                Our 2500 sq ft air-conditioned gym features the latest strength
+                training equipment for diverse fitness disciplines. The facility
+                is designed to provide both practical training for students and
+                a premium workout environment.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
-                  <span className="text-sm text-gray-300">Olympic Weightlifting Area</span>
+                  <span className="text-sm text-gray-300">
+                    Olympic Weightlifting Area
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
@@ -201,7 +297,9 @@ const InfrastructureSection = () => {
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
-                  <span className="text-sm text-gray-300">Functional Training Zone</span>
+                  <span className="text-sm text-gray-300">
+                    Functional Training Zone
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
@@ -209,10 +307,20 @@ const InfrastructureSection = () => {
                 </div>
               </div>
               <div className="inline-flex items-center px-4 py-2 bg-[#00c8ff]/10 border border-[#00c8ff]/30 rounded-lg text-[#00c8ff]">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                <svg
+                  className="w-4 h-4 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
                 </svg>
-                <span className="text-sm font-medium">Industry-Standard Equipment</span>
+                <span className="text-sm font-medium">
+                  Industry-Standard Equipment
+                </span>
               </div>
             </div>
           </motion.div>
@@ -220,26 +328,30 @@ const InfrastructureSection = () => {
       </motion.div>
       {/* Facility Cards */}
       <motion.div>
-        <motion.h3 
+        <motion.h3
           className="text-2xl font-bold mb-10 text-white relative inline-flex items-center"
           variants={fadeInUp}
         >
           <span className="w-8 h-8 bg-[#00c8ff] rounded-full flex items-center justify-center mr-3 text-black">
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+              <path
+                fillRule="evenodd"
+                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                clipRule="evenodd"
+              />
             </svg>
           </span>
           Our Training <span className="text-[#00c8ff] ml-1">Facilities</span>
           <div className="ml-4 h-0.5 w-24 bg-gradient-to-r from-[#00c8ff] to-transparent"></div>
         </motion.h3>
 
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={staggerContainer}
         >
           {facilities.map((facility, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className="bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff]/30 rounded-xl overflow-hidden shadow-lg"
               variants={cardVariant}
               whileHover={{ y: -10, scale: 1.02 }}
@@ -247,10 +359,12 @@ const InfrastructureSection = () => {
             >
               {/* Image Header */}
               <div className="relative h-48 overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-b ${facility.color} opacity-40`}></div>
-                <img 
-                  src={facility.image} 
-                  alt={facility.title} 
+                <div
+                  className={`absolute inset-0 bg-gradient-to-b ${facility.color} opacity-40`}
+                ></div>
+                <img
+                  src={facility.image}
+                  alt={facility.title}
                   className="w-full h-full object-cover"
                 />
                 {/* Icon Badge */}
@@ -258,19 +372,25 @@ const InfrastructureSection = () => {
                   {facility.icon}
                 </div>
                 {/* Colored Top Strip */}
-                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${facility.color}`}></div>
+                <div
+                  className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${facility.color}`}
+                ></div>
               </div>
-              
+
               {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-white mb-3 flex items-center">
-                  <span className={`inline-block w-3 h-3 rounded-full bg-gradient-to-r ${facility.color} mr-2`}></span>
+                  <span
+                    className={`inline-block w-3 h-3 rounded-full bg-gradient-to-r ${facility.color} mr-2`}
+                  ></span>
                   {facility.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed">{facility.description}</p>
-                
+                <p className="text-gray-300 leading-relaxed">
+                  {facility.description}
+                </p>
+
                 {/* Learn More Button */}
-                <motion.button
+                {/* <motion.button
                   className="mt-4 flex items-center text-[#00c8ff] text-sm font-medium"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
@@ -279,14 +399,14 @@ const InfrastructureSection = () => {
                   <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
-                </motion.button>
+                </motion.button> */}
               </div>
             </motion.div>
           ))}
         </motion.div>
       </motion.div>
       {/* Virtual Tour CTA */}
-      <motion.div
+      {/*       <motion.div
         className="mt-20 p-8 bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl relative overflow-hidden"
         variants={fadeInUp}
       >
@@ -342,7 +462,7 @@ const InfrastructureSection = () => {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </motion.section>
   );
 };

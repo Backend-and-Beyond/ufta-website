@@ -203,14 +203,14 @@ const EventsWorkshopsSection = () => {
               
               {/* Bottom Action Buttons */}
               <div className="mt-auto flex flex-col sm:flex-row gap-3">
-                <motion.a 
+{/*                 <motion.a 
                   href="#contact" 
                   className="flex-1 inline-block bg-[#00c8ff] hover:bg-[#00c8ff]/90 text-black font-semibold py-2.5 px-4 rounded-lg transition duration-300 text-sm text-center"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
                   Register Interest
-                </motion.a>
+                </motion.a> */}
                 <motion.a 
                   href="/workshops" 
                   className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-[#00c8ff]/30 text-gray-300 hover:text-[#00c8ff] font-medium py-2.5 px-4 rounded-lg transition duration-300 text-sm text-center"
@@ -230,7 +230,7 @@ const EventsWorkshopsSection = () => {
         className="flex justify-center mt-12"
         variants={fadeInUp}
       >
-        <motion.a 
+        {/* <motion.a 
           href="/workshops" 
           className="inline-flex items-center gap-2 px-8 py-3 bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff] rounded-lg text-white hover:text-[#00c8ff] transition-all duration-300 group"
           whileHover={{ scale: 1.05 }}
@@ -246,7 +246,7 @@ const EventsWorkshopsSection = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
-        </motion.a>
+        </motion.a> */}
       </motion.div>
     </motion.section>
   )

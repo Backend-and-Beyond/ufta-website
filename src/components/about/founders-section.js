@@ -10,7 +10,7 @@ const FoundersSection = () => {
   const founders = [
     {
       initials: "BMS",
-      name: "Bibhu Moni Singha",
+      name: "Dr. Bibhu Moni Singha",
       degree: "PhD Scholar",
       position: "Founder & Director, UFTA",
       specialty: "Sports & Exercise Scientist",
@@ -66,7 +66,7 @@ const FoundersSection = () => {
           <h2 className="text-4xl font-bold text-white text-center relative">
             Meet Our <span className="text-[#00c8ff]">Founders</span>
             <motion.span 
-              className="absolute -top-2 -right-2 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
+              className="absolute -top-4 -right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
@@ -178,7 +178,7 @@ const FoundersSection = () => {
                       <svg className="w-5 h-5 mr-2 text-[#00c8ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                       </svg>
-                      Message from {founder.name.split(' ')[0]}
+                      Message from {founder.name}
                     </h4>
                     
                     {founder.message.map((paragraph, pIndex) => (

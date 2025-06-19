@@ -59,7 +59,7 @@ const FacultySection = () => {
 
   const facultyMembers = [
     {
-      name: "Bibhu Moni Singha",
+      name: "Dr. Bibhu Moni Singha",
       title: "Founder & Director, Sr. Director PROPTA U.S.A.",
       qualification: "PhD (Pursuing), M.Sc. S&C. 23+ yrs exp.",
       image: "../images/bhibhu.png"
@@ -188,7 +188,7 @@ const FacultySection = () => {
       </motion.div>
       
       {/* View All Courses Button */}
-      <motion.div 
+{/*       <motion.div 
         className="text-center mt-12"
         variants={fadeInUp}
       >
@@ -199,7 +199,7 @@ const FacultySection = () => {
         >
           Explore All Training Programs
         </motion.button>
-      </motion.div>
+      </motion.div> */}
     </motion.section>
   );
 };

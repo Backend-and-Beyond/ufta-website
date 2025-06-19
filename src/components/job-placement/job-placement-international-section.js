@@ -166,7 +166,7 @@ const JobPlacementInternationalSection = () => {
               </div>
               
               <div className="flex justify-between items-center mt-6">
-                <motion.button 
+                {/* <motion.button 
                   className={`bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm flex-1 mr-2`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -180,7 +180,7 @@ const JobPlacementInternationalSection = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   Apply Now
-                </motion.button>
+                </motion.button> */}
               </div>
             </motion.div>
           ))}

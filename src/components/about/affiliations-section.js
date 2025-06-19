@@ -9,7 +9,7 @@ const AffiliationsSection = () => {
     {
       acronym: "SPEFL-SC",
       title: "SPEFL-SC",
-      highlight: "SC",
+      highlight: "SPEFL-SC",
       description: "Affiliated with Sports, Physical Education, Fitness and Leisure Skills Council."
     },
     {

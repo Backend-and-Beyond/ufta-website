@@ -133,7 +133,7 @@ const InternationalPartnersSection = () => {
           <h2 className="text-4xl font-bold text-white text-center relative">
             International <span className="text-[#00c8ff]">Partnerships</span>
             <motion.span 
-              className="absolute -top-2 -right-2 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
+              className="absolute -top-4 -right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
@@ -158,7 +158,7 @@ const InternationalPartnersSection = () => {
       </motion.div>
       
       {/* Partners Categories */}
-      <motion.div className="mb-8" variants={fadeInUp}>
+{/*       <motion.div className="mb-8" variants={fadeInUp}>
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {["Education Partners", "Collaborations"].map((category, idx) => (
             <div key={idx} className="px-6 py-2 bg-[#141414] border border-[#2A2A2A] rounded-full">
@@ -166,7 +166,7 @@ const InternationalPartnersSection = () => {
             </div>
           ))}
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Education Partners Section */}
       {educationPartners.length > 0 && (

@@ -75,7 +75,7 @@ const HighPerformanceContactSection = () => {
             className="text-center text-xl leading-relaxed mb-12 text-gray-300 max-w-3xl mx-auto"
             variants={fadeInUp}
           >
-            Ready to elevate your performance? Contact our High Performance Clinic to schedule a comprehensive assessment and start your journey to peak athletic performance.
+            Ready to elevate your performance? Contact our High Performance Clinic Clinic to schedule a comprehensive assessment and start your journey to peak athletic performance.
           </motion.p>
           
           <motion.div 
@@ -276,7 +276,7 @@ const HighPerformanceContactSection = () => {
                     </div>
                     <div>
                       <h4 className="text-white font-medium mb-1">Location</h4>
-                      <p className="text-gray-300">UFTA High Performance Clinic</p>
+                      <p className="text-gray-300">UFTA High Performance Clinic Clinic</p>
                       <p className="text-sm text-gray-400 mt-1">Guwahati Campus, Assam, India</p>
                     </div>
                   </li>
@@ -342,7 +342,7 @@ const HighPerformanceContactSection = () => {
             
             <div className="text-center relative z-10">
               <p className="text-gray-300 italic text-lg mb-4">
-                "The High Performance Clinic at UFTA transformed my approach to training. The biomechanical analysis helped identify inefficiencies in my technique that were limiting my performance. Six months later, I'm setting new personal records and competing at a higher level."
+                "The High Performance Clinic Clinic at UFTA transformed my approach to training. The biomechanical analysis helped identify inefficiencies in my technique that were limiting my performance. Six months later, I'm setting new personal records and competing at a higher level."
               </p>
               <div className="inline-flex items-center">
                 <div className="w-10 h-10 rounded-full bg-[#00c8ff]/20 flex items-center justify-center mr-3">

@@ -1,10 +1,10 @@
-import * as React from "react"
+import * as React from "react";
 
-import UftaLayout from "../components/ufta-layout"
-import Navigation from "../components/navigation"
-import HeroSection from "../components/hero-section"
-import Footer from "../components/footer"
-import Seo from "../components/seo"
+import UftaLayout from "../components/ufta-layout";
+import Navigation from "../components/navigation";
+import HeroSection from "../components/hero-section";
+import Footer from "../components/footer";
+import Seo from "../components/seo";
 import {
   TaglineSection,
   EliteTrainingProgramsSection,
@@ -16,8 +16,8 @@ import {
   OurEsteemedFacultySection,
   WhyChooseUsSection,
   CallToActionSection,
-  GetInTouchSection
-} from "../components/index"
+  GetInTouchSection,
+} from "../components/index";
 
 const IndexPage = ({ location }) => {
   return (
@@ -26,33 +26,37 @@ const IndexPage = ({ location }) => {
 
       <HeroSection />
 
+      <WelcomeToUftaSection />
+
       <TaglineSection />
 
+      <HeadCoachSection />
+
       <EliteTrainingProgramsSection />
+
+      <OurServicesSection />
 
       <HighPerformanceTrainingSection />
 
       <ApprovedProvidersSection />
 
-      <WelcomeToUftaSection />
+      
 
-      <OurServicesSection />
-
-      <HeadCoachSection />
-
-      <OurEsteemedFacultySection />
+      {/* <OurEsteemedFacultySection /> */}
 
       <WhyChooseUsSection />
 
-      <CallToActionSection />
+      {/* <CallToActionSection /> */}
 
       <GetInTouchSection />
 
       <Footer />
     </UftaLayout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
-export const Head = () => <Seo title="UFTA - Advanced Training, Extraordinary Results" />
+export const Head = () => (
+  <Seo title="UFTA - Advanced Training, Extraordinary Results" />
+);

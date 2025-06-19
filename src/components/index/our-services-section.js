@@ -51,7 +51,7 @@ const OurServicesSection = () => {
           </div>
           <div className="card p-6 rounded-sm">
             <h3 className="text-xl font-semibold mb-4 font-poppins">
-              High Performance Clinic
+              High Performance Clinic Clinic
             </h3>
             <p className="text-gray-400 font-poppins">
               Specialized services including sports rehabilitation and

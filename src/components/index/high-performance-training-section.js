@@ -20,7 +20,7 @@ const HighPerformanceTrainingSection = () => {
           <motion.div className="order-2 md:order-1" variants={slideInLeft}>
             <StaticImage
               src="../../images/placeholder1.jpg"
-              alt="High Performance Training"
+              alt="High Performance Clinic Training"
               className="w-full h-auto rounded-sm border border-[#2A2A2A] shadow-lg"
               width={600}
               height={400}
@@ -28,12 +28,12 @@ const HighPerformanceTrainingSection = () => {
           </motion.div>
           <motion.div className="order-1 md:order-2" variants={slideInRight}>
             <h2 className="text-3xl font-bold section-heading mb-8 font-poppins">
-              High Performance{" "}
+              High Performance Clinic{" "}
               <span className="highlight-text">Training Clinic</span>
             </h2>
 
             <p className="text-gray-300 mb-6 leading-relaxed font-poppins">
-              Our specialized High Performance Clinic offers cutting-edge
+              Our specialized High Performance Clinic Clinic offers cutting-edge
               training methodologies for athletes seeking to maximize their
               performance potential.
             </p>
@@ -55,7 +55,7 @@ const HighPerformanceTrainingSection = () => {
                 to="/high-performance"
                 className="btn-primary inline-block px-6 py-3 font-medium font-poppins transition-all duration-200 no-underline"
               >
-                Explore High Performance Clinic
+                Explore High Performance Clinic Clinic
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

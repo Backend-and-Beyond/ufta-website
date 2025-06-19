@@ -21,7 +21,7 @@ const EventsConferencesSection = () => {
       color: "purple",
     },
     {
-      title: "National Symposium on Fitness, Health & High Performance",
+      title: "National Symposium on Fitness, Health & High Performance Clinic",
       date: "Planned for: November 2025 (In collaboration with Partner University)",
       description:
         "A national-level gathering focused on bridging the gap between research and practice in the Indian fitness ecosystem. This symposium will feature panel discussions on policy, skill development, and the role of technology in fitness.",

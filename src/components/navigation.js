@@ -265,7 +265,7 @@ const Navigation = ({ location }) => {
                     isActive('/high-performance') ? 'text-[#00c8ff] font-bold' : 'text-white hover:text-gray-300'
                   }`}
                 >
-                  High Performance
+                  High Performance Clinic
                   <motion.div 
                     className={`absolute bottom-0 left-0 h-0.5 bg-[#00c8ff] transition-all duration-300 ${
                       isActive('/high-performance') ? 'w-full' : 'w-0 group-hover:w-full'
@@ -418,7 +418,7 @@ const Navigation = ({ location }) => {
                     isActive('/high-performance') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
                   }`}
                 >
-                  High Performance
+                  High Performance Clinic
                 </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>

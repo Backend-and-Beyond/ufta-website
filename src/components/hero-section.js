@@ -90,8 +90,8 @@ const HeroSection = () => {
             className="text-5xl md:text-7xl font-bold mb-6 text-white font-poppins leading-tight"
             variants={slideInLeft}
           >
-            Excellence in{" "}
-            <span className="highlight-text">Fitness Education</span>
+            Universal Fitness {" "}
+            <span className="highlight-text"><br></br>Training Academy</span>
           </motion.h1>
           <motion.p
             className="text-xl text-gray-300 mb-8 font-poppins leading-relaxed"
@@ -99,7 +99,7 @@ const HeroSection = () => {
           >
             Elite training and certifications with
             <span className="highlight-text">
-              <b> Universal Fitness Training Academy</b>
+              <b> UFTA</b>
             </span>{" "}
           </motion.p>
           <motion.div
@@ -108,7 +108,7 @@ const HeroSection = () => {
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                to="/courses"
+                to="/services"
                 className="btn-primary px-6 py-3 font-medium font-poppins transition-all duration-200 no-underline"
               >
                 Unlock Your Potential

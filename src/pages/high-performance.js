@@ -218,15 +218,15 @@ const HighPerformancePage = ({ location }) => {
 
       <PageHero
         title="High"
-        titleHighlight={{ text: "Performance", color: "text-[#00c8ff]" }}
+        titleHighlight={{ text: "Performance Clinic", color: "text-[#00c8ff]" }}
         subtitle="Advanced training for elite athletes"
         tagline={
           <>
-            "<span className="text-[#00c8ff]">Elevate</span> Your Athletic
-            Performance"
+            <span className="text-[#00c8ff]">Elevate</span> Your Athletic
+            Performance
           </>
         }
-        imageAlt="UFTA High Performance Clinic"
+        imageAlt="UFTA High Performance Clinic Clinic"
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -241,7 +241,7 @@ const HighPerformancePage = ({ location }) => {
 };
 
 export const Head = () => (
-  <Seo title="High Performance Clinic - Universal Fitness Training Academy" />
+  <Seo title="High Performance Clinic Clinic - Universal Fitness Training Academy" />
 );
 
 export default HighPerformancePage;

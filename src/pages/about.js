@@ -161,7 +161,7 @@ const AboutPage = ({ location }) => {
         <InfrastructureSection />
 
         {/* Call to Action */}
-        <motion.div
+        {/*         <motion.div
           className="mt-20 p-8 bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl text-center relative overflow-hidden"
           variants={fadeInUp}
         >
@@ -188,7 +188,7 @@ const AboutPage = ({ location }) => {
           >
             Explore Our Programs
           </motion.button>
-        </motion.div>
+        </motion.div> */}
       </main>
 
       <Footer />

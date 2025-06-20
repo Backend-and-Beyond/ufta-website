@@ -18,7 +18,7 @@ const GymFranchiseSection = () => {
   return (
     <motion.section 
       id="gym-franchise" 
-      className="py-16 relative"
+      className="py-12 md:py-16 relative"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
@@ -91,14 +91,14 @@ const GymFranchiseSection = () => {
       </div>
 
       {/* Section header with animated icon */}
-      <div className="relative z-10 mb-12">
+      <div className="relative z-10 mb-8 md:mb-12 px-4 md:px-0">
         <div className="flex flex-col items-center justify-center">
           <motion.div 
             className="flex items-center justify-center mb-6"
             animate={controls}
           >
             <motion.svg 
-              className="w-12 h-12 mr-3 text-[#00c8ff]" 
+              className="w-8 h-8 md:w-12 md:h-12 mr-3 text-[#00c8ff]" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24" 
@@ -125,7 +125,7 @@ const GymFranchiseSection = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white text-center relative tracking-wider"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative tracking-wider"
             variants={slideInLeft}
           >
             Gym Franchise & Setup <span className="text-[#00c8ff] relative">
@@ -157,7 +157,7 @@ const GymFranchiseSection = () => {
       
       {/* Main content with holographic effect */}
       <motion.div 
-        className="bg-black/40 backdrop-blur-sm rounded-lg p-10 flex flex-col md:flex-row-reverse items-center gap-10 border border-[#2A2A2A] hover:border-purple-500/70 transition-all duration-300 relative z-10"
+        className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-10 flex flex-col md:flex-row-reverse items-center gap-6 md:gap-10 border border-[#2A2A2A] hover:border-purple-500/70 transition-all duration-300 relative z-10 mx-4 md:mx-0"
         variants={fadeInUp}
         style={{
           boxShadow: "0 0 20px rgba(0, 200, 255, 0.05), inset 0 0 15px rgba(0, 200, 255, 0.02)"
@@ -180,7 +180,7 @@ const GymFranchiseSection = () => {
         
         {/* Franchise holographic image */}
         <motion.div 
-          className="w-full md:w-2/5 h-48 rounded-lg relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 md:transform md:perspective-1000"
+          className="w-full md:w-2/5 h-48 md:h-48 rounded-lg relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 md:transform md:perspective-1000"
           whileHover={{ scale: 1.05, rotateY: -5 }}
           transition={{ duration: 0.5 }}
         >
@@ -194,10 +194,10 @@ const GymFranchiseSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <motion.div className="text-white font-bold text-xl flex flex-col items-center">
+            <motion.div className="text-white font-bold text-lg md:text-xl flex flex-col items-center">
               <motion.svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                className="h-12 w-12 mb-3 text-white" 
+                className="h-8 w-8 md:h-12 md:w-12 mb-3 text-white" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
@@ -213,7 +213,7 @@ const GymFranchiseSection = () => {
                 />
               </motion.svg>
               <motion.span 
-                className="uppercase text-2xl tracking-widest"
+                className="uppercase text-xl md:text-2xl tracking-widest"
                 animate={{ 
                   textShadow: ["0 0 5px rgba(147,51,234,0.5)", "0 0 15px rgba(147,51,234,0.8)", "0 0 5px rgba(147,51,234,0.5)"] 
                 }}
@@ -222,7 +222,7 @@ const GymFranchiseSection = () => {
                 GYM FRANCHISE
               </motion.span>
               <motion.span 
-                className="text-sm mt-2 opacity-80 tracking-wider"
+                className="text-xs md:text-sm mt-2 opacity-80 tracking-wider"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.8 }}
                 transition={{ duration: 1, delay: 1 }}
@@ -273,14 +273,14 @@ const GymFranchiseSection = () => {
         {/* Service content */}
         <div className="md:w-3/5">
           <motion.h3 
-            className="text-2xl font-semibold mb-4 text-white tracking-wide"
+            className="text-xl md:text-2xl font-semibold mb-4 text-white tracking-wide text-center md:text-left"
             variants={fadeInUp}
           >
             Launch Your Own Fitness Center
           </motion.h3>
           
           <motion.p 
-            className="text-gray-300 leading-relaxed mb-3 font-light"
+            className="text-gray-300 leading-relaxed mb-3 font-light text-sm md:text-base"
             variants={fadeInUp}
             custom={1}
           >
@@ -288,7 +288,7 @@ const GymFranchiseSection = () => {
           </motion.p>
           
           <motion.p 
-            className="text-gray-300 leading-relaxed mb-6 font-light"
+            className="text-gray-300 leading-relaxed mb-6 font-light text-sm md:text-base"
             variants={fadeInUp}
             custom={2}
           >
@@ -297,7 +297,7 @@ const GymFranchiseSection = () => {
           
           <motion.a 
             href="#contact-form" 
-            className="inline-flex items-center justify-center bg-transparent border border-purple-500 text-white hover:bg-purple-500/10 px-6 py-3 rounded transition-all duration-300 relative overflow-hidden"
+            className="inline-flex items-center justify-center bg-transparent border border-purple-500 text-white hover:bg-purple-500/10 px-4 md:px-6 py-2 md:py-3 rounded transition-all duration-300 relative overflow-hidden text-sm md:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             variants={scaleUp}

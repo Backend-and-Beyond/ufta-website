@@ -8,15 +8,15 @@ const OverviewSection = () => {
   return (
     <motion.section 
       id="overview" 
-      className="py-20"
+      className="py-12 md:py-20 px-4 md:px-6"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
       variants={fadeInUp}
     >
-      <div className="flex items-center justify-center mb-12">
+      <div className="flex flex-col md:flex-row items-center justify-center mb-8 md:mb-12">
         <motion.svg 
-          className="w-12 h-12 mr-4 text-[#00c8ff]" 
+          className="w-8 h-8 md:w-12 md:h-12 md:mr-4 mb-2 md:mb-0 text-[#00c8ff]" 
           xmlns="http://www.w3.org/2000/svg" 
           fill="none" 
           viewBox="0 0 24 24" 
@@ -27,7 +27,7 @@ const OverviewSection = () => {
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
         </motion.svg>
-        <h2 className="text-5xl font-bold text-white text-center relative group">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative group">
           Elite Training <span className="text-[#00c8ff] inline-block relative">
             Overview
             <motion.span 
@@ -41,7 +41,7 @@ const OverviewSection = () => {
       </div>
       
       <motion.div 
-        className="bg-gradient-to-br from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl p-12 relative overflow-hidden max-w-5xl mx-auto shadow-[0_0_25px_rgba(0,200,255,0.1)]"
+        className="bg-gradient-to-br from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl p-6 md:p-12 relative overflow-hidden max-w-5xl mx-auto shadow-[0_0_25px_rgba(0,200,255,0.1)]"
         variants={fadeInUp}
         whileHover={{ 
           boxShadow: "0 0 30px rgba(0,200,255,0.15)", 
@@ -73,15 +73,15 @@ const OverviewSection = () => {
         
         <div className="relative z-10">
           <motion.div 
-            className="mb-8 border-l-4 border-[#00c8ff] pl-6 py-2"
+            className="mb-6 md:mb-8 border-l-4 border-[#00c8ff] pl-4 md:pl-6 py-2"
             variants={fadeInUp}
             custom={1}
           >
-            <p className="text-xl font-medium text-white italic">At UFTA, we transform fitness enthusiasts into industry professionals through world-class education.</p>
+            <p className="text-lg md:text-xl font-medium text-white italic">At UFTA, we transform fitness enthusiasts into industry professionals through world-class education.</p>
           </motion.div>
           
           <motion.p 
-            className="text-gray-300 leading-relaxed mb-6 text-lg"
+            className="text-gray-300 leading-relaxed mb-4 md:mb-6 text-base md:text-lg"
             variants={fadeInUp}
             custom={2}
           >
@@ -89,7 +89,7 @@ const OverviewSection = () => {
           </motion.p>
           
           <motion.p 
-            className="text-gray-300 leading-relaxed mb-6 text-lg"
+            className="text-gray-300 leading-relaxed mb-4 md:mb-6 text-base md:text-lg"
             variants={fadeInUp}
             custom={3}
           >
@@ -97,16 +97,16 @@ const OverviewSection = () => {
           </motion.p>
           
           <motion.h3 
-            className="text-2xl font-bold text-white mb-4 flex items-center"
+            className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center"
             variants={fadeInUp}
             custom={4}
           >
-            <span className="inline-block w-8 h-0.5 bg-[#00c8ff] mr-3"></span>
+            <span className="inline-block w-6 md:w-8 h-0.5 bg-[#00c8ff] mr-3"></span>
             What sets UFTA apart
           </motion.h3>
           
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
+            className="grid grid-cols-1 gap-3 md:gap-4 mb-6 md:mb-8"
             variants={staggerContainer}
             custom={5}
           >
@@ -119,31 +119,31 @@ const OverviewSection = () => {
             ].map((item, index) => (
               <motion.div 
                 key={index}
-                className="flex items-start p-4 rounded-lg bg-[#1c1c1c] border border-[#2a2a2a] hover:border-[#00c8ff30] transition-colors duration-300"
+                className="flex items-start p-3 md:p-4 rounded-lg bg-[#1c1c1c] border border-[#2a2a2a] hover:border-[#00c8ff30] transition-colors duration-300"
                 variants={fadeInUp}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <svg className="w-6 h-6 text-[#00c8ff] mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-[#00c8ff] mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                 </svg>
-                <span className="ml-3 text-gray-300">{item.text}</span>
+                <span className="ml-2 md:ml-3 text-gray-300 text-sm md:text-base">{item.text}</span>
               </motion.div>
             ))}
           </motion.div>
           
           <motion.div 
-            className="mt-8 text-center"
+            className="mt-6 md:mt-8 text-center"
             variants={fadeInUp}
             custom={6}
           >
             <motion.button
-              className="px-8 py-3 bg-gradient-to-r from-[#008fc7] to-[#00c8ff] text-white font-bold rounded-md shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center group"
+              className="px-6 md:px-8 py-2 md:py-3 bg-gradient-to-r from-[#008fc7] to-[#00c8ff] text-white font-bold rounded-md shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center group text-sm md:text-base"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('programs').scrollIntoView({ behavior: 'smooth' })}
             >
               Explore Our Programs
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+              <svg className="w-4 h-4 md:w-5 md:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </motion.button>

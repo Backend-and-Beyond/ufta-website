@@ -17,7 +17,7 @@ const StrengthConditioningSection = () => {
   return (
     <motion.section 
       id="strength-conditioning" 
-      className="py-16 relative"
+      className="py-12 md:py-16 relative"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
@@ -26,7 +26,7 @@ const StrengthConditioningSection = () => {
       {/* Sci-fi background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div 
-          className="absolute top-10 right-10 w-24 h-24 rounded-full bg-[#00c8ff]/5"
+          className="absolute top-10 right-10 w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#00c8ff]/5"
           animate={{ 
             scale: [1, 1.2, 1],
             opacity: [0.1, 0.3, 0.1]
@@ -34,7 +34,7 @@ const StrengthConditioningSection = () => {
           transition={{ duration: 4, repeat: Infinity }}
         />
         <motion.div 
-          className="absolute bottom-20 left-10 w-16 h-16 rounded-full bg-[#00c8ff]/5"
+          className="absolute bottom-20 left-10 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#00c8ff]/5"
           animate={{ 
             scale: [1, 1.5, 1],
             opacity: [0.1, 0.2, 0.1]
@@ -45,14 +45,14 @@ const StrengthConditioningSection = () => {
       </div>
 
       {/* Section title with animated elements */}
-      <div className="relative z-10 mb-12">
+      <div className="relative z-10 mb-8 md:mb-12 px-4 md:px-0">
         <div className="flex flex-col items-center justify-center">
           <motion.div 
             className="flex items-center justify-center mb-6"
             animate={controls}
           >
             <motion.svg 
-              className="w-12 h-12 mr-3 text-[#00c8ff]" 
+              className="w-8 h-8 md:w-12 md:h-12 mr-3 text-[#00c8ff]" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24" 
@@ -82,7 +82,7 @@ const StrengthConditioningSection = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white text-center relative tracking-wide"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative tracking-wide"
             variants={slideInLeft}
           >
             Offline/Online Strength & <span className="text-[#00c8ff] relative">
@@ -114,11 +114,11 @@ const StrengthConditioningSection = () => {
       
       {/* Main content with holographic card effect */}
       <motion.div 
-        className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 items-start"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-start px-4 md:px-0"
         variants={staggerContainer}
       >
         <motion.div 
-          className="bg-black/40 backdrop-blur-sm rounded-lg p-8 relative overflow-hidden border border-[#2A2A2A] group hover:border-[#00c8ff]/70 transition-all duration-300"
+          className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-8 relative overflow-hidden border border-[#2A2A2A] group hover:border-[#00c8ff]/70 transition-all duration-300"
           variants={scaleUp}
           whileHover={{ y: -5 }}
           style={{
@@ -139,7 +139,7 @@ const StrengthConditioningSection = () => {
           
           {/* Training program header with futuristic effect */}
           <motion.div 
-            className="w-full h-48 rounded-lg mb-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500"
+            className="w-full h-32 md:h-48 rounded-lg mb-4 md:mb-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500"
             whileHover={{ scale: 1.02 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-green-600/90 to-green-700/90 backdrop-blur"></div>
@@ -154,9 +154,9 @@ const StrengthConditioningSection = () => {
             </motion.div>
             
             <div className="relative z-10 h-full flex items-center justify-center">
-              <div className="text-white font-bold text-xl tracking-wide flex flex-col items-center">
+              <div className="text-white font-bold text-lg md:text-xl tracking-wide flex flex-col items-center">
                 <motion.span 
-                  className="uppercase text-2xl tracking-widest"
+                  className="uppercase text-xl md:text-2xl tracking-widest"
                   animate={{ 
                     textShadow: ["0 0 5px rgba(0,200,255,0.5)", "0 0 15px rgba(0,200,255,0.8)", "0 0 5px rgba(0,200,255,0.5)"] 
                   }}
@@ -164,18 +164,18 @@ const StrengthConditioningSection = () => {
                 >
                   S&C Training
                 </motion.span>
-                <span className="text-sm mt-2 opacity-80 tracking-wider">PERFORMANCE PROGRAMS</span>
+                <span className="text-xs md:text-sm mt-2 opacity-80 tracking-wider">PERFORMANCE PROGRAMS</span>
               </div>
             </div>
           </motion.div>
           
-          <h3 className="text-2xl font-semibold mb-4 text-white tracking-wide">Elite S&C Training Programs</h3>
-          <p className="text-gray-300 leading-relaxed mb-4 font-light">UFTA offers specialized Strength and Conditioning (S&C) training programs designed for athletes, fitness enthusiasts, and aspiring S&C coaches. Our expert faculty, including renowned Sports & Exercise Scientists, deliver these programs both in-person at our state-of-the-art facilities and through comprehensive online modules.</p>
-          <p className="text-gray-300 leading-relaxed font-light">We focus on <span className="text-[#00c8ff] font-normal">evidence-based methodologies</span> to enhance athletic performance, prevent injuries, and optimize physical conditioning. Our training incorporates the latest research and practical techniques in sports science, ensuring you receive world-class coaching and education.</p>
+          <h3 className="text-xl md:text-2xl font-semibold mb-4 text-white tracking-wide">Elite S&C Training Programs</h3>
+          <p className="text-gray-300 leading-relaxed mb-4 font-light text-sm md:text-base">UFTA offers specialized Strength and Conditioning (S&C) training programs designed for athletes, fitness enthusiasts, and aspiring S&C coaches. Our expert faculty, including renowned Sports & Exercise Scientists, deliver these programs both in-person at our state-of-the-art facilities and through comprehensive online modules.</p>
+          <p className="text-gray-300 leading-relaxed font-light text-sm md:text-base">We focus on <span className="text-[#00c8ff] font-normal">evidence-based methodologies</span> to enhance athletic performance, prevent injuries, and optimize physical conditioning. Our training incorporates the latest research and practical techniques in sports science, ensuring you receive world-class coaching and education.</p>
         </motion.div>
         
         <motion.div 
-          className="bg-black/40 backdrop-blur-sm rounded-lg p-8 relative overflow-hidden border border-[#2A2A2A] group hover:border-[#00c8ff]/70 transition-all duration-300"
+          className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-8 relative overflow-hidden border border-[#2A2A2A] group hover:border-[#00c8ff]/70 transition-all duration-300"
           variants={scaleUp}
           whileHover={{ y: -5 }}
           style={{
@@ -195,20 +195,20 @@ const StrengthConditioningSection = () => {
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r rounded-br border-[#00c8ff]/50"></div>
           
           <motion.h3 
-            className="text-2xl font-semibold mb-4 text-white tracking-wide"
+            className="text-xl md:text-2xl font-semibold mb-4 text-white tracking-wide"
             variants={fadeInUp}
           >S&C Certification Courses</motion.h3>
           
-          <p className="text-gray-300 leading-relaxed mb-4 font-light">Become a certified Strength & Conditioning professional with UFTA. Our courses are designed to provide in-depth knowledge and practical skills.</p>
+          <p className="text-gray-300 leading-relaxed mb-4 font-light text-sm md:text-base">Become a certified Strength & Conditioning professional with UFTA. Our courses are designed to provide in-depth knowledge and practical skills.</p>
           
           <motion.div 
-            className="mb-6 p-5 bg-black/30 border border-[#2A2A2A] rounded-lg relative"
+            className="mb-6 p-4 md:p-5 bg-black/30 border border-[#2A2A2A] rounded-lg relative"
             variants={fadeInUp}
             custom={1}
           >
             <div className="absolute top-0 left-0 w-full h-full bg-[url('/circuit-pattern.svg')] opacity-5 pointer-events-none"></div>
             
-            <h4 className="font-semibold text-[#00c8ff] mb-3 flex items-center">
+            <h4 className="font-semibold text-[#00c8ff] mb-3 flex items-center text-sm md:text-base">
               <motion.span 
                 className="inline-block w-2 h-2 bg-[#00c8ff] mr-2 rounded-full"
                 animate={{ 
@@ -220,35 +220,43 @@ const StrengthConditioningSection = () => {
               Accredited Advanced Diploma in Strength and Conditioning (Level-6):
             </h4>
             
-            <ul className="list-none pl-4 text-gray-300 space-y-2 text-sm">
-              <li className="flex items-center">
-                <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70"></span>
-                <span className="text-white font-medium">Price:</span> 
-                <span className="ml-2">₹1,27,700</span>
+            <ul className="list-none pl-4 text-gray-300 space-y-2 text-xs md:text-sm">
+              <li className="flex items-start md:items-center">
+                <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70 mt-2 md:mt-0 flex-shrink-0"></span>
+                <div className="flex flex-col md:flex-row">
+                  <span className="text-white font-medium">Price:</span> 
+                  <span className="md:ml-2">₹1,27,700</span>
+                </div>
               </li>
-              <li className="flex items-center">
-                <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70"></span>
-                <span className="text-white font-medium">Duration:</span> 
-                <span className="ml-2">7 months (including 1-month compulsory internship)</span>
+              <li className="flex items-start md:items-center">
+                <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70 mt-2 md:mt-0 flex-shrink-0"></span>
+                <div className="flex flex-col md:flex-row">
+                  <span className="text-white font-medium">Duration:</span> 
+                  <span className="md:ml-2">7 months (including 1-month compulsory internship)</span>
+                </div>
               </li>
-              <li className="flex items-center">
-                <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70"></span>
-                <span className="text-white font-medium">Eligibility:</span> 
-                <span className="ml-2">Minimum 20 years of age, holder of Diploma in Fitness Training (NSQF Level 5) or two years of experience as a gym trainer</span>
+              <li className="flex items-start">
+                <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70 mt-2 flex-shrink-0"></span>
+                <div className="flex flex-col">
+                  <span className="text-white font-medium">Eligibility:</span> 
+                  <span className="mt-1 md:mt-0 md:ml-2">Minimum 20 years of age, holder of Diploma in Fitness Training (NSQF Level 5) or two years of experience as a gym trainer</span>
+                </div>
               </li>
-              <li className="flex items-center">
-                <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70"></span>
-                <span className="text-white font-medium">Mode:</span> 
-                <span className="ml-2">Offline & Online</span>
+              <li className="flex items-start md:items-center">
+                <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70 mt-2 md:mt-0 flex-shrink-0"></span>
+                <div className="flex flex-col md:flex-row">
+                  <span className="text-white font-medium">Mode:</span> 
+                  <span className="md:ml-2">Offline & Online</span>
+                </div>
               </li>
             </ul>
           </motion.div>
           
-          <p className="text-gray-300 leading-relaxed mb-6 font-light">Our S&C courses equip you to design and implement effective training programs for diverse populations, from amateur athletes to <span className="text-[#00c8ff] font-normal">elite competitors</span>.</p>
+          <p className="text-gray-300 leading-relaxed mb-6 font-light text-sm md:text-base">Our S&C courses equip you to design and implement effective training programs for diverse populations, from amateur athletes to <span className="text-[#00c8ff] font-normal">elite competitors</span>.</p>
           
           <motion.a 
             href="#contact-form" 
-            className="inline-flex items-center justify-center bg-transparent border border-[#00c8ff] text-white hover:bg-[#00c8ff]/10 px-6 py-2 rounded transition-all duration-300 group relative overflow-hidden"
+            className="inline-flex items-center justify-center bg-transparent border border-[#00c8ff] text-white hover:bg-[#00c8ff]/10 px-4 md:px-6 py-2 rounded transition-all duration-300 group relative overflow-hidden text-sm md:text-base"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >

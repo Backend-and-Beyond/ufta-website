@@ -8,15 +8,15 @@ const CertificationsSection = () => {
   return (
     <motion.section 
       id="propta" 
-      className="py-20"
+      className="py-12 md:py-20 px-4 md:px-6"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
       variants={fadeInUp}
     >
-      <div className="flex items-center justify-center mb-12">
+      <div className="flex flex-col items-center justify-center mb-8 md:mb-12">
         <motion.svg 
-          className="w-12 h-12 mr-4 text-[#00c8ff]" 
+          className="w-8 h-8 md:w-12 md:h-12 mb-4 md:mb-2 text-[#00c8ff]" 
           xmlns="http://www.w3.org/2000/svg" 
           fill="none" 
           viewBox="0 0 24 24" 
@@ -27,7 +27,7 @@ const CertificationsSection = () => {
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A11.978 11.978 0 0 1 12 16.5c-2.998 0-5.74-1.1-7.843-2.918m15.686-7.5A8.959 8.959 0 0 0 3 12c0 .778.099 1.533.284 2.253m0 0A11.978 11.978 0 0 0 12 16.5c2.998 0 5.74-1.1 7.843-2.918" />
         </motion.svg>
-        <h2 className="text-5xl font-bold text-white text-center relative group">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white text-center relative group">
           PROPTA USA <span className="text-[#00c8ff] inline-block relative">
             Certifications
             <motion.span 
@@ -40,15 +40,15 @@ const CertificationsSection = () => {
         </h2>
       </div>
       
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto">
         {/* Introduction & Badge Section */}
         <motion.div 
-          className="relative mb-16 flex flex-col md:flex-row items-center"
+          className="relative mb-12 md:mb-16 flex flex-col md:flex-row items-center"
           variants={staggerContainer}
         >
           {/* Globe Badge */}
           <motion.div 
-            className="relative w-full max-w-xs mx-auto md:mx-0 mb-10 md:mb-0 md:mr-12"
+            className="relative w-full max-w-xs mx-auto md:mx-0 mb-8 md:mb-0 md:mr-12"
             variants={fadeInUp}
             custom={1}
           >
@@ -59,7 +59,7 @@ const CertificationsSection = () => {
               whileHover={{ rotate: 10, scale: 1.05 }}
               transition={{ duration: 0.5 }}
             >
-              <svg className="w-36 h-36 text-[#00c8ff] opacity-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
+              <svg className="w-28 h-28 md:w-32 lg:w-36 md:h-32 lg:h-36 text-[#00c8ff] opacity-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
                 <circle cx="12" cy="12" r="10" opacity="0.5"/>
                 <circle cx="12" cy="12" r="6" opacity="0.7"/>
                 <path d="M12 2v2M12 20v2M2 12h2M20 12h2" opacity="0.8"/>
@@ -69,7 +69,7 @@ const CertificationsSection = () => {
             </motion.div>
             <div className="text-center mt-4">
               <motion.p 
-                className="text-2xl font-medium text-[#00c8ff] text-shadow-sm"
+                className="text-xl md:text-2xl font-medium text-[#00c8ff] text-shadow-sm"
                 variants={fadeInUp}
                 custom={2}
               >
@@ -96,7 +96,7 @@ const CertificationsSection = () => {
             variants={fadeInUp}
             custom={4}
           >
-            <div className="bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl p-8 relative overflow-hidden">
+            <div className="bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl p-6 md:p-8 relative overflow-hidden">
               {/* Animated Top Border */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-70">
                 <motion.div 

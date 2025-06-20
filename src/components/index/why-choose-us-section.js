@@ -30,7 +30,7 @@ const WhyChooseUsSection = () => {
 
   return (
     <motion.section
-      className="py-20 bg-[#0F0F0F] relative overflow-hidden"
+      className="py-12 md:py-20 bg-[#0F0F0F] relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -39,17 +39,17 @@ const WhyChooseUsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           variants={fadeInUp}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 font-poppins text-white"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 font-poppins text-white"
             variants={fadeInUp}
           >
             Why Choose Us
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-400 max-w-2xl mx-auto font-poppins"
+            className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto font-poppins"
             variants={fadeInUp}
           >
             Discover what makes UFTA the premier choice for fitness education and professional development
@@ -57,13 +57,13 @@ const WhyChooseUsSection = () => {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
           {/* Left Content - Features Grid */}
           <motion.div
             className="lg:col-span-2"
             variants={staggerContainer}
           >
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {[
                 {
                   icon: (
@@ -104,7 +104,7 @@ const WhyChooseUsSection = () => {
               ].map((feature, index) => (
                 <motion.div
                   key={index}
-                  className="bg-[#141414] border border-[#2A2A2A] p-6 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-300 group"
+                  className="bg-[#141414] border border-[#2A2A2A] p-4 md:p-6 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-300 group"
                   custom={index}
                   variants={contentCardVariant}
                   whileHover="hover"
@@ -122,7 +122,7 @@ const WhyChooseUsSection = () => {
                     {feature.icon}
                   </motion.div>
                   <motion.h3
-                    className="text-xl font-semibold mb-3 text-white font-poppins group-hover:text-[#00c8ff] transition-colors"
+                    className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white font-poppins group-hover:text-[#00c8ff] transition-colors"
                     initial={{ x: -20, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: index * 0.1 + 0.1, duration: 0.5 }}
@@ -131,7 +131,7 @@ const WhyChooseUsSection = () => {
                     {feature.title}
                   </motion.h3>
                   <motion.p
-                    className="text-gray-400 leading-relaxed font-poppins"
+                    className="text-gray-400 leading-relaxed font-poppins text-sm md:text-base"
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
@@ -146,7 +146,7 @@ const WhyChooseUsSection = () => {
 
           {/* Right Content - Images */}
           <motion.div
-            className="lg:col-span-1 space-y-6"
+            className="lg:col-span-1 space-y-4 md:space-y-6"
             variants={staggerContainer}
           >
             <motion.div
@@ -158,16 +158,16 @@ const WhyChooseUsSection = () => {
               <StaticImage
                 src="../../images/placeholder1.jpg"
                 alt="UFTA Training Facilities"
-                className="w-full h-64 object-cover"
+                className="w-full h-48 md:h-64 object-cover"
                 width={400}
                 height={250}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <h4 className="text-white font-semibold text-lg font-poppins mb-1">
+              <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
+                <h4 className="text-white font-semibold text-base md:text-lg font-poppins mb-1">
                   State-of-the-Art Facilities
                 </h4>
-                <p className="text-gray-300 text-sm font-poppins">
+                <p className="text-gray-300 text-xs md:text-sm font-poppins">
                   Modern training equipment and learning environments
                 </p>
               </div>
@@ -182,16 +182,16 @@ const WhyChooseUsSection = () => {
               <StaticImage
                 src="../../images/placeholder2.png"
                 alt="UFTA Expert Instructors"
-                className="w-full h-64 object-cover"
+                className="w-full h-48 md:h-64 object-cover"
                 width={400}
                 height={250}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <h4 className="text-white font-semibold text-lg font-poppins mb-1">
+              <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
+                <h4 className="text-white font-semibold text-base md:text-lg font-poppins mb-1">
                   Expert Instructors
                 </h4>
-                <p className="text-gray-300 text-sm font-poppins">
+                <p className="text-gray-300 text-xs md:text-sm font-poppins">
                   Learn from industry professionals and certified experts
                 </p>
               </div>

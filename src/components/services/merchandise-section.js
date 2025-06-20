@@ -50,7 +50,7 @@ const MerchandiseSection = () => {
   return (
     <motion.section 
       id="merchandise" 
-      className="py-16 relative"
+      className="py-12 md:py-16 relative"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
@@ -104,7 +104,7 @@ const MerchandiseSection = () => {
       </div>
 
       {/* Section header with animated icon */}
-      <div className="relative z-10 mb-12">
+      <div className="relative z-10 mb-8 md:mb-12 px-4 md:px-0">
         <div className="flex flex-col items-center justify-center">
           <motion.div 
             className="flex items-center justify-center mb-6"
@@ -113,13 +113,13 @@ const MerchandiseSection = () => {
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <svg className="w-12 h-12 mr-3 text-[#00c8ff]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+            <svg className="w-8 h-8 md:w-12 md:h-12 mr-3 text-[#00c8ff]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 3.545A2.25 2.25 0 0 0 10.5 1.5h-3A2.25 2.25 0 0 0 5.25 3.545m0 0v1.909A2.25 2.25 0 0 0 7.5 7.5h9A2.25 2.25 0 0 0 18.75 5.454V3.545m0 0h4.5m-4.5 0a2.25 2.25 0 0 1-2.25-2.25h-3a2.25 2.25 0 0 1-2.25 2.25m16.5 0H3.375" />
             </svg>
           </motion.div>
 
           <motion.div className="relative mb-1">
-            <h2 className="text-4xl font-bold text-white text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
               UFTA <span className="text-[#00c8ff]">Merchandise</span>
             </h2>
             
@@ -159,7 +159,7 @@ const MerchandiseSection = () => {
           </motion.div>
           
           <motion.p 
-            className="text-gray-300 text-center max-w-2xl mx-auto mt-4"
+            className="text-gray-300 text-center max-w-2xl mx-auto mt-4 text-sm md:text-base px-4 md:px-0"
             variants={animations.fadeInUp}
             custom={1}
           >
@@ -169,7 +169,7 @@ const MerchandiseSection = () => {
       </div>
       
       <motion.div 
-        className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-10 text-center hover:border-[#00c8ff] transition-all duration-300 relative overflow-hidden"
+        className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-4 md:p-10 text-center hover:border-[#00c8ff] transition-all duration-300 relative overflow-hidden mx-4 md:mx-0"
         variants={animations.fadeInUp}
         custom={2}
         onMouseMove={handleMouseMove}
@@ -191,7 +191,7 @@ const MerchandiseSection = () => {
         
         {/* Coming soon holographic display */}
         <motion.div 
-          className="w-full max-w-md mx-auto h-60 bg-gradient-to-r from-[#00c8ff]/20 to-purple-600/20 rounded-lg mb-10 flex items-center justify-center relative overflow-hidden backdrop-blur-sm border border-[#00c8ff]/30"
+          className="w-full max-w-md mx-auto h-48 md:h-60 bg-gradient-to-r from-[#00c8ff]/20 to-purple-600/20 rounded-lg mb-6 md:mb-10 flex items-center justify-center relative overflow-hidden backdrop-blur-sm border border-[#00c8ff]/30"
           animate={controls}
           style={{ backgroundSize: '200% 200%' }}
         >
@@ -209,7 +209,7 @@ const MerchandiseSection = () => {
           
           <div className="z-20 relative text-center">
             <motion.h3 
-              className="text-3xl font-bold text-white mb-2"
+              className="text-2xl md:text-3xl font-bold text-white mb-2"
               animate={{ 
                 textShadow: [
                   '0 0 5px rgba(0, 200, 255, 0.5)', 
@@ -222,7 +222,7 @@ const MerchandiseSection = () => {
               UFTA MERCH
             </motion.h3>
             <motion.div 
-              className="text-xl text-[#00c8ff] font-medium tracking-wider"
+              className="text-lg md:text-xl text-[#00c8ff] font-medium tracking-wider"
               animate={{ 
                 letterSpacing: ['0.1em', '0.15em', '0.1em'],
               }}
@@ -242,7 +242,7 @@ const MerchandiseSection = () => {
         </motion.div>
         
         <motion.h3 
-          className="text-2xl font-semibold mb-6 text-white relative inline-block"
+          className="text-xl md:text-2xl font-semibold mb-6 text-white relative inline-block"
           variants={animations.scaleUp}
           custom={3}
         >
@@ -257,7 +257,7 @@ const MerchandiseSection = () => {
         
         {/* Product showcase */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-8"
           variants={animations.staggerContainer}
           custom={4}
         >
@@ -283,8 +283,8 @@ const MerchandiseSection = () => {
                   UFTA
                 </motion.div>
               </div>
-              <h4 className="text-lg font-medium text-white mb-1">{item.name}</h4>
-              <p className="text-sm text-gray-300 mb-2">{item.description}</p>
+              <h4 className="text-base md:text-lg font-medium text-white mb-1">{item.name}</h4>
+              <p className="text-xs md:text-sm text-gray-300 mb-2">{item.description}</p>
               <motion.div 
                 className="absolute bottom-2 right-2 w-2 h-2 rounded-full bg-[#00c8ff]"
                 animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
@@ -295,12 +295,12 @@ const MerchandiseSection = () => {
         </motion.div>
         
         <motion.div 
-          className="mt-8 space-y-4 text-left"
+          className="mt-6 md:mt-8 space-y-4 text-left px-2 md:px-0"
           variants={animations.fadeInUp}
           custom={5}
         >
-          <p className="text-gray-300 leading-relaxed">Get ready to represent the Universal Fitness Training Academy spirit! Our exclusive line of UFTA merchandise will feature high-quality apparel, including performance activewear and comfortable casuals, along with essential fitness accessories like gym bags, water bottles, and more.</p>
-          <p className="text-gray-300 leading-relaxed">Each item is designed with cutting-edge technology and materials, embodying the quality and dedication that UFTA stands for.</p>
+          <p className="text-gray-300 leading-relaxed text-sm md:text-base">Get ready to represent the Universal Fitness Training Academy spirit! Our exclusive line of UFTA merchandise will feature high-quality apparel, including performance activewear and comfortable casuals, along with essential fitness accessories like gym bags, water bottles, and more.</p>
+          <p className="text-gray-300 leading-relaxed text-sm md:text-base">Each item is designed with cutting-edge technology and materials, embodying the quality and dedication that UFTA stands for.</p>
         </motion.div>
         
         {/* Notify button */}

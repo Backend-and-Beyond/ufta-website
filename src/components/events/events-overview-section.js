@@ -13,15 +13,15 @@ const EventsOverviewSection = () => {
   return (
     <motion.section 
       id="overview" 
-      className="py-16"
+      className="py-12 md:py-16 px-4 md:px-6"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
       variants={staggerContainer}
     >
       {/* Section Header with Background */}
-      <div className="relative mb-16">
-        <div className="absolute inset-0 bg-[#0A0A0A] h-40 -mx-4 sm:-mx-6 lg:-mx-8 z-0 overflow-hidden">
+      <div className="relative mb-8 md:mb-16">
+        <div className="absolute inset-0 bg-[#0A0A0A] h-32 md:h-40 -mx-4 sm:-mx-6 lg:-mx-8 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/10 to-transparent opacity-30"></div>
           <div className="absolute right-10 top-5 w-20 h-20 rounded-full bg-[#00c8ff]/5"></div>
           <div className="absolute left-1/4 bottom-0 w-16 h-16 rounded-full bg-[#00c8ff]/5"></div>
@@ -29,11 +29,11 @@ const EventsOverviewSection = () => {
         
         <div className="relative z-10 flex flex-col items-center">
           <motion.div 
-            className="bg-[#141414] border border-[#2A2A2A] p-3 rounded-full mb-5 shadow-lg"
+            className="bg-[#141414] border border-[#2A2A2A] p-2 md:p-3 rounded-full mb-3 md:mb-5 shadow-lg"
             variants={scaleIn}
           >
             <motion.svg 
-              className="w-10 h-10 text-[#00c8ff]" 
+              className="w-8 h-8 md:w-10 md:h-10 text-[#00c8ff]" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24" 
@@ -47,23 +47,23 @@ const EventsOverviewSection = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white text-center relative"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold text-white text-center relative"
             variants={fadeInUp}
           >
             Events <span className="text-[#00c8ff]">Overview</span>
-            <div className="h-1 w-24 bg-gradient-to-r from-[#00c8ff]/50 via-[#00c8ff] to-[#00c8ff]/50 mx-auto mt-4"></div>
+            <div className="h-1 w-16 md:w-24 bg-gradient-to-r from-[#00c8ff]/50 via-[#00c8ff] to-[#00c8ff]/50 mx-auto mt-2 md:mt-4"></div>
           </motion.h2>
         </div>
       </div>
       
-      <div className="grid lg:grid-cols-3 gap-8 relative">
+      <div className="grid lg:grid-cols-3 gap-6 md:gap-8 relative">
         {/* Decorative Elements */}
         <div className="absolute -left-20 top-1/4 w-40 h-40 bg-[#00c8ff]/5 rounded-full blur-3xl -z-10 opacity-50"></div>
         <div className="absolute -right-20 bottom-1/4 w-40 h-40 bg-[#00c8ff]/5 rounded-full blur-3xl -z-10 opacity-50"></div>
         
         {/* Main Content Card */}
         <motion.div 
-          className="lg:col-span-2 bg-[#141414] border border-[#2A2A2A] rounded-xl p-8 relative overflow-hidden shadow-xl"
+          className="lg:col-span-2 bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 md:p-6 lg:p-8 relative overflow-hidden shadow-xl"
           variants={cardVariant}
           whileHover={{ y: -5, transition: { duration: 0.3 } }}
         >
@@ -73,44 +73,44 @@ const EventsOverviewSection = () => {
           
           <div className="relative z-10">
             <motion.div
-              className="flex items-center mb-6"
+              className="flex items-center mb-4 md:mb-6"
               variants={fadeInUp}
             >
-              <span className="text-[#00c8ff] text-xl font-semibold mr-2">Since 2006</span>
+              <span className="text-[#00c8ff] text-lg md:text-xl font-semibold mr-2">Since 2006</span>
               <div className="h-0.5 bg-gradient-to-r from-[#00c8ff] to-transparent flex-grow"></div>
             </motion.div>
             
             <motion.h3 
-              className="text-2xl font-bold text-white mb-6"
+              className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6"
               variants={fadeInUp}
             >
               Knowledge Exchange & <span className="text-[#00c8ff]">Professional Development</span>
             </motion.h3>
             
-            <motion.div className="space-y-6" variants={staggerContainer}>
+            <motion.div className="space-y-4 md:space-y-6" variants={staggerContainer}>
               <motion.div 
-                className="relative pl-6 border-l-2 border-[#00c8ff]/30" 
+                className="relative pl-4 md:pl-6 border-l-2 border-[#00c8ff]/30" 
                 variants={fadeInUp}
               >
-                <p className="text-lg leading-relaxed text-gray-300">
+                <p className="text-base md:text-lg leading-relaxed text-gray-300">
                   Universal Fitness Training Academy (UFTA) is committed to advancing the field of sports and exercise science through continuous learning and knowledge exchange. Our events program, featuring workshops, conferences, seminars, and webinars, serves as a vital platform for fitness professionals, students, researchers, and enthusiasts to engage with the latest advancements, practical skills, and industry best practices.
                 </p>
               </motion.div>
               
               <motion.div 
-                className="relative pl-6 border-l-2 border-[#00c8ff]/30" 
+                className="relative pl-4 md:pl-6 border-l-2 border-[#00c8ff]/30" 
                 variants={fadeInUp}
               >
-                <p className="text-lg leading-relaxed text-gray-300">
+                <p className="text-base md:text-lg leading-relaxed text-gray-300">
                   Since our inception, UFTA has aimed to elevate the standards of fitness education in India. Our events are an extension of this mission, designed to disseminate evidence-based knowledge, foster professional development, and create invaluable networking opportunities.
                 </p>
               </motion.div>
               
               <motion.div 
-                className="relative pl-6 border-l-2 border-[#00c8ff]/30" 
+                className="relative pl-4 md:pl-6 border-l-2 border-[#00c8ff]/30" 
                 variants={fadeInUp}
               >
-                <p className="text-lg leading-relaxed text-gray-300">
+                <p className="text-base md:text-lg leading-relaxed text-gray-300">
                   Whether you're looking to acquire new practical skills, present your research, or connect with leaders in the fitness industry, UFTA's events offer a dynamic and enriching experience. Join us to stay at the cutting edge of fitness science and practice.
                 </p>
               </motion.div>
@@ -142,7 +142,7 @@ const EventsOverviewSection = () => {
         
         {/* Partners & Collaboration Card */}
         <motion.div 
-          className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-8 relative overflow-hidden shadow-xl"
+          className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 md:p-6 lg:p-8 relative overflow-hidden shadow-xl"
           variants={cardVariant}
           whileHover={{ y: -5, transition: { duration: 0.3 } }}
         >
@@ -151,11 +151,11 @@ const EventsOverviewSection = () => {
           
           <div className="relative z-10">
             <motion.h3 
-              className="text-xl font-bold text-white mb-6 flex items-center"
+              className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 flex items-center"
               variants={fadeInUp}
             >
-              <span className="w-8 h-8 bg-[#00c8ff] rounded-full flex items-center justify-center text-black mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <span className="w-6 h-6 md:w-8 md:h-8 bg-[#00c8ff] rounded-full flex items-center justify-center text-black mr-2 md:mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
                 </svg>
               </span>
@@ -163,13 +163,13 @@ const EventsOverviewSection = () => {
             </motion.h3>
             
             <motion.p 
-              className="text-gray-300 text-sm mb-6"
+              className="text-gray-300 text-sm mb-4 md:mb-6"
               variants={fadeInUp}
             >
               We partner with leading institutions to bring world-class expertise to our events:
             </motion.p>
             
-            <motion.ul className="space-y-5" variants={staggerContainer}>
+            <motion.ul className="space-y-3 md:space-y-5" variants={staggerContainer}>
               {[
                 {
                   name: "Academic Partners",
@@ -221,18 +221,18 @@ const EventsOverviewSection = () => {
             </motion.ul>
             
             <motion.div 
-              className="mt-8 p-4 bg-[#1A1A1A] rounded-lg border border-[#2A2A2A]"
+              className="mt-6 md:mt-8 p-3 md:p-4 bg-[#1A1A1A] rounded-lg border border-[#2A2A2A]"
               variants={fadeInUp}
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#00c8ff]/20 flex items-center justify-center flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#00c8ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#00c8ff]/20 flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-6 md:w-6 text-[#00c8ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">Explore Our Events</h4>
-                  <p className="text-sm text-gray-400">Workshops, conferences, and more</p>
+                  <h4 className="font-semibold text-white text-sm md:text-base">Explore Our Events</h4>
+                  <p className="text-xs md:text-sm text-gray-400">Workshops, conferences, and more</p>
                 </div>
               </div>
             </motion.div>
@@ -242,7 +242,7 @@ const EventsOverviewSection = () => {
       
       {/* Event Types Cards */}
       <motion.div 
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
+        className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-6 md:mt-8"
         variants={staggerContainer}
       >
         {[
@@ -253,14 +253,14 @@ const EventsOverviewSection = () => {
         ].map((item, index) => (
           <motion.div 
             key={index}
-            className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-5 text-center group hover:border-[#00c8ff] transition-colors duration-300 flex flex-col items-center"
+            className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-3 md:p-5 text-center group hover:border-[#00c8ff] transition-colors duration-300 flex flex-col items-center"
             variants={cardVariant}
             whileHover={{ y: -5, transition: { duration: 0.3 } }}
           >
-            <div className="w-12 h-12 rounded-full bg-[#1A1A1A] flex items-center justify-center mb-3 group-hover:bg-[#00c8ff]/10 transition-colors duration-300">
+            <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#1A1A1A] flex items-center justify-center mb-2 md:mb-3 group-hover:bg-[#00c8ff]/10 transition-colors duration-300">
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                className="h-6 w-6 text-[#00c8ff]" 
+                className="h-4 w-4 md:h-6 md:w-6 text-[#00c8ff]" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
@@ -268,7 +268,7 @@ const EventsOverviewSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.icon} />
               </svg>
             </div>
-            <span className="text-sm font-medium text-white group-hover:text-[#00c8ff] transition-colors duration-300">{item.label}</span>
+            <span className="text-xs md:text-sm font-medium text-white group-hover:text-[#00c8ff] transition-colors duration-300">{item.label}</span>
           </motion.div>
         ))}
       </motion.div>

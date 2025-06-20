@@ -18,7 +18,7 @@ const NutritionalCounsellingSection = () => {
   return (
     <motion.section
       id="nutritional-counselling"
-      className="py-16 relative"
+      className="py-12 md:py-16 relative"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
@@ -63,14 +63,14 @@ const NutritionalCounsellingSection = () => {
       </div>
 
       {/* Section header with animated icon */}
-      <div className="relative z-10 mb-12">
+      <div className="relative z-10 mb-8 md:mb-12">
         <div className="flex flex-col items-center justify-center">
           <motion.div
             className="flex items-center justify-center mb-6"
             animate={controls}
           >
             <motion.svg
-              className="w-12 h-12 mr-3 text-[#00c8ff]"
+              className="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 text-[#00c8ff]"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -89,7 +89,7 @@ const NutritionalCounsellingSection = () => {
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-white text-center relative tracking-wider"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative tracking-wider"
             variants={animations.slideInLeft}
           >
             Online/Offline Nutritional{" "}

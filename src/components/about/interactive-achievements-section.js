@@ -90,27 +90,27 @@ const InteractiveAchievementsSection = () => {
 
   return (
     <motion.section 
-      className="py-20 bg-gradient-to-b from-transparent to-[#0a0a0a]/50"
+      className="py-12 md:py-20 px-4 md:px-6 bg-gradient-to-b from-transparent to-[#0a0a0a]/50"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={staggerContainer}
     >
       <motion.div 
-        className="text-center mb-16"
+        className="text-center mb-8 md:mb-16"
         variants={gentleFadeUp}
       >
-        <h2 className="text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
           Recognition <span className="text-[#00c8ff]">Timeline</span>
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto">
+        <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base px-4">
           Key milestones in UFTA's journey toward academic excellence and university partnerships
         </p>
       </motion.div>
 
       {/* Interactive Achievement Cards */}
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16"
         variants={staggerContainer}
       >
         {achievementBadges.map((badge, index) => (
@@ -128,28 +128,28 @@ const InteractiveAchievementsSection = () => {
 
       {/* Impact Statistics */}
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-4 gap-6"
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
         variants={staggerContainer}
       >
         {impactStats.map((stat, index) => (
           <motion.div
             key={index}
-            className="text-center p-6 bg-gradient-to-b from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl"
+            className="text-center p-4 md:p-6 bg-gradient-to-b from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl"
             variants={cardVariant}
             whileHover={{ y: -5, scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="text-4xl font-bold mb-2"
+              className="text-2xl md:text-4xl font-bold mb-1 md:mb-2"
               style={{ color: stat.color }}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
               {stat.number}
             </motion.div>
-            <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
+            <div className="text-gray-400 text-xs md:text-sm font-medium">{stat.label}</div>
             <motion.div
-              className="w-full h-1 rounded-full mt-3"
+              className="w-full h-0.5 md:h-1 rounded-full mt-2 md:mt-3"
               style={{ backgroundColor: `${stat.color}20` }}
             >
               <motion.div

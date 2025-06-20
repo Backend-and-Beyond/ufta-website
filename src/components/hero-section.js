@@ -17,7 +17,7 @@ const HeroSection = () => {
   };
 
   const slideInLeft = {
-    hidden: { opacity: 0, x: -60 },
+    hidden: { opacity: 0, x: -30 },
     visible: {
       opacity: 1,
       x: 0,
@@ -26,7 +26,7 @@ const HeroSection = () => {
   };
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -49,7 +49,7 @@ const HeroSection = () => {
 
       {/* Hero Image with improved overlay */}
       <motion.div
-        className="absolute right-0 top-0 w-1/2 md:w-3/5 h-full z-10"
+        className="absolute right-0 top-0 w-full sm:w-2/3 md:w-3/5 h-full z-10"
         initial="hidden"
         animate="visible"
         variants={imageVariants}
@@ -65,14 +65,14 @@ const HeroSection = () => {
         />
 
         {/* Radial gradient for a subtle glow effect around the edge of the image */}
-        <div className="absolute -left-24 inset-y-0 w-24 z-20 bg-gradient-to-r from-[#0A0A0A] to-transparent"></div>
+        <div className="absolute -left-12 sm:-left-24 inset-y-0 w-12 sm:w-24 z-20 bg-gradient-to-r from-[#0A0A0A] to-transparent"></div>
 
         {/* Semi-transparent overlay on top of the hero image for better text readability */}
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/30 to-[#0A0A0A]/10"></div>
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 sm:via-[#0A0A0A]/30 to-[#0A0A0A]/60 sm:to-[#0A0A0A]/10"></div>
 
         {/* Top & bottom gradients */}
-        <div className="absolute inset-x-0 top-0 h-24 z-30 bg-gradient-to-b from-[#0A0A0A] to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-24 z-30 bg-gradient-to-t from-[#0A0A0A] to-transparent"></div>
+        <div className="absolute inset-x-0 top-0 h-16 sm:h-24 z-30 bg-gradient-to-b from-[#0A0A0A] to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 z-30 bg-gradient-to-t from-[#0A0A0A] to-transparent"></div>
 
         {/* Subtle sci-fi glow overlay */}
         <div className="absolute inset-0 z-20 opacity-30 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 mix-blend-overlay"></div>
@@ -81,20 +81,23 @@ const HeroSection = () => {
       {/* Content Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pt-20">
         <motion.div
-          className="max-w-5xl ml-8 md:ml-16 lg:ml-24"
+          className="max-w-full sm:max-w-5xl mx-auto sm:mx-0 sm:ml-4 md:ml-16 lg:ml-24"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
           <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6 text-white font-poppins leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white font-poppins leading-tight text-center sm:text-left"
             variants={slideInLeft}
           >
-            Universal Fitness {" "}
-            <span className="highlight-text"><br></br>Training Academy</span>
+            Universal Fitness{" "}
+            <span className="highlight-text">
+              <br className="hidden sm:block" />
+              Training Academy
+            </span>
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-300 mb-8 font-poppins leading-relaxed"
+            className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 font-poppins leading-relaxed text-center sm:text-left max-w-lg sm:max-w-none mx-auto sm:mx-0"
             variants={fadeInUp}
           >
             Elite training and certifications with
@@ -103,7 +106,7 @@ const HeroSection = () => {
             </span>{" "}
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6"
+            className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-6"
             variants={fadeInUp}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

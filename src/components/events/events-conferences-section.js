@@ -36,7 +36,7 @@ const EventsConferencesSection = () => {
   return (
     <motion.section
       id="conferences"
-      className="py-20 relative"
+      className="py-12 md:py-20 px-4 md:px-6 relative"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -49,22 +49,22 @@ const EventsConferencesSection = () => {
       </div>
 
       {/* Section Header */}
-      <div className="relative mb-16">
-        <div className="absolute inset-0 bg-[#0A0A0A] h-48 -mx-4 sm:-mx-6 lg:-mx-8 z-0 overflow-hidden">
+      <div className="relative mb-8 md:mb-16">
+        <div className="absolute inset-0 bg-[#0A0A0A] h-36 md:h-48 -mx-4 sm:-mx-6 lg:-mx-8 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-[#00c8ff]/10 opacity-40"></div>
           <div className="absolute right-1/3 top-8 w-20 h-20 rounded-full bg-purple-500/10"></div>
           <div className="absolute left-1/3 bottom-8 w-16 h-16 rounded-full bg-[#00c8ff]/10"></div>
           <div className="absolute right-10 bottom-1/2 w-12 h-12 border border-purple-500/20 rounded-full"></div>
         </div>
 
-        <div className="relative z-10 flex flex-col items-center pt-6">
+        <div className="relative z-10 flex flex-col items-center pt-4 md:pt-6">
           <motion.div
-            className="bg-gradient-to-r from-purple-500/20 to-[#00c8ff]/20 p-0.5 rounded-full mb-5 shadow-lg"
+            className="bg-gradient-to-r from-purple-500/20 to-[#00c8ff]/20 p-0.5 rounded-full mb-3 md:mb-5 shadow-lg"
             variants={scaleIn}
           >
-            <div className="bg-[#0A0A0A] p-4 rounded-full">
+            <div className="bg-[#0A0A0A] p-3 md:p-4 rounded-full">
               <motion.svg
-                className="w-12 h-12 text-purple-400"
+                className="w-8 h-8 md:w-12 md:h-12 text-purple-400"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -83,16 +83,16 @@ const EventsConferencesSection = () => {
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-white text-center relative"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold text-white text-center relative"
             variants={fadeInUp}
           >
             <span className="text-purple-400">International</span>{" "}
             <span>Conferences</span>
-            <div className="h-1 w-40 bg-gradient-to-r from-purple-400 via-purple-500 to-[#00c8ff] mx-auto mt-4"></div>
+            <div className="h-1 w-24 md:w-40 bg-gradient-to-r from-purple-400 via-purple-500 to-[#00c8ff] mx-auto mt-2 md:mt-4"></div>
           </motion.h2>
 
           <motion.p
-            className="text-center text-xl leading-relaxed mt-6 text-gray-300 max-w-3xl"
+            className="text-center text-lg md:text-xl leading-relaxed mt-4 md:mt-6 text-gray-300 max-w-3xl px-4"
             variants={fadeInUp}
           >
             Join global leaders in sports science and exercise research at our
@@ -103,13 +103,13 @@ const EventsConferencesSection = () => {
 
       {/* Conference Cards */}
       <motion.div
-        className="space-y-8 max-w-5xl mx-auto relative"
+        className="space-y-6 md:space-y-8 max-w-5xl mx-auto relative"
         variants={staggerContainer}
       >
         {conferences.map((conference, index) => (
           <motion.div
             key={index}
-            className="bg-gradient-to-br from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-8 md:p-10 shadow-xl relative overflow-hidden group hover:border-purple-400/60 transition-all duration-500"
+            className="bg-gradient-to-br from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-4 md:p-6 lg:p-8 xl:p-10 shadow-xl relative overflow-hidden group hover:border-purple-400/60 transition-all duration-500"
             variants={cardVariant}
             whileHover={{ y: -8, scale: 1.01 }}
             transition={{ duration: 0.4 }}
@@ -123,11 +123,11 @@ const EventsConferencesSection = () => {
 
             <div className="relative z-10">
               {/* Conference Badge */}
-              <div className="flex items-center justify-between mb-6">
-                <span className="inline-block px-4 py-2 text-sm font-medium bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 gap-3">
+                <span className="inline-block px-3 md:px-4 py-2 text-xs md:text-sm font-medium bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20 w-fit">
                   {index === 0 ? "Annual Conference" : "National Symposium"}
                 </span>
-                <div className="flex space-x-2">
+                <div className="flex space-x-2 overflow-x-auto">
                   {[
                     {
                       label: "Presentations",
@@ -146,10 +146,10 @@ const EventsConferencesSection = () => {
                       icon: "M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z",
                     },
                   ].map((item, itemIndex) => (
-                    <div key={itemIndex} className="group/item relative">
-                      <div className="w-8 h-8 rounded-full bg-purple-400/10 flex items-center justify-center">
+                    <div key={itemIndex} className="group/item relative flex-shrink-0">
+                      <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-purple-400/10 flex items-center justify-center">
                         <svg
-                          className="w-4 h-4 text-purple-400"
+                          className="w-3 h-3 md:w-4 md:h-4 text-purple-400"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -163,7 +163,7 @@ const EventsConferencesSection = () => {
                           />
                         </svg>
                       </div>
-                      <span className="text-xs font-medium text-gray-300">
+                      <span className="text-xs font-medium text-gray-300 mt-1 block text-center">
                         {item.label}
                       </span>
                     </div>
@@ -172,14 +172,14 @@ const EventsConferencesSection = () => {
               </div>
 
               {/* Conference Title */}
-              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-purple-400 transition-colors duration-300">
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition-colors duration-300">
                 {conference.title}
               </h3>
 
               {/* Conference Date */}
-              <p className="text-sm text-gray-400 mb-4 font-medium flex items-center">
+              <p className="text-xs md:text-sm text-gray-400 mb-3 md:mb-4 font-medium flex items-center">
                 <svg
-                  className="w-4 h-4 mr-2 text-purple-400"
+                  className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-purple-400 flex-shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -194,20 +194,20 @@ const EventsConferencesSection = () => {
               </p>
 
               {/* Conference Description */}
-              <p className="text-gray-300 mb-5 text-base leading-relaxed">
+              <p className="text-gray-300 mb-4 md:mb-5 text-sm md:text-base leading-relaxed">
                 {conference.description}
               </p>
 
               {/* Conference Features List */}
-              <div className="bg-[#0A0A0A]/80 border border-[#2A2A2A] rounded-lg p-4 mb-6">
-                <h4 className="text-purple-400 font-semibold mb-3">
+              <div className="bg-[#0A0A0A]/80 border border-[#2A2A2A] rounded-lg p-3 md:p-4 mb-4 md:mb-6">
+                <h4 className="text-purple-400 font-semibold mb-2 md:mb-3 text-sm md:text-base">
                   Key Information
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 md:space-y-3">
                   {conference.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start">
                       <svg
-                        className="w-5 h-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5"
+                        className="w-4 h-4 md:w-5 md:h-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -218,14 +218,14 @@ const EventsConferencesSection = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-gray-300 text-sm">{detail}</span>
+                      <span className="text-gray-300 text-xs md:text-sm">{detail}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Conference Features Icons */}
-              <div className="grid grid-cols-4 gap-4 mb-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
                 {[
                   {
                     label: "Keynotes",
@@ -245,9 +245,9 @@ const EventsConferencesSection = () => {
                   },
                 ].map((item, index) => (
                   <div key={index} className="text-center group/icon">
-                    <div className="w-8 h-8 rounded-full bg-purple-400/10 flex items-center justify-center mx-auto mb-2 group-hover/icon:bg-purple-400/20 transition-colors duration-300">
+                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-purple-400/10 flex items-center justify-center mx-auto mb-1 md:mb-2 group-hover/icon:bg-purple-400/20 transition-colors duration-300">
                       <svg
-                        className="w-4 h-4 text-purple-400"
+                        className="w-3 h-3 md:w-4 md:h-4 text-purple-400"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -269,10 +269,10 @@ const EventsConferencesSection = () => {
               </div>
 
               {/* Bottom Action Buttons */}
-              <div className="mt-auto flex flex-col sm:flex-row gap-3">
+              <div className="mt-auto flex flex-col gap-2 md:gap-3">
                 <motion.a
                   href="#contact"
-                  className="flex-1 inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-sm text-center"
+                  className="flex-1 inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition duration-300 text-xs md:text-sm text-center"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -282,7 +282,7 @@ const EventsConferencesSection = () => {
                 </motion.a>
                 <motion.a
                   href="/submit-abstract"
-                  className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-purple-400/30 text-gray-300 hover:text-purple-400 font-medium py-3 px-6 rounded-lg transition duration-300 text-sm text-center"
+                  className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-purple-400/30 text-gray-300 hover:text-purple-400 font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition duration-300 text-xs md:text-sm text-center"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -295,7 +295,7 @@ const EventsConferencesSection = () => {
       </motion.div>
 
       {/* View All Conferences Button */}
-      <motion.div className="flex justify-center mt-12" variants={fadeInUp}>
+      <motion.div className="flex justify-center mt-8 md:mt-12" variants={fadeInUp}>
         {/*         <motion.a 
           href="/conferences" 
           className="inline-flex items-center gap-2 px-8 py-3 bg-[#141414] border border-[#2A2A2A] hover:border-purple-400 rounded-lg text-white hover:text-purple-400 transition-all duration-300 group"

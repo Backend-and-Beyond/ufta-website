@@ -10,7 +10,7 @@ const EliteTrainingProgramsSection = () => {
 
   return (
     <motion.section
-      className="py-20"
+      className="py-12 md:py-20"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -18,13 +18,13 @@ const EliteTrainingProgramsSection = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          className="text-3xl font-bold section-heading mb-12 font-poppins"
+          className="text-2xl md:text-3xl font-bold section-heading mb-8 md:mb-12 font-poppins text-center md:text-left"
           variants={fadeInUp}
         >
           Elite Training Programs
         </motion.h2>
-        <motion.div className="mb-8" variants={fadeInUp}>
-          <p className="text-gray-300 font-poppins">
+        <motion.div className="mb-6 md:mb-8" variants={fadeInUp}>
+          <p className="text-gray-300 font-poppins text-sm md:text-base text-center md:text-left leading-relaxed">
             At UFTA, we take pride in offering exceptional fitness education and
             training programs that set the industry standard. Our courses blend
             cutting-edge science with practical application, creating fitness
@@ -32,7 +32,7 @@ const EliteTrainingProgramsSection = () => {
           </p>
         </motion.div>
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           variants={staggerContainer}
         >
           <motion.div
@@ -49,12 +49,12 @@ const EliteTrainingProgramsSection = () => {
                   height={250}
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 font-poppins">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
                   Personal{" "}
                   <span className="highlight-text">Training Certification</span>
                 </h3>
-                <p className="text-gray-400 mb-4 font-poppins">
+                <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
                   Comprehensive certification program that transforms passionate
                   fitness enthusiasts into professional personal trainers ready
                   for industry success.
@@ -63,7 +63,7 @@ const EliteTrainingProgramsSection = () => {
                   View Details →
                 </Link> */}
               </div>
-              <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-xs px-3 py-1 rounded-sm border border-[#00c8ff]/30">
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
                 <span className="text-[#00c8ff]">Level 5</span>
               </div>
             </div>
@@ -82,12 +82,12 @@ const EliteTrainingProgramsSection = () => {
                   height={250}
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 font-poppins">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
                   Strength &{" "}
                   <span className="highlight-text">Conditioning</span>
                 </h3>
-                <p className="text-gray-400 mb-4 font-poppins">
+                <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
                   Advanced training in scientific principles and techniques to
                   maximize athletic performance through proper strength and
                   conditioning methodologies.
@@ -96,7 +96,7 @@ const EliteTrainingProgramsSection = () => {
                   View Details →
                 </Link> */}
               </div>
-              <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-xs px-3 py-1 rounded-sm border border-[#00c8ff]/30">
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
                 <span className="text-[#00c8ff]">Advanced</span>
               </div>
             </div>
@@ -115,11 +115,11 @@ const EliteTrainingProgramsSection = () => {
                   height={250}
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 font-poppins">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
                   Sports <span className="highlight-text">Nutrition</span>
                 </h3>
-                <p className="text-gray-400 mb-4 font-poppins">
+                <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
                   Evidence-based nutritional strategies to enhance athletic
                   performance, optimize recovery, and promote long-term health
                   and wellness.
@@ -128,13 +128,13 @@ const EliteTrainingProgramsSection = () => {
                   View Details →
                 </Link> */}
               </div>
-              <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-xs px-3 py-1 rounded-sm border border-[#00c8ff]/30">
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
                 <span className="text-[#00c8ff]">Specialized</span>
               </div>
             </div>
           </motion.div>
         </motion.div>
-        <motion.div className="text-right mt-6" variants={fadeInUp}>
+        <motion.div className="text-center md:text-right mt-4 md:mt-6" variants={fadeInUp}>
           {/*  <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
             View All Programs →
           </Link> */}

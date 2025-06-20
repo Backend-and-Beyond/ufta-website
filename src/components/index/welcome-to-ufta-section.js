@@ -79,7 +79,7 @@ const WelcomeToUftaSection = () => {
 
   return (
     <motion.section
-      className="py-20 bg-[#0F0F0F] relative overflow-hidden"
+      className="py-12 md:py-20 px-4 md:px-6 bg-[#0F0F0F] relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -88,28 +88,28 @@ const WelcomeToUftaSection = () => {
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
-          className="absolute top-10 left-10 w-20 h-20 border border-[#00c8ff]"
+          className="absolute top-5 md:top-10 left-5 md:left-10 w-12 h-12 md:w-20 md:h-20 border border-[#00c8ff]"
           custom={0}
           variants={backgroundElementVariant}
           initial="hidden"
           animate="visible"
         ></motion.div>
         <motion.div
-          className="absolute bottom-20 right-20 w-32 h-32 border border-[#00c8ff]/30"
+          className="absolute bottom-10 md:bottom-20 right-10 md:right-20 w-20 h-20 md:w-32 md:h-32 border border-[#00c8ff]/30"
           custom={1}
           variants={backgroundElementVariant}
           initial="hidden"
           animate="visible"
         ></motion.div>
         <motion.div
-          className="absolute top-1/2 left-1/4 w-16 h-16 border border-[#00c8ff]/20"
+          className="absolute top-1/2 left-1/4 w-10 h-10 md:w-16 md:h-16 border border-[#00c8ff]/20"
           custom={2}
           variants={backgroundElementVariant}
           initial="hidden"
           animate="visible"
         ></motion.div>
         <motion.div
-          className="absolute top-1/3 right-1/3 w-12 h-12 border border-[#00c8ff]/10"
+          className="absolute top-1/3 right-1/3 w-8 h-8 md:w-12 md:h-12 border border-[#00c8ff]/10"
           custom={3}
           variants={backgroundElementVariant}
           initial="hidden"
@@ -117,14 +117,14 @@ const WelcomeToUftaSection = () => {
         ></motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto relative">
         {/* Enhanced Header Section */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           variants={staggerContainer}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 font-poppins bg-gradient-to-r from-white via-[#00c8ff] to-white bg-clip-text text-transparent"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 font-poppins bg-gradient-to-r from-white via-[#00c8ff] to-white bg-clip-text text-transparent"
             variants={floatVariant}
             whileHover={{
               scale: 1.05,
@@ -134,14 +134,14 @@ const WelcomeToUftaSection = () => {
             Welcome to UFTA
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mx-auto mb-6"
+            className="w-20 md:w-24 h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mx-auto mb-4 md:mb-6"
             variants={floatVariant}
             initial={{ width: 0 }}
             whileInView={{ width: 96 }}
             transition={{ duration: 1, delay: 0.5 }}
           ></motion.div>
           <motion.p
-            className="text-xl text-gray-400 max-w-3xl mx-auto font-poppins"
+            className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto font-poppins px-4"
             variants={floatVariant}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ const WelcomeToUftaSection = () => {
 
         {/* Enhanced Stats Section with Counter Animation */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16"
           variants={staggerContainer}
         >
           {[
@@ -164,7 +164,7 @@ const WelcomeToUftaSection = () => {
           ].map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center bg-[#141414] border border-[#2A2A2A] p-6 rounded-lg hover:border-[#00c8ff]/50 transition-all duration-300 group relative overflow-hidden"
+              className="text-center bg-[#141414] border border-[#2A2A2A] p-4 md:p-6 rounded-lg hover:border-[#00c8ff]/50 transition-all duration-300 group relative overflow-hidden"
               custom={index}
               variants={statsCounterVariant}
               whileHover={{
@@ -181,7 +181,7 @@ const WelcomeToUftaSection = () => {
                 initial={false}
               />
               <motion.div
-                className="text-3xl md:text-4xl font-bold text-[#00c8ff] mb-2 font-poppins group-hover:scale-110 transition-transform duration-300 relative z-10"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00c8ff] mb-1 md:mb-2 font-poppins group-hover:scale-110 transition-transform duration-300 relative z-10"
                 initial={{ opacity: 0, scale: 0, rotateY: -180 }}
                 whileInView={{
                   opacity: 1,
@@ -199,7 +199,7 @@ const WelcomeToUftaSection = () => {
                 {stat.number}
               </motion.div>
               <motion.div
-                className="text-gray-400 text-sm font-poppins relative z-10"
+                className="text-gray-400 text-xs md:text-sm font-poppins relative z-10"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: stat.delay + 0.5, duration: 0.5 }}
@@ -213,12 +213,12 @@ const WelcomeToUftaSection = () => {
 
         {/* Enhanced Content Grid */}
         <motion.div
-          className="grid lg:grid-cols-2 gap-12 items-start mb-12"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start mb-8 md:mb-12"
           variants={staggerContainer}
         >
           {/* Left Content */}
           <motion.div
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
             variants={staggerContainer}
           >
             {[
@@ -233,7 +233,7 @@ const WelcomeToUftaSection = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-[#141414] border border-[#2A2A2A] p-8 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-500 relative overflow-hidden group"
+                className="bg-[#141414] border border-[#2A2A2A] p-4 md:p-8 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-500 relative overflow-hidden group"
                 custom={index}
                 variants={contentCardVariant}
                 whileHover="hover"
@@ -248,7 +248,7 @@ const WelcomeToUftaSection = () => {
                   transition={{ duration: 0.5 }}
                 />
                 <motion.h3
-                  className="text-2xl font-bold mb-4 text-[#00c8ff] font-poppins relative z-10"
+                  className="text-lg md:text-2xl font-bold mb-3 md:mb-4 text-[#00c8ff] font-poppins relative z-10"
                   initial={{ x: -20, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.2, duration: 0.6 }}
@@ -257,7 +257,7 @@ const WelcomeToUftaSection = () => {
                   {item.title}
                 </motion.h3>
                 <motion.p
-                  className="text-gray-300 leading-relaxed font-poppins relative z-10"
+                  className="text-gray-300 leading-relaxed font-poppins relative z-10 text-sm md:text-base"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
@@ -271,7 +271,7 @@ const WelcomeToUftaSection = () => {
 
           {/* Right Content */}
           <motion.div
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
             variants={staggerContainer}
           >
             {[
@@ -286,7 +286,7 @@ const WelcomeToUftaSection = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-[#141414] border border-[#2A2A2A] p-8 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-500 relative overflow-hidden group"
+                className="bg-[#141414] border border-[#2A2A2A] p-4 md:p-8 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-500 relative overflow-hidden group"
                 custom={index + 2}
                 variants={contentCardVariant}
                 whileHover="hover"
@@ -301,7 +301,7 @@ const WelcomeToUftaSection = () => {
                   transition={{ duration: 0.5 }}
                 />
                 <motion.h3
-                  className="text-2xl font-bold mb-4 text-[#00c8ff] font-poppins relative z-10"
+                  className="text-lg md:text-2xl font-bold mb-3 md:mb-4 text-[#00c8ff] font-poppins relative z-10"
                   initial={{ x: 20, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
@@ -310,7 +310,7 @@ const WelcomeToUftaSection = () => {
                   {item.title}
                 </motion.h3>
                 <motion.p
-                  className="text-gray-300 leading-relaxed font-poppins relative z-10"
+                  className="text-gray-300 leading-relaxed font-poppins relative z-10 text-sm md:text-base"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}

@@ -46,7 +46,7 @@ const GetInTouchSection = () => {
   return (
     <motion.section
       id="contact"
-      className="py-20 bg-[#0F0F0F] relative overflow-hidden"
+      className="py-12 md:py-20 bg-[#0F0F0F] relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -55,17 +55,17 @@ const GetInTouchSection = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
-          className="absolute top-10 left-10 w-20 h-20 border border-[#00c8ff]"
+          className="absolute top-6 left-6 md:top-10 md:left-10 w-16 h-16 md:w-20 md:h-20 border border-[#00c8ff]"
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         ></motion.div>
         <motion.div
-          className="absolute bottom-20 right-20 w-32 h-32 border border-[#00c8ff]/30"
+          className="absolute bottom-12 right-12 md:bottom-20 md:right-20 w-20 h-20 md:w-32 md:h-32 border border-[#00c8ff]/30"
           animate={{ rotate: -360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         ></motion.div>
         <motion.div
-          className="absolute top-1/2 left-1/4 w-16 h-16 border border-[#00c8ff]/20"
+          className="absolute top-1/2 left-1/4 w-12 h-12 md:w-16 md:h-16 border border-[#00c8ff]/20"
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         ></motion.div>
@@ -74,11 +74,11 @@ const GetInTouchSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           variants={staggerContainer}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 font-poppins bg-gradient-to-r from-white via-[#00c8ff] to-white bg-clip-text text-transparent"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 font-poppins bg-gradient-to-r from-white via-[#00c8ff] to-white bg-clip-text text-transparent"
             variants={floatVariant}
             whileHover={{
               scale: 1.02,
@@ -95,7 +95,7 @@ const GetInTouchSection = () => {
             transition={{ duration: 1, delay: 0.5 }}
           ></motion.div>
           <motion.p
-            className="text-xl text-gray-400 max-w-3xl mx-auto font-poppins"
+            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-poppins"
             variants={floatVariant}
           >
             Ready to transform your fitness career? Connect with our expert team and take the first step towards excellence.
@@ -104,12 +104,12 @@ const GetInTouchSection = () => {
 
         {/* Contact Cards Grid */}
         <motion.div
-          className="flex flex-col md:flex-row gap-8 mb-16 justify-center items-center md:items-stretch w-full"
+          className="flex flex-col md:flex-row gap-6 md:gap-8 mb-12 md:mb-16 justify-center items-center md:items-stretch w-full"
           variants={staggerContainer}
         >
           {/* Phone Contact Card */}
           <motion.div
-            className="bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
+            className="bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
             variants={contentCardVariant}
             whileHover="hover"
             initial="hidden"
@@ -140,7 +140,7 @@ const GetInTouchSection = () => {
               Call Us
             </motion.h3>
             <motion.p
-              className="text-gray-300 mb-4 font-poppins relative z-10"
+              className="text-gray-300 mb-3 md:mb-4 font-poppins relative z-10 text-sm md:text-base"
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -170,7 +170,7 @@ const GetInTouchSection = () => {
 
           {/* Email Contact Card */}
           <motion.div
-            className="bg-gradient-to-br from-[#0099cc]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
+            className="bg-gradient-to-br from-[#0099cc]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
             variants={contentCardVariant}
             whileHover="hover"
             initial="hidden"
@@ -201,7 +201,7 @@ const GetInTouchSection = () => {
                             Email Us
             </motion.h3>
             <motion.p
-              className="text-gray-300 mb-4 font-poppins relative z-10"
+              className="text-gray-300 mb-3 md:mb-4 font-poppins relative z-10 text-sm md:text-base"
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
@@ -231,7 +231,7 @@ const GetInTouchSection = () => {
 
           {/* Location Contact Card */}
           <motion.div
-            className="bg-gradient-to-br from-[#0066ff]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
+            className="bg-gradient-to-br from-[#0066ff]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
             variants={contentCardVariant}
             whileHover="hover"
             initial="hidden"

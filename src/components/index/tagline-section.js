@@ -7,15 +7,15 @@ const TaglineSection = () => {
 
   return (
     <motion.section
-      className="py-10 border-t border-b border-[#2A2A2A]"
+      className="py-6 md:py-10 px-4 md:px-6 border-t border-b border-[#2A2A2A]"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeIn}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-7xl mx-auto text-center">
         <motion.h2
-          className="text-2xl md:text-3xl font-bold font-poppins"
+          className="text-xl md:text-2xl lg:text-3xl font-bold font-poppins"
           variants={fadeInUp}
         >
           Advanced Training,{" "}

@@ -8,15 +8,15 @@ const DiplomaProgramsSection = () => {
   return (
     <motion.section 
       id="diploma" 
-      className="py-20"
+      className="py-12 md:py-20 px-4 md:px-6"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
       variants={fadeInUp}
     >
-      <div className="flex items-center justify-center mb-12">
+      <div className="flex flex-col items-center justify-center mb-8 md:mb-12">
         <motion.svg 
-          className="w-12 h-12 mr-4 text-[#00c8ff]" 
+          className="w-8 h-8 md:w-12 md:h-12 mb-4 md:mb-2 text-[#00c8ff]" 
           xmlns="http://www.w3.org/2000/svg" 
           fill="none" 
           viewBox="0 0 24 24" 
@@ -27,7 +27,7 @@ const DiplomaProgramsSection = () => {
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
         </motion.svg>
-        <h2 className="text-5xl font-bold text-white text-center relative group">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white text-center relative group">
           Professional <span className="text-[#00c8ff] inline-block relative">
             Diploma Programs
             <motion.span 
@@ -40,10 +40,10 @@ const DiplomaProgramsSection = () => {
         </h2>
       </div>
       
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto">
         {/* Introduction Section */}
         <motion.div
-          className="mb-16 bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl p-8 relative overflow-hidden shadow-[0_0_25px_rgba(0,200,255,0.07)]"
+          className="mb-12 md:mb-16 bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl p-6 md:p-8 relative overflow-hidden shadow-[0_0_25px_rgba(0,200,255,0.07)]"
           variants={fadeInUp}
           custom={1}
           whileHover={{ 
@@ -62,14 +62,14 @@ const DiplomaProgramsSection = () => {
           </div>
           
           <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/4 mb-6 md:mb-0 flex justify-center">
+            <div className="w-full md:w-1/4 mb-6 md:mb-0 flex justify-center">
               <motion.div
                 className="relative"
                 whileHover={{ rotate: 5, scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 w-full h-full bg-[rgba(0,200,255,0.03)] rounded-full animate-pulse" style={{animationDuration: '4s'}}></div>
-                <svg className="w-32 h-32 text-[#00c8ff] relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
+                <svg className="w-24 h-24 md:w-28 lg:w-32 md:h-28 lg:h-32 text-[#00c8ff] relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
                   <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" strokeWidth="0.8"/>
                   <path d="M12 9l-3 3h2v4h2v-4h2l-3-3z" strokeWidth="0.8"/>
                   <path d="M3 3l18 18M21 3L3 21" strokeWidth="0.5" strokeDasharray="1 1" opacity="0.5"/>
@@ -78,17 +78,17 @@ const DiplomaProgramsSection = () => {
               </motion.div>
             </div>
             
-            <div className="md:w-3/4 md:pl-8">
+            <div className="w-full md:w-3/4 md:pl-8">
               <motion.div 
-                className="mb-6 border-l-4 border-[#00c8ff] pl-4 py-1"
+                className="mb-4 md:mb-6 border-l-4 border-[#00c8ff] pl-4 py-1"
                 variants={fadeInUp}
                 custom={2}
               >
-                <p className="text-xl font-medium text-white italic">Our diploma programs are designed to provide industry-ready skills for those looking to excel in specific fitness disciplines.</p>
+                <p className="text-base md:text-lg lg:text-xl font-medium text-white italic">Our diploma programs are designed to provide industry-ready skills for those looking to excel in specific fitness disciplines.</p>
               </motion.div>
               
               <motion.p 
-                className="text-gray-300 leading-relaxed mb-6"
+                className="text-gray-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base"
                 variants={fadeInUp}
                 custom={3}
               >
@@ -96,7 +96,7 @@ const DiplomaProgramsSection = () => {
               </motion.p>
               
               <motion.div 
-                className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6"
+                className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6"
                 variants={staggerContainer}
                 custom={4}
               >
@@ -108,16 +108,16 @@ const DiplomaProgramsSection = () => {
                 ].map((item, index) => (
                   <motion.div 
                     key={index}
-                    className="flex flex-col items-center text-center bg-[#1a1a1a] border border-[#2A2A2A] rounded-lg p-4 hover:border-[#00c8ff]/30 transition-all duration-300"
+                    className="flex flex-col items-center text-center bg-[#1a1a1a] border border-[#2A2A2A] rounded-lg p-3 md:p-4 hover:border-[#00c8ff]/30 transition-all duration-300"
                     variants={fadeInUp}
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   >
-                    <div className="bg-[#00c8ff]/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
-                      <svg className="w-6 h-6 text-[#00c8ff]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                    <div className="bg-[#00c8ff]/10 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-2 md:mb-3">
+                      <svg className="w-5 h-5 md:w-6 md:h-6 text-[#00c8ff]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                       </svg>
                     </div>
-                    <span className="text-gray-300 text-sm">{item.text}</span>
+                    <span className="text-gray-300 text-xs md:text-sm">{item.text}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -127,7 +127,7 @@ const DiplomaProgramsSection = () => {
         
         {/* Diplomas Card Grid */}
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10"
           variants={staggerContainer}
         >
           {/* Personal Training Diploma */}

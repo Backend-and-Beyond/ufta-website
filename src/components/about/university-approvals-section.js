@@ -14,7 +14,7 @@ const UniversityApprovalsSection = ({ openModal }) => {
   return (
     <motion.section 
       id="approvals" 
-      className="py-20"
+      className="py-10 md:py-20 px-4 md:px-6"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
@@ -22,21 +22,21 @@ const UniversityApprovalsSection = ({ openModal }) => {
     >
       {/* Section Header */}
       <motion.div 
-        className="text-center mb-16"
+        className="text-center mb-8 md:mb-16"
         variants={gentleFadeUp}
       >
         <motion.div 
-          className="inline-flex items-center justify-center mb-6"
+          className="inline-flex flex-col md:flex-row items-center justify-center mb-4 md:mb-6"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="w-12 h-12 bg-gradient-to-r from-[#00c8ff] to-[#0099cc] rounded-full flex items-center justify-center mr-4"
+            className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-[#00c8ff] to-[#0099cc] rounded-full flex items-center justify-center md:mr-4 mb-3 md:mb-0"
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.8 }}
           >
             <svg 
-              className="w-6 h-6 text-white" 
+              className="w-5 h-5 md:w-6 md:h-6 text-white" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24" 
@@ -47,14 +47,14 @@ const UniversityApprovalsSection = ({ openModal }) => {
             </svg>
           </motion.div>
           <div>
-            <h2 className="text-5xl font-bold text-white mb-2">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
               University <span className="text-[#00c8ff]">Approvals</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#00c8ff] to-transparent mx-auto"></div>
+            <div className="w-20 md:w-24 h-1 bg-gradient-to-r from-[#00c8ff] to-transparent mx-auto"></div>
           </div>
         </motion.div>
         <motion.p 
-          className="text-gray-400 text-lg max-w-3xl mx-auto"
+          className="text-gray-400 text-sm md:text-lg max-w-3xl mx-auto px-4"
           variants={gentleFadeUp}
         >
           Recognized and approved by leading educational institutions, UFTA maintains the highest standards of academic excellence and professional credibility.
@@ -63,21 +63,21 @@ const UniversityApprovalsSection = ({ openModal }) => {
 
       {/* Statistics Bar */}
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-16"
         variants={staggerContainer}
       >
         {stats.map((stat, index) => (
           <motion.div
             key={index}
-            className="bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl p-6 text-center relative overflow-hidden group"
+            className="bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl p-4 md:p-6 text-center relative overflow-hidden group"
             variants={cardVariant}
             whileHover={{ y: -8, scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="text-3xl mb-2">{stat.icon}</div>
-            <div className="text-3xl font-bold text-[#00c8ff] mb-1">{stat.number}</div>
-            <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
+            <div className="text-2xl md:text-3xl mb-2">{stat.icon}</div>
+            <div className="text-2xl md:text-3xl font-bold text-[#00c8ff] mb-1">{stat.number}</div>
+            <div className="text-gray-400 text-xs md:text-sm font-medium">{stat.label}</div>
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#00c8ff] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
           </motion.div>
         ))}
@@ -85,12 +85,12 @@ const UniversityApprovalsSection = ({ openModal }) => {
 
       {/* University Approval Cards */}
       <motion.div 
-        className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8"
         variants={staggerContainer}
       >
         {/* UGC Approved Course Card */}
         <motion.div 
-          className="bg-gradient-to-br from-[#141414] via-[#1a1a1a] to-[#141414] border border-[#2A2A2A] rounded-2xl p-8 relative overflow-hidden group cursor-pointer interactive-card"
+          className="bg-gradient-to-br from-[#141414] via-[#1a1a1a] to-[#141414] border border-[#2A2A2A] rounded-2xl p-6 md:p-8 relative overflow-hidden group cursor-pointer interactive-card"
           variants={cardVariant}
           whileHover={{ y: -5, scale: 1.01, borderColor: "#00c8ff" }}
           whileTap={{ scale: 0.98 }}

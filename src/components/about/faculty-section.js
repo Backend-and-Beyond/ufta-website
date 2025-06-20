@@ -99,18 +99,18 @@ const FacultySection = () => {
   return (
     <motion.section 
       id="faculty" 
-      className="py-16"
+      className="py-8 md:py-16 px-4 md:px-6"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={staggerContainer}
     >
       <motion.div 
-        className="flex items-center justify-center mb-10"
+        className="flex flex-col md:flex-row items-center justify-center mb-6 md:mb-10"
         variants={gentleFadeUp}
       >
         <motion.svg 
-          className="w-10 h-10 mr-3 text-[#00c8ff]" 
+          className="w-8 h-8 md:w-10 md:h-10 md:mr-3 mb-2 md:mb-0 text-[#00c8ff]" 
           xmlns="http://www.w3.org/2000/svg" 
           fill="none" 
           viewBox="0 0 24 24" 
@@ -121,21 +121,21 @@ const FacultySection = () => {
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
         </motion.svg>
-        <h2 className="text-4xl font-bold text-white text-center relative">
+        <h2 className="text-3xl md:text-4xl font-bold text-white text-center relative">
           Our Esteemed <span className="text-[#00c8ff]">Faculty</span>
-          <span className="absolute bottom-0 left-0 w-16 h-0.5 bg-[#00c8ff]"></span>
+          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 md:left-0 md:transform-none w-12 md:w-16 h-0.5 bg-[#00c8ff]"></span>
         </h2>
       </motion.div>
       
       <motion.p 
-        className="text-center text-xl leading-relaxed mb-10 text-gray-300"
+        className="text-center text-base md:text-xl leading-relaxed mb-6 md:mb-10 text-gray-300 px-4"
         variants={gentleFadeUp}
       >
         UFTA's courses are led by a distinguished team of award-winning experts.
       </motion.p>
       
       <motion.div 
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         variants={staggerContainer}
       >
         {facultyMembers.map((faculty, index) => (
@@ -146,7 +146,7 @@ const FacultySection = () => {
             whileHover={{ y: -10, scale: 1.03 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="relative w-full h-96 overflow-hidden rounded-xl">
+            <div className="relative w-full h-80 md:h-96 overflow-hidden rounded-xl">
               {/* Background layer that will be visible through the cut */}
               <div className="absolute inset-0 bg-[#d4ff8b] z-5"></div>
               
@@ -169,18 +169,16 @@ const FacultySection = () => {
               </div>
               
               {/* Content Box with enhanced styling */}
-              <div className="absolute bottom-0 left-0 w-full p-6 z-20">
+              <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 z-20">
                 {/* Line accent */}
-                <div className="w-20 h-1 bg-[#d4ff8b] mb-3 rounded-full"></div>
-                <h3 className="text-[#d4ff8b] text-2xl font-bold mb-2 transform group-hover:translate-x-2 transition-transform duration-300">
+                <div className="w-16 md:w-20 h-1 bg-[#d4ff8b] mb-2 md:mb-3 rounded-full"></div>
+                <h3 className="text-[#d4ff8b] text-xl md:text-2xl font-bold mb-1 md:mb-2 transform group-hover:translate-x-2 transition-transform duration-300">
                   {faculty.name}
                 </h3>
-                <p className="text-white text-sm mb-1 group-hover:text-[#00c8ff] transition-colors duration-300">
+                <p className="text-white text-xs md:text-sm mb-1 group-hover:text-[#00c8ff] transition-colors duration-300">
                   {faculty.title}
                 </p>
-                <p className="text-gray-300 text-xs">
-                  {faculty.qualification}
-                </p>
+                <p className="text-gray-300 text-xs">{faculty.qualification}</p>
               </div>
             </div>
           </motion.div>

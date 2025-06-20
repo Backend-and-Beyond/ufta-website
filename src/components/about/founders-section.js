@@ -7,6 +7,26 @@ import SangeetaImage from "../../images/faculty2.png"
 const FoundersSection = () => {
   const { staggerContainer, fadeInUp, cardVariant, scaleIn, slideInLeft, slideInRight } = pageAnimations.standard;
 
+  // Mobile-optimized viewport settings - use smaller threshold for better mobile performance
+  const optimizedViewport = {
+    once: true,
+    amount: 0.05, // Further reduced for even earlier trigger on mobile
+    margin: "0px 0px -30px 0px" // Start animation 30px before element comes into view
+  };
+
+  // Fast animation variants for immediate visibility
+  const mobileOptimizedStagger = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05, // Very fast stagger
+        delayChildren: 0.05,   // Minimal delay
+        duration: 0.2
+      }
+    }
+  };
+
   const founders = [
     {
       initials: "BMS",
@@ -39,19 +59,23 @@ const FoundersSection = () => {
   return (
     <motion.section 
       id="founders" 
-      className="py-24"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={staggerContainer}
+      className="py-12 md:py-24 px-4 md:px-6"
+      style={{ minHeight: '10vh' }} // Prevent complete collapse
+      initial={{ opacity: 0.8 }} // Start with higher opacity for immediate visibility
+      whileInView={{ opacity: 1 }}
+      viewport={optimizedViewport}
+      transition={{ duration: 0.2 }} // Fast transition
     >
       {/* Section Header */}
       <motion.div 
-        className="flex items-center justify-center mb-16"
-        variants={fadeInUp}
+        className="flex flex-col md:flex-row items-center justify-center mb-8 md:mb-16"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.2 }}
       >
         <motion.svg 
-          className="w-12 h-12 mr-4 text-[#00c8ff]" 
+          className="w-8 h-8 md:w-12 md:h-12 md:mr-4 mb-2 md:mb-0 text-[#00c8ff]" 
           xmlns="http://www.w3.org/2000/svg" 
           fill="none" 
           viewBox="0 0 24 24" 
@@ -62,11 +86,11 @@ const FoundersSection = () => {
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
         </motion.svg>
-        <div>
-          <h2 className="text-4xl font-bold text-white text-center relative">
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center relative">
             Meet Our <span className="text-[#00c8ff]">Founders</span>
             <motion.span 
-              className="absolute -top-4 -right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
+              className="absolute -top-3 md:-top-4 -right-5 md:-right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white hidden sm:block"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
@@ -74,30 +98,35 @@ const FoundersSection = () => {
               Visionary Leaders
             </motion.span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00c8ff] to-transparent mt-2"></div>
+          <div className="w-20 md:w-24 h-1 bg-gradient-to-r from-[#00c8ff] to-transparent mt-2 mx-auto"></div>
         </div>
       </motion.div>
       
       {/* Intro Text */}
       <motion.p 
-        className="text-center text-gray-300 max-w-3xl mx-auto mb-16"
-        variants={fadeInUp}
+        className="text-center text-gray-300 max-w-3xl mx-auto mb-8 md:mb-16 px-4 text-sm md:text-base"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
       >
         Meet the passionate experts behind UFTA's success story. Our founders combine decades of industry experience with academic excellence to transform fitness education in India.
       </motion.p>
       
       {/* Founders Grid */}
       <motion.div 
-        className="space-y-24"
-        variants={staggerContainer}
+        className="space-y-12 md:space-y-24"
+        variants={mobileOptimizedStagger}
       >
         {founders.map((founder, index) => (
           <motion.div 
             key={index}
-            className="bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff]/30 rounded-xl p-8 relative overflow-hidden shadow-xl"
-            variants={cardVariant}
+            className="bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff]/30 rounded-xl p-4 md:p-8 relative overflow-hidden shadow-xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }} // Individual viewport for each card
+            transition={{ duration: 0.4, delay: index * 0.1 }} // Faster animation
             whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
           >
             {/* Background decoration */}
             <div className="absolute inset-0 opacity-5">
@@ -106,15 +135,22 @@ const FoundersSection = () => {
             </div>
             
             {/* Content Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 relative z-10">
               {/* Image Column */}
               <motion.div 
                 className="md:col-span-5 lg:col-span-4 flex flex-col items-center"
-                variants={index % 2 === 0 ? slideInLeft : slideInRight}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
               >
                 {/* Founder Image */}
                 <motion.div 
-                  className="w-60 h-60 rounded-xl overflow-hidden border-2 border-[#00c8ff]/30 p-1 bg-[#0a0a0a] mb-6 relative"
+                  className="w-48 h-48 md:w-60 md:h-60 rounded-xl overflow-hidden border-2 border-[#00c8ff]/30 p-1 bg-[#0a0a0a] mb-4 md:mb-6 relative"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.3 }}
                   whileHover={{ scale: 1.03, rotate: 0.5 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/20 to-transparent rounded-xl"></div>
@@ -139,8 +175,8 @@ const FoundersSection = () => {
                       transition={{ delay: 0.2 + (idx * 0.1) }}
                       viewport={{ once: true }}
                     >
-                      <div className="w-2 h-2 rounded-full bg-[#00c8ff] mr-2"></div>
-                      <span className="text-xs text-gray-300">{cert}</span>
+                      <div className="w-2 h-2 rounded-full bg-[#00c8ff] mr-2 flex-shrink-0"></div>
+                      <span className="text-xs text-gray-300 text-center md:text-left">{cert}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -149,23 +185,26 @@ const FoundersSection = () => {
               {/* Content Column */}
               <motion.div 
                 className="md:col-span-7 lg:col-span-8"
-                variants={index % 2 === 0 ? slideInRight : slideInLeft}
+                initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
               >
                 <div className="space-y-4">
                   {/* Name and Title */}
                   <div>
-                    <h3 className="text-3xl font-bold mb-1">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-1 text-center md:text-left">
                       <span className="text-white">{founder.name.split(' ')[0]}</span>
                       <span className="text-[#00c8ff]"> {founder.name.split(' ').slice(1).join(' ')}</span>
                       <span className="text-gray-400 text-lg ml-2">({founder.degree})</span>
                     </h3>
-                    <p className="text-[#00c8ff] font-medium">{founder.position}</p>
-                    <p className="text-sm text-gray-400">{founder.specialty}</p>
+                    <p className="text-[#00c8ff] font-medium text-center md:text-left">{founder.position}</p>
+                    <p className="text-sm text-gray-400 text-center md:text-left">{founder.specialty}</p>
                   </div>
                   
                   {/* Animated Divider */}
                   <motion.div 
-                    className="w-16 h-0.5 bg-gradient-to-r from-[#00c8ff] to-transparent"
+                    className="w-16 h-0.5 bg-gradient-to-r from-[#00c8ff] to-transparent mx-auto md:mx-0"
                     initial={{ width: 0 }}
                     whileInView={{ width: 64 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -173,8 +212,8 @@ const FoundersSection = () => {
                   ></motion.div>
                   
                   {/* Message */}
-                  <div className="bg-[#1a1a1a]/50 rounded-lg p-5 border border-[#2A2A2A]">
-                    <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
+                  <div className="bg-[#1a1a1a]/50 rounded-lg p-4 md:p-5 border border-[#2A2A2A]">
+                    <h4 className="text-lg md:text-xl font-semibold text-white mb-4 flex items-center justify-center md:justify-start">
                       <svg className="w-5 h-5 mr-2 text-[#00c8ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                       </svg>
@@ -184,14 +223,14 @@ const FoundersSection = () => {
                     {founder.message.map((paragraph, pIndex) => (
                       <motion.div 
                         key={pIndex}
-                        className="mb-4 relative pl-6"
+                        className="mb-4 relative pl-4 md:pl-6"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3 + (pIndex * 0.2) }}
                         viewport={{ once: true }}
                       >
                         <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-[#00c8ff] to-transparent rounded-full"></div>
-                        <p className="leading-relaxed text-gray-300 italic">
+                        <p className="leading-relaxed text-gray-300 italic text-sm md:text-base">
                           {paragraph}
                         </p>
                       </motion.div>
@@ -206,8 +245,11 @@ const FoundersSection = () => {
       
       {/* Stats Section */}
       <motion.div
-        className="mt-24 pt-12 border-t border-[#2A2A2A] grid grid-cols-2 md:grid-cols-4 gap-6"
-        variants={staggerContainer}
+        className="mt-12 md:mt-24 pt-8 md:pt-12 border-t border-[#2A2A2A] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.05 }}
+        variants={mobileOptimizedStagger}
       >
         {[
           { value: "23+", label: "Years Experience", icon: "⏱️" },
@@ -217,14 +259,16 @@ const FoundersSection = () => {
         ].map((stat, idx) => (
           <motion.div
             key={idx}
-            className="text-center bg-[#141414] border border-[#2A2A2A] rounded-lg p-4 relative overflow-hidden group hover:border-[#00c8ff]/30 transition-all duration-300"
-            variants={fadeInUp}
-            custom={idx}
+            className="text-center bg-[#141414] border border-[#2A2A2A] rounded-lg p-3 md:p-4 relative overflow-hidden group hover:border-[#00c8ff]/30 transition-all duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.3, delay: idx * 0.05 }}
             whileHover={{ y: -5 }}
           >
-            <div className="absolute -bottom-2 -right-2 text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{stat.icon}</div>
+            <div className="absolute -bottom-2 -right-2 text-3xl md:text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{stat.icon}</div>
             <motion.div 
-              className="text-3xl md:text-4xl font-bold text-[#00c8ff] mb-2"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00c8ff] mb-1 md:mb-2"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 + (idx * 0.1), duration: 0.4 }}
@@ -232,7 +276,7 @@ const FoundersSection = () => {
             >
               {stat.value}
             </motion.div>
-            <div className="text-gray-400 text-sm">{stat.label}</div>
+            <div className="text-gray-400 text-xs md:text-sm">{stat.label}</div>
           </motion.div>
         ))}
       </motion.div>

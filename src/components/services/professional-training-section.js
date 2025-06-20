@@ -84,7 +84,7 @@ const ProfessionalTrainingSection = () => {
   return (
     <motion.section 
       id="professional-training" 
-      className="py-16 relative"
+      className="py-12 md:py-16 relative"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
@@ -156,7 +156,7 @@ const ProfessionalTrainingSection = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white text-center relative tracking-wider"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative tracking-wider"
             variants={slideInLeft}
           >
             Online/Offline Professional <span className="text-[#00c8ff] relative">
@@ -187,7 +187,7 @@ const ProfessionalTrainingSection = () => {
       </div>
       
       <motion.p 
-        className="text-center text-xl leading-relaxed mb-12 text-gray-300 relative z-10 max-w-4xl mx-auto font-light"
+        className="text-center text-lg md:text-xl leading-relaxed mb-8 md:mb-12 text-gray-300 relative z-10 max-w-4xl mx-auto font-light px-4"
         variants={fadeInUp}
       >
         Turn your passion for fitness into a <span className="text-[#00c8ff] font-normal">rewarding career</span> with UFTA's comprehensive professional training programs. We have certified over <span className="text-[#00c8ff] font-semibold">2,500</span> fitness professionals since 2006.
@@ -195,7 +195,7 @@ const ProfessionalTrainingSection = () => {
       
       {/* Program cards with enhanced sci-fi UI */}
       <motion.div 
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative z-10"
         variants={staggerContainer}
       >
         {trainingPrograms.map((program, index) => (

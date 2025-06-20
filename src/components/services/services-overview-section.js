@@ -108,7 +108,7 @@ const ServicesOverviewSection = () => {
   return (
     <motion.section 
       id="overview" 
-      className="py-16 relative"
+      className="py-12 md:py-16 relative"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
@@ -165,13 +165,13 @@ const ServicesOverviewSection = () => {
       </div>
 
       {/* Sci-fi title with animated elements */}
-      <div className="relative z-10 mb-16">
+      <div className="relative z-10 mb-12 md:mb-16">
         <div className="flex flex-col items-center justify-center">
           <motion.div 
             className="relative"
             animate={controls}
           >
-            <svg className="w-16 h-16 text-[#00c8ff] opacity-80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-12 h-12 md:w-16 md:h-16 text-[#00c8ff] opacity-80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <motion.path 
                 d="M12 2L2 7L12 12L22 7L12 2Z" 
                 stroke="currentColor" 
@@ -258,7 +258,7 @@ const ServicesOverviewSection = () => {
       
       {/* Futuristic container with holographic effect */}
       <motion.div 
-        className="bg-black/40 backdrop-blur-sm rounded-lg p-10 relative overflow-hidden border border-[#2A2A2A] z-10"
+        className="bg-black/40 backdrop-blur-sm rounded-lg p-6 md:p-10 relative overflow-hidden border border-[#2A2A2A] z-10"
         variants={fadeInUp}
         style={{
           boxShadow: "0 0 30px rgba(0, 200, 255, 0.1), inset 0 0 30px rgba(0, 200, 255, 0.05)"
@@ -366,7 +366,7 @@ const ServicesOverviewSection = () => {
         
         {/* Interactive service cards with hover effects */}
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           variants={staggerContainer}
           custom={5}
         >
@@ -383,7 +383,7 @@ const ServicesOverviewSection = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-black/90 rounded-lg transform scale-[1.02] opacity-0 group-hover:opacity-100 transition-all duration-300" />
               
-              <div className="relative bg-black/30 p-6 rounded-lg border border-[#2A2A2A] group-hover:border-[#00c8ff]/70 transition-all duration-300 h-full flex flex-col">
+              <div className="relative bg-black/30 p-4 md:p-6 rounded-lg border border-[#2A2A2A] group-hover:border-[#00c8ff]/70 transition-all duration-300 h-full flex flex-col">
                 {/* Top glowing line */}
                 <motion.div 
                   className="absolute top-0 left-0 right-0 h-[1px]"

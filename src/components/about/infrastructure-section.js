@@ -15,6 +15,26 @@ const InfrastructureSection = () => {
     slideInRight,
   } = pageAnimations.standard;
 
+  // Mobile-optimized viewport settings for better mobile performance
+  const optimizedViewport = {
+    once: true,
+    amount: 0.05, // Much smaller threshold for earlier trigger
+    margin: "0px 0px -30px 0px" // Start animation 30px before element comes into view
+  };
+
+  // Fast animation variants for immediate visibility
+  const mobileOptimizedStagger = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05, // Very fast stagger
+        delayChildren: 0.05,   // Minimal delay
+        duration: 0.2
+      }
+    }
+  };
+
   const facilities = [
     {
       title: "Spacious Gym Floor",
@@ -153,19 +173,23 @@ const InfrastructureSection = () => {
   return (
     <motion.section
       id="infrastructure"
-      className="py-24"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={staggerContainer}
+      className="py-12 md:py-24 px-4 md:px-6"
+      style={{ minHeight: '10vh' }} // Prevent complete collapse
+      initial={{ opacity: 0.8 }} // Start with higher opacity for immediate visibility
+      whileInView={{ opacity: 1 }}
+      viewport={optimizedViewport}
+      transition={{ duration: 0.2 }} // Fast transition
     >
       {/* Section Header */}
       <motion.div
-        className="flex items-center justify-center mb-16"
-        variants={gentleFadeUp}
+        className="flex flex-col md:flex-row items-center justify-center mb-8 md:mb-16"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.2 }}
       >
         <motion.svg
-          className="w-12 h-12 mr-4 text-[#00c8ff]"
+          className="w-8 h-8 md:w-12 md:h-12 md:mr-4 mb-2 md:mb-0 text-[#00c8ff]"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -185,11 +209,11 @@ const InfrastructureSection = () => {
             d="M11.475 21.075a2.25 2.25 0 0 0 1.05 1.675H18a2.25 2.25 0 0 0 2.25-2.25v-2.625a2.25 2.25 0 0 0-1.05-1.675L12 12.75M2.25 12l6.225-6.225a2.25 2.25 0 0 1 3.182 0l6.225 6.225m0 0a2.25 2.25 0 0 1-3.182 3.182L12 17.25l-2.018-2.018m4.743-4.743-3.182-3.182a2.25 2.25 0 0 0-3.182 0L2.25 12"
           />
         </motion.svg>
-        <div>
-          <h2 className="text-4xl font-bold text-white text-center relative">
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center relative">
             Infrastructure & <span className="text-[#00c8ff]">Facilities</span>
             <motion.span
-              className="absolute -top-4 -right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white"
+              className="absolute -top-3 md:-top-4 -right-5 md:-right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white hidden sm:block"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
@@ -197,14 +221,17 @@ const InfrastructureSection = () => {
               State-of-the-Art
             </motion.span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00c8ff] to-transparent mt-2"></div>
+          <div className="w-20 md:w-24 h-1 bg-gradient-to-r from-[#00c8ff] to-transparent mt-2 mx-auto"></div>
         </div>
       </motion.div>
 
       {/* Intro Text */}
       <motion.p
-        className="text-center text-gray-300 max-w-3xl mx-auto mb-16"
-        variants={fadeInUp}
+        className="text-center text-gray-300 max-w-3xl mx-auto mb-8 md:mb-16 px-4 text-sm md:text-base"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.2, delay: 0.1 }}
       >
         UFTA boasts state-of-the-art facilities designed to provide an optimal
         learning and training environment. Our infrastructure combines
@@ -214,10 +241,12 @@ const InfrastructureSection = () => {
 
       {/* Featured Facility */}
       <motion.div
-        className="bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff]/30 rounded-xl p-8 relative overflow-hidden shadow-xl mb-16"
-        variants={cardVariant}
+        className="bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff]/30 rounded-xl p-4 md:p-8 relative overflow-hidden shadow-xl mb-8 md:mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.05 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
         whileHover={{ y: -3 }}
-        transition={{ duration: 0.2 }}
       >
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-5">
@@ -225,7 +254,7 @@ const InfrastructureSection = () => {
           <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#00c8ff] to-blue-600 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-20"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 relative z-10">
           {/* Image Column */}
           <motion.div className="relative" variants={slideInLeft}>
             <div className="absolute -top-2 -left-2 bg-[#00c8ff] text-black text-xs font-bold px-2 py-1 rounded-md">
@@ -259,11 +288,10 @@ const InfrastructureSection = () => {
             className="flex flex-col justify-center"
             variants={slideInRight}
           >
-            <div className="bg-[#1a1a1a]/50 p-6 rounded-lg border border-[#2A2A2A]">
-              <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                <span className="inline-block w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3">
-                  <svg
-                    className="w-5 h-5 text-white"
+            <div className="bg-[#1a1a1a]/50 p-4 md:p-6 rounded-lg border border-[#2A2A2A]">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center">
+                <span className="inline-block w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-2 md:mr-3">                    <svg
+                    className="w-4 h-4 md:w-5 md:h-5 text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -278,37 +306,37 @@ const InfrastructureSection = () => {
                 </span>
                 Premium Fitness Center
               </h3>
-              <p className="text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-300 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
                 Our 2500 sq ft air-conditioned gym features the latest strength
                 training equipment for diverse fitness disciplines. The facility
                 is designed to provide both practical training for students and
                 a premium workout environment.
               </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
-                  <span className="text-sm text-gray-300">
+                  <span className="text-xs md:text-sm text-gray-300">
                     Olympic Weightlifting Area
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
-                  <span className="text-sm text-gray-300">Cardio Section</span>
+                  <span className="text-xs md:text-sm text-gray-300">Cardio Section</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
-                  <span className="text-sm text-gray-300">
+                  <span className="text-xs md:text-sm text-gray-300">
                     Functional Training Zone
                   </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
-                  <span className="text-sm text-gray-300">Recovery Area</span>
+                  <span className="text-xs md:text-sm text-gray-300">Recovery Area</span>
                 </div>
               </div>
-              <div className="inline-flex items-center px-4 py-2 bg-[#00c8ff]/10 border border-[#00c8ff]/30 rounded-lg text-[#00c8ff]">
+              <div className="inline-flex items-center px-3 md:px-4 py-2 bg-[#00c8ff]/10 border border-[#00c8ff]/30 rounded-lg text-[#00c8ff]">
                 <svg
-                  className="w-4 h-4 mr-2"
+                  className="w-3 h-3 md:w-4 md:h-4 mr-2"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -318,7 +346,7 @@ const InfrastructureSection = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-sm font-medium">
+                <span className="text-xs md:text-sm font-medium">
                   Industry-Standard Equipment
                 </span>
               </div>
@@ -329,11 +357,14 @@ const InfrastructureSection = () => {
       {/* Facility Cards */}
       <motion.div>
         <motion.h3
-          className="text-2xl font-bold mb-10 text-white relative inline-flex items-center"
-          variants={fadeInUp}
+          className="text-xl md:text-2xl font-bold mb-6 md:mb-10 text-white relative inline-flex items-center"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.2, delay: 0.2 }}
         >
-          <span className="w-8 h-8 bg-[#00c8ff] rounded-full flex items-center justify-center mr-3 text-black">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <span className="w-6 h-6 md:w-8 md:h-8 bg-[#00c8ff] rounded-full flex items-center justify-center mr-2 md:mr-3 text-black">
+            <svg className="w-3 h-3 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
                 d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
@@ -342,23 +373,28 @@ const InfrastructureSection = () => {
             </svg>
           </span>
           Our Training <span className="text-[#00c8ff] ml-1">Facilities</span>
-          <div className="ml-4 h-0.5 w-24 bg-gradient-to-r from-[#00c8ff] to-transparent"></div>
+          <div className="ml-2 md:ml-4 h-0.5 w-16 md:w-24 bg-gradient-to-r from-[#00c8ff] to-transparent"></div>
         </motion.h3>
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+          variants={mobileOptimizedStagger}
         >
           {facilities.map((facility, index) => (
             <motion.div
               key={index}
               className="bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff]/30 rounded-xl overflow-hidden shadow-lg"
-              variants={cardVariant}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.05 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
             >
               {/* Image Header */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 md:h-48 overflow-hidden">
                 <div
                   className={`absolute inset-0 bg-gradient-to-b ${facility.color} opacity-40`}
                 ></div>
@@ -368,7 +404,7 @@ const InfrastructureSection = () => {
                   className="w-full h-full object-cover"
                 />
                 {/* Icon Badge */}
-                <div className="absolute top-4 right-4 w-12 h-12 rounded-lg bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                <div className="absolute top-3 right-3 w-10 h-10 md:w-12 md:h-12 rounded-lg bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/20">
                   {facility.icon}
                 </div>
                 {/* Colored Top Strip */}
@@ -378,14 +414,14 @@ const InfrastructureSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-3 flex items-center">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3 flex items-center">
                   <span
                     className={`inline-block w-3 h-3 rounded-full bg-gradient-to-r ${facility.color} mr-2`}
                   ></span>
                   {facility.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                   {facility.description}
                 </p>
 

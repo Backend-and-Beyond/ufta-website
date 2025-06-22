@@ -1,9 +1,82 @@
-import React from "react"
+import React, { useState } from "react"
 import { motion } from "framer-motion"
 import { pageAnimations } from "../../utils/animations"
 
 const HighPerformanceServicesSection = () => {
   const { fadeInUp, staggerContainer, cardVariant, scaleIn } = pageAnimations.standard;
+  const [expandedFeatures, setExpandedFeatures] = useState({});
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  const [activeCategory, setActiveCategory] = useState('All Services');
+
+  const toggleFeatures = (serviceKey) => {
+    setExpandedFeatures(prev => ({
+      ...prev,
+      [serviceKey]: !prev[serviceKey]
+    }));
+  };
+
+  const toggleDescription = (serviceKey) => {
+    setExpandedDescriptions(prev => ({
+      ...prev,
+      [serviceKey]: !prev[serviceKey]
+    }));
+  };
+
+  // Function to check if description needs truncation (more than 4 lines worth of text)
+  const shouldTruncateDescription = (description) => {
+    return description.length > 180; // Approximate character count for 4 lines at 14px font
+  };
+
+  // Function to get truncated description
+  const getTruncatedDescription = (description) => {
+    if (description.length <= 180) return description;
+    
+    // Find the last complete word within the character limit
+    const truncated = description.substring(0, 180);
+    const lastSpaceIndex = truncated.lastIndexOf(' ');
+    
+    return truncated.substring(0, lastSpaceIndex) + '...';
+  };
+
+  const handleCategoryClick = (category) => {
+    setActiveCategory(category);
+    // Reset expanded features and descriptions when changing category
+    setExpandedFeatures({});
+    setExpandedDescriptions({});
+  };
+
+  // Get unique categories from services
+  const getUniqueCategories = () => {
+    const categories = services.map(service => service.category);
+    return ['All Services', ...new Set(categories)];
+  };
+
+  // Get category count
+  const getCategoryCount = (category) => {
+    if (category === 'All Services') return services.length;
+    return services.filter(service => service.category === category).length;
+  };
+
+  // Get category colors
+  const getCategoryColor = (category) => {
+    const colors = {
+      'Rehabilitation': 'text-emerald-400',
+      'Assessment': 'text-blue-400',
+      'Performance': 'text-yellow-400',
+      'Research': 'text-indigo-400'
+    };
+    return colors[category] || 'text-[#00c8ff]';
+  };
+
+  const getCategoryBg = (category) => {
+    const colors = {
+      'Rehabilitation': 'bg-emerald-400/10 border-emerald-400/30',
+      'Assessment': 'bg-blue-400/10 border-blue-400/30',
+      'Performance': 'bg-yellow-400/10 border-yellow-400/30',
+      'Research': 'bg-indigo-400/10 border-indigo-400/30'
+    };
+    return colors[category] || 'bg-[#00c8ff]/10 border-[#00c8ff]/30';
+  };
 
   // Services data
   const services = [
@@ -24,7 +97,8 @@ const HighPerformanceServicesSection = () => {
         "Injury Prevention: Educating on strategies to avoid future injuries and manage physical overload",
         "Active & Healthy Lifestyle: Promoting long-term well-being beyond immediate recovery"
       ],
-      color: "emerald"
+      color: "emerald",
+      category: "Rehabilitation"
     },
     {
       icon: (
@@ -42,7 +116,8 @@ const HighPerformanceServicesSection = () => {
         "Advanced technology for precise movement analysis",
         "Personalized improvement strategies"
       ],
-      color: "blue"
+      color: "blue",
+      category: "Assessment"
     },
     {
       icon: (
@@ -60,7 +135,8 @@ const HighPerformanceServicesSection = () => {
         "Sport-specific movement analysis",
         "Performance optimization recommendations"
       ],
-      color: "purple"
+      color: "purple",
+      category: "Assessment"
     },
     {
       icon: (
@@ -78,7 +154,8 @@ const HighPerformanceServicesSection = () => {
         "Cardiac risk stratification",
         "Personalized training zone recommendations"
       ],
-      color: "red"
+      color: "red",
+      category: "Assessment"
     },
     {
       icon: (
@@ -96,7 +173,8 @@ const HighPerformanceServicesSection = () => {
         "Sport-specific performance metrics",
         "Periodized training program development"
       ],
-      color: "yellow"
+      color: "yellow",
+      category: "Performance"
     },
     {
       icon: (
@@ -114,9 +192,15 @@ const HighPerformanceServicesSection = () => {
         "Publication of research findings",
         "Continuous improvement of protocols"
       ],
-      color: "indigo"
+      color: "indigo",
+      category: "Research"
     }
   ];
+
+  // Filter services based on active category
+  const filteredServices = activeCategory === 'All Services' 
+    ? services 
+    : services.filter(service => service.category === activeCategory);
 
   return (
     <motion.section 
@@ -189,39 +273,70 @@ const HighPerformanceServicesSection = () => {
         className="flex justify-center flex-wrap gap-3 mb-12"
         variants={staggerContainer}
       >
-        {['All Services', 'Rehabilitation', 'Performance', 'Assessment', 'Research'].map((category, idx) => (
+        {getUniqueCategories().map((category, idx) => (
           <motion.button
-            key={idx}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${idx === 0 ? 'bg-[#00c8ff]/20 text-[#00c8ff] border border-[#00c8ff]/30' : 'bg-[#1A1A1A] text-gray-300 border border-[#2A2A2A] hover:border-[#00c8ff]/30 hover:bg-[#00c8ff]/10 hover:text-[#00c8ff]'}`}
+            key={category}
+            onClick={() => handleCategoryClick(category)}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+              activeCategory === category 
+                ? 'bg-[#00c8ff]/20 text-[#00c8ff] border border-[#00c8ff]/30' 
+                : 'bg-[#1A1A1A] text-gray-300 border border-[#2A2A2A] hover:border-[#00c8ff]/30 hover:bg-[#00c8ff]/10 hover:text-[#00c8ff]'
+            }`}
             variants={scaleIn}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
           >
-            {category}
+            <span>{category}</span>
+            <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+              activeCategory === category 
+                ? 'bg-[#00c8ff]/30 text-[#00c8ff]' 
+                : 'bg-[#2A2A2A] text-gray-400'
+            }`}>
+              {getCategoryCount(category)}
+            </span>
           </motion.button>
         ))}
       </motion.div>
       
-      {/* Services Cards Grid */}
+      {/* Results Counter */}
       <motion.div 
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        variants={staggerContainer}
+        className="text-center mb-8"
+        variants={fadeInUp}
       >
-        {services.map((service, index) => (
-          <motion.div 
-            key={index} 
-            className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-6 relative overflow-hidden group hover:border-[#00c8ff]/60 transition-all duration-500 h-full flex flex-col shadow-xl"
-            variants={cardVariant}
-            whileHover={{ y: -10, scale: 1.02 }}
-            transition={{ duration: 0.4 }}
-          >
+        <p className="text-gray-400 text-sm">
+          Showing <span className="text-[#00c8ff] font-semibold">{filteredServices.length}</span> service{filteredServices.length !== 1 ? 's' : ''} 
+          {activeCategory !== 'All Services' && (
+            <span> in <span className="text-[#00c8ff] font-semibold">{activeCategory}</span></span>
+          )}
+        </p>
+      </motion.div>
+      
+      {/* Services Cards Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredServices.length > 0 ? (
+          filteredServices.map((service, index) => {
+            // Create a unique key based on service title and category to maintain state correctly
+            const serviceKey = `${service.category}-${service.title.replace(/\s+/g, '-').toLowerCase()}`;
+            
+            return (
+              <div 
+                key={serviceKey} 
+                className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-6 relative overflow-hidden group hover:border-[#00c8ff]/60 transition-all duration-500 h-full flex flex-col shadow-xl transform hover:-translate-y-2 hover:scale-[1.02]"
+              >
             {/* Card Top Gradient Bar */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-60"></div>
+            
+            {/* Category Badge */}
+            <div className="absolute top-4 right-4 z-10">
+              <div className={`text-xs px-2 py-1 rounded border ${getCategoryBg(service.category)}`}>
+                <span className={getCategoryColor(service.category)}>{service.category}</span>
+              </div>
+            </div>
             
             {/* Service Icon */}
             <div className="flex justify-center mb-6 relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-[#00c8ff]/0 via-[#00c8ff]/5 to-[#00c8ff]/0 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className={`relative z-10 text-${service.color}-500 transform group-hover:scale-110 transition-transform duration-500`}>
+              <div className="relative z-10 text-[#00c8ff] transform group-hover:scale-110 transition-transform duration-500">
                 {service.icon}
               </div>
             </div>
@@ -233,30 +348,94 @@ const HighPerformanceServicesSection = () => {
               </h3>
               
               {/* Service Description */}
-              <div className="bg-[#141414] rounded-lg p-4 mb-5 flex-grow">
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  {service.description}
-                </p>
+              <div className="bg-[#141414] rounded-lg p-4 mb-5 min-h-[100px] flex flex-col justify-between">
+                <div>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {expandedDescriptions[serviceKey] || !shouldTruncateDescription(service.description) 
+                      ? service.description 
+                      : getTruncatedDescription(service.description)
+                    }
+                  </p>
+                  
+                  {/* Show More/Less button for description */}
+                  {shouldTruncateDescription(service.description) && (
+                    <button
+                      onClick={() => toggleDescription(serviceKey)}
+                      className="text-xs text-[#00c8ff] hover:text-[#00c8ff]/80 transition-colors duration-300 mt-2 flex items-center gap-1"
+                    >
+                      <span>
+                        {expandedDescriptions[serviceKey] ? 'Show Less' : 'Read More'}
+                      </span>
+                      <svg
+                        className="w-3 h-3 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        style={{ transform: expandedDescriptions[serviceKey] ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
               </div>
               
               {/* Key Features */}
               <div className="mb-6">
-                <h4 className="font-semibold text-[#00c8ff] mb-3 flex items-center">
-                  <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                  Key Features
-                </h4>
-                <ul className="space-y-2 text-xs text-gray-400">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <svg className="w-4 h-4 text-[#00c8ff] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" />
-                      </svg>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="font-semibold text-[#00c8ff] flex items-center">
+                    <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    Key Features
+                  </h4>
+                  <button
+                    onClick={() => toggleFeatures(serviceKey)}
+                    className="flex items-center text-xs text-gray-400 hover:text-[#00c8ff] transition-colors duration-300"
+                  >
+                    <span className="mr-1">
+                      {expandedFeatures[serviceKey] ? 'Show Less' : 'Show More'}
+                    </span>
+                    <svg
+                      className="w-4 h-4 transition-transform duration-300"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      style={{ transform: expandedFeatures[serviceKey] ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <div
+                  className={`overflow-hidden transition-all duration-400 ease-in-out ${
+                    expandedFeatures[serviceKey] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <ul className="space-y-2 text-xs text-gray-400 pt-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <li
+                        key={featureIndex}
+                        className="flex items-start"
+                      >
+                        <svg className="w-4 h-4 text-[#00c8ff] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" />
+                        </svg>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {/* Preview when collapsed */}
+                {!expandedFeatures[serviceKey] && (
+                  <div className="text-xs text-gray-500 mt-2 italic">
+                    Click "Show More" to view {service.features.length} key features
+                  </div>
+                )}
               </div>
               
               {/* Action Buttons */}
@@ -269,18 +448,24 @@ const HighPerformanceServicesSection = () => {
                 >
                   Book Service
                 </motion.a> */}
-                <motion.button 
+                <button 
                   className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-[#00c8ff]/30 text-gray-300 hover:text-[#00c8ff] font-medium py-3 px-4 rounded-lg transition duration-300 text-sm text-center"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
                 >
                   Learn More
-                </motion.button>
+                </button>
               </div>
             </div>
-          </motion.div>
-        ))}
-      </motion.div>
+          </div>
+        );
+        })
+        ) : (
+          <div 
+            className="col-span-full text-center py-12"
+          >
+            <p className="text-gray-400 text-lg">No services found for the selected category.</p>
+          </div>
+        )}
+      </div>
       
       {/* CTA Banner */}
       <motion.div 
@@ -324,4 +509,4 @@ const HighPerformanceServicesSection = () => {
   )
 }
 
-export default HighPerformanceServicesSection
+export default HighPerformanceServicesSection;

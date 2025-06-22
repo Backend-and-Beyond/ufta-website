@@ -1,18 +1,10 @@
 import React from "react"
-import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
 
 const HighPerformanceContactSection = () => {
-  const { fadeInUp, slideInLeft, slideInRight, staggerContainer, cardVariant } = pageAnimations.standard;
-
   return (
-    <motion.section 
+    <section 
       id="contact" 
       className="py-20 relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -20,10 +12,7 @@ const HighPerformanceContactSection = () => {
         <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#00c8ff]/5 rounded-full blur-3xl opacity-40"></div>
       </div>
       
-      <motion.div 
-        className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-10 relative overflow-hidden shadow-xl"
-        variants={cardVariant}
-      >
+      <div className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-10 relative overflow-hidden shadow-xl transition-all duration-300 hover:border-[#00c8ff]/50">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#00c8ff]/50 via-[#00c8ff] to-[#00c8ff]/50 opacity-70"></div>
         
         {/* Background Pattern */}
@@ -40,17 +29,10 @@ const HighPerformanceContactSection = () => {
         
         {/* Section Header */}
         <div className="relative z-10">
-          <motion.div 
-            className="flex flex-col md:flex-row items-center justify-center gap-4 mb-10"
-            variants={fadeInUp}
-          >
-            <motion.div
-              className="bg-gradient-to-r from-[#00c8ff]/80 to-[#00c8ff] p-0.5 rounded-full shadow-lg shadow-[#00c8ff]/10"
-              whileHover={{ rotate: 5, scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-10">
+            <div className="bg-gradient-to-r from-[#00c8ff]/80 to-[#00c8ff] p-0.5 rounded-full shadow-lg shadow-[#00c8ff]/10 transition-all duration-300 hover:rotate-2 hover:scale-105">
               <div className="bg-[#0A0A0A] p-3 rounded-full">
-                <motion.svg 
+                <svg 
                   className="w-12 h-12 text-white" 
                   xmlns="http://www.w3.org/2000/svg" 
                   fill="none" 
@@ -59,9 +41,9 @@ const HighPerformanceContactSection = () => {
                   stroke="currentColor"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                </motion.svg>
+                </svg>
               </div>
-            </motion.div>
+            </div>
             
             <div className="text-center md:text-left">
               <h2 className="text-4xl md:text-5xl font-bold text-white relative">
@@ -69,24 +51,15 @@ const HighPerformanceContactSection = () => {
               </h2>
               <div className="h-1 w-32 bg-gradient-to-r from-[#00c8ff]/50 via-[#00c8ff] to-[#00c8ff]/50 mt-4 mx-auto md:mx-0"></div>
             </div>
-          </motion.div>
+          </div>
           
-          <motion.p 
-            className="text-center text-xl leading-relaxed mb-12 text-gray-300 max-w-3xl mx-auto"
-            variants={fadeInUp}
-          >
+          <p className="text-center text-xl leading-relaxed mb-12 text-gray-300 max-w-3xl mx-auto">
             Ready to elevate your performance? Contact our High Performance Clinic Clinic to schedule a comprehensive assessment and start your journey to peak athletic performance.
-          </motion.p>
+          </p>
           
-          <motion.div 
-            className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-            variants={staggerContainer}
-          >
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <motion.div
-              className="bg-[#0A0A0A] p-8 md:p-10 rounded-xl border border-[#2A2A2A] shadow-xl relative overflow-hidden"
-              variants={slideInLeft}
-            >
+            <div className="bg-[#0A0A0A] p-8 md:p-10 rounded-xl border border-[#2A2A2A] shadow-xl relative overflow-hidden transition-all duration-300 hover:border-[#00c8ff]/30">
               {/* Form Container Background Effects */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#00c8ff]/5 rounded-full -mt-10 -mr-10 blur-2xl"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#00c8ff]/5 rounded-full -mb-10 -ml-10 blur-2xl"></div>
@@ -176,26 +149,22 @@ const HighPerformanceContactSection = () => {
                       id="service" 
                       name="service" 
                       className="w-full pl-10 pr-4 py-3 bg-[#141414] border border-[#2A2A2A] text-white rounded-lg focus:border-[#00c8ff] focus:outline-none focus:ring-1 focus:ring-[#00c8ff] transition-all duration-200 appearance-none"
+                      required
                     >
-                      <option value="">Select a service</option>
-                      <option value="rehabilitation">Injury Rehabilitation</option>
-                      <option value="posture">Posture Analysis & GAIT</option>
-                      <option value="biomechanics">Biomechanical Analysis</option>
-                      <option value="cardiovascular">Cardiovascular Assessment</option>
-                      <option value="performance">Performance Testing</option>
-                      <option value="general">General Consultation</option>
+                      <option value="" disabled>Select a service</option>
+                      <option value="injury-rehabilitation">Injury Rehabilitation & Reconditioning</option>
+                      <option value="biomechanical-analysis">Biomechanical Analysis</option>
+                      <option value="performance-testing">Performance Testing & Monitoring</option>
+                      <option value="strength-conditioning">Strength & Conditioning Programs</option>
+                      <option value="nutrition-guidance">Nutrition & Recovery Guidance</option>
+                      <option value="sports-psychology">Sports Psychology Support</option>
                     </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                      <svg className="h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </div>
                   </div>
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Additional Information
+                    Message
                   </label>
                   <textarea 
                     id="message" 
@@ -207,11 +176,9 @@ const HighPerformanceContactSection = () => {
                 </div>
                 
                 <div className="pt-3">
-                  <motion.button 
+                  <button 
                     type="submit" 
-                    className="w-full relative overflow-hidden group"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    className="w-full relative overflow-hidden group transition-all duration-300 hover:scale-105"
                   >
                     <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#00c8ff]/90 to-[#00c8ff] opacity-90 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
                     <span className="relative inline-flex items-center justify-center gap-2 w-full px-8 py-3.5 text-base font-semibold text-black">
@@ -220,22 +187,19 @@ const HighPerformanceContactSection = () => {
                       </svg>
                       Book Assessment
                     </span>
-                  </motion.button>
+                  </button>
                   
                   <p className="mt-3 text-xs text-gray-400 text-center">
                     We'll respond within 24 hours to confirm your appointment.
                   </p>
                 </div>
               </form>
-            </motion.div>
+            </div>
             
             {/* Contact Information & Features */}
-            <motion.div 
-              variants={slideInRight}
-              className="flex flex-col gap-6"
-            >
+            <div className="flex flex-col gap-6">
               {/* Contact Information Card */}
-              <div className="bg-[#0A0A0A] p-6 rounded-xl border border-[#2A2A2A] shadow-xl relative overflow-hidden">
+              <div className="bg-[#0A0A0A] p-6 rounded-xl border border-[#2A2A2A] shadow-xl relative overflow-hidden transition-all duration-300 hover:border-[#00c8ff]/30">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#00c8ff]/5 rounded-full -mt-10 -mr-10 blur-2xl"></div>
                 
                 <h3 className="text-xl font-bold mb-5 text-white">
@@ -284,7 +248,7 @@ const HighPerformanceContactSection = () => {
               </div>
               
               {/* Why Choose Us Card */}
-              <div className="bg-[#0A0A0A] p-6 rounded-xl border border-[#2A2A2A] shadow-xl relative overflow-hidden flex-grow">
+              <div className="bg-[#0A0A0A] p-6 rounded-xl border border-[#2A2A2A] shadow-xl relative overflow-hidden flex-grow transition-all duration-300 hover:border-[#00c8ff]/30">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#00c8ff]/5 rounded-full -mt-10 -mr-10 blur-2xl"></div>
                 
                 <h3 className="text-xl font-bold mb-5 text-white">
@@ -326,14 +290,11 @@ const HighPerformanceContactSection = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
           
           {/* Testimonial */}
-          <motion.div 
-            className="mt-10 bg-[#141414] p-6 rounded-xl border border-[#2A2A2A] relative overflow-hidden max-w-4xl mx-auto"
-            variants={fadeInUp}
-          >
+          <div className="mt-10 bg-[#141414] p-6 rounded-xl border border-[#2A2A2A] relative overflow-hidden max-w-4xl mx-auto transition-all duration-300 hover:border-[#00c8ff]/30">
             <div className="absolute top-0 left-0 w-20 h-20 text-[#00c8ff]/10 opacity-50">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -360,10 +321,10 @@ const HighPerformanceContactSection = () => {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   )
 }
 

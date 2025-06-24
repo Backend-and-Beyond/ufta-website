@@ -417,6 +417,16 @@ const Navigation = ({ location }) => {
                 </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
+                <Link 
+                  to="/gallery" 
+                  className={`block px-3 py-2 no-underline hover:bg-gray-800 transition-colors duration-200 ${
+                    isActive('/gallery') ? 'text-[#00c8ff] bg-gray-800 font-bold' : 'text-white'
+                  }`}
+                >
+                  Gallery
+                </Link>
+              </motion.div>
+              <motion.div variants={mobileItemVariants}>
                 <Link to="/signup" className="block px-3 py-2 mt-2 text-white no-underline border border-[#00c8ff] hover:bg-[#00c8ff]/10 transition-colors duration-200">Sign Up</Link>
               </motion.div>
             </div>
@@ -459,6 +469,15 @@ const Navigation = ({ location }) => {
                 onClick={() => setMoreMenuOpen(false)}
               >
                 Job Placement
+              </Link>
+              <Link 
+                to="/gallery" 
+                className={`block px-4 py-2 text-sm hover:bg-gray-800 transition-colors duration-200 no-underline ${
+                  isActive('/gallery') ? 'text-[#00c8ff] bg-gray-800' : 'text-white'
+                }`}
+                onClick={() => setMoreMenuOpen(false)}
+              >
+                Gallery
               </Link>
             </div>
           </motion.div>

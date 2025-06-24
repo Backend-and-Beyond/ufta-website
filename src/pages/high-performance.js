@@ -10,18 +10,8 @@ import {
   HighPerformanceServicesSection,
   HighPerformanceContactSection,
 } from "../components/high-performance";
-import { pageAnimations } from "../utils/animations";
 
 const HighPerformancePage = ({ location }) => {
-  // Get animation variants from centralized configuration
-  const {
-    fadeInUp,
-    slideInLeft,
-    slideInRight,
-    staggerContainer,
-    cardVariant,
-    scaleIn,
-  } = pageAnimations.standard;
 
   // Services data
   const services = [

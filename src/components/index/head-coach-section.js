@@ -16,12 +16,18 @@ const HeadCoachSection = () => {
       variants={fadeIn}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center md:text-left" variants={fadeInUp}>
-          Director, UFTA
+        <motion.h2
+          className="text-2xl md:text-3xl font-bold section-heading mb-8 md:mb-12 font-poppins text-center md:text-left"
+          variants={fadeInUp}
+        >
+          Meet the Director of UFTA
         </motion.h2>
         <motion.div className="card p-4 md:p-8 rounded-sm" variants={fadeInUp}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 items-center">
-            <motion.div className="md:col-span-1 text-center" variants={slideInLeft}>
+            <motion.div
+              className="md:col-span-1 text-center"
+              variants={slideInLeft}
+            >
               <StaticImage
                 src="../../images/bhibhu.png"
                 alt="Bibhu Moni Singha"
@@ -30,36 +36,65 @@ const HeadCoachSection = () => {
                 height={240}
               />
             </motion.div>
-            <motion.div className="md:col-span-2 text-center md:text-left" variants={slideInRight}>
+            <motion.div
+              className="md:col-span-2 text-center md:text-left"
+              variants={slideInRight}
+            >
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4 font-poppins">
                 Dr. Bibhu Moni Singha
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins">
-                Dr. Bibhu Moni Singha is one of India's leading fitness experts
-                and sports nutritionists with over 20 years of experience in the
-                fitness industry. Recognized with prestigious awards, including
-                the "Excellent Personal Trainer of the Year 2018" and "India's
-                Best Fitness Trainer of the Year."
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins text-justify">
+                With over <b>26 years</b> of experience and <b>93,000+ hours</b>{" "}
+                dedicated to`` the sports, fitness, and nutrition industry, Dr.
+                Bibhu Moni Singha is a globally recognized expert in{" "}
+                <b> strength & conditioning</b>, <b>sports nutrition</b>,{" "}
+                <b>injury rehabilitation</b>, and <b>Olympic weightlifting</b>.
+                He has personally trained <b>36,000+</b> athletes and clients,
+                including Olympians, professional bodybuilders, corporate
+                leaders, and senior bureaucrats. As a Director of Certification
+                at Universal Fitness Training Academy since 2006, Dr. Bibhu has
+                certified <b>2,500+</b> fitness professionals and played a
+                pivotal role in introducing India’s first 4-year B.Sc. (Hons.)
+                in <b>Fitness & Athletic Conditioning</b> under the NEP 2020, in
+                collaboration with Mahapurusha Srimanta Sankardeva
+                Viswavidyalaya.
               </p>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins">
-                As the Director of Certification at Universal Fitness Training
-                Academy and Head Coach at Super Fight League Gym, he specializes
-                in sports nutrition, strength and conditioning, injury
-                rehabilitation, and performance enhancement.
-              </p>
+              <ul className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins text-justify list-disc pl-5 space-y-2">
+                <li>
+                  <span className="font-semibold text-amber-400">
+                    Academic & Research Excellence:
+                  </span>{" "}
+                  Selected for the{" "}
+                  <span className="font-semibold text-amber-400">
+                    Applied Science Award
+                  </span>{" "}
+                  at the 7th SCS Annual Conference (Spain, 2024) for his
+                  research:{" "}
+                  <span className="italic">
+                    “Age-Specific Considerations in Strength and Conditioning
+                    Programs: A Narrative Review”
+                  </span>
+                </li>
+                <li>
+                  <span className="font-semibold text-amber-400">
+                    Published multiple peer-reviewed articles
+                  </span>
+                  , advancing evidence-based practices in strength,
+                  conditioning, and rehabilitation
+                </li>
+                <li>
+                  <span className="font-semibold text-amber-400">
+                    Frequent keynote speaker and presenter
+                  </span>{" "}
+                  at national and international conferences on topics like
+                  velocity-based training, injury reconditioning, and peak
+                  sports performance
+                </li>
+              </ul>
             </motion.div>
           </div>
           <motion.div className="mt-8 md:mt-12" variants={fadeInUp}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              <div className="card p-3 md:p-4 rounded-sm">
-                <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
-                  Master Trainer TECHNOGYM
-                </h4>
-                <p className="text-gray-400 text-xs md:text-sm font-poppins">
-                  Certified Master Trainer for TECHNOGYM, specializing in
-                  advanced fitness equipment and training programs.
-                </p>
-              </div>
               <div className="card p-3 md:p-4 rounded-sm">
                 <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
                   IUSCA/USAW Level 2
@@ -69,6 +104,16 @@ const HeadCoachSection = () => {
                   Olympic weightlifting.
                 </p>
               </div>
+              <div className="card p-3 md:p-4 rounded-sm">
+                <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
+                  Master Trainer TECHNOGYM
+                </h4>
+                <p className="text-gray-400 text-xs md:text-sm font-poppins">
+                  Certified Master Trainer for TECHNOGYM, specializing in
+                  advanced fitness equipment and training programs.
+                </p>
+              </div>
+
               <div className="card p-3 md:p-4 rounded-sm">
                 <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
                   MPPT & CSN PROPTA USA

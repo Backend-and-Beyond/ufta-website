@@ -7,6 +7,7 @@ const HighPerformanceServicesSection = () => {
   const [expandedFeatures, setExpandedFeatures] = useState({});
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [activeCategory, setActiveCategory] = useState('All Services');
+  const [modalService, setModalService] = useState(null); // Modal state
 
   const toggleFeatures = (serviceKey) => {
     setExpandedFeatures(prev => ({
@@ -381,75 +382,13 @@ const HighPerformanceServicesSection = () => {
                 </div>
               </div>
               
-              {/* Key Features */}
-              <div className="mb-6">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-semibold text-[#00c8ff] flex items-center">
-                    <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                    Key Features
-                  </h4>
-                  <button
-                    onClick={() => toggleFeatures(serviceKey)}
-                    className="flex items-center text-xs text-gray-400 hover:text-[#00c8ff] transition-colors duration-300"
-                  >
-                    <span className="mr-1">
-                      {expandedFeatures[serviceKey] ? 'Show Less' : 'Show More'}
-                    </span>
-                    <svg
-                      className="w-4 h-4 transition-transform duration-300"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      style={{ transform: expandedFeatures[serviceKey] ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
-                
-                <div
-                  className={`overflow-hidden transition-all duration-400 ease-in-out ${
-                    expandedFeatures[serviceKey] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <ul className="space-y-2 text-xs text-gray-400 pt-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li
-                        key={featureIndex}
-                        className="flex items-start"
-                      >
-                        <svg className="w-4 h-4 text-[#00c8ff] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" />
-                        </svg>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                {/* Preview when collapsed */}
-                {!expandedFeatures[serviceKey] && (
-                  <div className="text-xs text-gray-500 mt-2 italic">
-                    Click "Show More" to view {service.features.length} key features
-                  </div>
-                )}
-              </div>
+              {/* Key Features are now shown in modal, so remove toggle button and preview */}
               
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 mt-auto">
-                {/* <motion.a 
-                  href="#contact" 
-                  className={`flex-1 inline-block bg-${service.color}-600 hover:bg-${service.color}-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 text-sm text-center`}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  Book Service
-                </motion.a> */}
-                <button 
+                <button
                   className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-[#00c8ff]/30 text-gray-300 hover:text-[#00c8ff] font-medium py-3 px-4 rounded-lg transition duration-300 text-sm text-center"
+                  onClick={() => setModalService(service)} // Open modal on click
                 >
                   Learn More
                 </button>
@@ -505,6 +444,49 @@ const HighPerformanceServicesSection = () => {
           </div>
         </div>
       </motion.div>
+      
+      {/* Modal for Key Features */}
+      {modalService && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+          <div className="bg-[#181818] rounded-xl shadow-2xl p-8 max-w-lg w-full relative animate-fadeIn">
+            <button
+              className="absolute top-3 right-3 text-gray-400 hover:text-[#00c8ff] text-2xl font-bold"
+              onClick={() => setModalService(null)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <div className="flex flex-col items-center mb-4">
+              <div className="text-[#00c8ff] mb-2">{modalService.icon}</div>
+              <h3 className="text-2xl font-bold text-white mb-2 text-center">{modalService.title}</h3>
+              <div className="text-xs px-2 py-1 rounded border mb-3 mt-1 {getCategoryBg(modalService.category)}">
+                <span className={getCategoryColor(modalService.category)}>{modalService.category}</span>
+              </div>
+            </div>
+            <p className="text-gray-300 text-sm mb-4 text-center">{modalService.description}</p>
+            <h4 className="font-semibold text-[#00c8ff] mb-2 text-center flex items-center justify-center">
+              <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              Key Features
+            </h4>
+            <ul className="space-y-2 text-xs text-gray-400 mb-4">
+              {modalService.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start">
+                  <svg className="w-4 h-4 text-[#00c8ff] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" /></svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex justify-center">
+              <button
+                className="inline-block bg-[#00c8ff] text-black hover:bg-[#00c8ff]/90 px-6 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+                onClick={() => setModalService(null)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </motion.section>
   )
 }

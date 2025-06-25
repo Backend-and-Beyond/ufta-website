@@ -4,6 +4,9 @@ import { StaticImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 import { pageAnimations } from "../../utils/animations";
 
+// Import actual gym images from gallery
+const HighPerformanceImage = "../../../static/gallery-images/IMG-20250617-WA0032.jpg";
+
 const HighPerformanceTrainingSection = () => {
   const { fadeIn, slideInLeft, slideInRight } = pageAnimations.standard;
 
@@ -17,14 +20,17 @@ const HighPerformanceTrainingSection = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <motion.div className="order-2 md:order-1 text-center" variants={slideInLeft}>
-            <StaticImage
-              src="../../images/placeholder1.jpg"
-              alt="High Performance Clinic Training"
-              className="w-full h-auto rounded-sm border border-[#2A2A2A] shadow-lg"
-              width={600}
-              height={400}
-            />
+          <motion.div className="order-2 md:order-1 text-center relative" variants={slideInLeft}>
+            <div className="relative rounded-lg overflow-hidden">
+              <StaticImage
+                src={HighPerformanceImage}
+                alt="High Performance Clinic Training"
+                className="w-full h-auto"
+                width={600}
+                height={400}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 rounded-lg"></div>
+            </div>
           </motion.div>
           <motion.div className="order-1 md:order-2 text-center md:text-left" variants={slideInRight}>
             <h2 className="text-2xl md:text-3xl font-bold section-heading mb-6 md:mb-8 font-poppins">

@@ -4,6 +4,11 @@ import { StaticImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
 import { pageAnimations } from "../../utils/animations";
 
+// Import actual gym images from gallery
+const PersonalTrainingImage = "../../../static/gallery-images/IMG-20250617-WA0032.jpg";
+const StrengthConditioningImage = "../../../static/gallery-images/IMG-20250617-WA0037.jpg";
+const SportsNutritionImage = "../../../static/gallery-images/IMG-20250617-WA0039.jpg";
+
 const EliteTrainingProgramsSection = () => {
   const { fadeIn, fadeInUp, staggerContainer, cardVariant } =
     pageAnimations.standard;
@@ -39,15 +44,21 @@ const EliteTrainingProgramsSection = () => {
             variants={cardVariant}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-[#141414] border border-[#2A2A2A] overflow-hidden">
-              <div className="card-image">
+            <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
+              <div className="card-image relative">
                 <StaticImage
-                  src="../../images/placeholder1.jpg"
+                  src={PersonalTrainingImage}
                   alt="Personal Training Certification"
                   className="w-full h-full object-cover"
                   width={400}
                   height={250}
                 />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+                {/* Sci-fi corner accents */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00c8ff] opacity-60"></div>
               </div>
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
@@ -72,15 +83,21 @@ const EliteTrainingProgramsSection = () => {
             variants={cardVariant}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-[#141414] border border-[#2A2A2A] overflow-hidden">
-              <div className="card-image">
+            <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
+              <div className="card-image relative">
                 <StaticImage
-                  src="../../images/placeholder2.png"
+                  src={StrengthConditioningImage}
                   alt="Strength and Conditioning"
                   className="w-full h-full object-cover"
                   width={400}
                   height={250}
                 />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+                {/* Sci-fi corner accents */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00c8ff] opacity-60"></div>
               </div>
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
@@ -105,15 +122,21 @@ const EliteTrainingProgramsSection = () => {
             variants={cardVariant}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-[#141414] border border-[#2A2A2A] overflow-hidden">
-              <div className="card-image">
+            <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
+              <div className="card-image relative">
                 <StaticImage
-                  src="../../images/placeholder3.jpg"
+                  src={SportsNutritionImage}
                   alt="Sports Nutrition"
                   className="w-full h-full object-cover"
                   width={400}
                   height={250}
                 />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+                {/* Sci-fi corner accents */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00c8ff] opacity-60"></div>
               </div>
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">

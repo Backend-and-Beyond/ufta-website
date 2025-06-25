@@ -1,9 +1,14 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { pageAnimations } from "../../utils/animations";
-import Placeholder1 from "../../images/placeholder1.jpg";
-import Placeholder2 from "../../images/placeholder2.png";
-import Placeholder3 from "../../images/placeholder3.jpg";
+
+// Import actual gym images from gallery
+const GymImage1 = "/gallery-images/IMG-20250617-WA0043.jpg"; // Main gym floor
+const GymImage2 = "/gallery-images/IMG-20250617-WA0010.jpg"; // Equipment area
+const GymImage3 = "/gallery-images/IMG-20250617-WA0013.jpg"; // Training area
+const GymImage4 = "/gallery-images/IMG-20250617-WA0003.jpg"; // Classroom/Lab area
+const GymImage5 = "/gallery-images/IMG-20250617-WA0016.jpg"; // Another gym angle
+const GymImage6 = "/gallery-images/IMG-20250617-WA0037.jpg"; // Equipment close-up
 
 const InfrastructureSection = () => {
   const {
@@ -56,7 +61,7 @@ const InfrastructureSection = () => {
           />
         </svg>
       ),
-      image: Placeholder1,
+      image: GymImage1,
     },
     {
       title: "Smart Lab & Classroom",
@@ -78,7 +83,7 @@ const InfrastructureSection = () => {
           />
         </svg>
       ),
-      image: Placeholder2,
+      image: GymImage4,
     },
     {
       title: "Biomechanics Lab",
@@ -100,7 +105,7 @@ const InfrastructureSection = () => {
           />
         </svg>
       ),
-      image: Placeholder3,
+      image: GymImage3,
     },
     {
       title: "Cutting-Edge Technology",
@@ -122,7 +127,7 @@ const InfrastructureSection = () => {
           />
         </svg>
       ),
-      image: Placeholder1,
+      image: GymImage2,
     },
     {
       title: "Online Digital Library",
@@ -144,7 +149,7 @@ const InfrastructureSection = () => {
           />
         </svg>
       ),
-      image: Placeholder2,
+      image: GymImage5,
     },
     {
       title: "Sports Medicine & Rehab",
@@ -166,7 +171,7 @@ const InfrastructureSection = () => {
           />
         </svg>
       ),
-      image: Placeholder3,
+      image: GymImage6,
     },
   ];
 
@@ -262,24 +267,10 @@ const InfrastructureSection = () => {
             </div>
             <div className="rounded-lg overflow-hidden shadow-2xl border-2 border-[#2A2A2A]">
               <img
-                src={Placeholder1}
+                src={GymImage1}
                 alt="UFTA Gym Facility"
                 className="w-full h-72 object-cover object-center"
               />
-            </div>
-            <div className="flex justify-center mt-4">
-              <motion.div
-                className="w-2 h-2 bg-[#00c8ff] rounded-full mx-1"
-                whileHover={{ scale: 1.5 }}
-              ></motion.div>
-              <motion.div
-                className="w-2 h-2 bg-gray-500 rounded-full mx-1"
-                whileHover={{ scale: 1.5 }}
-              ></motion.div>
-              <motion.div
-                className="w-2 h-2 bg-gray-500 rounded-full mx-1"
-                whileHover={{ scale: 1.5 }}
-              ></motion.div>
             </div>
           </motion.div>
 

@@ -65,14 +65,14 @@ const HeroSection = () => {
         />
 
         {/* Radial gradient for a subtle glow effect around the edge of the image */}
-        <div className="absolute -left-12 sm:-left-24 inset-y-0 w-12 sm:w-24 z-20 bg-gradient-to-r from-[#0A0A0A] to-transparent"></div>
+        <div className="absolute -left-6 sm:-left-24 inset-y-0 w-6 sm:w-24 z-20 bg-gradient-to-r from-[#0A0A0A] to-transparent"></div>
 
         {/* Semi-transparent overlay on top of the hero image for better text readability */}
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 sm:via-[#0A0A0A]/30 to-[#0A0A0A]/60 sm:to-[#0A0A0A]/10"></div>
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/90 sm:via-[#0A0A0A]/30 to-[#0A0A0A]/70 sm:to-[#0A0A0A]/10"></div>
 
-        {/* Top & bottom gradients */}
-        <div className="absolute inset-x-0 top-0 h-16 sm:h-24 z-30 bg-gradient-to-b from-[#0A0A0A] to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 z-30 bg-gradient-to-t from-[#0A0A0A] to-transparent"></div>
+        {/* Top & bottom gradients - smaller on mobile */}
+        <div className="absolute inset-x-0 top-0 h-8 sm:h-24 z-30 bg-gradient-to-b from-[#0A0A0A] to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-8 sm:h-24 z-30 bg-gradient-to-t from-[#0A0A0A] to-transparent"></div>
 
         {/* Subtle sci-fi glow overlay */}
         <div className="absolute inset-0 z-20 opacity-30 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 mix-blend-overlay"></div>
@@ -112,9 +112,30 @@ const HeroSection = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to="/services"
+                id="hero-unlock-btn"
                 className="btn-primary px-6 py-3 font-medium font-poppins transition-all duration-200 no-underline"
+                style={{
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
               >
-                Unlock Your Potential
+                <span style={{ position: 'relative', zIndex: 2 }}>
+                  Unlock Your Potential
+                </span>
+                <span 
+                  className="mobile-slide-effect"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: '-25%',
+                    width: '25%',
+                    height: '100%',
+                    background: 'linear-gradient(90deg, transparent, rgba(0, 200, 255, 0.2), transparent)',
+                    transition: 'all 0.5s ease',
+                    zIndex: 1,
+                    display: 'none'
+                  }}
+                />
               </Link>
             </motion.div>
             <motion.div className="relative group" whileHover={{ scale: 1.05 }}>

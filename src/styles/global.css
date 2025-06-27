@@ -137,6 +137,33 @@ a {
     left: 100%;
 }
 
+/* Completely disable the original effect on mobile and use custom one */
+@media (max-width: 640px) {
+    #hero-unlock-btn.btn-primary::before {
+        display: none !important;
+    }
+    
+    #hero-unlock-btn .mobile-slide-effect {
+        display: block !important;
+    }
+    
+    #hero-unlock-btn:hover .mobile-slide-effect {
+        left: 25% !important;
+    }
+}
+
+/* Fallback for other buttons */
+@media (max-width: 640px) {
+    .mobile-btn-fix::before {
+        width: var(--mobile-effect-width, 60%) !important;
+        left: var(--mobile-effect-start, -60%) !important;
+    }
+    
+    .mobile-btn-fix:hover::before {
+        left: var(--mobile-effect-end, 60%) !important;
+    }
+}
+
 .btn-primary:hover {
     box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
     color: #00c8ff;

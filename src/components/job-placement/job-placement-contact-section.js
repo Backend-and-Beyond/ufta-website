@@ -263,9 +263,9 @@ const JobPlacementContactSection = () => {
           </motion.div> */}
 
           {/* Info Column */}
-          <motion.div className="space-y-6" variants={slideInRight}>
+          <motion.div className="space-y-6 w-full max-w-4xl" variants={slideInRight}>
             {/* Side-by-side Contact Info and Why Choose Us */}
-            <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0">
+            <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 w-full">
               {/* Contact Info */}
               <motion.div
                 className="bg-[#0A0A0A]/80 backdrop-blur-sm p-6 rounded-xl border border-[#2A2A2A] relative overflow-hidden flex-1"
@@ -460,11 +460,12 @@ const JobPlacementContactSection = () => {
             </div>
 
             {/* Testimonial Carousel */}
-            <div className="relative">
+            <div className="relative w-full">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current}
-                  className="bg-[#0A0A0A]/80 backdrop-blur-sm p-6 rounded-xl border border-[#2A2A2A] relative overflow-hidden"
+                  className="bg-[#0A0A0A]/80 backdrop-blur-sm p-6 rounded-xl border border-[#2A2A2A] relative overflow-hidden h-64 flex flex-col"
+                  style={{ width: '100%' }}
                   whileHover={{ y: -5, transition: { duration: 0.3 } }}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -472,7 +473,7 @@ const JobPlacementContactSection = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-80"></div>
-                  <div className="flex items-center mb-4">
+                  <div className="flex items-center mb-4 flex-shrink-0">
                     <span className={`${testimonials[current].iconColor} mr-2`}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -493,26 +494,30 @@ const JobPlacementContactSection = () => {
                       Success Stories
                     </h3>
                   </div>
-                  <p className="text-gray-300 italic mb-4">
-                    {testimonials[current].quote}
-                  </p>
-                  <div className="flex items-center">
-                    <div
-                      className={`w-10 h-10 rounded-full bg-gradient-to-r ${testimonials[current].color} flex items-center justify-center text-white font-bold mr-3`}
-                    >
-                      {testimonials[current].initials}
-                    </div>
-                    <div>
-                      <h4 className="text-white font-medium">
-                        {testimonials[current].name}
-                      </h4>
-                      <p className="text-gray-400 text-sm">
-                        {testimonials[current].title}
+                  <div className="flex-1 flex flex-col min-h-0">
+                    <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-[#00c8ff] pr-2">
+                      <p className="text-gray-300 italic mb-4 leading-relaxed">
+                        {testimonials[current].quote}
                       </p>
+                    </div>
+                    <div className="flex items-center mt-4 flex-shrink-0">
+                      <div
+                        className={`w-10 h-10 rounded-full bg-gradient-to-r ${testimonials[current].color} flex items-center justify-center text-white font-bold mr-3 flex-shrink-0`}
+                      >
+                        {testimonials[current].initials}
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="text-white font-medium truncate">
+                          {testimonials[current].name}
+                        </h4>
+                        <p className="text-gray-400 text-sm truncate">
+                          {testimonials[current].title}
+                        </p>
+                      </div>
                     </div>
                   </div>
                   {/* Carousel dots */}
-                  <div className="flex justify-center mt-4 space-x-2">
+                  <div className="flex justify-center mt-4 space-x-2 flex-shrink-0">
                     {testimonials.map((_, idx) => (
                       <button
                         key={idx}

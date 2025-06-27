@@ -3,6 +3,10 @@ import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import { pageAnimations } from "../../utils/animations"
 
+// Import actual gym images from gallery
+const FacilitiesImage = "../../../static/gallery-images/IMG-20250617-WA0032.jpg";
+const InstructorsImage = "../../../static/gallery-images/IMG-20250617-WA0034.jpg";
+
 const WhyChooseUsSection = () => {
   const { fadeIn, fadeInUp, staggerContainer, slideInRight } = pageAnimations.standard;
 
@@ -156,13 +160,13 @@ const WhyChooseUsSection = () => {
               transition={{ duration: 0.3 }}
             >
               <StaticImage
-                src="../../images/placeholder1.jpg"
+                src={FacilitiesImage}
                 alt="UFTA Training Facilities"
                 className="w-full h-48 md:h-64 object-cover"
                 width={400}
                 height={250}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
               <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
                 <h4 className="text-white font-semibold text-base md:text-lg font-poppins mb-1">
                   State-of-the-Art Facilities
@@ -180,13 +184,13 @@ const WhyChooseUsSection = () => {
               transition={{ duration: 0.3, delay: 0.1 }}
             >
               <StaticImage
-                src="../../images/placeholder2.png"
+                src={InstructorsImage}
                 alt="UFTA Expert Instructors"
                 className="w-full h-48 md:h-64 object-cover"
                 width={400}
                 height={250}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
               <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4">
                 <h4 className="text-white font-semibold text-base md:text-lg font-poppins mb-1">
                   Expert Instructors

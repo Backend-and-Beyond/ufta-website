@@ -1,3 +1,5 @@
 export { default as HighPerformanceIntroSection } from './high-performance-intro-section'
 export { default as HighPerformanceServicesSection } from './high-performance-services-section'
+export { default as HighPerformanceGallerySection } from './high-performance-gallery-section'
+export { default as HighPerformanceVideosSection } from './high-performance-videos-section'
 export { default as HighPerformanceContactSection } from './high-performance-contact-section'

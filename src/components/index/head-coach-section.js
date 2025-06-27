@@ -70,23 +70,37 @@ const HeadCoachSection = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4 font-poppins">
                 Dr. Bibhu Moni Singha
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins text-justify">
-                With over <b>26 years</b> of experience and <b>93,000+ hours</b>{" "}
-                dedicated to`` the sports, fitness, and nutrition industry, Dr.
-                Bibhu Moni Singha is a globally recognized expert in{" "}
-                <b> strength & conditioning</b>, <b>sports nutrition</b>,{" "}
-                <b>injury rehabilitation</b>, and <b>Olympic weightlifting</b>.
-                He has personally trained <b>36,000+</b> athletes and clients,
-                including Olympians, professional bodybuilders, corporate
-                leaders, and senior bureaucrats. As a Director of Certification
-                at Universal Fitness Training Academy since 2006, Dr. Bibhu has
-                certified <b>2,500+</b> fitness professionals and played a
-                pivotal role in introducing India’s first 4-year B.Sc. (Hons.)
-                in <b>Fitness & Athletic Conditioning</b> under the NEP 2020, in
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins ">
+                Dr. Bibhu Moni Singha is an Internationally Accredited Strength
+                & Conditioning Expert, High Performance Olympic Weightlifting
+                Coach, Sports Nutritionist, and Injury Rehabilitation
+                Specialist. With over <b>26 years</b> of experience and{" "}
+                <b>93,000+ hours</b> dedicated to the sports, fitness, and
+                nutrition industry, Dr. Bibhu Moni Singha is a globally
+                recognized expert in <b> strength & conditioning</b>,{" "}
+                <b>sports nutrition</b>, <b>injury rehabilitation</b>, and{" "}
+                <b>Olympic weightlifting</b>. He has personally trained{" "}
+                <b>36,000+</b> athletes and clients, including Olympians,
+                professional bodybuilders, corporate leaders, and senior
+                bureaucrats. As a Director of Certification at Universal Fitness
+                Training Academy since 2006, Dr. Bibhu has certified{" "}
+                <b>2,500+</b> fitness professionals and played a pivotal role in
+                introducing India’s first 4-year B.Sc. (Hons.) in{" "}
+                <b>Fitness & Athletic Conditioning</b> under the NEP 2020, in
                 collaboration with Mahapurusha Srimanta Sankardeva
                 Viswavidyalaya.
               </p>
-              <ul className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins text-justify list-disc pl-5 space-y-2">
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins ">
+                A <b>CASES UK</b> Accredited Sport & Exercise Scientist, Dr.
+                Bibhu is a renowned speaker at global conferences on strength &
+                conditioning, velocity-based training, and sports rehab. His
+                award-winning research has shaped modern strength training
+                principles and his pioneering work introduced India’s first
+                4-year <b>B.Sc. in Fitness & Athletic Conditioning (Honours)</b>
+                .
+              </p>
+
+              <ul className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins  list-disc pl-5 space-y-2">
                 <li>
                   <span className="font-semibold text-amber-400">
                     Academic & Research Excellence:
@@ -130,30 +144,47 @@ const HeadCoachSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               <div className="card p-3 md:p-4 rounded-sm">
                 <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
-                  IUSCA/USAW Level 2
+                  mISCP (Level 8), IUSCA
                 </h4>
                 <p className="text-gray-400 text-xs md:text-sm font-poppins">
-                  Certified Strength and Conditioning Coach with expertise in
-                  Olympic weightlifting.
+                  Recognized as a top-tier expert in global S&C standards
                 </p>
               </div>
               <div className="card p-3 md:p-4 rounded-sm">
                 <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
-                  Master Trainer TECHNOGYM
+                  USAW Level 2
                 </h4>
                 <p className="text-gray-400 text-xs md:text-sm font-poppins">
-                  Certified Master Trainer for TECHNOGYM, specializing in
-                  advanced fitness equipment and training programs.
+                  Trained under Olympic coach Mike McKenna, credentialed by USA
+                  Weightlifting
                 </p>
               </div>
 
               <div className="card p-3 md:p-4 rounded-sm">
                 <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
-                  MPPT & CSN PROPTA USA
+                  PROPTA MPPT and CSN (USA)
                 </h4>
                 <p className="text-gray-400 text-xs md:text-sm font-poppins">
-                  Certified in Mental Performance and Sports Nutrition from
-                  PROPTA USA.
+                  Certified Master Personal Trainer and Certified Sports
+                  Nutritionist by PROPTA USA
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              <div className="card p-3 md:p-4 rounded-sm">
+                <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
+                  NSCA CSCS
+                </h4>
+                <p className="text-gray-400 text-xs md:text-sm font-poppins">
+                  Certified Strength and Conditioning Specialist
+                </p>
+              </div>
+              <div className="card p-3 md:p-4 rounded-sm">
+                <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
+                  Technogym Master Trainer
+                </h4>
+                <p className="text-gray-400 text-xs md:text-sm font-poppins">
+                  Certified in advanced equipment training and programming
                 </p>
               </div>
             </div>

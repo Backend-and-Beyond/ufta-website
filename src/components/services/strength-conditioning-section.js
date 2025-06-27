@@ -1,125 +1,106 @@
 import * as React from "react"
-import { motion, useAnimation } from "framer-motion"
-import { pageAnimations, viewportSettings } from "../../utils/animations"
+import { motion } from "framer-motion"
 
 const StrengthConditioningSection = () => {
-  const { fadeInUp, staggerContainer, scaleUp, slideInLeft, slideInRight } = pageAnimations.standard;
-  const controls = useAnimation();
-  
-  // Animation for the section title glow effect
-  React.useEffect(() => {
-    controls.start({
-      opacity: [0.5, 1, 0.5],
-      transition: { duration: 3, repeat: Infinity, repeatType: "reverse" }
-    });
-  }, [controls]);
+  // Simple, non-blinking animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   return (
-    <motion.section 
+    <section 
       id="strength-conditioning" 
       className="py-12 md:py-16 relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportSettings}
-      variants={fadeInUp}
     >
-      {/* Sci-fi background elements */}
+      {/* Static background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <motion.div 
-          className="absolute top-10 right-10 w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#00c8ff]/5"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.3, 0.1]
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
-        <motion.div 
-          className="absolute bottom-20 left-10 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#00c8ff]/5"
-          animate={{ 
-            scale: [1, 1.5, 1],
-            opacity: [0.1, 0.2, 0.1]
-          }}
-          transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-        />
+        <div className="absolute top-10 right-10 w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#00c8ff]/10" />
+        <div className="absolute bottom-20 left-10 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#00c8ff]/10" />
         <div className="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-20"></div>
       </div>
 
-      {/* Section title with animated elements */}
-      <div className="relative z-10 mb-8 md:mb-12 px-4 md:px-0">
+      {/* Section title */}
+      <motion.div 
+        className="relative z-10 mb-8 md:mb-12 px-4 md:px-0"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={slideUpVariant}
+      >
         <div className="flex flex-col items-center justify-center">
           <motion.div 
             className="flex items-center justify-center mb-6"
-            animate={controls}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
-            <motion.svg 
+            <svg 
               className="w-8 h-8 md:w-12 md:h-12 mr-3 text-[#00c8ff]" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24" 
               strokeWidth="1.5" 
               stroke="currentColor"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
             >
-              <motion.path 
+              <path 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
                 d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
               />
-              <motion.path 
+              <path 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
                 d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
               />
-            </motion.svg>
+            </svg>
           </motion.div>
           
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative tracking-wide"
-            variants={slideInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Offline/Online Strength & <span className="text-[#00c8ff] relative">
               Conditioning
-              <motion.span 
-                className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#00c8ff]"
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: "100%", opacity: 0.8 }}
-                transition={{ duration: 1, delay: 1 }}
-              />
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#00c8ff] opacity-80" />
             </span>
           </motion.h2>
           
-          <motion.div 
-            className="w-24 h-px bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mt-6 opacity-60"
-            animate={{ 
-              width: ["0%", "100%", "0%"],
-              opacity: [0, 0.6, 0] 
-            }}
-            transition={{ 
-              duration: 4, 
-              repeat: Infinity, 
-              repeatType: "reverse",
-              ease: "easeInOut" 
-            }}
-          />
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mt-6 opacity-60" />
         </div>
-      </div>
+      </motion.div>
       
-      {/* Main content with holographic card effect */}
-      <motion.div 
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-start px-4 md:px-0"
-        variants={staggerContainer}
-      >
+      {/* Main content cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-start px-4 md:px-0">
         <motion.div 
-          className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-8 relative overflow-hidden border border-[#2A2A2A] group hover:border-[#00c8ff]/70 transition-all duration-300"
-          variants={scaleUp}
+          className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-8 relative overflow-hidden border border-[#2A2A2A] hover:border-[#00c8ff]/70 transition-colors duration-300"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={cardVariant}
           whileHover={{ y: -5 }}
           style={{
             boxShadow: "0 0 20px rgba(0, 200, 255, 0.1), inset 0 0 15px rgba(0, 200, 255, 0.03)"
@@ -137,33 +118,20 @@ const StrengthConditioningSection = () => {
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l rounded-bl border-[#00c8ff]/50"></div>
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r rounded-br border-[#00c8ff]/50"></div>
           
-          {/* Training program header with futuristic effect */}
+          {/* Training program header */}
           <motion.div 
-            className="w-full h-32 md:h-48 rounded-lg mb-4 md:mb-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500"
+            className="w-full h-32 md:h-48 rounded-lg mb-4 md:mb-6 relative overflow-hidden"
             whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.5 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-green-600/90 to-green-700/90 backdrop-blur"></div>
             <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] opacity-20"></div>
-            <motion.div 
-              className="absolute top-0 left-0 w-full h-full"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.5, 0] }}
-              transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
-            >
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-[#00c8ff]/20 to-transparent transform translate-x-full"></div>
-            </motion.div>
             
             <div className="relative z-10 h-full flex items-center justify-center">
               <div className="text-white font-bold text-lg md:text-xl tracking-wide flex flex-col items-center">
-                <motion.span 
-                  className="uppercase text-xl md:text-2xl tracking-widest"
-                  animate={{ 
-                    textShadow: ["0 0 5px rgba(0,200,255,0.5)", "0 0 15px rgba(0,200,255,0.8)", "0 0 5px rgba(0,200,255,0.5)"] 
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
+                <span className="uppercase text-xl md:text-2xl tracking-widest">
                   S&C Training
-                </motion.span>
+                </span>
                 <span className="text-xs md:text-sm mt-2 opacity-80 tracking-wider">PERFORMANCE PROGRAMS</span>
               </div>
             </div>
@@ -175,8 +143,11 @@ const StrengthConditioningSection = () => {
         </motion.div>
         
         <motion.div 
-          className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-8 relative overflow-hidden border border-[#2A2A2A] group hover:border-[#00c8ff]/70 transition-all duration-300"
-          variants={scaleUp}
+          className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-8 relative overflow-hidden border border-[#2A2A2A] hover:border-[#00c8ff]/70 transition-colors duration-300"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={cardVariant}
           whileHover={{ y: -5 }}
           style={{
             boxShadow: "0 0 20px rgba(0, 200, 255, 0.1), inset 0 0 15px rgba(0, 200, 255, 0.03)"
@@ -196,27 +167,25 @@ const StrengthConditioningSection = () => {
           
           <motion.h3 
             className="text-xl md:text-2xl font-semibold mb-4 text-white tracking-wide"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >S&C Certification Courses</motion.h3>
           
           <p className="text-gray-300 leading-relaxed mb-4 font-light text-sm md:text-base">Become a certified Strength & Conditioning professional with UFTA. Our courses are designed to provide in-depth knowledge and practical skills.</p>
           
           <motion.div 
             className="mb-6 p-4 md:p-5 bg-black/30 border border-[#2A2A2A] rounded-lg relative"
-            variants={fadeInUp}
-            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             <div className="absolute top-0 left-0 w-full h-full bg-[url('/circuit-pattern.svg')] opacity-5 pointer-events-none"></div>
             
             <h4 className="font-semibold text-[#00c8ff] mb-3 flex items-center text-sm md:text-base">
-              <motion.span 
-                className="inline-block w-2 h-2 bg-[#00c8ff] mr-2 rounded-full"
-                animate={{ 
-                  opacity: [0.5, 1, 0.5],
-                  boxShadow: ["0 0 0px #00c8ff", "0 0 10px #00c8ff", "0 0 0px #00c8ff"] 
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              <span className="inline-block w-2 h-2 bg-[#00c8ff] mr-2 rounded-full opacity-70" />
               Accredited Advanced Diploma in Strength and Conditioning (Level-6):
             </h4>
             
@@ -256,20 +225,15 @@ const StrengthConditioningSection = () => {
           
           <motion.a 
             href="#contact-form" 
-            className="inline-flex items-center justify-center bg-transparent border border-[#00c8ff] text-white hover:bg-[#00c8ff]/10 px-4 md:px-6 py-2 rounded transition-all duration-300 group relative overflow-hidden text-sm md:text-base"
+            className="inline-flex items-center justify-center bg-transparent border border-[#00c8ff] text-white hover:bg-[#00c8ff]/10 px-4 md:px-6 py-2 rounded transition-colors duration-300 relative overflow-hidden text-sm md:text-base"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
             <span className="relative z-10">Enquire Now</span>
-            <motion.span 
-              className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/0 via-[#00c8ff]/20 to-[#00c8ff]/0 transform translate-x-[-100%]"
-              animate={{ translateX: ['100%', '-100%'] }}
-              transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop", ease: "linear" }}
-            />
           </motion.a>
         </motion.div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   )
 }
 

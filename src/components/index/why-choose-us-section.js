@@ -1,72 +1,77 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
 
 // Import actual gym images from gallery
 const FacilitiesImage = "../../../static/gallery-images/IMG-20250617-WA0032.jpg";
 const InstructorsImage = "../../../static/gallery-images/IMG-20250617-WA0034.jpg";
 
 const WhyChooseUsSection = () => {
-  const { fadeIn, fadeInUp, staggerContainer, slideInRight } = pageAnimations.standard;
-
-  const contentCardVariant = {
-    hidden: { opacity: 0, x: -30, scale: 0.95 },
-    visible: (i) => ({
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.7,
-        ease: "easeOut"
-      }
-    }),
-    hover: {
-      scale: 1.02,
-      y: -5,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut"
-      }
+  // Simple, non-blinking animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
     }
-  }
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
+  const imageVariant = {
+    hidden: { opacity: 0, x: 30 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
 
   return (
-    <motion.section
-      className="py-12 md:py-20 bg-[#0F0F0F] relative overflow-hidden"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={fadeIn}
-    >
+    <section className="py-12 md:py-20 bg-[#0F0F0F] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          className="text-center mb-12 md:mb-16"
-          variants={fadeInUp}
-        >
+        <div className="text-center mb-12 md:mb-16">
           <motion.h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 font-poppins text-white"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideUpVariant}
           >
             Why Choose Us
           </motion.h2>
           <motion.p
             className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto font-poppins"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Discover what makes UFTA the premier choice for fitness education and professional development
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
           {/* Left Content - Features Grid */}
-          <motion.div
-            className="lg:col-span-2"
-            variants={staggerContainer}
-          >
+          <div className="lg:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {[
                 {
@@ -108,54 +113,36 @@ const WhyChooseUsSection = () => {
               ].map((feature, index) => (
                 <motion.div
                   key={index}
-                  className="bg-[#141414] border border-[#2A2A2A] p-4 md:p-6 rounded-lg hover:border-[#00c8ff]/30 transition-all duration-300 group"
-                  custom={index}
-                  variants={contentCardVariant}
-                  whileHover="hover"
+                  className="bg-[#141414] border border-[#2A2A2A] p-4 md:p-6 rounded-lg hover:border-[#00c8ff]/30 group"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
+                  variants={cardVariant}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <motion.div
-                    className="mb-4"
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.5, type: "spring" }}
-                    viewport={{ once: true }}
-                  >
+                  <div className="mb-4">
                     {feature.icon}
-                  </motion.div>
-                  <motion.h3
-                    className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white font-poppins group-hover:text-[#00c8ff] transition-colors"
-                    initial={{ x: -20, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 + 0.1, duration: 0.5 }}
-                    viewport={{ once: true }}
-                  >
+                  </div>
+                  <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white font-poppins group-hover:text-[#00c8ff] transition-colors">
                     {feature.title}
-                  </motion.h3>
-                  <motion.p
-                    className="text-gray-400 leading-relaxed font-poppins text-sm md:text-base"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
-                    viewport={{ once: true }}
-                  >
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed font-poppins text-sm md:text-base">
                     {feature.description}
-                  </motion.p>
+                  </p>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Content - Images */}
-          <motion.div
-            className="lg:col-span-1 space-y-4 md:space-y-6"
-            variants={staggerContainer}
-          >
+          <div className="lg:col-span-1 space-y-4 md:space-y-6">
             <motion.div
-              className="relative rounded-lg overflow-hidden border border-[#2A2A2A] hover:border-[#00c8ff]/30 transition-all duration-300"
-              variants={slideInRight}
+              className="relative rounded-lg overflow-hidden border border-[#2A2A2A] hover:border-[#00c8ff]/30"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={imageVariant}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
@@ -178,8 +165,11 @@ const WhyChooseUsSection = () => {
             </motion.div>
 
             <motion.div
-              className="relative rounded-lg overflow-hidden border border-[#2A2A2A] hover:border-[#00c8ff]/30 transition-all duration-300"
-              variants={slideInRight}
+              className="relative rounded-lg overflow-hidden border border-[#2A2A2A] hover:border-[#00c8ff]/30"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={imageVariant}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
@@ -200,10 +190,10 @@ const WhyChooseUsSection = () => {
                 </p>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   )
 }
 

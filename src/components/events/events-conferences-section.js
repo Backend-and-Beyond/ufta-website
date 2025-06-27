@@ -1,10 +1,33 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import { pageAnimations } from "../../utils/animations";
 
 const EventsConferencesSection = () => {
-  const { fadeInUp, staggerContainer, cardVariant, scaleIn } =
-    pageAnimations.standard;
+  // Simple, unified animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   // Conference data
   const conferences = [
@@ -34,13 +57,9 @@ const EventsConferencesSection = () => {
   ];
 
   return (
-    <motion.section
+    <section
       id="conferences"
       className="py-12 md:py-20 px-4 md:px-6 relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
     >
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -60,7 +79,10 @@ const EventsConferencesSection = () => {
         <div className="relative z-10 flex flex-col items-center pt-4 md:pt-6">
           <motion.div
             className="bg-gradient-to-r from-purple-500/20 to-[#00c8ff]/20 p-0.5 rounded-full mb-3 md:mb-5 shadow-lg"
-            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariant}
           >
             <div className="bg-[#0A0A0A] p-3 md:p-4 rounded-full">
               <motion.svg
@@ -84,7 +106,10 @@ const EventsConferencesSection = () => {
 
           <motion.h2
             className="text-2xl md:text-4xl lg:text-5xl font-bold text-white text-center relative"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideUpVariant}
           >
             <span className="text-purple-400">International</span>{" "}
             <span>Conferences</span>
@@ -93,7 +118,10 @@ const EventsConferencesSection = () => {
 
           <motion.p
             className="text-center text-lg md:text-xl leading-relaxed mt-4 md:mt-6 text-gray-300 max-w-3xl px-4"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Join global leaders in sports science and exercise research at our
             prestigious conferences and symposiums
@@ -104,15 +132,21 @@ const EventsConferencesSection = () => {
       {/* Conference Cards */}
       <motion.div
         className="space-y-6 md:space-y-8 max-w-5xl mx-auto relative"
-        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={slideUpVariant}
       >
         {conferences.map((conference, index) => (
           <motion.div
             key={index}
             className="bg-gradient-to-br from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-4 md:p-6 lg:p-8 xl:p-10 shadow-xl relative overflow-hidden group hover:border-purple-400/60 transition-all duration-500"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             variants={cardVariant}
-            whileHover={{ y: -8, scale: 1.01 }}
-            transition={{ duration: 0.4 }}
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
           >
             {/* Card Header Gradient */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-purple-400 to-[#00c8ff] opacity-80"></div>
@@ -295,7 +329,13 @@ const EventsConferencesSection = () => {
       </motion.div>
 
       {/* View All Conferences Button */}
-      <motion.div className="flex justify-center mt-8 md:mt-12" variants={fadeInUp}>
+      <motion.div 
+        className="flex justify-center mt-8 md:mt-12" 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInVariant}
+      >
         {/*         <motion.a 
           href="/conferences" 
           className="inline-flex items-center gap-2 px-8 py-3 bg-[#141414] border border-[#2A2A2A] hover:border-purple-400 rounded-lg text-white hover:text-purple-400 transition-all duration-300 group"
@@ -314,7 +354,7 @@ const EventsConferencesSection = () => {
           </svg>
         </motion.a> */}
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 

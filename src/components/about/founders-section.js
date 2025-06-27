@@ -244,13 +244,7 @@ const FoundersSection = () => {
       </motion.div>
       
       {/* Stats Section */}
-      <motion.div
-        className="mt-12 md:mt-24 pt-8 md:pt-12 border-t border-[#2A2A2A] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.05 }}
-        variants={mobileOptimizedStagger}
-      >
+      <div className="mt-12 md:mt-24 pt-8 md:pt-12 border-t border-[#2A2A2A] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {[
           { value: "23+", label: "Years Experience", icon: "⏱️" },
           { value: "2,500+", label: "Certified Professionals", icon: "🎓" },
@@ -259,27 +253,21 @@ const FoundersSection = () => {
         ].map((stat, idx) => (
           <motion.div
             key={idx}
-            className="text-center bg-[#141414] border border-[#2A2A2A] rounded-lg p-3 md:p-4 relative overflow-hidden group hover:border-[#00c8ff]/30 transition-all duration-300"
+            className="text-center bg-[#141414] border border-[#2A2A2A] rounded-lg p-3 md:p-4 relative overflow-hidden group hover:border-[#00c8ff]/30"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.3, delay: idx * 0.05 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
             whileHover={{ y: -5 }}
           >
             <div className="absolute -bottom-2 -right-2 text-3xl md:text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{stat.icon}</div>
-            <motion.div 
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00c8ff] mb-1 md:mb-2"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 + (idx * 0.1), duration: 0.4 }}
-              viewport={{ once: true }}
-            >
+            <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00c8ff] mb-1 md:mb-2">
               {stat.value}
-            </motion.div>
+            </div>
             <div className="text-gray-400 text-xs md:text-sm">{stat.label}</div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

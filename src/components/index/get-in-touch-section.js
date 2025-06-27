@@ -1,56 +1,39 @@
 // filepath: /home/biswa/Desktop/Ufta/ufta-gatsby/src/components/index/get-in-touch-section.js
 import * as React from "react"
 import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
 
 const GetInTouchSection = () => {
-  const { fadeIn, fadeInUp, staggerContainer, cardVariant } = pageAnimations.standard;
-
-  // Enhanced animation variants for Welcome section - more subtle animations
-  const floatVariant = {
-    hidden: { opacity: 0, y: 25, scale: 0.97 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.23, 0.04, 0.22, 1], // Smoother cubic-bezier curve
-        type: "tween" // Changed from spring to tween for more control
-      }
+  // Simple, non-blinking animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
     }
-  }
+  };
 
-  const contentCardVariant = {
-    hidden: { opacity: 0, x: -15, scale: 0.98 },
-    visible: (i) => ({
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.08, // Reduced stagger delay
-        duration: 0.5, // Reduced duration
-        ease: [0.23, 0.04, 0.22, 1] // Smoother cubic-bezier curve
-      }
-    }),
-    hover: {
-      scale: 1.01, // More subtle scale
-      y: -3, // Less movement on hover
-      transition: {
-        duration: 0.2, // Faster response
-        ease: "easeOut"
-      }
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
     }
-  }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   return (
-    <motion.section
+    <section
       id="contact"
       className="py-12 md:py-20 bg-[#0F0F0F] relative overflow-hidden"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={fadeIn}
     >
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
@@ -73,81 +56,63 @@ const GetInTouchSection = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
-        <motion.div
-          className="text-center mb-12 md:mb-16"
-          variants={staggerContainer}
-        >
+        <div className="text-center mb-12 md:mb-16">
           <motion.h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 font-poppins bg-gradient-to-r from-white via-[#00c8ff] to-white bg-clip-text text-transparent"
-            variants={floatVariant}
-            whileHover={{
-              scale: 1.02,
-              transition: { duration: 0.2 }
-            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideUpVariant}
+            whileHover={{ scale: 1.02 }}
           >
             Get In Touch
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mx-auto mb-6"
-            variants={floatVariant}
             initial={{ width: 0 }}
             whileInView={{ width: 96 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            viewport={{ once: true }}
           ></motion.div>
           <motion.p
             className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-poppins"
-            variants={floatVariant}
-          >
-            Ready to transform your fitness career? Connect with our expert team and take the first step towards excellence.
-          </motion.p>
-        </motion.div>
-
-        {/* Contact Cards Grid */}
-        <motion.div
-          className="flex flex-col md:flex-row gap-6 md:gap-8 mb-12 md:mb-16 justify-center items-center md:items-stretch w-full"
-          variants={staggerContainer}
-        >
-          {/* Phone Contact Card */}
-          <motion.div
-            className="bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
-            variants={contentCardVariant}
-            whileHover="hover"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 opacity-0 group-hover:opacity-100"
-              initial={false}
-              transition={{ duration: 0.5 }}
-            />
-            <motion.div
+            Ready to transform your fitness career? Connect with our expert team and take the first step towards excellence.
+          </motion.p>
+        </div>
+
+        {/* Contact Cards Grid */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-12 md:mb-16 justify-center items-center md:items-stretch w-full">
+          {/* Phone Contact Card */}
+          <motion.div
+            className="bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariant}
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <motion.div 
               className="text-4xl mb-4 relative z-10"
               initial={{ scale: 0, rotate: -180 }}
               whileInView={{ scale: 1, rotate: 0 }}
-              transition={{ delay: 0.2, duration: 0.5, type: "tween", ease: [0.23, 0.04, 0.22, 1] }}
+              transition={{ delay: 0.2, duration: 0.5, type: "spring", bounce: 0.3 }}
               viewport={{ once: true }}
             >
               📞
             </motion.div>
-            <motion.h3
-              className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10"
-              initial={{ x: -20, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <h3 className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10">
               Call Us
-            </motion.h3>
-            <motion.p
-              className="text-gray-300 mb-3 md:mb-4 font-poppins relative z-10 text-sm md:text-base"
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            </h3>
+            <p className="text-gray-300 mb-3 md:mb-4 font-poppins relative z-10 text-sm md:text-base">
               Speak directly with our admissions counselors
-            </motion.p>
+            </p>
             <motion.a
               href="tel:+919864047046"
               className="text-[#00c8ff] hover:text-white font-semibold font-poppins transition-colors duration-300 relative z-10 inline-flex items-center group"
@@ -170,45 +135,30 @@ const GetInTouchSection = () => {
 
           {/* Email Contact Card */}
           <motion.div
-            className="bg-gradient-to-br from-[#0099cc]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
-            variants={contentCardVariant}
-            whileHover="hover"
+            className="bg-gradient-to-br from-[#0099cc]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariant}
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ duration: 0.3 }}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 opacity-0 group-hover:opacity-100"
-              initial={false}
-              transition={{ duration: 0.5 }}
-            />
-            <motion.div
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <motion.div 
               className="text-4xl mb-4 relative z-10"
               initial={{ scale: 0, rotate: -180 }}
               whileInView={{ scale: 1, rotate: 0 }}
-              transition={{ delay: 0.4, duration: 0.5, type: "tween", ease: [0.23, 0.04, 0.22, 1] }}
+              transition={{ delay: 0.3, duration: 0.5, type: "spring", bounce: 0.3 }}
               viewport={{ once: true }}
             >
               ✉️
             </motion.div>
-            <motion.h3
-              className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10"
-              initial={{ x: -20, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-                            Email Us
-            </motion.h3>
-            <motion.p
-              className="text-gray-300 mb-3 md:mb-4 font-poppins relative z-10 text-sm md:text-base"
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <h3 className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10">
+              Email Us
+            </h3>
+            <p className="text-gray-300 mb-3 md:mb-4 font-poppins relative z-10 text-sm md:text-base">
               Get detailed information about our programs
-            </motion.p>
+            </p>
             <motion.a
               href="mailto:info@ufta.in"
               className="text-[#00c8ff] hover:text-white font-semibold font-poppins transition-colors duration-300 relative z-10 inline-flex items-center group"
@@ -231,97 +181,69 @@ const GetInTouchSection = () => {
 
           {/* Location Contact Card */}
           <motion.div
-            className="bg-gradient-to-br from-[#0066ff]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 transition-all duration-500 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
-            variants={contentCardVariant}
-            whileHover="hover"
+            className="bg-gradient-to-br from-[#0066ff]/10 to-[#00c8ff]/5 border border-[#2A2A2A] p-6 md:p-8 rounded-xl hover:border-[#00c8ff]/50 group relative overflow-hidden w-full max-w-sm md:flex-1 md:max-w-none"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariant}
+            whileHover={{ scale: 1.02, y: -5 }}
+            transition={{ duration: 0.3 }}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 opacity-0 group-hover:opacity-100"
-              initial={false}
-              transition={{ duration: 0.5 }}
-            />
-            <motion.div
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 via-transparent to-[#00c8ff]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <motion.div 
               className="text-4xl mb-4 relative z-10"
               initial={{ scale: 0, rotate: -180 }}
               whileInView={{ scale: 1, rotate: 0 }}
-              transition={{ delay: 0.6, duration: 0.5, type: "tween", ease: [0.23, 0.04, 0.22, 1] }}
+              transition={{ delay: 0.4, duration: 0.5, type: "spring", bounce: 0.3 }}
               viewport={{ once: true }}
             >
               📍
             </motion.div>
-            <motion.h3
-              className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10"
-              initial={{ x: -20, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            <h3 className="text-xl font-bold mb-3 text-[#00c8ff] font-poppins relative z-10">
               Visit Our Campus
-            </motion.h3>
-            <motion.p
-              className="text-gray-300 mb-4 font-poppins relative z-10"
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            </h3>
+            <p className="text-gray-300 mb-4 font-poppins relative z-10">
               Experience our world-class facilities firsthand
-            </motion.p>
-            <motion.p
-              className="text-[#00c8ff] font-semibold font-poppins relative z-10"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
+            </p>
+            <p className="text-[#00c8ff] font-semibold font-poppins relative z-10">
               Guwahati, Assam, India
-            </motion.p>
+            </p>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Contact Form Section */}
-        <motion.div
-          className="py-20 bg-[#0F0F0F] relative overflow-hidden"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeIn}
-        >
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/5 via-[#00c8ff]/10 to-[#00c8ff]/5 opacity-0 group-hover:opacity-100"
-            initial={false}
-            transition={{ duration: 0.5 }}
-          />
+        <div className="py-20 bg-[#0F0F0F] relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/5 via-[#00c8ff]/10 to-[#00c8ff]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           <div className="grid lg:grid-cols-2 gap-12 items-start relative z-10">
             {/* Left Column - Contact Info */}
-            <motion.div
-              className="space-y-6"
-              variants={staggerContainer}
-            >
+            <div className="space-y-6">
               <motion.h3
                 className="text-2xl md:text-3xl font-bold mb-6 font-poppins text-white"
-                variants={floatVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={slideUpVariant}
               >
                 Ready to Begin Your Journey?
               </motion.h3>
               <motion.p
                 className="text-gray-300 text-lg leading-relaxed font-poppins mb-8"
-                variants={floatVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeInVariant}
               >
                 Whether you're looking to start a new career in fitness or enhance your existing skills, our team is here to guide you every step of the way.
               </motion.p>
 
               {/* Additional Contact Methods */}
-              <motion.div
-                className="space-y-4"
-                variants={staggerContainer}
-              >
+              <div className="space-y-4">
                 <motion.div
                   className="flex items-center space-x-4"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
                   variants={cardVariant}
                 >
                   <div className="w-12 h-12 bg-[#00c8ff]/20 border border-[#00c8ff]/30 rounded-lg flex items-center justify-center">
@@ -335,6 +257,9 @@ const GetInTouchSection = () => {
 
                 <motion.div
                   className="flex items-center space-x-4"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
                   variants={cardVariant}
                 >
                   <div className="w-12 h-12 bg-[#00c8ff]/20 border border-[#00c8ff]/30 rounded-lg flex items-center justify-center">
@@ -348,6 +273,9 @@ const GetInTouchSection = () => {
 
                 <motion.div
                   className="flex items-center space-x-4"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
                   variants={cardVariant}
                 >
                   <div className="w-12 h-12 bg-[#00c8ff]/20 border border-[#00c8ff]/30 rounded-lg flex items-center justify-center">
@@ -358,41 +286,29 @@ const GetInTouchSection = () => {
                     <p className="text-gray-400 font-poppins">Free career guidance sessions</p>
                   </div>
                 </motion.div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
             {/* Right Column - CTA */}
             <motion.div
               className="bg-gradient-to-br from-[#00c8ff]/10 via-[#00c8ff]/5 to-[#00c8ff]/10 border border-[#00c8ff]/30 p-8 rounded-xl text-center"
-              variants={floatVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariant}
             >
-              <motion.h4
-                className="text-xl font-bold mb-4 font-poppins text-white"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
+              <h4 className="text-xl font-bold mb-4 font-poppins text-white">
                 Start Your Fitness Career Today
-              </motion.h4>
-              <motion.p
-                className="text-gray-300 mb-6 font-poppins"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
+              </h4>
+              <p className="text-gray-300 mb-6 font-poppins">
                 Join thousands of successful fitness professionals who chose UFTA as their launchpad to success
-              </motion.p>
+              </p>
 
-              <motion.div
-                className="space-y-4"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
+              <div className="space-y-4">
                 <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
                   variants={cardVariant}
                   whileHover={{
                     scale: 1.02,
@@ -421,6 +337,9 @@ const GetInTouchSection = () => {
                 </motion.div>
 
                 <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
                   variants={cardVariant}
                   whileHover={{
                     scale: 1.02,
@@ -448,12 +367,12 @@ const GetInTouchSection = () => {
                     </motion.svg>
                   </a>
                 </motion.div>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   )
 }
 

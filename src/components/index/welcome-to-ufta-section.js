@@ -1,10 +1,11 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
+import * as React from "react";
+import { Link } from "gatsby";
+import { motion } from "framer-motion";
+import { pageAnimations } from "../../utils/animations";
 
 const WelcomeToUftaSection = () => {
-  const { fadeIn, fadeInUp, staggerContainer, cardVariant } = pageAnimations.standard;
+  const { fadeIn, fadeInUp, staggerContainer, cardVariant } =
+    pageAnimations.standard;
 
   // Enhanced animation variants for Welcome section
   const floatVariant = {
@@ -17,10 +18,10 @@ const WelcomeToUftaSection = () => {
         duration: 0.8,
         ease: "easeOut",
         type: "spring",
-        stiffness: 100
-      }
-    }
-  }
+        stiffness: 100,
+      },
+    },
+  };
 
   const statsCounterVariant = {
     hidden: { opacity: 0, scale: 0, y: 30 },
@@ -33,10 +34,10 @@ const WelcomeToUftaSection = () => {
         duration: 0.6,
         ease: "easeOut",
         type: "spring",
-        stiffness: 120
-      }
-    })
-  }
+        stiffness: 120,
+      },
+    }),
+  };
 
   const contentCardVariant = {
     hidden: { opacity: 0, x: -30, scale: 0.95 },
@@ -47,18 +48,18 @@ const WelcomeToUftaSection = () => {
       transition: {
         delay: i * 0.15,
         duration: 0.7,
-        ease: "easeOut"
-      }
+        ease: "easeOut",
+      },
     }),
     hover: {
       scale: 1.02,
       y: -5,
       transition: {
         duration: 0.3,
-        ease: "easeInOut"
-      }
-    }
-  }
+        ease: "easeInOut",
+      },
+    },
+  };
 
   const backgroundElementVariant = {
     hidden: { opacity: 0, rotate: 0, scale: 0 },
@@ -72,10 +73,10 @@ const WelcomeToUftaSection = () => {
         ease: "easeInOut",
         repeat: Infinity,
         repeatDelay: 5,
-        repeatType: "reverse"
-      }
-    })
-  }
+        repeatType: "reverse",
+      },
+    }),
+  };
 
   return (
     <motion.section
@@ -128,7 +129,7 @@ const WelcomeToUftaSection = () => {
             variants={floatVariant}
             whileHover={{
               scale: 1.05,
-              transition: { duration: 0.3 }
+              transition: { duration: 0.3 },
             }}
           >
             Welcome to UFTA
@@ -147,7 +148,8 @@ const WelcomeToUftaSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Transforming passionate fitness enthusiasts into industry-leading professionals since 2006
+            Empowering passionate fitness enthusiasts to become industry-leading
+            professionals since 2006.
           </motion.p>
         </motion.div>
 
@@ -160,7 +162,7 @@ const WelcomeToUftaSection = () => {
             { number: "19+", label: "Years of Excellence", delay: 0 },
             { number: "2500+", label: "Certified Professionals", delay: 0.2 },
             { number: "50+", label: "Training Programs", delay: 0.4 },
-            { number: "100%", label: "Job Placement Support", delay: 0.6 }
+            { number: "100%", label: "Job Placement Support", delay: 0.6 },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -171,7 +173,7 @@ const WelcomeToUftaSection = () => {
                 y: -8,
                 scale: 1.03,
                 boxShadow: "0 10px 40px rgba(0, 200, 255, 0.1)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               whileTap={{ scale: 0.98 }}
             >
@@ -191,8 +193,8 @@ const WelcomeToUftaSection = () => {
                     delay: stat.delay + 0.3,
                     duration: 0.8,
                     type: "spring",
-                    stiffness: 100
-                  }
+                    stiffness: 100,
+                  },
                 }}
                 viewport={{ once: true }}
               >
@@ -224,12 +226,14 @@ const WelcomeToUftaSection = () => {
             {[
               {
                 title: "Our Legacy",
-                content: "Universal Fitness Training Academy (UFTA), established in 2006, is a premier institution in India dedicated to providing comprehensive health and fitness education. With a steadfast commitment to excellence, UFTA has trained and certified over 2,500 fitness professionals."
+                content:
+                  "Established in 2006, the Universal Fitness Training Academy (UFTA) stands as one of India’s leading institutions dedicated to advancing education in sports performance, exercise science, health, and fitness. With an unwavering commitment to academic and professional excellence, UFTA has successfully trained and certified over 2,500 professionals in the fields of strength and conditioning (S&amp;C), fitness, and nutrition.",
               },
               {
                 title: "Our Mission",
-                content: "To foster a new generation of fitness leaders through rigorous academic programs, practical training, and a passion for advancing sport and exercise sciences. We ensure our graduates are well-equipped to excel in the dynamic fitness industry."
-              }
+                content:
+                  "To bridge the gap between evidence-based practice and the real-world application of sports performance and fitness training—backed by research, driven by science, and focused on results—and to foster a new generation of strength and conditioning practitioners and fitness leaders through rigorous academic programs, practical training, and a passion for advancing sports performance and exercise sciences. We ensure our graduates are well-equipped to excel in the dynamic sports performance and fitness industry.",
+              },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -257,7 +261,7 @@ const WelcomeToUftaSection = () => {
                   {item.title}
                 </motion.h3>
                 <motion.p
-                  className="text-gray-300 leading-relaxed font-poppins relative z-10 text-sm md:text-base"
+                  className="text-gray-300 leading-relaxed font-poppins relative z-10 text-sm md:text-base text-justify"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
@@ -277,12 +281,14 @@ const WelcomeToUftaSection = () => {
             {[
               {
                 title: "Our Community",
-                content: "UFTA fosters a vibrant community, providing expert guidance and a supportive environment to help everyone—from aspiring fitness professionals to personal fitness enthusiasts—achieve their goals."
+                content:
+                  "To bridge the gap between evidence-based practice and the real-world application of sports performance and fitness training—backed by research, driven by science, and focused on results—and to foster a new generation of strength and conditioning practitioners and fitness leaders through rigorous academic programs, practical training, and a passion for advancing sports performance and exercise sciences. We ensure our graduates are well-equipped to excel in the dynamic sports performance and fitness industry.",
               },
               {
                 title: "Global Recognition",
-                content: "Our internationally recognized courses range from degree programs like B.Sc. in Fitness & Athletic Conditioning to specialized certifications, approved by leading fitness organizations worldwide."
-              }
+                content:
+                  "Our internationally recognized programs range from degree courses such as the B.Sc. in Fitness & Athletic Conditioning to specialized certifications, all approved by leading strength and conditioning and sports and exercise organizations worldwide.",
+              },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -310,7 +316,7 @@ const WelcomeToUftaSection = () => {
                   {item.title}
                 </motion.h3>
                 <motion.p
-                  className="text-gray-300 leading-relaxed font-poppins relative z-10 text-sm md:text-base"
+                  className="text-gray-300 leading-relaxed font-poppins relative z-10 text-sm md:text-base text-justify"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
@@ -324,7 +330,7 @@ const WelcomeToUftaSection = () => {
         </motion.div>
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default WelcomeToUftaSection
+export default WelcomeToUftaSection;

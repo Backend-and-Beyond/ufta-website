@@ -100,10 +100,12 @@ const HeroSection = () => {
             className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 font-poppins leading-relaxed text-center sm:text-left max-w-lg sm:max-w-none mx-auto sm:mx-0"
             variants={fadeInUp}
           >
-            Elite training and certifications with
+            Pioneers in Strength &amp; Conditioning, Sports Performance,
+            <br />
+            and Exercise Science Education since{" "}
             <span className="highlight-text">
-              <b> UFTA</b>
-            </span>{" "}
+              <b>2006</b>
+            </span>
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-6"
@@ -115,25 +117,26 @@ const HeroSection = () => {
                 id="hero-unlock-btn"
                 className="btn-primary px-6 py-3 font-medium font-poppins transition-all duration-200 no-underline"
                 style={{
-                  position: 'relative',
-                  overflow: 'hidden'
+                  position: "relative",
+                  overflow: "hidden",
                 }}
               >
-                <span style={{ position: 'relative', zIndex: 2 }}>
+                <span style={{ position: "relative", zIndex: 2 }}>
                   Unlock Your Potential
                 </span>
-                <span 
+                <span
                   className="mobile-slide-effect"
                   style={{
-                    position: 'absolute',
+                    position: "absolute",
                     top: 0,
-                    left: '-25%',
-                    width: '25%',
-                    height: '100%',
-                    background: 'linear-gradient(90deg, transparent, rgba(0, 200, 255, 0.2), transparent)',
-                    transition: 'all 0.5s ease',
+                    left: "-25%",
+                    width: "25%",
+                    height: "100%",
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(0, 200, 255, 0.2), transparent)",
+                    transition: "all 0.5s ease",
                     zIndex: 1,
-                    display: 'none'
+                    display: "none",
                   }}
                 />
               </Link>

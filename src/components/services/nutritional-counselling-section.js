@@ -1,60 +1,62 @@
 import * as React from "react";
-import { motion, useAnimation } from "framer-motion";
-import { pageAnimations, viewportSettings } from "../../utils/animations";
+import { motion } from "framer-motion";
 
 const NutritionalCounsellingSection = () => {
-  const animations = pageAnimations.standard;
-  const controls = useAnimation();
+  // Simple, non-blinking animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
 
-  // Animation for the nutrition icon
-  React.useEffect(() => {
-    controls.start({
-      scale: [1, 1.1, 1],
-      opacity: [0.8, 1, 0.8],
-      transition: { duration: 3, repeat: Infinity, repeatType: "reverse" },
-    });
-  }, [controls]);
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   return (
-    <motion.section
+    <section
       id="nutritional-counselling"
       className="py-12 md:py-16 relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportSettings}
-      variants={animations.fadeInUp}
     >
-      {/* Sci-fi background elements */}
+      {/* Static background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute -top-20 left-1/4 w-72 h-72 rounded-full bg-amber-500/5 blur-3xl"></div>
         <div className="absolute -bottom-20 right-1/4 w-72 h-72 rounded-full bg-amber-500/5 blur-3xl"></div>
 
-        {/* DNA-like structure (representing nutrition science) */}
+        {/* Static DNA-like structure */}
         <div className="absolute right-10 top-1/4 bottom-1/4 w-1 opacity-20">
           {Array.from({ length: 15 }).map((_, i) => (
             <React.Fragment key={i}>
-              <motion.div
-                className="absolute w-12 h-px bg-amber-400"
+              <div
+                className="absolute w-12 h-px bg-amber-400 opacity-30"
                 style={{
                   top: `${i * 30}px`,
                   transform: "rotate(30deg)",
                   transformOrigin: "left center",
                 }}
-                animate={{ opacity: [0.2, 0.5, 0.2] }}
-                transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
               />
-              <motion.div
-                className="absolute w-12 h-px bg-[#00c8ff]"
+              <div
+                className="absolute w-12 h-px bg-[#00c8ff] opacity-30"
                 style={{
                   top: `${i * 30 + 15}px`,
                   transform: "rotate(-30deg)",
                   transformOrigin: "left center",
-                }}
-                animate={{ opacity: [0.2, 0.5, 0.2] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: i * 0.2 + 0.5,
                 }}
               />
             </React.Fragment>
@@ -62,14 +64,21 @@ const NutritionalCounsellingSection = () => {
         </div>
       </div>
 
-      {/* Section header with animated icon */}
-      <div className="relative z-10 mb-8 md:mb-12">
+      {/* Section header */}
+      <motion.div 
+        className="relative z-10 mb-8 md:mb-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={slideUpVariant}
+      >
         <div className="flex flex-col items-center justify-center">
           <motion.div
             className="flex items-center justify-center mb-6"
-            animate={controls}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
-            <motion.svg
+            <svg
               className="w-10 h-10 md:w-12 md:h-12 mr-2 md:mr-3 text-[#00c8ff]"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -77,57 +86,50 @@ const NutritionalCounsellingSection = () => {
               strokeWidth="1.5"
               stroke="currentColor"
             >
-              <motion.path
+              <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 d="M12 21.75c2.463 0 4.725-.924 6.407-2.552M12 21.75c-2.463 0-4.725-.924-6.407-2.552M12 21.75V14.25M12 14.25A6.375 6.375 0 0 0 12 1.75a6.375 6.375 0 0 0-6.375 6.375c0 2.758 1.68 5.132 4.068 6.016M12 1.75a6.375 6.375 0 0 1 6.375 6.375c0 2.758-1.68 5.132-4.068 6.016m0 0H7.932m8.136 0H12m0 0V6.375m0 7.875A2.625 2.625 0 1 0 12 1.75a2.625 2.625 0 0 0 0 5.25m0 7.5a2.625 2.625 0 1 0 0-5.25 2.625 2.625 0 0 0 0 5.25Z"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
               />
-            </motion.svg>
+            </svg>
           </motion.div>
 
           <motion.h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative tracking-wider"
-            variants={animations.slideInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Online/Offline Nutritional{" "}
             <span className="text-[#00c8ff] relative">
               Counselling & Education
-              <motion.span
-                className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#00c8ff]"
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: "100%", opacity: 0.8 }}
-                transition={{ duration: 1, delay: 1 }}
-              />
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#00c8ff] opacity-80" />
             </span>
           </motion.h2>
 
-          <motion.div
-            className="w-24 h-px bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mt-6 opacity-60"
-            animate={{
-              width: ["0%", "100%", "0%"],
-              opacity: [0, 0.6, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          />
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mt-6 opacity-60" />
         </div>
-      </div>
+      </motion.div>
 
-      {/* Main content with sci-fi grid cards */}
+      {/* Main content cards */}
       <motion.div
         className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 items-start relative z-10"
-        variants={animations.staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.1
+            }
+          }
+        }}
       >
         <motion.div
-          className="bg-black/40 backdrop-blur-sm rounded-lg p-8 relative overflow-hidden border border-[#2A2A2A] group hover:border-amber-500/70 transition-all duration-300"
-          variants={animations.scaleUp}
+          className="bg-black/40 backdrop-blur-sm rounded-lg p-8 relative overflow-hidden border border-[#2A2A2A] hover:border-amber-500/70 transition-colors duration-300"
+          variants={cardVariant}
           whileHover={{ y: -5 }}
           style={{
             boxShadow:
@@ -146,47 +148,20 @@ const NutritionalCounsellingSection = () => {
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l rounded-bl border-amber-500/70"></div>
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r rounded-br border-amber-500/70"></div>
 
-          {/* Nutritional banner with holographic effect */}
+          {/* Nutritional banner */}
           <motion.div
-            className="w-full h-48 rounded-lg mb-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500"
+            className="w-full h-48 rounded-lg mb-6 relative overflow-hidden"
             whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.3 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-amber-600/90 to-amber-700/90 backdrop-blur"></div>
             <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] opacity-20"></div>
 
-            {/* Animated glow effect */}
-            <motion.div
-              className="absolute top-0 left-0 w-full h-full"
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: [0, 0.3, 0],
-                translateX: ["-100%", "100%", "100%"],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "linear",
-              }}
-            >
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            </motion.div>
-
             <div className="relative z-10 h-full flex items-center justify-center">
               <div className="text-white font-bold text-xl tracking-wide flex flex-col items-center">
-                <motion.span
-                  className="uppercase text-2xl tracking-widest"
-                  animate={{
-                    textShadow: [
-                      "0 0 5px rgba(245,158,11,0.5)",
-                      "0 0 15px rgba(245,158,11,0.8)",
-                      "0 0 5px rgba(245,158,11,0.5)",
-                    ],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
+                <span className="uppercase text-2xl tracking-widest">
                   Nutrition Guidance
-                </motion.span>
+                </span>
                 <span className="text-sm mt-2 opacity-80 tracking-wider">
                   PERSONALIZED PLANS
                 </span>
@@ -196,15 +171,20 @@ const NutritionalCounsellingSection = () => {
 
           <motion.h3
             className="text-2xl font-semibold mb-4 text-white tracking-wide"
-            variants={animations.fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Personalized Nutritional Counselling
           </motion.h3>
 
           <motion.p
             className="text-gray-300 leading-relaxed mb-4 font-light"
-            variants={animations.fadeInUp}
-            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             UFTA's certified sports nutritionists and exercise scientists offer
             personalized online and offline nutritional counselling. We develop{" "}
@@ -218,8 +198,10 @@ const NutritionalCounsellingSection = () => {
 
           <motion.p
             className="text-gray-300 leading-relaxed mb-6 font-light"
-            variants={animations.fadeInUp}
-            custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Our approach is{" "}
             <span className="text-amber-400 font-normal">
@@ -230,27 +212,17 @@ const NutritionalCounsellingSection = () => {
 
           <motion.a
             href="#contact-form"
-            className="inline-flex items-center justify-center bg-transparent border border-amber-500 text-white hover:bg-amber-500/10 px-6 py-2 rounded transition-all duration-300 relative overflow-hidden"
+            className="inline-flex items-center justify-center bg-transparent border border-amber-500 text-white hover:bg-amber-500/10 px-6 py-2 rounded transition-colors duration-300 relative overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Book a Consultation</span>
-            <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 transform translate-x-[-100%]"
-              animate={{ translateX: ["100%", "-100%"] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "linear",
-              }}
-            />
           </motion.a>
         </motion.div>
 
         <motion.div
           className="bg-black/40 backdrop-blur-sm rounded-lg p-8 relative overflow-hidden border border-[#2A2A2A] group hover:border-amber-500/70 transition-all duration-300"
-          variants={animations.scaleUp}
+          variants={cardVariant}
           whileHover={{ y: -5 }}
           style={{
             boxShadow:
@@ -274,15 +246,20 @@ const NutritionalCounsellingSection = () => {
 
           <motion.h3
             className="text-2xl font-semibold mb-4 text-white tracking-wide"
-            variants={animations.fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Sports Nutrition Certification Courses
           </motion.h3>
 
           <motion.p
             className="text-gray-300 leading-relaxed mb-4 font-light"
-            variants={animations.fadeInUp}
-            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Gain expertise in the science of sports nutrition and learn to
             advise athletes and active individuals effectively.
@@ -290,30 +267,28 @@ const NutritionalCounsellingSection = () => {
 
           <motion.div
             className="space-y-6 mb-6"
-            variants={animations.staggerContainer}
-            custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1
+                }
+              }
+            }}
           >
             <motion.div
               className="p-5 bg-black/30 border border-[#2A2A2A] rounded-lg relative"
-              variants={animations.fadeInUp}
+              variants={cardVariant}
               whileHover={{ y: -3, borderColor: "rgba(245,158,11,0.5)" }}
               transition={{ duration: 0.3 }}
             >
               <div className="absolute top-0 left-0 w-full h-full bg-[url('/circuit-pattern.svg')] opacity-5 pointer-events-none"></div>
 
               <h4 className="font-semibold text-amber-400 mb-3 flex items-center">
-                <motion.span
-                  className="inline-block w-2 h-2 bg-amber-400 mr-2 rounded-full"
-                  animate={{
-                    opacity: [0.5, 1, 0.5],
-                    boxShadow: [
-                      "0 0 0px #F59E0B",
-                      "0 0 10px #F59E0B",
-                      "0 0 0px #F59E0B",
-                    ],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
+                <span className="inline-block w-2 h-2 bg-amber-400 mr-2 rounded-full opacity-70" />
                 Accredited Advanced Diploma in Sports & Exercise Nutrition
                 (Level-6):
               </h4>
@@ -342,25 +317,14 @@ const NutritionalCounsellingSection = () => {
 
             <motion.div
               className="p-5 bg-black/30 border border-[#2A2A2A] rounded-lg relative"
-              variants={animations.fadeInUp}
+              variants={cardVariant}
               whileHover={{ y: -3, borderColor: "rgba(245,158,11,0.5)" }}
               transition={{ duration: 0.3 }}
             >
               <div className="absolute top-0 left-0 w-full h-full bg-[url('/circuit-pattern.svg')] opacity-5 pointer-events-none"></div>
 
               <h4 className="font-semibold text-amber-400 mb-3 flex items-center">
-                <motion.span
-                  className="inline-block w-2 h-2 bg-amber-400 mr-2 rounded-full"
-                  animate={{
-                    opacity: [0.5, 1, 0.5],
-                    boxShadow: [
-                      "0 0 0px #F59E0B",
-                      "0 0 10px #F59E0B",
-                      "0 0 0px #F59E0B",
-                    ],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                />
+                <span className="inline-block w-2 h-2 bg-amber-400 mr-2 rounded-full opacity-70" />
                 PROPTA International Sports Nutrition Certification:
               </h4>
 
@@ -394,20 +358,10 @@ const NutritionalCounsellingSection = () => {
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Enquire Now</span>
-            <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 transform translate-x-[-100%]"
-              animate={{ translateX: ["100%", "-100%"] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "linear",
-              }}
-            />
           </motion.a>
         </motion.div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 

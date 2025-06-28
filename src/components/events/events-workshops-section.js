@@ -1,14 +1,33 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
 
 const EventsWorkshopsSection = () => {
-  const {
-    fadeInUp,
-    staggerContainer,
-    cardVariant,
-    scaleIn
-  } = pageAnimations.standard;
+  // Simple, unified animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   // Workshop data
   const workshops = [
@@ -57,13 +76,9 @@ const EventsWorkshopsSection = () => {
   ];
 
   return (
-    <motion.section 
+    <section 
       id="workshops" 
       className="py-12 md:py-20 px-4 md:px-6 relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
     >
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -84,7 +99,10 @@ const EventsWorkshopsSection = () => {
         <div className="relative z-10 flex flex-col items-center pt-4 md:pt-6">
           <motion.div 
             className="bg-[#141414] border border-[#2A2A2A] p-3 md:p-4 rounded-full mb-3 md:mb-5 shadow-lg shadow-[#00c8ff]/5"
-            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariant}
           >
             <motion.svg 
               className="w-8 h-8 md:w-12 md:h-12 text-[#00c8ff]" 
@@ -93,7 +111,7 @@ const EventsWorkshopsSection = () => {
               viewBox="0 0 24 24" 
               strokeWidth="1.5" 
               stroke="currentColor"
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
@@ -102,7 +120,10 @@ const EventsWorkshopsSection = () => {
           
           <motion.h2 
             className="text-2xl md:text-4xl lg:text-5xl font-bold text-white text-center relative"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideUpVariant}
           >
             <span>Professional </span>
             <span className="text-[#00c8ff]">Workshops</span>
@@ -111,7 +132,10 @@ const EventsWorkshopsSection = () => {
           
           <motion.p 
             className="text-center text-lg md:text-xl leading-relaxed mt-4 md:mt-6 text-gray-300 max-w-3xl px-4"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Hands-on learning experiences designed to enhance your practical skills and knowledge in fitness and sports science
           </motion.p>
@@ -121,13 +145,19 @@ const EventsWorkshopsSection = () => {
       {/* Filter Categories */}
       <motion.div 
         className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12 px-4"
-        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={slideUpVariant}
       >
         {['All Workshops', 'Strength & Conditioning', 'Nutrition', 'Certification', 'Assessment', 'Safety'].map((category, index) => (
           <motion.button 
             key={index}
             className="px-3 md:px-6 py-2 bg-[#141414] hover:bg-[#00c8ff] border border-[#2A2A2A] hover:border-[#00c8ff] text-gray-300 hover:text-black rounded-full transition-all duration-300 text-xs md:text-sm font-medium"
-            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariant}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -139,15 +169,21 @@ const EventsWorkshopsSection = () => {
       {/* Workshop Cards Grid */}
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative"
-        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={slideUpVariant}
       >
         {workshops.map((workshop, index) => (
           <motion.div 
             key={index} 
             className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl shadow-xl relative overflow-hidden group hover:border-[#00c8ff]/60 transition-all duration-500 h-full flex flex-col"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             variants={cardVariant}
-            whileHover={{ y: -12, scale: 1.02 }}
-            transition={{ duration: 0.4 }}
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
           >
             {/* Card Top Gradient Bar */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-60"></div>
@@ -228,7 +264,10 @@ const EventsWorkshopsSection = () => {
       {/* View All Workshops Button */}
       <motion.div 
         className="flex justify-center mt-8 md:mt-12"
-        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInVariant}
       >
         {/* <motion.a 
           href="/workshops" 
@@ -248,7 +287,7 @@ const EventsWorkshopsSection = () => {
           </svg>
         </motion.a> */}
       </motion.div>
-    </motion.section>
+    </section>
   )
 }
 

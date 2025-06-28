@@ -1,9 +1,33 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
 
 const InternationalPartnersSection = () => {
-  const { staggerContainer, gentleFadeUp, cardVariant, slideInLeft, slideInRight, fadeInUp } = pageAnimations.standard;
+  // Simple, non-blinking animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   // Define our international partners data (both education partners and collaborations)
   const partners = [
@@ -104,18 +128,17 @@ const InternationalPartnersSection = () => {
   const collaborations = partners.filter(partner => partner.type === "Collaboration");
 
   return (
-    <motion.section 
+    <section 
       id="partners" 
       className="py-12 md:py-16 px-4 md:px-6"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={staggerContainer}
     >
       {/* Section Header */}
       <motion.div 
         className="flex flex-col md:flex-row items-center justify-center mb-8 md:mb-12"
-        variants={gentleFadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={slideUpVariant}
       >
         <motion.svg 
           className="w-8 h-8 md:w-10 md:h-10 md:mr-3 mb-2 md:mb-0 text-[#00c8ff]" 
@@ -125,7 +148,6 @@ const InternationalPartnersSection = () => {
           strokeWidth="1.5" 
           stroke="currentColor"
           whileHover={{ rotate: 5, scale: 1.05 }}
-          transition={{ duration: 0.2 }}
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A11.978 11.978 0 0 1 12 16.5c-2.998 0-5.74-1.1-7.843-2.918m15.686-7.5A8.959 8.959 0 0 0 3 12c0 .778.099 1.533.284 2.253m0 0A11.978 11.978 0 0 0 12 16.5c2.998 0 5.74-1.1 7.843-2.918" />
         </motion.svg>
@@ -148,7 +170,10 @@ const InternationalPartnersSection = () => {
       {/* Global Recognition Badge */}
       <motion.div
         className="flex items-center justify-center mb-8 md:mb-12 px-4"
-        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInVariant}
       >
         <div className="inline-flex items-center px-3 md:px-6 py-2 md:py-3 bg-gradient-to-r from-[#00c8ff]/20 to-transparent border border-[#00c8ff]/30 rounded-full shadow-lg shadow-[#00c8ff]/5">
           <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2 animate-pulse"></div>
@@ -171,22 +196,27 @@ const InternationalPartnersSection = () => {
       {/* Education Partners Section */}
       {educationPartners.length > 0 && (
         <>
-          <motion.div className="mb-6 md:mb-10" variants={fadeInUp}>
+          <motion.div 
+            className="mb-6 md:mb-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
+          >
             <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">Education Partners</h3>
             <p className="text-gray-400 text-sm md:text-base">Official educational institutions and certification bodies we partner with.</p>
           </motion.div>
           
-          <motion.div 
-            className="space-y-8 md:space-y-12 mb-12 md:mb-16"
-            variants={staggerContainer}
-          >
+          <div className="space-y-8 md:space-y-12 mb-12 md:mb-16">
             {educationPartners.map((partner, index) => (
               <motion.div 
                 key={partner.id}
-                className={`bg-[#141414] border ${partner.borderColor} rounded-xl p-4 md:p-8 relative overflow-hidden group transition-all duration-300`}
+                className={`bg-[#141414] border ${partner.borderColor} rounded-xl p-4 md:p-8 relative overflow-hidden group`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
                 variants={cardVariant}
                 whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
               >
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-5">
@@ -197,24 +227,17 @@ const InternationalPartnersSection = () => {
                 {/* Content grid */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 relative z-10">
                   {/* Logo/Image Area */}
-                  <motion.div 
-                    className="md:col-span-4 flex items-center justify-center p-2 md:p-4"
-                    variants={slideInLeft}
-                  >
+                  <div className="md:col-span-4 flex items-center justify-center p-2 md:p-4">
                     <motion.div
                       className="w-full flex items-center justify-center"
                       whileHover={{ scale: 1.03, rotate: 0.5 }}
-                      transition={{ duration: 0.2 }}
                     >
                       {renderPartnerLogo(partner)}
                     </motion.div>
-                  </motion.div>
+                  </div>
                   
                   {/* Content Area */}
-                  <motion.div 
-                    className="md:col-span-8"
-                    variants={slideInRight}
-                  >
+                  <div className="md:col-span-8">
                     <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
                       <span className="text-white">{partner.name.split(' ')[0]}</span>
                       {partner.name.split(' ').length > 1 && (
@@ -248,33 +271,38 @@ const InternationalPartnersSection = () => {
                         </motion.div>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </>
       )}
 
       {/* Collaborations Section */}
       {collaborations.length > 0 && (
         <>
-          <motion.div className="mb-6 md:mb-10" variants={fadeInUp}>
+          <motion.div 
+            className="mb-6 md:mb-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
+          >
             <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">International Collaborations</h3>
             <p className="text-gray-400 text-sm md:text-base">Strategic partnerships that enhance our global reach and expertise.</p>
           </motion.div>
           
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
-            variants={staggerContainer}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {collaborations.map((partner, index) => (
               <motion.div 
                 key={partner.id}
-                className={`bg-[#141414] border ${partner.borderColor} rounded-lg p-4 md:p-6 relative overflow-hidden group transition-all duration-300`}
+                className={`bg-[#141414] border ${partner.borderColor} rounded-lg p-4 md:p-6 relative overflow-hidden group`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
                 variants={cardVariant}
                 whileHover={{ y: -3, scale: 1.01 }}
-                transition={{ duration: 0.2 }}
               >
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-5">
@@ -314,15 +342,12 @@ const InternationalPartnersSection = () => {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </>
       )}
 
       {/* Global Impact Stats */}
-      <motion.div
-        className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-[#2A2A2A] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
-        variants={staggerContainer}
-      >
+      <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-[#2A2A2A] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {[
           { value: "199", label: "Countries with Recognition", icon: "🌎" },
           { value: "1980", label: "PROPTA Founded", icon: "🏆" },
@@ -332,8 +357,10 @@ const InternationalPartnersSection = () => {
           <motion.div
             key={idx}
             className="text-center bg-[#141414] border border-[#2A2A2A] rounded-lg p-3 md:p-4 relative overflow-hidden group hover:border-[#00c8ff]/30 transition-all duration-300"
-            variants={fadeInUp}
-            custom={idx}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariant}
             whileHover={{ y: -5 }}
           >
             <div className="absolute -bottom-2 -right-2 text-3xl md:text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{stat.icon}</div>
@@ -341,7 +368,6 @@ const InternationalPartnersSection = () => {
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00c8ff] mb-1 md:mb-2"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 + (idx * 0.1), duration: 0.4 }}
               viewport={{ once: true }}
             >
               {stat.value}
@@ -349,8 +375,8 @@ const InternationalPartnersSection = () => {
             <div className="text-gray-400 text-xs md:text-sm">{stat.label}</div>
           </motion.div>
         ))}
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 

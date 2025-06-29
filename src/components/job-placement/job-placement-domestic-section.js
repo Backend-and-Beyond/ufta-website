@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { pageAnimations } from "../../utils/animations";
 
 const JobPlacementDomesticSection = () => {
-  const { fadeInUp, staggerContainer, cardVariant } = pageAnimations.standard;
+  const { fadeInUp } = pageAnimations.standard;
 
   // Domestic placement opportunities
   const domesticPlacements = [
@@ -155,7 +155,6 @@ const JobPlacementDomesticSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      variants={staggerContainer}
     >
       {/* Decorative elements */}
       <div className="absolute top-20 left-0 w-72 h-72 bg-gradient-to-r from-[#00c8ff]/20 to-indigo-500/10 rounded-full filter blur-3xl opacity-20"></div>
@@ -243,17 +242,19 @@ const JobPlacementDomesticSection = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        variants={staggerContainer}
-      >
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {domesticPlacements.map((placement, index) => (
           <motion.div
             key={index}
             className="bg-gradient-to-br from-[#121212] to-[#1A1A1A] border border-[#2A2A2A] rounded-xl p-8 transition-all duration-300 hover:border-[#00c8ff] group relative overflow-hidden"
-            variants={cardVariant}
-            whileHover={{ y: -10, scale: 1.02 }}
-            transition={{ duration: 0.3 }}
+            initial={{ y: 10 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ 
+              duration: 0.3,
+              ease: "easeOut"
+            }}
+            whileHover={{ y: -5, scale: 1.01 }}
           >
             <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-br from-[#00c8ff]/10 to-blue-500/5 rounded-bl-3xl"></div>
             <div className="absolute -bottom-2 -left-2 h-20 w-20 bg-gradient-to-tr from-[#00c8ff]/10 to-blue-500/5 rounded-tr-3xl"></div>
@@ -287,7 +288,7 @@ const JobPlacementDomesticSection = () => {
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
 
       <div className="flex justify-center mt-12">
         {/* <motion.button

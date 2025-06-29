@@ -100,7 +100,7 @@ const HeroSection = () => {
             className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 font-poppins leading-relaxed text-center sm:text-left max-w-lg sm:max-w-none mx-auto sm:mx-0"
             variants={fadeInUp}
           >
-            Elite training and certifications with
+            Elite training and certifications with {" "}
             <span className="highlight-text">
               <b> UFTA</b>
             </span>{" "}

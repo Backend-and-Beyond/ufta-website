@@ -6,13 +6,9 @@ const CertificationsSection = () => {
   const { fadeInUp, staggerContainer } = pageAnimations.standard;
 
   return (
-    <motion.section 
+    <section 
       id="propta" 
       className="py-12 md:py-20 px-4 md:px-6"
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportSettings}
-      variants={fadeInUp}
     >
       <div className="flex flex-col items-center justify-center mb-8 md:mb-12">
         <motion.svg 
@@ -167,27 +163,21 @@ const CertificationsSection = () => {
         </motion.div>
         
         {/* PROPTA USA Certifications Cards */}
-        <motion.div 
-          className="mb-16"
-          variants={staggerContainer}
-        >
-          <motion.h3 
-            className="text-2xl font-bold text-white mb-8 flex items-center justify-center"
-            variants={fadeInUp}
-            custom={1}
-          >
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-white mb-8 flex items-center justify-center">
             <span className="inline-block w-8 h-0.5 bg-[#00c8ff] mr-3"></span>
             Available PROPTA USA Certifications
             <span className="inline-block w-8 h-0.5 bg-[#00c8ff] ml-3"></span>
-          </motion.h3>
+          </h3>
         
           <div className="grid md:grid-cols-2 gap-10">
             {/* Sports Nutrition Certification */}
-            <motion.div 
-              className="bg-gradient-to-br from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl overflow-hidden shadow-lg group hover:shadow-[0_0_25px_rgba(0,200,255,0.15)] transition-all duration-500"
-              variants={fadeInUp}
-              custom={2}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            <div 
+              className="bg-gradient-to-br from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl overflow-hidden shadow-lg group hover:shadow-[0_0_25px_rgba(0,200,255,0.15)] hover:-translate-y-2 transition-all duration-500 opacity-0 animate-fade-in-up"
+              style={{
+                animationDelay: '0.2s',
+                animationFillMode: 'forwards'
+              }}
             >
               <div className="h-32 bg-gradient-to-r from-[#003145] to-[#005573] relative overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
@@ -258,28 +248,27 @@ const CertificationsSection = () => {
                   </div>
                 </div>
                 
-                <motion.a 
+                <a 
                   href="https://propta.com/india-propta/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-full bg-gradient-to-r from-[#008fc7] to-[#00c8ff] text-white hover:from-[#00c8ff] hover:to-[#008fc7] px-6 py-3 rounded-lg transition-all duration-300 text-center block flex items-center justify-center group"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-gradient-to-r from-[#008fc7] to-[#00c8ff] text-white hover:from-[#00c8ff] hover:to-[#008fc7] px-6 py-3 rounded-lg transition-all duration-300 text-center block flex items-center justify-center group hover:scale-105"
                 >
                   <span>Enquire Now</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
-                </motion.a>
+                </a>
               </div>
-            </motion.div>
+            </div>
 
             {/* Personal Training Certification */}
-            <motion.div 
-              className="bg-gradient-to-br from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl overflow-hidden shadow-lg group hover:shadow-[0_0_25px_rgba(0,200,255,0.15)] transition-all duration-500"
-              variants={fadeInUp}
-              custom={3}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            <div 
+              className="bg-gradient-to-br from-[#141414] to-[#1a1a1a] border border-[#2A2A2A] rounded-xl overflow-hidden shadow-lg group hover:shadow-[0_0_25px_rgba(0,200,255,0.15)] hover:-translate-y-2 transition-all duration-500 opacity-0 animate-fade-in-up"
+              style={{
+                animationDelay: '0.4s',
+                animationFillMode: 'forwards'
+              }}
             >
               <div className="h-32 bg-gradient-to-r from-[#003145] to-[#005573] relative overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
@@ -350,25 +339,23 @@ const CertificationsSection = () => {
                   </div>
                 </div>
                 
-                <motion.a 
+                <a 
                   href="https://propta.com/india-propta/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-full bg-gradient-to-r from-[#008fc7] to-[#00c8ff] text-white hover:from-[#00c8ff] hover:to-[#008fc7] px-6 py-3 rounded-lg transition-all duration-300 text-center block flex items-center justify-center group"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-gradient-to-r from-[#008fc7] to-[#00c8ff] text-white hover:from-[#00c8ff] hover:to-[#008fc7] px-6 py-3 rounded-lg transition-all duration-300 text-center block flex items-center justify-center group hover:scale-105"
                 >
                   <span>Enquire Now</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
-                </motion.a>
+                </a>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   )
 }
 

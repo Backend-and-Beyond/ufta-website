@@ -122,15 +122,19 @@ const JobPlacementInternationalSection = () => {
         
         <motion.div 
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={staggerContainer}
         >
           {internationalOpportunities.map((opportunity, index) => (
             <motion.div 
               key={index}
               className="bg-gradient-to-br from-[#121212] to-[#1A1A1A] border border-[#2A2A2A] rounded-xl p-8 relative overflow-hidden group hover:border-purple-500 transition-all duration-300"
-              variants={cardVariant}
+              initial={{ y: 10 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ 
+                duration: 0.3,
+                ease: "easeOut"
+              }}
               whileHover={{ y: -10, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-70"></div>
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-purple-500/10 rounded-full filter blur-xl"></div>

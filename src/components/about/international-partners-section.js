@@ -176,7 +176,7 @@ const InternationalPartnersSection = () => {
         variants={fadeInVariant}
       >
         <div className="inline-flex items-center px-3 md:px-6 py-2 md:py-3 bg-gradient-to-r from-[#00c8ff]/20 to-transparent border border-[#00c8ff]/30 rounded-full shadow-lg shadow-[#00c8ff]/5">
-          <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2 animate-pulse"></div>
+          <div className="w-2 h-2 bg-[#00c8ff] rounded-full mr-2"></div>
           <span className="text-[#00c8ff] font-semibold mr-1 md:mr-2 text-sm md:text-base">Global Recognition:</span>
           <span className="text-gray-300 text-sm md:text-base">Our certifications and partnerships span <span className="font-semibold">199 countries</span> worldwide</span>
         </div>
@@ -354,26 +354,20 @@ const InternationalPartnersSection = () => {
           { value: "150+", label: "University Connections", icon: "🏛️" },
           { value: "100%", label: "Employment Recognition", icon: "💼" }
         ].map((stat, idx) => (
-          <motion.div
+          <div
             key={idx}
-            className="text-center bg-[#141414] border border-[#2A2A2A] rounded-lg p-3 md:p-4 relative overflow-hidden group hover:border-[#00c8ff]/30 transition-all duration-300"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={cardVariant}
-            whileHover={{ y: -5 }}
+            className="text-center bg-[#141414] border border-[#2A2A2A] rounded-lg p-3 md:p-4 relative overflow-hidden group hover:border-[#00c8ff]/30 hover:-translate-y-1 transition-all duration-300 opacity-0 animate-fade-in-up"
+            style={{
+              animationDelay: `${idx * 0.1}s`,
+              animationFillMode: 'forwards'
+            }}
           >
             <div className="absolute -bottom-2 -right-2 text-3xl md:text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{stat.icon}</div>
-            <motion.div 
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00c8ff] mb-1 md:mb-2"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-            >
+            <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00c8ff] mb-1 md:mb-2">
               {stat.value}
-            </motion.div>
+            </div>
             <div className="text-gray-400 text-xs md:text-sm">{stat.label}</div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

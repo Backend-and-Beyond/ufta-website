@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { pageAnimations } from "../../utils/animations";
 
 const GalleryVideosSection = () => {
-  const { fadeInUp, staggerContainer, cardVariant, scaleIn } = pageAnimations.standard;
+  const { fadeInUp, scaleIn } = pageAnimations.standard;
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   // YouTube videos data - you can replace these with actual UFTA videos
@@ -103,7 +103,6 @@ const GalleryVideosSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      variants={staggerContainer}
     >
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -163,18 +162,21 @@ const GalleryVideosSection = () => {
         </div>
       </div>
       
-      {/* Videos Grid */}
-      <motion.div 
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        variants={staggerContainer}
-      >
+      {/* Videos Grid - Smooth entrance animations without blinking */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {videos.map((video, index) => (
           <motion.div
             key={video.id}
-            className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl overflow-hidden relative group hover:border-[#00c8ff]/60 transition-all duration-500 cursor-pointer"
-            variants={cardVariant}
-            whileHover={{ y: -10, scale: 1.02 }}
-            transition={{ duration: 0.4 }}
+            className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl overflow-hidden relative group hover:border-[#00c8ff]/60 transition-colors duration-300 cursor-pointer"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 0.6, 
+              delay: index * 0.05, // Small delay for smooth wave effect
+              ease: "easeOut" 
+            }}
+            whileHover={{ y: -5, scale: 1.01 }}
             onClick={() => openVideoModal(video)}
           >
             {/* Video Thumbnail */}
@@ -182,11 +184,11 @@ const GalleryVideosSection = () => {
               <img
                 src={video.thumbnail}
                 alt={video.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               
               {/* Play Button Overlay */}
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="bg-[#00c8ff]/90 backdrop-blur-sm rounded-full p-4 transform group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
@@ -228,7 +230,7 @@ const GalleryVideosSection = () => {
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Video Modal */}
       <AnimatePresence>

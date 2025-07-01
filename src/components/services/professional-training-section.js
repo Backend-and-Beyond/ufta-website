@@ -1,342 +1,234 @@
 import * as React from "react"
-import { motion, useAnimation } from "framer-motion"
-import { pageAnimations, viewportSettings } from "../../utils/animations"
+import { motion } from "framer-motion"
 
 const ProfessionalTrainingSection = () => {
-  const { fadeInUp, staggerContainer, scaleUp, slideInLeft, slideInRight } = pageAnimations.standard;
-  const controls = useAnimation();
-  
-  // Pulse animation for icon
-  React.useEffect(() => {
-    controls.start({
-      scale: [1, 1.05, 1],
-      opacity: [0.8, 1, 0.8],
-      transition: { duration: 3, repeat: Infinity, repeatType: "reverse" }
-    });
-  }, [controls]);
-
-  const trainingPrograms = [
-    {
-      title: "Diploma in Professional Personal Fitness Training (Level-5)",
-      description: "Become a certified Personal Trainer, equipped with the skills to guide clients towards their fitness goals effectively and safely.",
-      price: "₹95,000",
-      duration: "6 months (incl. 1-month internship)",
-      eligibility: "18+ years, 10+2 diploma, 1-year weight training experience",
-      mode: "Offline & Online",
-      gradient: "from-purple-600 to-purple-700",
-      label: "Personal Trainer Cert",
-      color: "#9C27B0"
-    },
-    {
-      title: "Diploma in Professional Group Fitness Training (Level-5)",
-      description: "Master the art of leading dynamic and effective group fitness classes, catering to diverse fitness levels and interests.",
-      price: "₹95,000",
-      duration: "6 months (incl. 1-month internship)",
-      eligibility: "18+ years, 10+2 diploma, 1-year weight training experience",
-      mode: "Offline & Online",
-      gradient: "from-pink-600 to-pink-700",
-      label: "Group Fitness Cert",
-      color: "#E91E63"
-    },
-    {
-      title: "Diploma in Fitness & Gym Management (Level-7)",
-      description: "Gain the expertise to manage fitness centers and gyms efficiently, covering operations, marketing, and client relations.",
-      price: "₹1,53,776",
-      duration: "12 months (incl. 1-month internship)",
-      eligibility: "21+ years, Diploma in S&C (NSQF L6), 2 years S&C coach experience",
-      mode: "Offline & Online",
-      gradient: "from-yellow-600 to-yellow-700",
-      label: "Gym Management Cert",
-      color: "#FFC107"
-    },
-    {
-      title: "Professional Diploma in Sports Injury Rehabilitation & Return to Performance (Level-7)",
-      description: "Specialize in sports injury rehabilitation, helping athletes recover and return to peak performance safely and effectively.",
-      price: "₹1,25,250",
-      duration: "8 months (incl. 1-month internship)",
-      eligibility: "21+ years, relevant diplomas or degree, 3 years S&C coach experience",
-      mode: "Offline & Online",
-      gradient: "from-red-600 to-red-700",
-      label: "Injury Rehab Cert",
-      color: "#F44336"
-    },
-    {
-      title: "PROPTA International Personal Trainer Certification",
-      description: "Achieve a globally recognized Personal Trainer certification from PROPTA USA, valid in 199 countries. Endorsed by IFBB Pro League & BSE, Govt of California.",
-      price: "$1800 USD",
-      duration: "6 Weeks (Online/Offline Blend Mode)",
-      eligibility: "18+ years, CPR/AED certification required for graduation",
-      mode: "Online/Offline Blend",
-      gradient: "from-green-600 to-green-700",
-      label: "PROPTA PT Cert",
-      color: "#4CAF50"
-    },
-    {
-      title: "University Affiliated Degree Programs",
-      description: "UFTA is the first institute in India to launch a UGC approved B.Sc. in Fitness and Athletic Conditioning in association with Mahapurusha Srimanta Sankaradeva Viswavidyalaya. We also offer other degree pathways.",
-      gradient: "from-blue-600 to-blue-700",
-      label: "University Degrees",
-      color: "#2196F3",
-      isSpecial: true
+  // Simple, non-blinking animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
     }
-  ];
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   return (
-    <motion.section 
+    <section 
       id="professional-training" 
       className="py-12 md:py-16 relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportSettings}
-      variants={fadeInUp}
     >
-      {/* Sci-fi background elements */}
+      {/* Static background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-0 right-0 w-full h-full">
-          <svg width="100%" height="100%" preserveAspectRatio="none">
-            <defs>
-              <radialGradient id="gridGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                <stop offset="0%" stopColor="#00c8ff" stopOpacity="0.03" />
-                <stop offset="100%" stopColor="#00c8ff" stopOpacity="0" />
-              </radialGradient>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#gridGradient)" />
-          </svg>
-        </div>
-        
-        {/* Animated grid lines */}
-        <div className="absolute inset-0 grid grid-cols-12 opacity-10">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <motion.div 
-              key={`v-${i}`} 
-              className="h-full w-px bg-[#00c8ff]/20"
-              initial={{ height: 0 }}
-              animate={{ height: "100%" }}
-              transition={{ duration: 1, delay: i * 0.1 }}
-            />
-          ))}
-        </div>
-        <div className="absolute inset-0 grid grid-rows-12 opacity-10">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <motion.div 
-              key={`h-${i}`} 
-              className="w-full h-px bg-[#00c8ff]/20"
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 1, delay: i * 0.1 }}
-            />
-          ))}
-        </div>
+        <div className="absolute top-10 left-10 w-20 h-20 md:w-32 md:h-32 rounded-full bg-orange-500/10" />
+        <div className="absolute bottom-20 right-10 w-16 h-16 md:w-24 md:h-24 rounded-full bg-orange-500/10" />
+        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-20"></div>
       </div>
 
-      {/* Section header with animated icon */}
-      <div className="relative z-10 mb-16">
+      {/* Section title */}
+      <motion.div 
+        className="relative z-10 mb-8 md:mb-12 px-4 md:px-0"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={slideUpVariant}
+      >
         <div className="flex flex-col items-center justify-center">
           <motion.div 
             className="flex items-center justify-center mb-6"
-            animate={controls}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
-            <motion.svg 
-              className="w-12 h-12 mr-3 text-[#00c8ff]" 
+            <svg 
+              className="w-8 h-8 md:w-12 md:h-12 mr-3 text-orange-500" 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24" 
               strokeWidth="1.5" 
               stroke="currentColor"
             >
-              <motion.path 
+              <path 
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
-                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
+                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
               />
-            </motion.svg>
+            </svg>
           </motion.div>
           
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative tracking-wider"
-            variants={slideInLeft}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center relative tracking-wide"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
-            Online/Offline Professional <span className="text-[#00c8ff] relative">
+            Professional <span className="text-orange-500 relative">
               Training
-              <motion.span 
-                className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#00c8ff]"
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: "100%", opacity: 0.8 }}
-                transition={{ duration: 1, delay: 1 }}
-              />
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-orange-500 opacity-80" />
             </span>
           </motion.h2>
           
-          <motion.div 
-            className="w-24 h-px bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent mt-6 opacity-60"
-            animate={{ 
-              width: ["0%", "100%", "0%"],
-              opacity: [0, 0.6, 0] 
-            }}
-            transition={{ 
-              duration: 4, 
-              repeat: Infinity, 
-              repeatType: "reverse",
-              ease: "easeInOut" 
-            }}
-          />
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent mt-6 opacity-60" />
         </div>
-      </div>
-      
-      <motion.p 
-        className="text-center text-lg md:text-xl leading-relaxed mb-8 md:mb-12 text-gray-300 relative z-10 max-w-4xl mx-auto font-light px-4"
-        variants={fadeInUp}
-      >
-        Turn your passion for fitness into a <span className="text-[#00c8ff] font-normal">rewarding career</span> with UFTA's comprehensive professional training programs. We have certified over <span className="text-[#00c8ff] font-semibold">2,500</span> fitness professionals since 2006.
-      </motion.p>
-      
-      {/* Program cards with enhanced sci-fi UI */}
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative z-10"
-        variants={staggerContainer}
-      >
-        {trainingPrograms.map((program, index) => (
-          <motion.div 
-            key={index}
-            className="bg-black/40 backdrop-blur-sm rounded-lg p-6 relative overflow-hidden group border border-[#2A2A2A] hover:border-[#00c8ff]/70 transition-all duration-300"
-            variants={scaleUp}
-            custom={index}
-            whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            style={{
-              boxShadow: "0 0 20px rgba(0, 200, 255, 0.05), inset 0 0 15px rgba(0, 200, 255, 0.02)"
-            }}
-          >
-            {/* Border and corner effects */}
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-50"></div>
-            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l rounded-tl" style={{ borderColor: program.color }}></div>
-            <div className="absolute top-0 right-0 w-3 h-3 border-t border-r rounded-tr" style={{ borderColor: program.color }}></div>
-            <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l rounded-bl" style={{ borderColor: program.color }}></div>
-            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r rounded-br" style={{ borderColor: program.color }}></div>
-            
-            {/* Program header with futuristic style */}
-            <motion.div 
-              className={`w-full h-32 rounded-lg mb-5 relative overflow-hidden`}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-r ${program.gradient} bg-opacity-90`}></div>
-              <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] opacity-20"></div>
-              
-              {/* Animated glow effect */}
-              <motion.div 
-                className="absolute top-0 left-0 w-full h-full"
-                initial={{ opacity: 0 }}
-                animate={{ 
-                  opacity: [0, 0.3, 0],
-                  translateX: ['-100%', '100%', '100%'] 
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  repeatType: "loop", 
-                  ease: "linear",
-                  delay: index * 0.5
-                }}
-              >
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-              </motion.div>
-              
-              {/* Program label */}
-              <div className="absolute inset-0 flex items-center justify-center flex-col p-3">
-                <span className="text-white font-bold tracking-wider text-lg">{program.label}</span>
-                {program.isSpecial && (
-                  <div className="flex items-center mt-2">
-                    <motion.div 
-                      className="w-2 h-2 bg-white rounded-full mx-1"
-                      animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
-                    />
-                    <motion.div 
-                      className="w-2 h-2 bg-white rounded-full mx-1"
-                      animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-                    />
-                    <motion.div 
-                      className="w-2 h-2 bg-white rounded-full mx-1"
-                      animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
-                    />
-                  </div>
-                )}
-              </div>
-            </motion.div>
-            
-            {/* Program content */}
-            <motion.h3 
-              className="text-lg font-semibold mb-3 text-white tracking-wide"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + (index * 0.1) }}
-            >
-              {program.title}
-            </motion.h3>
-            
-            <motion.p 
-              className="text-gray-400 mb-3 text-sm font-light"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + (index * 0.1) }}
-            >
-              {program.description}
-            </motion.p>
-            
-            {!program.isSpecial && (
-              <motion.ul 
-                className="list-none pl-1 text-gray-300 space-y-2 text-xs mb-4"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + (index * 0.1) }}
-              >
-                <li className="flex items-center">
-                  <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70"></span>
-                  <span className="text-white font-medium">Price:</span> 
-                  <span className="ml-2">{program.price}</span>
-                </li>
-                <li className="flex items-center">
-                  <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70"></span>
-                  <span className="text-white font-medium">Duration:</span> 
-                  <span className="ml-2">{program.duration}</span>
-                </li>
-                <li className="flex items-center">
-                  <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70"></span>
-                  <span className="text-white font-medium">Eligibility:</span> 
-                  <span className="ml-2">{program.eligibility}</span>
-                </li>
-                <li className="flex items-center">
-                  <span className="inline-block w-1 h-1 bg-[#00c8ff] mr-2 rounded-full opacity-70"></span>
-                  <span className="text-white font-medium">Mode:</span> 
-                  <span className="ml-2">{program.mode}</span>
-                </li>
-              </motion.ul>
-            )}
-            
-            {/* Animated button */}
-            <motion.a 
-              href="#contact-form" 
-              className="inline-flex items-center justify-center bg-transparent border border-[#00c8ff] text-white hover:bg-[#00c8ff]/10 px-4 py-2 rounded text-xs transition-all duration-300 relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ borderColor: program.color }}
-            >
-              <span className="relative z-10">{program.isSpecial ? "Explore Degrees" : "Learn More"}</span>
-              <motion.span 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform translate-x-[-100%]"
-                animate={{ translateX: ['100%', '-100%'] }}
-                transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop", ease: "linear" }}
-              />
-            </motion.a>
-          </motion.div>
-        ))}
       </motion.div>
-    </motion.section>
+      
+      {/* Main content cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-start px-4 md:px-0">
+        <motion.div 
+          className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-8 relative overflow-hidden border border-[#2A2A2A] hover:border-orange-500/70 transition-colors duration-300"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={cardVariant}
+          whileHover={{ y: -5 }}
+          style={{
+            boxShadow: "0 0 20px rgba(249, 115, 22, 0.1), inset 0 0 15px rgba(249, 115, 22, 0.03)"
+          }}
+        >
+          {/* Static border effects */}
+          <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50"></div>
+          <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-r from-orange-500 via-transparent to-transparent opacity-30"></div>
+          <div className="absolute top-0 left-0 w-0.5 h-full bg-gradient-to-b from-orange-500 via-transparent to-transparent opacity-30"></div>
+          <div className="absolute top-0 right-0 w-0.5 h-full bg-gradient-to-b from-transparent via-transparent to-orange-500 opacity-30"></div>
+          
+          {/* Corner accents */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l rounded-tl border-orange-500/50"></div>
+          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r rounded-tr border-orange-500/50"></div>
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l rounded-bl border-orange-500/50"></div>
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r rounded-br border-orange-500/50"></div>
+          
+          {/* Training program header */}
+          <motion.div 
+            className="w-full h-32 md:h-48 rounded-lg mb-4 md:mb-6 relative overflow-hidden"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/90 to-orange-700/90 backdrop-blur"></div>
+            <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] opacity-20"></div>
+            
+            <div className="relative z-10 h-full flex items-center justify-center">
+              <div className="text-white font-bold text-lg md:text-xl tracking-wide flex flex-col items-center">
+                <span className="uppercase text-xl md:text-2xl tracking-widest">
+                  Pro Training
+                </span>
+                <span className="text-xs md:text-sm mt-2 opacity-80 tracking-wider">CERTIFICATION PROGRAMS</span>
+              </div>
+            </div>
+          </motion.div>
+          
+          <h3 className="text-xl md:text-2xl font-semibold mb-4 text-white tracking-wide">Professional Fitness Training Courses</h3>
+          <p className="text-gray-300 leading-relaxed mb-4 font-light text-sm md:text-base">UFTA offers comprehensive professional fitness training courses designed to transform passionate individuals into certified fitness professionals. Our curriculum combines theoretical knowledge with practical application, ensuring graduates are well-equipped to excel in the fitness industry.</p>
+          <p className="text-gray-300 leading-relaxed font-light text-sm md:text-base">Our training programs are delivered by <span className="text-orange-500 font-normal">industry experts</span> with years of experience in fitness coaching, sports science, and professional development. We provide both foundational and advanced courses to suit different career aspirations.</p>
+        </motion.div>
+        
+        <motion.div 
+          className="bg-black/40 backdrop-blur-sm rounded-lg p-4 md:p-8 relative overflow-hidden border border-[#2A2A2A] hover:border-orange-500/70 transition-colors duration-300"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={cardVariant}
+          whileHover={{ y: -5 }}
+          style={{
+            boxShadow: "0 0 20px rgba(249, 115, 22, 0.1), inset 0 0 15px rgba(249, 115, 22, 0.03)"
+          }}
+        >
+          {/* Static border effects */}
+          <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50"></div>
+          <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-r from-orange-500 via-transparent to-transparent opacity-30"></div>
+          <div className="absolute top-0 left-0 w-0.5 h-full bg-gradient-to-b from-orange-500 via-transparent to-transparent opacity-30"></div>
+          <div className="absolute top-0 right-0 w-0.5 h-full bg-gradient-to-b from-transparent via-transparent to-orange-500 opacity-30"></div>
+          
+          {/* Corner accents */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l rounded-tl border-orange-500/50"></div>
+          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r rounded-tr border-orange-500/50"></div>
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l rounded-bl border-orange-500/50"></div>
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r rounded-br border-orange-500/50"></div>
+          
+          <motion.h3 
+            className="text-xl md:text-2xl font-semibold mb-4 text-white tracking-wide"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
+          >Certification Programs</motion.h3>
+          
+          <p className="text-gray-300 leading-relaxed mb-4 font-light text-sm md:text-base">Achieve professional recognition with our accredited fitness training certifications. Our programs are designed to meet industry standards and employer expectations.</p>
+          
+          <motion.div 
+            className="mb-6 p-4 md:p-5 bg-black/30 border border-[#2A2A2A] rounded-lg relative"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
+          >
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('/circuit-pattern.svg')] opacity-5 pointer-events-none"></div>
+            
+            <h4 className="font-semibold text-orange-500 mb-3 flex items-center text-sm md:text-base">
+              <span className="inline-block w-2 h-2 bg-orange-500 mr-2 rounded-full opacity-70" />
+              Diploma in Fitness Training (NSQF Level-5):
+            </h4>
+            
+            <ul className="list-none pl-4 text-gray-300 space-y-2 text-xs md:text-sm">
+              <li className="flex items-start md:items-center">
+                <span className="inline-block w-1 h-1 bg-orange-500 mr-2 rounded-full opacity-70 mt-2 md:mt-0 flex-shrink-0"></span>
+                <div className="flex flex-col md:flex-row">
+                  <span className="text-white font-medium">Price:</span> 
+                  <span className="md:ml-2">₹76,620</span>
+                </div>
+              </li>
+              <li className="flex items-start md:items-center">
+                <span className="inline-block w-1 h-1 bg-orange-500 mr-2 rounded-full opacity-70 mt-2 md:mt-0 flex-shrink-0"></span>
+                <div className="flex flex-col md:flex-row">
+                  <span className="text-white font-medium">Duration:</span> 
+                  <span className="md:ml-2">6 months (including 1-month compulsory internship)</span>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-block w-1 h-1 bg-orange-500 mr-2 rounded-full opacity-70 mt-2 flex-shrink-0"></span>
+                <div className="flex flex-col">
+                  <span className="text-white font-medium">Eligibility:</span> 
+                  <span className="mt-1 md:mt-0 md:ml-2">Minimum 18 years of age and 10th pass or equivalent</span>
+                </div>
+              </li>
+              <li className="flex items-start md:items-center">
+                <span className="inline-block w-1 h-1 bg-orange-500 mr-2 rounded-full opacity-70 mt-2 md:mt-0 flex-shrink-0"></span>
+                <div className="flex flex-col md:flex-row">
+                  <span className="text-white font-medium">Mode:</span> 
+                  <span className="md:ml-2">Offline & Online</span>
+                </div>
+              </li>
+            </ul>
+          </motion.div>
+          
+          <p className="text-gray-300 leading-relaxed mb-6 font-light text-sm md:text-base">Our certification programs prepare you for successful careers as <span className="text-orange-500 font-normal">fitness trainers, gym instructors</span>, and wellness coaches in various fitness environments.</p>
+          
+          <motion.a 
+            href="#contact-form" 
+            className="inline-flex items-center justify-center bg-transparent border border-orange-500 text-white hover:bg-orange-500/10 px-4 md:px-6 py-2 rounded transition-colors duration-300 relative overflow-hidden text-sm md:text-base"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <span className="relative z-10">Enquire Now</span>
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
   )
 }
 

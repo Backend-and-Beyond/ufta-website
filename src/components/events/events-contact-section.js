@@ -1,24 +1,38 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
 
 const EventsContactSection = () => {
-  const {
-    fadeInUp,
-    slideInLeft,
-    slideInRight,
-    staggerContainer,
-    cardVariant
-  } = pageAnimations.standard;
+  // Simple, unified animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   return (
-    <motion.section 
+    <section 
       id="contact" 
       className="py-12 md:py-20 px-4 md:px-6 relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
     >
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -28,7 +42,12 @@ const EventsContactSection = () => {
       
       <motion.div 
         className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-4 md:p-6 lg:p-10 relative overflow-hidden shadow-xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
         variants={cardVariant}
+        whileHover={{ y: -5 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#00c8ff] via-purple-500 to-[#00c8ff] opacity-60"></div>
         
@@ -48,7 +67,10 @@ const EventsContactSection = () => {
         <div className="relative z-10">
           <motion.div 
             className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 mb-6 md:mb-10"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideUpVariant}
           >
             <motion.div
               className="bg-gradient-to-r from-[#00c8ff] to-purple-500 p-0.5 rounded-full shadow-lg shadow-[#00c8ff]/10"
@@ -79,19 +101,30 @@ const EventsContactSection = () => {
           
           <motion.p 
             className="text-center text-lg md:text-xl leading-relaxed mb-8 md:mb-12 text-gray-300 max-w-3xl mx-auto px-4"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Interested in attending our events, presenting your work, or partnering with us? Contact us for more information or subscribe to our events mailing list.
           </motion.p>
           
           <motion.div 
             className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto"
-            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideUpVariant}
           >
             {/* Contact Form */}
             <motion.div
               className="bg-[#0A0A0A] p-4 md:p-6 lg:p-8 xl:p-10 rounded-xl border border-[#2A2A2A] shadow-xl relative overflow-hidden"
-              variants={slideInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariant}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
             >
               {/* Form Container Background Effects */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#00c8ff]/5 rounded-full -mt-10 -mr-10 blur-2xl"></div>
@@ -203,7 +236,10 @@ const EventsContactSection = () => {
             {/* Contact Information & Next Event */}
             <motion.div
               className="space-y-6 md:space-y-8"
-              variants={slideInRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariant}
             >
               {/* Contact Information */}
               <div className="bg-[#0A0A0A] p-4 md:p-6 lg:p-8 xl:p-10 rounded-xl border border-[#2A2A2A] shadow-xl relative overflow-hidden">
@@ -318,7 +354,10 @@ const EventsContactSection = () => {
           {/* Social Media Links */}
           <motion.div 
             className="flex justify-center mt-12 space-x-6"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             {[
               { name: "Facebook", icon: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" },
@@ -349,7 +388,7 @@ const EventsContactSection = () => {
           </motion.div>
         </div>
       </motion.div>
-    </motion.section>
+    </section>
   )
 }
 

@@ -1,32 +1,56 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { motion } from "framer-motion";
-import { pageAnimations } from "../../utils/animations";
 
 const HeadCoachSection = () => {
-  const { fadeIn, fadeInUp, slideInLeft, slideInRight } =
-    pageAnimations.standard;
+  // Simple, non-blinking animations with original left-right style
+  const slideInLeftVariant = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const slideInRightVariant = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const fadeInUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
 
   return (
-    <motion.section
-      className="py-12 md:py-20 bg-[#0F0F0F]"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={fadeIn}
-    >
+    <section className="py-12 md:py-20 bg-[#0F0F0F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           className="text-2xl md:text-3xl font-bold section-heading mb-8 md:mb-12 font-poppins text-center md:text-left"
-          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUpVariant}
         >
           Meet the Director of UFTA
         </motion.h2>
-        <motion.div className="card p-4 md:p-8 rounded-sm" variants={fadeInUp}>
+        <div className="card p-4 md:p-8 rounded-sm">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 items-center">
             <motion.div
               className="md:col-span-1 text-center"
-              variants={slideInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={slideInLeftVariant}
             >
               <StaticImage
                 src="../../images/bhibhu.png"
@@ -38,12 +62,15 @@ const HeadCoachSection = () => {
             </motion.div>
             <motion.div
               className="md:col-span-2 text-center md:text-left"
-              variants={slideInRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={slideInRightVariant}
             >
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4 font-poppins">
                 Dr. Bibhu Moni Singha
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins text-justify">
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins">
                 Dr. Bibhu Moni Singha is an Internationally Accredited Strength
                 & Conditioning Expert, High Performance Olympic Weightlifting
                 Coach, Sports Nutritionist, and Injury Rehabilitation
@@ -63,7 +90,7 @@ const HeadCoachSection = () => {
                 collaboration with Mahapurusha Srimanta Sankardeva
                 Viswavidyalaya.
               </p>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins text-justify">
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins ">
                 A <b>CASES UK</b> Accredited Sport & Exercise Scientist, Dr.
                 Bibhu is a renowned speaker at global conferences on strength &
                 conditioning, velocity-based training, and sports rehab. His
@@ -73,7 +100,7 @@ const HeadCoachSection = () => {
                 .
               </p>
 
-              <ul className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins text-justify list-disc pl-5 space-y-2">
+              <ul className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins  list-disc pl-5 space-y-2">
                 <li>
                   <span className="font-semibold text-amber-400">
                     Academic & Research Excellence:
@@ -107,7 +134,13 @@ const HeadCoachSection = () => {
               </ul>
             </motion.div>
           </div>
-          <motion.div className="mt-8 md:mt-12" variants={fadeInUp}>
+          <motion.div
+            className="mt-8 md:mt-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUpVariant}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               <div className="card p-3 md:p-4 rounded-sm">
                 <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
@@ -164,9 +197,9 @@ const HeadCoachSection = () => {
               Learn More About Dr. Bibhu
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -1,9 +1,33 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
 
 const AffiliationsSection = () => {
-  const { staggerContainer, gentleFadeUp, cardVariant } = pageAnimations.standard;
+  // Simple, non-blinking animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   const affiliations = [
     {
@@ -33,18 +57,11 @@ const AffiliationsSection = () => {
   ];
 
   return (
-    <motion.section 
+    <section 
       id="affiliations" 
       className="py-8 md:py-16 px-4 md:px-6"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={staggerContainer}
     >
-      <motion.div 
-        className="flex flex-col md:flex-row items-center justify-center mb-6 md:mb-10"
-        variants={gentleFadeUp}
-      >
+      <div className="flex flex-col md:flex-row items-center justify-center mb-6 md:mb-10">
         <motion.svg 
           className="w-8 h-8 md:w-10 md:h-10 md:mr-3 mb-2 md:mb-0 text-[#00c8ff]" 
           xmlns="http://www.w3.org/2000/svg" 
@@ -57,20 +74,26 @@ const AffiliationsSection = () => {
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
         </motion.svg>
-        <h2 className="text-3xl md:text-4xl font-bold text-white text-center relative">
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold text-white text-center relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={slideUpVariant}
+        >
           Our <span className="text-[#00c8ff]">Affiliations</span>
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 md:left-0 md:transform-none w-12 md:w-16 h-0.5 bg-[#00c8ff]"></span>
-        </h2>
-      </motion.div>
+        </motion.h2>
+      </div>
       
-      <motion.div 
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
-        variants={staggerContainer}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
         {affiliations.map((affiliation, index) => (
           <motion.div 
             key={index}
-            className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-4 md:p-6 relative overflow-hidden group hover:border-[#00c8ff] transition-all duration-200"
+            className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-4 md:p-6 relative overflow-hidden group hover:border-[#00c8ff]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             variants={cardVariant}
             whileHover={{ y: -5, scale: 1.01 }}
             transition={{ duration: 0.2 }}
@@ -99,8 +122,8 @@ const AffiliationsSection = () => {
             <p className="text-center text-xs md:text-sm text-gray-400">{affiliation.description}</p>
           </motion.div>
         ))}
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 

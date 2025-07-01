@@ -313,43 +313,124 @@ const HighPerformanceServicesSection = () => {
       </motion.div>
       
       {/* Services Cards Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div 
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={staggerContainer}
+      >
         {filteredServices.length > 0 ? (
           filteredServices.map((service, index) => {
             // Create a unique key based on service title and category to maintain state correctly
             const serviceKey = `${service.category}-${service.title.replace(/\s+/g, '-').toLowerCase()}`;
             
             return (
-              <div 
+              <motion.div 
                 key={serviceKey} 
-                className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-6 relative overflow-hidden group hover:border-[#00c8ff]/60 transition-all duration-500 h-full flex flex-col shadow-xl transform hover:-translate-y-2 hover:scale-[1.02]"
+                className="bg-gradient-to-b from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-6 relative overflow-hidden group h-full flex flex-col shadow-xl"
+                variants={{
+                  hidden: { opacity: 0, y: 60, scale: 0.9 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1,
+                    transition: {
+                      duration: 0.6,
+                      delay: index * 0.1,
+                      ease: [0.21, 0.47, 0.32, 0.98]
+                    }
+                  }
+                }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.03,
+                  borderColor: "rgba(0, 200, 255, 0.6)",
+                  boxShadow: "0 20px 40px rgba(0, 200, 255, 0.1)",
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.98 }}
               >
             {/* Card Top Gradient Bar */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-60"></div>
+            <motion.div 
+              className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-60"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            ></motion.div>
             
             {/* Category Badge */}
-            <div className="absolute top-4 right-4 z-10">
+            <motion.div 
+              className="absolute top-4 right-4 z-10"
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.1, rotate: 2 }}
+            >
               <div className={`text-xs px-2 py-1 rounded border ${getCategoryBg(service.category)}`}>
                 <span className={getCategoryColor(service.category)}>{service.category}</span>
               </div>
-            </div>
+            </motion.div>
             
             {/* Service Icon */}
-            <div className="flex justify-center mb-6 relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#00c8ff]/0 via-[#00c8ff]/5 to-[#00c8ff]/0 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10 text-[#00c8ff] transform group-hover:scale-110 transition-transform duration-500">
+            <motion.div 
+              className="flex justify-center mb-6 relative"
+              initial={{ opacity: 0, y: 20, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.1 + 0.3,
+                ease: "easeOut"
+              }}
+              viewport={{ once: true }}
+            >
+              <motion.div 
+                className="absolute -inset-4 bg-gradient-to-r from-[#00c8ff]/0 via-[#00c8ff]/5 to-[#00c8ff]/0 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                whileHover={{ scale: 1.2, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              ></motion.div>
+              <motion.div 
+                className="relative z-10 text-[#00c8ff]"
+                whileHover={{ 
+                  scale: 1.15, 
+                  rotate: [0, -5, 5, 0],
+                  transition: { duration: 0.4 }
+                }}
+              >
                 {service.icon}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
             
             <div className="flex-grow flex flex-col">
               {/* Service Title */}
-              <h3 className="text-xl font-bold mb-4 text-white text-center group-hover:text-[#00c8ff] transition-colors duration-300">
+              <motion.h3 
+                className="text-xl font-bold mb-4 text-white text-center group-hover:text-[#00c8ff] transition-colors duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.1 + 0.4 
+                }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+              >
                 {service.title}
-              </h3>
+              </motion.h3>
               
               {/* Service Description */}
-              <div className="bg-[#141414] rounded-lg p-4 mb-5 min-h-[100px] flex flex-col justify-between">
+              <motion.div 
+                className="bg-[#141414] rounded-lg p-4 mb-5 min-h-[100px] flex flex-col justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.1 + 0.5 
+                }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  backgroundColor: "rgba(20, 20, 20, 0.8)",
+                  transition: { duration: 0.3 }
+                }}
+              >
                 <div>
                   <p className="text-gray-300 text-sm leading-relaxed">
                     {expandedDescriptions[serviceKey] || !shouldTruncateDescription(service.description) 
@@ -380,31 +461,47 @@ const HighPerformanceServicesSection = () => {
                     </button>
                   )}
                 </div>
-              </div>
+              </motion.div>
               
               {/* Key Features are now shown in modal, so remove toggle button and preview */}
               
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 mt-auto">
-                <button
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-3 mt-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.1 + 0.6 
+                }}
+                viewport={{ once: true }}
+              >
+                <motion.button
                   className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-[#00c8ff]/30 text-gray-300 hover:text-[#00c8ff] font-medium py-3 px-4 rounded-lg transition duration-300 text-sm text-center"
                   onClick={() => setModalService(service)} // Open modal on click
+                  whileHover={{ 
+                    scale: 1.03,
+                    borderColor: "rgba(0, 200, 255, 0.5)",
+                    backgroundColor: "rgba(0, 200, 255, 0.05)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   Learn More
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         );
         })
         ) : (
-          <div 
+          <motion.div 
             className="col-span-full text-center py-12"
+            variants={fadeInUp}
           >
             <p className="text-gray-400 text-lg">No services found for the selected category.</p>
-          </div>
+          </motion.div>
         )}
-      </div>
+      </motion.div>
       
       {/* CTA Banner */}
       <motion.div 
@@ -447,45 +544,124 @@ const HighPerformanceServicesSection = () => {
       
       {/* Modal for Key Features */}
       {modalService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="bg-[#181818] rounded-xl shadow-2xl p-8 max-w-lg w-full relative animate-fadeIn">
-            <button
+        <motion.div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={() => setModalService(null)}
+        >
+          <motion.div 
+            className="bg-[#181818] rounded-xl shadow-2xl p-8 max-w-lg w-full relative"
+            initial={{ opacity: 0, scale: 0.8, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 50 }}
+            transition={{ 
+              duration: 0.4,
+              ease: [0.21, 0.47, 0.32, 0.98]
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <motion.button
               className="absolute top-3 right-3 text-gray-400 hover:text-[#00c8ff] text-2xl font-bold"
               onClick={() => setModalService(null)}
               aria-label="Close"
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.2 }}
             >
               &times;
-            </button>
-            <div className="flex flex-col items-center mb-4">
-              <div className="text-[#00c8ff] mb-2">{modalService.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-2 text-center">{modalService.title}</h3>
-              <div className="text-xs px-2 py-1 rounded border mb-3 mt-1 {getCategoryBg(modalService.category)}">
+            </motion.button>
+            <motion.div 
+              className="flex flex-col items-center mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
+            >
+              <motion.div 
+                className="text-[#00c8ff] mb-2"
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
+              >
+                {modalService.icon}
+              </motion.div>
+              <motion.h3 
+                className="text-2xl font-bold text-white mb-2 text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+              >
+                {modalService.title}
+              </motion.h3>
+              <motion.div 
+                className="text-xs px-2 py-1 rounded border mb-3 mt-1 {getCategoryBg(modalService.category)}"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.3 }}
+              >
                 <span className={getCategoryColor(modalService.category)}>{modalService.category}</span>
-              </div>
-            </div>
-            <p className="text-gray-300 text-sm mb-4 text-center">{modalService.description}</p>
-            <h4 className="font-semibold text-[#00c8ff] mb-2 text-center flex items-center justify-center">
+              </motion.div>
+            </motion.div>
+            <motion.p 
+              className="text-gray-300 text-sm mb-4 text-center"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.3 }}
+            >
+              {modalService.description}
+            </motion.p>
+            <motion.h4 
+              className="font-semibold text-[#00c8ff] mb-2 text-center flex items-center justify-center"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.3 }}
+            >
               <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
               Key Features
-            </h4>
-            <ul className="space-y-2 text-xs text-gray-400 mb-4">
+            </motion.h4>
+            <motion.ul 
+              className="space-y-2 text-xs text-gray-400 mb-4"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
               {modalService.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start">
+                <motion.li 
+                  key={idx} 
+                  className="flex items-start"
+                  variants={{
+                    hidden: { opacity: 0, x: -20 },
+                    visible: { 
+                      opacity: 1, 
+                      x: 0,
+                      transition: { delay: 0.7 + idx * 0.1, duration: 0.3 }
+                    }
+                  }}
+                >
                   <svg className="w-4 h-4 text-[#00c8ff] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" /></svg>
                   <span>{feature}</span>
-                </li>
+                </motion.li>
               ))}
-            </ul>
-            <div className="flex justify-center">
-              <button
+            </motion.ul>
+            <motion.div 
+              className="flex justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.3 }}
+            >
+              <motion.button
                 className="inline-block bg-[#00c8ff] text-black hover:bg-[#00c8ff]/90 px-6 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
                 onClick={() => setModalService(null)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Close
-              </button>
-            </div>
-          </div>
-        </div>
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       )}
     </motion.section>
   )

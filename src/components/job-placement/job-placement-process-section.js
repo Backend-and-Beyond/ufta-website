@@ -72,7 +72,6 @@ const JobPlacementProcessSection = () => {
         {/* Process Steps */}
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={staggerContainer}
         >
           {[
             {
@@ -169,9 +168,14 @@ const JobPlacementProcessSection = () => {
             <motion.div
               key={index}
               className="bg-gradient-to-br from-[#141414] to-[#1A1A1A] border border-[#2A2A2A] rounded-xl p-8 text-center relative overflow-hidden group hover:border-[#00c8ff] transition-all duration-300"
-              variants={cardVariant}
+              initial={{ y: 10 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ 
+                duration: 0.3,
+                ease: "easeOut"
+              }}
               whileHover={{ y: -10, scale: 1.05 }}
-              transition={{ duration: 0.3 }}
             >
               {/* Connect to timeline (different for odd/even) */}
               <div className="hidden lg:block absolute w-8 h-0.5 bg-gradient-to-r from-[#00c8ff] to-green-500 top-1/2 transform -translate-y-1/2 left-full"></div>

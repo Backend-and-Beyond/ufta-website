@@ -1,27 +1,121 @@
 import * as React from "react"
 import { motion } from "framer-motion"
-import { pageAnimations } from "../../utils/animations"
 
 const MembershipCategoriesSection = () => {
-  const {
-    fadeInUp,
-    slideInLeft,
-    slideInRight,
-    staggerContainer,
-    cardVariant,
-    scaleIn
-  } = pageAnimations.standard;
+  // Simple, unified animation variants
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const slideUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
+  const membershipCategories = [
+    {
+      name: "Student Membership",
+      price: "₹500",
+      period: "per year",
+      color: "blue",
+      description: "Perfect for students entering the fitness industry",
+      features: [
+        "Access to educational resources",
+        "Student networking events",
+        "Career guidance workshops",
+        "Exclusive student content",
+        "Mentorship program access"
+      ],
+      icon: "M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+    },
+    {
+      name: "Professional Membership",
+      price: "₹2,000",
+      period: "per year",
+      color: "green",
+      description: "For established fitness professionals",
+      features: [
+        "Advanced training materials",
+        "Professional networking",
+        "Continuing education credits",
+        "Industry certification support",
+        "Research publication access"
+      ],
+      icon: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"
+    },
+    {
+      name: "Institutional Membership",
+      price: "₹10,000",
+      period: "per year",
+      color: "purple",
+      description: "Comprehensive membership for fitness institutions",
+      features: [
+        "Multi-user access",
+        "Institutional certifications",
+        "Bulk training programs",
+        "Custom content development",
+        "Priority support and consultation"
+      ],
+      icon: "M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"
+    }
+  ];
+
+  const getColorClasses = (color) => {
+    switch (color) {
+      case 'blue':
+        return {
+          accent: '#00c8ff',
+          bg: 'bg-blue-500/10',
+          border: 'border-blue-500/30',
+          text: 'text-blue-400'
+        };
+      case 'green':
+        return {
+          accent: '#10b981',
+          bg: 'bg-green-500/10',
+          border: 'border-green-500/30',
+          text: 'text-green-400'
+        };
+      case 'purple':
+        return {
+          accent: '#8b5cf6',
+          bg: 'bg-purple-500/10',
+          border: 'border-purple-500/30',
+          text: 'text-purple-400'
+        };
+      default:
+        return {
+          accent: '#00c8ff',
+          bg: 'bg-blue-500/10',
+          border: 'border-blue-500/30',
+          text: 'text-blue-400'
+        };
+    }
+  };
 
   return (
-    <motion.section 
+    <section 
       id="categories" 
       className="py-16"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
     >
-      {/* Section Header with Background */}
+      {/* Section Header */}
       <div className="relative mb-16">
         <div className="absolute inset-0 bg-[#0A0A0A] h-40 -mx-4 sm:-mx-6 lg:-mx-8 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/10 to-transparent opacity-30"></div>
@@ -32,7 +126,10 @@ const MembershipCategoriesSection = () => {
         <div className="relative z-10 flex flex-col items-center">
           <motion.div 
             className="bg-[#141414] border border-[#2A2A2A] p-3 rounded-full mb-5 shadow-lg"
-            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariant}
           >
             <motion.svg 
               className="w-10 h-10 text-[#00c8ff]" 
@@ -41,7 +138,7 @@ const MembershipCategoriesSection = () => {
               viewBox="0 0 24 24" 
               strokeWidth="1.5" 
               stroke="currentColor"
-              whileHover={{ rotate: 10, scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
@@ -51,7 +148,10 @@ const MembershipCategoriesSection = () => {
           
           <motion.h2 
             className="text-4xl md:text-5xl font-bold text-white text-center relative"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={slideUpVariant}
           >
             Membership <span className="text-[#00c8ff]">Categories</span>
             <div className="h-1 w-24 bg-gradient-to-r from-[#00c8ff]/50 via-[#00c8ff] to-[#00c8ff]/50 mx-auto mt-4"></div>
@@ -59,7 +159,10 @@ const MembershipCategoriesSection = () => {
           
           <motion.p 
             className="text-center text-xl leading-relaxed mt-6 text-gray-300 max-w-2xl"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInVariant}
           >
             Choose the membership category that best suits your professional needs and career goals.
           </motion.p>
@@ -69,7 +172,10 @@ const MembershipCategoriesSection = () => {
       {/* Comparison Guide */}
       <motion.div 
         className="max-w-md mx-auto mb-12 bg-[#141414] border border-[#2A2A2A] rounded-lg py-4 px-6 flex items-center justify-between shadow-lg"
-        variants={slideInLeft}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={slideUpVariant}
         whileHover={{ y: -5 }}
       >
         <div className="flex items-center">
@@ -92,189 +198,118 @@ const MembershipCategoriesSection = () => {
       </motion.div>
       
       {/* Membership Cards Container */}
-      <motion.div 
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative"
-        variants={staggerContainer}
-      >
-        {/* Decorative Elements */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+        {/* Static decorative elements */}
         <div className="absolute -left-20 top-1/4 w-40 h-40 bg-[#00c8ff]/5 rounded-full blur-3xl -z-10 opacity-50"></div>
-        <div className="absolute -right-20 bottom-1/4 w-40 h-40 bg-[#00c8ff]/5 rounded-full blur-3xl -z-10 opacity-50"></div>
+        <div className="absolute -right-20 bottom-1/4 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl -z-10 opacity-50"></div>
         
-        {/* Membership Cards */}
-        {[
-          {
-            title: "Student Membership",
-            icon: (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
-            ),
-            description: "For current students pursuing degrees or certifications in fitness, sports science, or related fields.",
-            features: [
-              "Discounted access to UFTA resources",
-              "Student-focused networking events",
-              "Career guidance and mentorship",
-              "Internship opportunities"
-            ],
-            price: "₹1,499",
-            period: "/year",
-            isPopular: false,
-            color: "from-[#00c8ff]/20 to-transparent",
-            bgPattern: "radial-gradient(circle at 10% 90%, #00c8ff08 0%, transparent 20%)",
-            animation: slideInLeft
-          },
-          {
-            title: "Professional Membership",
-            icon: (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-            ),
-            description: "For working fitness professionals, personal trainers, coaches, and practitioners in the field.",
-            features: [
-              "Full access to all UFTA resources",
-              "Professional certification maintenance",
-              "Job placement assistance",
-              "Professional liability insurance discounts",
-              "Continuing education opportunities"
-            ],
-            price: "₹3,999",
-            period: "/year",
-            isPopular: true,
-            color: "from-[#00c8ff]/30 to-transparent",
-            bgPattern: "radial-gradient(circle at 50% 50%, #00c8ff10 0%, transparent 25%)",
-            animation: fadeInUp
-          },
-          {
-            title: "Business Membership",
-            icon: (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-            ),
-            description: "For gyms, fitness studios, sports teams, and organizations in the fitness industry.",
-            features: [
-              "Multiple user accounts (5-10 staff members)",
-              "Branded certification for staff",
-              "Access to candidate database for recruitment",
-              "Business development resources",
-              "Consultation on facility design & equipment"
-            ],
-            price: "₹9,999",
-            period: "/year",
-            isPopular: false,
-            color: "from-[#00c8ff]/20 to-transparent",
-            bgPattern: "radial-gradient(circle at 90% 10%, #00c8ff08 0%, transparent 20%)",
-            animation: slideInRight
-          }
-        ].map((membership, index) => (
-          <motion.div 
-            key={index} 
-            className={`bg-[#141414] border border-[#2A2A2A] rounded-xl overflow-hidden group hover:border-[#00c8ff] transition-all duration-500 shadow-xl flex flex-col ${membership.isPopular ? 'lg:-mt-4 lg:mb-4' : ''}`}
-            variants={membership.animation || cardVariant}
-            whileHover={{ y: -10, transition: { duration: 0.3 } }}
-          >
-            {/* Popular Tag */}
-            {membership.isPopular && (
-              <div className="absolute top-0 right-0 bg-[#00c8ff] text-black px-6 py-1 text-xs font-bold z-10 shadow-lg rounded-bl-lg -mr-6 mt-6 rotate-45">
-                POPULAR
-              </div>
-            )}
-            
-            {/* Card Header */}
-            <div 
-              className="pt-8 pb-4 px-6 relative overflow-hidden"
-              style={{ background: membership.bgPattern }}
+        {membershipCategories.map((category, index) => {
+          const colors = getColorClasses(category.color);
+          
+          return (
+            <motion.div
+              key={index}
+              className="relative group"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariant}
             >
-              <div className={`absolute inset-0 bg-gradient-to-b ${membership.color} opacity-50`}></div>
-              
-              <div className="relative z-10">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex items-center">
-                    <div className="p-3 bg-[#0A0A0A]/70 rounded-lg border border-[#2A2A2A] mr-3">
+              {/* Card */}
+              <motion.div 
+                className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-6 relative overflow-hidden shadow-xl hover:border-[#00c8ff]/50 transition-all duration-300"
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Static card borders */}
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-30"></div>
+                <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-r from-[#00c8ff] via-transparent to-transparent opacity-20"></div>
+                
+                {/* Header */}
+                <motion.div 
+                  className="flex items-center mb-4"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={fadeInVariant}
+                >
+                  <div className={`p-3 rounded-full ${colors.bg} ${colors.border} border mr-4`}>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className={`h-6 w-6 ${colors.text}`}
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor" 
+                      strokeWidth={1.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d={category.icon} />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">{category.name}</h3>
+                    <p className="text-sm text-gray-400">{category.description}</p>
+                  </div>
+                </motion.div>
+                
+                {/* Price */}
+                <motion.div 
+                  className="mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={fadeInVariant}
+                >
+                  <div className="flex items-baseline">
+                    <span className={`text-3xl font-bold ${colors.text}`}>{category.price}</span>
+                    <span className="text-gray-400 ml-2">/{category.period}</span>
+                  </div>
+                </motion.div>
+                
+                {/* Features */}
+                <motion.div 
+                  className="space-y-3 mb-8"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={slideUpVariant}
+                >
+                  {category.features.map((feature, featureIndex) => (
+                    <motion.div 
+                      key={featureIndex}
+                      className="flex items-center"
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.3 }}
+                      variants={fadeInVariant}
+                    >
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
-                        className="h-6 w-6 text-[#00c8ff]" 
+                        className={`h-5 w-5 ${colors.text} mr-3 flex-shrink-0`}
                         fill="none" 
                         viewBox="0 0 24 24" 
-                        stroke="currentColor" 
-                        strokeWidth={1.5}
+                        stroke="currentColor"
                       >
-                        {membership.icon}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">
-                        {membership.title.split(' ')[0]} 
-                      </h3>
-                      <span className="text-[#00c8ff] font-semibold">
-                        {membership.title.split(' ')[1]}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-[#0A0A0A]/50 rounded-lg border border-[#2A2A2A] px-3 py-1 text-center">
-                    <span className="block text-xl font-bold text-white">
-                      {membership.price}
-                    </span>
-                    <span className="text-xs text-gray-400">{membership.period}</span>
-                  </div>
-                </div>
+                      <span className="text-gray-300">{feature}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
                 
-                <p className="text-gray-300 text-sm mb-3 min-h-[40px]">
-                  {membership.description}
-                </p>
-              </div>
-            </div>
-            
-            {/* Card Content */}
-            <div className="px-6 py-4 bg-[#0A0A0A]/50 flex-grow flex flex-col">
-              <h4 className="text-sm uppercase text-gray-400 font-semibold mb-3 tracking-wider">
-                What's Included
-              </h4>
-              
-              <ul className="space-y-3 mb-6 text-gray-300 text-sm flex-grow">
-                {membership.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-[#00c8ff] flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <motion.a 
-                href="#join" 
-                className={`w-full py-3 text-center font-medium rounded-md transition-all duration-300 ${membership.isPopular 
-                  ? 'bg-[#00c8ff] text-black hover:bg-[#00c8ff]/90 shadow-lg shadow-[#00c8ff]/20' 
-                  : 'bg-[#1A1A1A] text-white border border-[#2A2A2A] hover:border-[#00c8ff] hover:text-[#00c8ff]'}`}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {membership.isPopular ? 'Join Now' : 'Select Plan'}
-              </motion.a>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-      
-      {/* Compare Features Button */}
-      <motion.div 
-        className="text-center mt-12"
-        variants={fadeInUp}
-      >
-        <motion.div
-          className="inline-flex items-center gap-2 bg-[#141414] border border-[#2A2A2A] hover:border-[#00c8ff] rounded-full px-6 py-3 text-white cursor-pointer group transition-all duration-300"
-          whileHover={{ y: -3 }}
-          whileTap={{ y: 0 }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#00c8ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
-          </svg>
-          <span className="text-sm font-medium">See Full Comparison Table</span>
-          <span className="w-5 h-5 rounded-full bg-[#00c8ff]/20 flex items-center justify-center group-hover:bg-[#00c8ff]/30 transition-colors duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-[#00c8ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </span>
-        </motion.div>
-      </motion.div>
-    </motion.section>
+                {/* CTA Button */}
+                <motion.button 
+                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${colors.bg} ${colors.border} border ${colors.text} hover:bg-opacity-20`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Choose {category.name}
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </section>
   )
 }
 

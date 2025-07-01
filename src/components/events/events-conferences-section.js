@@ -1,10 +1,6 @@
 import * as React from "react";
-import { motion } from "framer-motion";
-import { pageAnimations } from "../../utils/animations";
 
 const EventsConferencesSection = () => {
-  const { fadeInUp, staggerContainer, cardVariant, scaleIn } =
-    pageAnimations.standard;
 
   // Conference data
   const conferences = [
@@ -34,13 +30,9 @@ const EventsConferencesSection = () => {
   ];
 
   return (
-    <motion.section
+    <section
       id="conferences"
-      className="py-12 md:py-20 px-4 md:px-6 relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={staggerContainer}
+      className="py-12 md:py-20 px-4 md:px-6 relative animate-fade-in"
     >
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -49,7 +41,9 @@ const EventsConferencesSection = () => {
       </div>
 
       {/* Section Header */}
-      <div className="relative mb-8 md:mb-16">
+      <div 
+        className="relative mb-8 md:mb-16 animate-slide-up"
+      >
         <div className="absolute inset-0 bg-[#0A0A0A] h-36 md:h-48 -mx-4 sm:-mx-6 lg:-mx-8 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-[#00c8ff]/10 opacity-40"></div>
           <div className="absolute right-1/3 top-8 w-20 h-20 rounded-full bg-purple-500/10"></div>
@@ -58,76 +52,68 @@ const EventsConferencesSection = () => {
         </div>
 
         <div className="relative z-10 flex flex-col items-center pt-4 md:pt-6">
-          <motion.div
-            className="bg-gradient-to-r from-purple-500/20 to-[#00c8ff]/20 p-0.5 rounded-full mb-3 md:mb-5 shadow-lg"
-            variants={scaleIn}
+          <div
+            className="bg-gradient-to-r from-purple-500/20 to-[#00c8ff]/20 p-0.5 rounded-full mb-3 md:mb-5 shadow-lg hover:scale-105 hover:shadow-purple-500/20 hover:rotate-6 transition-all duration-300 animate-bounce-gentle"
           >
             <div className="bg-[#0A0A0A] p-3 md:p-4 rounded-full">
-              <motion.svg
+              <svg
                 className="w-8 h-8 md:w-12 md:h-12 text-purple-400"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                whileHover={{ scale: 1.1, rotate: -5 }}
-                transition={{ duration: 0.3 }}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V3M3.75 14.25H2.25m1.5 0h3m-3 0H2.25m15.75 0h3m-3 0h1.5m-15.75 0H6.75m11.25 0h2.25m0 0h1.5m-18 0h2.25M12 7.5h.008v.008H12V7.5Z"
                 />
-              </motion.svg>
+              </svg>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.h2
+          <h2
             className="text-2xl md:text-4xl lg:text-5xl font-bold text-white text-center relative"
-            variants={fadeInUp}
           >
             <span className="text-purple-400">International</span>{" "}
             <span>Conferences</span>
             <div className="h-1 w-24 md:w-40 bg-gradient-to-r from-purple-400 via-purple-500 to-[#00c8ff] mx-auto mt-2 md:mt-4"></div>
-          </motion.h2>
+          </h2>
 
-          <motion.p
+          <p
             className="text-center text-lg md:text-xl leading-relaxed mt-4 md:mt-6 text-gray-300 max-w-3xl px-4"
-            variants={fadeInUp}
           >
             Join global leaders in sports science and exercise research at our
             prestigious conferences and symposiums
-          </motion.p>
+          </p>
         </div>
       </div>
 
       {/* Conference Cards */}
-      <motion.div
+      <div
         className="space-y-6 md:space-y-8 max-w-5xl mx-auto relative"
-        variants={staggerContainer}
       >
         {conferences.map((conference, index) => (
-          <motion.div
+          <div
             key={index}
-            className="bg-gradient-to-br from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-4 md:p-6 lg:p-8 xl:p-10 shadow-xl relative overflow-hidden group hover:border-purple-400/60 transition-all duration-500"
-            variants={cardVariant}
-            whileHover={{ y: -8, scale: 1.01 }}
-            transition={{ duration: 0.4 }}
+            className="bg-gradient-to-br from-[#141414] to-[#0A0A0A] border border-[#2A2A2A] rounded-xl p-4 md:p-6 lg:p-8 xl:p-10 shadow-xl relative overflow-hidden group hover:border-purple-400/60 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 animate-slide-up-delayed"
+            style={{ animationDelay: `${index * 200}ms` }}
           >
             {/* Card Header Gradient */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-purple-400 to-[#00c8ff] opacity-80"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-purple-400 to-[#00c8ff] opacity-80 group-hover:h-2 transition-all duration-300"></div>
 
             {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/5 rounded-full -mt-10 -mr-10 blur-2xl group-hover:bg-purple-500/10 transition-all duration-500"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#00c8ff]/5 rounded-full -mb-10 -ml-10 blur-2xl group-hover:bg-[#00c8ff]/10 transition-all duration-500"></div>
+            <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/5 rounded-full -mt-10 -mr-10 blur-2xl group-hover:bg-purple-500/15 group-hover:scale-110 transition-all duration-700"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#00c8ff]/5 rounded-full -mb-10 -ml-10 blur-2xl group-hover:bg-[#00c8ff]/15 group-hover:scale-110 transition-all duration-700"></div>
 
             <div className="relative z-10">
               {/* Conference Badge */}
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 gap-3">
-                <span className="inline-block px-3 md:px-4 py-2 text-xs md:text-sm font-medium bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20 w-fit">
+                <span className="inline-block px-3 md:px-4 py-2 text-xs md:text-sm font-medium bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20 w-fit hover:bg-purple-500/20 hover:scale-105 transition-all duration-300 animate-pulse-subtle">
                   {index === 0 ? "Annual Conference" : "National Symposium"}
                 </span>
-                <div className="flex space-x-2 overflow-x-auto">
+                <div className="flex space-x-2 overflow-x-auto animate-slide-in-right">
                   {[
                     {
                       label: "Presentations",
@@ -147,9 +133,9 @@ const EventsConferencesSection = () => {
                     },
                   ].map((item, itemIndex) => (
                     <div key={itemIndex} className="group/item relative flex-shrink-0">
-                      <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-purple-400/10 flex items-center justify-center">
+                      <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-purple-400/10 flex items-center justify-center hover:bg-purple-400/20 hover:scale-110 hover:rotate-12 transition-all duration-300">
                         <svg
-                          className="w-3 h-3 md:w-4 md:h-4 text-purple-400"
+                          className="w-3 h-3 md:w-4 md:h-4 text-purple-400 group-hover/item:text-purple-300 transition-colors duration-200"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -172,7 +158,7 @@ const EventsConferencesSection = () => {
               </div>
 
               {/* Conference Title */}
-              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition-colors duration-300">
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 group-hover:scale-105 transition-all duration-300 transform-gpu">
                 {conference.title}
               </h3>
 
@@ -199,8 +185,8 @@ const EventsConferencesSection = () => {
               </p>
 
               {/* Conference Features List */}
-              <div className="bg-[#0A0A0A]/80 border border-[#2A2A2A] rounded-lg p-3 md:p-4 mb-4 md:mb-6">
-                <h4 className="text-purple-400 font-semibold mb-2 md:mb-3 text-sm md:text-base">
+              <div className="bg-[#0A0A0A]/80 border border-[#2A2A2A] rounded-lg p-3 md:p-4 mb-4 md:mb-6 group-hover:border-purple-500/30 group-hover:bg-[#0A0A0A]/90 transition-all duration-300">
+                <h4 className="text-purple-400 font-semibold mb-2 md:mb-3 text-sm md:text-base group-hover:text-purple-300 transition-colors duration-200">
                   Key Information
                 </h4>
                 <ul className="space-y-2 md:space-y-3">
@@ -245,9 +231,9 @@ const EventsConferencesSection = () => {
                   },
                 ].map((item, index) => (
                   <div key={index} className="text-center group/icon">
-                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-purple-400/10 flex items-center justify-center mx-auto mb-1 md:mb-2 group-hover/icon:bg-purple-400/20 transition-colors duration-300">
+                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-purple-400/10 flex items-center justify-center mx-auto mb-1 md:mb-2 group-hover/icon:bg-purple-400/25 group-hover/icon:scale-110 group-hover/icon:rotate-12 transition-all duration-300">
                       <svg
-                        className="w-3 h-3 md:w-4 md:h-4 text-purple-400"
+                        className="w-3 h-3 md:w-4 md:h-4 text-purple-400 group-hover/icon:text-purple-300 transition-colors duration-200"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -270,37 +256,33 @@ const EventsConferencesSection = () => {
 
               {/* Bottom Action Buttons */}
               <div className="mt-auto flex flex-col gap-2 md:gap-3">
-                <motion.a
+                <a
                   href="#contact"
-                  className="flex-1 inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition duration-300 text-xs md:text-sm text-center"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                  className="flex-1 inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-300 text-xs md:text-sm text-center hover:scale-[1.05] active:scale-[0.95] hover:shadow-lg hover:shadow-purple-500/25 transform-gpu"
                 >
                   {conference.title.includes("Annual")
                     ? "Conference Details"
                     : "Symposium Details"}
-                </motion.a>
-                <motion.a
+                </a>
+                <a
                   href="/submit-abstract"
-                  className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-purple-400/30 text-gray-300 hover:text-purple-400 font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition duration-300 text-xs md:text-sm text-center"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
+                  className="flex-1 inline-block bg-transparent border border-[#2A2A2A] hover:border-purple-400/50 text-gray-300 hover:text-purple-400 font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-300 text-xs md:text-sm text-center hover:scale-[1.05] active:scale-[0.95] hover:bg-purple-500/5 transform-gpu"
                 >
                   Submit Abstract
-                </motion.a>
+                </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* View All Conferences Button */}
-      <motion.div className="flex justify-center mt-8 md:mt-12" variants={fadeInUp}>
-        {/*         <motion.a 
+      <div 
+        className="flex justify-center mt-8 md:mt-12" 
+      >
+        {/*         <a 
           href="/conferences" 
-          className="inline-flex items-center gap-2 px-8 py-3 bg-[#141414] border border-[#2A2A2A] hover:border-purple-400 rounded-lg text-white hover:text-purple-400 transition-all duration-300 group"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 px-8 py-3 bg-[#141414] border border-[#2A2A2A] hover:border-purple-400 rounded-lg text-white hover:text-purple-400 transition-all duration-300 group hover:scale-105 active:scale-95"
         >
           <span className="font-semibold">View Past Conference Proceedings</span>
           <svg 
@@ -312,9 +294,9 @@ const EventsConferencesSection = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
-        </motion.a> */}
-      </motion.div>
-    </motion.section>
+        </a> */}
+      </div>
+    </section>
   );
 };
 

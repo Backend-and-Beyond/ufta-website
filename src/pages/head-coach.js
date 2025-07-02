@@ -74,7 +74,7 @@ const HeadCoachPage = ({ location }) => {
                   height={224}
                 />
               </div> */}
-              <div className="text-gray-300 text-base md:text-lg leading-relaxed font-poppins md:text-justify">
+              <div className="text-gray-300 text-base md:text-lg leading-relaxed font-poppins">
                 <p className="mb-4">
                   <span className="font-bold text-amber-400">
                     Dr. Bibhu Moni Singha
@@ -138,7 +138,7 @@ const HeadCoachPage = ({ location }) => {
               </div>
             </motion.div>
             <motion.div
-              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg md:text-justify"
+              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg"
               variants={fadeInUp}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-amber-400 mb-4 font-poppins">
@@ -168,7 +168,7 @@ const HeadCoachPage = ({ location }) => {
               </ul>
             </motion.div>
             <motion.div
-              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg md:text-justify"
+              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg"
               variants={fadeInUp}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-amber-400 mb-4 font-poppins">
@@ -199,7 +199,7 @@ const HeadCoachPage = ({ location }) => {
               </ul>
             </motion.div>
             <motion.div
-              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg md:text-justify"
+              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg"
               variants={fadeInUp}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-amber-400 mb-4 font-poppins">
@@ -217,7 +217,7 @@ const HeadCoachPage = ({ location }) => {
               </ul>
             </motion.div>
             <motion.div
-              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg md:text-justify"
+              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg"
               variants={fadeInUp}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-amber-400 mb-4 font-poppins">
@@ -240,7 +240,7 @@ const HeadCoachPage = ({ location }) => {
               </ul>
             </motion.div>
             <motion.div
-              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg md:text-justify"
+              className="bg-[#181818] rounded-lg p-6 md:p-10 mb-10 shadow-lg"
               variants={fadeInUp}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-amber-400 mb-4 font-poppins">
@@ -262,7 +262,7 @@ const HeadCoachPage = ({ location }) => {
               </ul>
             </motion.div>
             <motion.div
-              className="bg-[#181818] rounded-lg p-6 md:p-10 shadow-lg md:text-justify"
+              className="bg-[#181818] rounded-lg p-6 md:p-10 shadow-lg"
               variants={fadeInUp}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-amber-400 mb-4 font-poppins">

@@ -38,7 +38,7 @@ const InternationalPartnersSection = () => {
       logoAlt: "PROPTA USA Logo",
       color: "from-red-500 to-red-600",
       borderColor: "border-red-500/30 hover:border-red-500/70",
-      type: "Education Partner",
+      type: "Collaboration",
       description: "UFTA is an official education partner and the only authorized center of PROPTA USA for providing training and certifications in India. PROPTA (Professional Personal Trainers Association) USA is one of the leading education bodies in the United States and worldwide, dedicated to educating professional fitness and nutrition professionals since 1980.",
       details: "PROPTA's certification programs are recognized in 199 countries and are officially endorsed by the National Fitness League, the International Federation of Bodybuilders (IFBB PRO League), and accredited by bodies like the Bureau of Private Post Secondary Education (BPPE) in California, USA.",
       features: [
@@ -93,7 +93,7 @@ const InternationalPartnersSection = () => {
       logoAlt: "IUSCA UK Partnership", 
       color: "from-purple-500 to-purple-600",
       borderColor: "border-purple-500/30 hover:border-purple-500/70",
-      type: "Collaboration",
+      type: "Education Partner",
       description: "Our Founder's IUSCA UK certification brings global strength and conditioning expertise from an association partnered with over 150 top universities worldwide.",
       details: "This prestigious connection enables UFTA to incorporate world-class strength and conditioning principles and methodologies into our curriculum, ensuring our students receive training aligned with international best practices.",
       features: [

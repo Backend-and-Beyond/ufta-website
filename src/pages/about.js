@@ -125,8 +125,7 @@ const AboutPage = ({ location }) => {
         subtitle="Learn about our journey, mission, and commitment to fitness excellence"
         tagline={
           <>
-            <span className="text-[#00c8ff]">Transforming</span> Fitness
-            Education Since 2006
+             Trusted in <span className="text-[#00c8ff]">Strength & Conditioning</span>, Respected in <span className="text-[#00c8ff]">Sports Performance</span>, and Renowned in <span className="text-[#00c8ff]">Exercise Science Education</span>
           </>
         }
         imageAlt="About UFTA Hero Image"

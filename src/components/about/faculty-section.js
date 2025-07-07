@@ -61,7 +61,7 @@ const FacultySection = () => {
     {
       name: "Dr. Bibhu Moni Singha",
       title: "Founder & Director, Sr. Director PROPTA U.S.A.",
-      qualification: "PhD (Pursuing), M.Sc. S&C. 23+ yrs exp.",
+      qualification: "M.Sc. S&C. 26+ yrs exp.",
       image: "../images/bhibhu.png"
     },
     {

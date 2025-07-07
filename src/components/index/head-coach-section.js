@@ -6,29 +6,29 @@ const HeadCoachSection = () => {
   // Simple, non-blinking animations with original left-right style
   const slideInLeftVariant = {
     hidden: { opacity: 0, x: -50 },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      transition: { duration: 0.7, ease: "easeOut" }
-    }
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
   };
 
   const slideInRightVariant = {
     hidden: { opacity: 0, x: 50 },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      transition: { duration: 0.7, ease: "easeOut" }
-    }
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
   };
 
   const fadeInUpVariant = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -134,7 +134,7 @@ const HeadCoachSection = () => {
               </ul>
             </motion.div>
           </div>
-          <motion.div 
+          <motion.div
             className="mt-8 md:mt-12"
             initial="hidden"
             whileInView="visible"
@@ -144,7 +144,7 @@ const HeadCoachSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               <div className="card p-3 md:p-4 rounded-sm">
                 <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
-                  mISCP (Level 8), IUSCA
+                  IUSCA (Level 8)
                 </h4>
                 <p className="text-gray-400 text-xs md:text-sm font-poppins">
                   Recognized as a top-tier expert in global S&C standards

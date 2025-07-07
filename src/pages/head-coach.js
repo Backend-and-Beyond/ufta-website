@@ -23,25 +23,12 @@ const HeadCoachPage = ({ location }) => {
           <>
             {/* <span className="text-[#00c8ff] font-bold">🏆 Director, UFTA</span>{" "}
             <span className="text-gray-400">|</span>{" "} */}
-            <span className="text-amber-400 font-semibold">
-              🧑‍🏫 Sr. Director, PROPTA USA
-            </span>{" "}
-            <span className="text-gray-400">|</span>{" "}
-            <span className="text-green-400 font-semibold">
-              🌍 IUSCA Rep & Advisory
-            </span>{" "}
-            <span className="text-gray-400">|</span>{" "}
-            <span className="text-pink-400 font-semibold">
-              💪 S&C Lead, KISCE
-            </span>{" "}
-            <span className="text-gray-400">|</span>{" "}
-            <span className="text-purple-400 font-semibold">
-              🏟️ S&C Expert, Somaiya
-            </span>{" "}
-            <span className="text-gray-400">|</span>{" "}
-            <span className="text-yellow-400 font-semibold">
-              🤝 Franchise Spokesperson, NITRRO Fitness
-            </span>
+            Sr. Director, PROPTA USA
+            <span className="text-gray-400"> | </span> IUSCA Rep & Advisory
+            <span className="text-gray-400"> | </span> S&C Lead, KISCE
+            <span className="text-gray-400"> | </span> S&C Expert, Somaiya
+            <span className="text-gray-400"> | </span> Franchise Spokesperson,
+            NITRRO Fitness
           </>
         }
         imageAlt="UFTA High Performance Clinic Clinic"
@@ -76,64 +63,23 @@ const HeadCoachPage = ({ location }) => {
               </div> */}
               <div className="text-gray-300 text-base md:text-lg leading-relaxed font-poppins">
                 <p className="mb-4">
-                  <span className="font-bold text-amber-400">
+                  <span className="font-bold text-[#00c8ff]">
                     Dr. Bibhu Moni Singha
                   </span>{" "}
-                  is an award-winning, globally recognized, and internationally
-                  accredited Strength & Conditioning Expert, Sports & Exercise
-                  Nutritionist, High-Performance Olympic Weightlifting Coach,
-                  Injury Rehabilitation Specialist, and CASES UK Accredited
-                  Sport & Exercise Scientist. Dr. Bibhu has presented numerous
-                  papers at national and international conferences on topics
-                  related to strength and conditioning, sports performance
-                  enhancement, velocity-based training, sports and exercise
-                  nutrition, injury rehabilitation, return to sport, and more.
-                  He has also published several research articles in reputed
-                  peer-reviewed journals.
+                  is an <span className="font-bold">award-winning</span>, <span className="font-bold">globally recognized</span>, and <span className="font-bold text-[#00c8ff]">internationally accredited Strength & Conditioning Expert</span>, <span className="font-bold">Sports & Exercise Nutritionist</span>, <span className="font-bold">High-Performance Olympic Weightlifting Coach</span>, <span className="font-bold">Injury Rehabilitation Specialist</span>, and <span className="font-bold">CASES UK Accredited Sport & Exercise Scientist</span>. Dr. Bibhu has presented <span className="font-bold">numerous papers</span> at national and international conferences on topics related to <span className="font-bold">strength and conditioning</span>, <span className="font-bold">sports performance enhancement</span>, <span className="font-bold">velocity-based training</span>, <span className="font-bold">sports and exercise nutrition</span>, <span className="font-bold">injury rehabilitation</span>, <span className="font-bold">return to sport</span>, and more. He has also published <span className="font-bold">several research articles</span> in reputed peer-reviewed journals.
                 </p>
                 <p className="mb-4">
                   His research article titled{" "}
-                  <span className="italic">
-                    “Age-Specific Considerations in Strength and Conditioning
-                    Programs: A Narrative Review”
+                  <span className="italic font-bold text-[#00c8ff]">
+                    “Age-Specific Considerations in Strength and Conditioning Programs: A Narrative Review”
                   </span>{" "}
-                  was selected for the Applied Science Awards at the 7th SCS
-                  Annual Conference in Spain in 2024. He is frequently invited
-                  as a subject matter expert to deliver guest lectures,
-                  seminars, and workshops at top universities, sports clubs,
-                  medical institutions, major sports organizations, and fitness
-                  centers worldwide.
+                  was selected for the <span className="font-bold text-[#00c8ff]">Applied Science Awards at the 7th SCS Annual Conference in Spain in 2024</span>. He is frequently invited as a <span className="font-bold">subject matter expert</span> to deliver <span className="font-bold">guest lectures, seminars, and workshops</span> at top universities, sports clubs, medical institutions, major sports organizations, and fitness centers worldwide.
                 </p>
                 <p className="mb-4">
-                  Dr. Bibhu has over <span className="font-bold">26 years</span>{" "}
-                  of comprehensive experience, with more than{" "}
-                  <span className="font-bold">93,000 hours</span> of work in the
-                  sports, fitness, and nutrition industry both in India and
-                  internationally. He has helped thousands of individuals from
-                  diverse backgrounds—including track and field athletes,
-                  Olympic weightlifters, boxers, bodybuilders, students,
-                  businessmen, and bureaucrats—achieve their performance and
-                  fitness goals.
+                  Dr. Bibhu has over <span className="font-bold">26 years</span> of comprehensive experience, with more than <span className="font-bold">93,000 hours</span> of work in the sports, fitness, and nutrition industry both in India and internationally. He has helped <span className="font-bold">thousands of individuals</span> from diverse backgrounds—including <span className="font-bold">track and field athletes, Olympic weightlifters, boxers, bodybuilders, students, businessmen, and bureaucrats</span>—achieve their performance and fitness goals.
                 </p>
                 <p className="mb-4">
-                  Since 2001, he has trained over{" "}
-                  <span className="font-bold">36,000 athletes and clients</span>
-                  , and since 2006, he has certified more than{" "}
-                  <span className="font-bold">
-                    2,500 Personal Trainers, Strength & Conditioning Coaches,
-                    and Sports Nutritionists
-                  </span>
-                  . Dr. Bibhu has trained under some of the most elite coaches
-                  and experts in the sports performance and fitness industry
-                  from the USA, Spain, and Italy. These include Olympic coaches
-                  and professionals such as Mike McKenna (USAW National Coach),
-                  Michael Conroy (Director of Coaching Education, USAW), Danny
-                  Schlag (Adjunct Professor, Louisiana State University and
-                  High-Performance Weightlifting Coach, USAW), Charles Glass
-                  (Godfather of Bodybuilding), Chris Cormier, Big Will Harris,
-                  Dr. Luca Zoffoli, Chris Hinshaw, Joe Antouri (trainer to elite
-                  athletes, Hollywood celebrities, and rock stars), among
-                  others.
+                  Since 2001, he has trained over <span className="font-bold">36,000 athletes and clients</span>, and since 2006, he has certified more than <span className="font-bold">2,500 Personal Trainers, Strength & Conditioning Coaches, and Sports Nutritionists</span>. Dr. Bibhu has trained under some of the most <span className="font-bold">elite coaches and experts</span> in the sports performance and fitness industry from the USA, Spain, and Italy. These include Olympic coaches and professionals such as <span className="font-bold">Mike McKenna (USAW National Coach), Michael Conroy (Director of Coaching Education, USAW), Danny Schlag (Adjunct Professor, Louisiana State University and High-Performance Weightlifting Coach, USAW), Charles Glass (Godfather of Bodybuilding), Chris Cormier, Big Will Harris, Dr. Luca Zoffoli, Chris Hinshaw, Joe Antouri (trainer to elite athletes, Hollywood celebrities, and rock stars)</span>, among others.
                 </p>
               </div>
             </motion.div>
@@ -146,24 +92,21 @@ const HeadCoachPage = ({ location }) => {
               </h2>
               <ul className="list-disc list-inside text-gray-300 text-base md:text-lg font-poppins space-y-2">
                 <li>
-                  Director of Certification, Universal Fitness Training Academy
-                  (since 2006)
+                  <span className="font-bold text-[#00c8ff]">Director of Certification</span>, Universal Fitness Training Academy (since 2006)
                 </li>
-                <li>Senior Director & Examiner (Pan India), PROPTA USA</li>
+                <li><span className="font-bold">Senior Director & Examiner (Pan India)</span>, PROPTA USA</li>
                 <li>
-                  Sole Degree Accreditation Representative, IUSCA (Pan India)
+                  <span className="font-bold">Sole Degree Accreditation Representative</span>, IUSCA (Pan India)
                 </li>
-                <li>Member, Advisory Board – IUSCA and IJSC</li>
+                <li><span className="font-bold">Member, Advisory Board</span> – IUSCA and IJSC</li>
                 <li>
-                  Strength & Conditioning Expert (Lead), KISCE, DSYW, Govt. of
-                  Assam
+                  <span className="font-bold">Strength & Conditioning Expert (Lead)</span>, KISCE, DSYW, Govt. of Assam
                 </li>
                 <li>
-                  External Expert, S&C – Somaiya Sports Academy, Somaiya
-                  Vidyavihar University, Mumbai
+                  <span className="font-bold">External Expert, S&C</span> – Somaiya Sports Academy, Somaiya Vidyavihar University, Mumbai
                 </li>
                 <li>
-                  Franchise Spokesperson & Promoter (Pan India), NITRRO Fitness
+                  <span className="font-bold">Franchise Spokesperson & Promoter (Pan India)</span>, NITRRO Fitness
                 </li>
               </ul>
             </motion.div>
@@ -176,25 +119,20 @@ const HeadCoachPage = ({ location }) => {
               </h2>
               <ul className="list-disc list-inside text-gray-300 text-base md:text-lg font-poppins space-y-2">
                 <li>
-                  Internationally Accredited Level 8 Master International
-                  Strength and Conditioning Practitioner (mISCP) by IUSCA, UK
+                  <span className="font-bold text-[#00c8ff]">Internationally Accredited Level 8 Master International Strength and Conditioning Practitioner (mISCP)</span> by IUSCA, UK
                 </li>
                 <li>
-                  USA Weightlifting Certified High-Performance Olympic
-                  Weightlifting Coach
+                  <span className="font-bold">USA Weightlifting Certified High-Performance Olympic Weightlifting Coach</span>
                 </li>
                 <li>
-                  Certified Master Professional Personal Trainer & Sports
-                  Nutritionist (PROPTA USA)
+                  <span className="font-bold">Certified Master Professional Personal Trainer & Sports Nutritionist (PROPTA USA)</span>
                 </li>
                 <li>
-                  Advisory Board Member – International Journal of Strength &
-                  Conditioning (IJSC) & IUSCA
+                  <span className="font-bold">Advisory Board Member</span> – International Journal of Strength & Conditioning (IJSC) & IUSCA
                 </li>
-                <li>CASES UK Accredited Sport & Exercise Scientist</li>
+                <li><span className="font-bold">CASES UK Accredited Sport & Exercise Scientist</span></li>
                 <li>
-                  First Indian to introduce a four-year B.Sc. Fitness & Athletic
-                  Conditioning (Honours) degree aligned with NEP 2020
+                  <span className="font-bold">First Indian to introduce a four-year B.Sc. Fitness & Athletic Conditioning (Honours) degree aligned with NEP 2020</span>
                 </li>
               </ul>
             </motion.div>
@@ -207,12 +145,10 @@ const HeadCoachPage = ({ location }) => {
               </h2>
               <ul className="list-disc list-inside text-gray-300 text-base md:text-lg font-poppins space-y-2">
                 <li>
-                  Excellent Personal Trainer of the Year 2018 (Fitness
-                  Excellence Awards, Taj Diplomatic Enclave, New Delhi)
+                  <span className="font-bold text-[#00c8ff]">Excellent Personal Trainer of the Year 2018</span> (Fitness Excellence Awards, Taj Diplomatic Enclave, New Delhi)
                 </li>
                 <li>
-                  India’s Best Fitness Trainer of the Year 2018 (India
-                  Leadership Awards, presented by Soha Ali Khan)
+                  <span className="font-bold">India’s Best Fitness Trainer of the Year 2018</span> (India Leadership Awards, presented by Soha Ali Khan)
                 </li>
               </ul>
             </motion.div>
@@ -225,17 +161,13 @@ const HeadCoachPage = ({ location }) => {
               </h2>
               <ul className="list-disc list-inside text-gray-300 text-base md:text-lg font-poppins space-y-2">
                 <li>
-                  Presented at national and international conferences on
-                  strength & conditioning, velocity-based training, sports
-                  nutrition, and injury rehabilitation
+                  <span className="font-bold">Presented at national and international conferences</span> on strength & conditioning, velocity-based training, sports nutrition, and injury rehabilitation
                 </li>
                 <li>
-                  Research paper “Age-Specific Considerations in Strength and
-                  Conditioning Programs: A Narrative Review” won the Applied
-                  Science Award at the 7th SCS Annual Conference in Spain (2024)
+                  <span className="font-bold text-[#00c8ff]">Research paper “Age-Specific Considerations in Strength and Conditioning Programs: A Narrative Review” won the Applied Science Award at the 7th SCS Annual Conference in Spain (2024)</span>
                 </li>
                 <li>
-                  Published multiple peer-reviewed articles in reputed journals
+                  <span className="font-bold">Published multiple peer-reviewed articles in reputed journals</span>
                 </li>
               </ul>
             </motion.div>
@@ -248,16 +180,10 @@ const HeadCoachPage = ({ location }) => {
               </h2>
               <ul className="list-disc list-inside text-gray-300 text-base md:text-lg font-poppins space-y-2">
                 <li>
-                  Delivered guest lectures, seminars, and workshops at top
-                  universities, sports academies, and medical institutions
-                  worldwide
+                  <span className="font-bold">Delivered guest lectures, seminars, and workshops at top universities, sports academies, and medical institutions worldwide</span>
                 </li>
                 <li>
-                  Expertise in evidence-based strength & conditioning, sports
-                  performance enhancement, injury rehabilitation &
-                  return-to-sport protocols, Olympic weightlifting &
-                  powerlifting coaching, and sports & exercise nutrition for
-                  peak performance
+                  <span className="font-bold">Expertise in evidence-based strength & conditioning, sports performance enhancement, injury rehabilitation & return-to-sport protocols, Olympic weightlifting & powerlifting coaching, and sports & exercise nutrition for peak performance</span>
                 </li>
               </ul>
             </motion.div>
@@ -269,10 +195,7 @@ const HeadCoachPage = ({ location }) => {
                 Transforming the Future of Fitness & Sports Science
               </h2>
               <p className="text-gray-300 text-base md:text-lg font-poppins">
-                Dr. Bibhu is committed to bridging the gap between academia and
-                athletic performance, collaborating with 150+ global
-                universities (including UCLA, Stanford, Yale via IUSCA) to
-                elevate strength & conditioning education.
+                <span className="font-bold text-[#00c8ff]">Dr. Bibhu is committed to bridging the gap between academia and athletic performance</span>, collaborating with <span className="font-bold text-[#00c8ff]">150+ global universities (including UCLA, Stanford, Yale via IUSCA)</span> to elevate strength & conditioning education.
               </p>
             </motion.div>
           </div>

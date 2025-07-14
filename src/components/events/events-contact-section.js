@@ -1,5 +1,7 @@
+
 import * as React from "react"
 import { motion } from "framer-motion"
+import SocialMedia from "../social-media";
 
 const EventsContactSection = () => {
   // Simple, unified animation variants
@@ -352,39 +354,14 @@ const EventsContactSection = () => {
           </motion.div>
           
           {/* Social Media Links */}
-          <motion.div 
-            className="flex justify-center mt-12 space-x-6"
+          <motion.div
+            className="flex justify-center mt-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInVariant}
           >
-            {[
-              { name: "Facebook", icon: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" },
-              { name: "Twitter", icon: "M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" },
-              { name: "Instagram", icon: "M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M7.5 4h9a3.5 3.5 0 013.5 3.5v9a3.5 3.5 0 01-3.5 3.5h-9A3.5 3.5 0 014 16.5v-9A3.5 3.5 0 017.5 4zm9 14h.01M9 9.5a3 3 0 100 6 3 3 0 000-6z" },
-              { name: "LinkedIn", icon: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 20V9 M4 6a2 2 0 100-4 2 2 0 000 4z" },
-              { name: "YouTube", icon: "M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" }
-            ].map((social, index) => (
-              <motion.a 
-                key={index}
-                href="#" 
-                className="bg-[#141414] hover:bg-[#1A1A1A] p-3 rounded-full border border-[#2A2A2A] hover:border-[#00c8ff]/30 transition-all duration-300 group"
-                whileHover={{ y: -5, scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-5 w-5 text-gray-400 group-hover:text-[#00c8ff] transition-colors duration-300" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={social.icon} />
-                </svg>
-                <span className="sr-only">{social.name}</span>
-              </motion.a>
-            ))}
+            <SocialMedia />
           </motion.div>
         </div>
       </motion.div>

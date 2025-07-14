@@ -209,7 +209,7 @@ const ContactFormSection = () => {
 
           <motion.div className="relative">
             <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
-              Get in <span className="text-[#00c8ff]">Touch</span>
+              Send us a <span className="text-[#00c8ff]">message</span>
             </h2>
 
             {/* Animated underline */}
@@ -249,16 +249,6 @@ const ContactFormSection = () => {
           animate={controls}
         />
 
-        <motion.p
-          className="text-center text-lg md:text-xl leading-relaxed mb-8 md:mb-10 text-gray-300 max-w-2xl mx-auto px-4 md:px-0"
-          variants={animations.fadeInUp}
-          custom={2}
-        >
-          Interested in our services?{" "}
-          <span className="text-[#00c8ff] font-medium">Contact us</span> today
-          to start your fitness journey with UFTA.
-        </motion.p>
-
         <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 px-4 md:px-0">
           {/* Contact Form */}
           <motion.form
@@ -270,15 +260,6 @@ const ContactFormSection = () => {
             action="https://formspree.io/f/xwpqewdy"
             autoComplete="off"
           >
-            <h3 className="text-lg md:text-xl font-semibold text-white mb-6 flex items-center">
-              <motion.span
-                className="inline-block w-2 h-2 rounded-full bg-[#00c8ff] mr-3"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              />
-              Send us a message
-            </h3>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               {/* Name */}
               <motion.div

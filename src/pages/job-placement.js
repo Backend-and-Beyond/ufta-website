@@ -37,7 +37,7 @@ const JobPlacementPage = ({ location }) => {
         <JobPlacementDomesticSection />
         <JobPlacementInternationalSection />
         <JobPlacementProcessSection />
-        <JobPlacementContactSection />
+        {/* <JobPlacementContactSection /> */}
       </main>
 
       <Footer />

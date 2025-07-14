@@ -427,7 +427,7 @@ const Navigation = ({ location }) => {
                 </Link>
               </motion.div>
               <motion.div variants={mobileItemVariants}>
-                <Link to="/signup" className="block px-3 py-2 mt-2 text-white no-underline border border-[#00c8ff] hover:bg-[#00c8ff]/10 transition-colors duration-200">Sign Up</Link>
+                <Link to="/contact" className="block px-3 py-2 mt-2 text-white no-underline border border-[#00c8ff] hover:bg-[#00c8ff]/10 transition-colors duration-200">Get in Touch</Link>
               </motion.div>
             </div>
           </motion.div>

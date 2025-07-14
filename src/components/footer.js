@@ -35,7 +35,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>info@ufta.in</li>
+              <li>bibhuuniversal@gmail.com</li>
               <li>+91 98640 47046</li>
             </ul>
           </div>

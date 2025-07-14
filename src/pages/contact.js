@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import UftaLayout from "../components/ufta-layout";
 import Navigation from "../components/navigation";
@@ -11,10 +10,15 @@ const ContactPage = ({ location }) => (
   <UftaLayout>
     <Navigation location={location} />
     <PageHero
-      title="Contact"
-      titleHighlight={{ text: "UFTA", color: "text-[#00c8ff]" }}
+      title="Get in "
+      titleHighlight={{ text: "Touch", color: "text-[#00c8ff]" }}
       subtitle="We'd love to hear from you. Reach out for any queries, collaborations, or support."
-      tagline={<><span className="text-[#00c8ff]">Your Fitness Journey</span> Starts Here</>}
+      tagline={
+        <>
+          <span className="text-[#00c8ff]">Contact us </span>today to start your
+          fitness journey with UFTA
+        </>
+      }
       imageAlt="Contact UFTA Hero Image"
     />
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -24,6 +28,8 @@ const ContactPage = ({ location }) => (
   </UftaLayout>
 );
 
-export const Head = () => <Seo title="Contact Us - Universal Fitness Training Academy" />;
+export const Head = () => (
+  <Seo title="Contact Us - Universal Fitness Training Academy" />
+);
 
 export default ContactPage;

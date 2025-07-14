@@ -10,6 +10,7 @@ const ContactFormSection = () => {
   const [formState, setFormState] = React.useState({
     name: "",
     email: "",
+    phone: "",
     service: "",
     message: "",
   });
@@ -43,16 +44,44 @@ const ContactFormSection = () => {
     setFormState((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Form submission
-  const handleSubmit = (e) => {
+  // Formspree submission handler
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
     setFormStatus("submitting");
-    setTimeout(() => {
-      setFormStatus("success");
-      // Reset after 3 seconds
+    try {
+      const response = await fetch("https://formspree.io/f/xwpqewdy", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone,
+          service: formState.service,
+          message: formState.message,
+        }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setFormStatus("success");
+        setFormState({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+        setTimeout(() => setFormStatus(null), 3000);
+      } else {
+        setFormStatus("error");
+        setTimeout(() => setFormStatus(null), 3000);
+      }
+    } catch (error) {
+      setFormStatus("error");
       setTimeout(() => setFormStatus(null), 3000);
-    }, 1500);
+    }
   };
 
   return (
@@ -237,6 +266,9 @@ const ContactFormSection = () => {
             variants={animations.staggerContainer}
             custom={3}
             onSubmit={handleSubmit}
+            method="POST"
+            action="https://formspree.io/f/xwpqewdy"
+            autoComplete="off"
           >
             <h3 className="text-lg md:text-xl font-semibold text-white mb-6 flex items-center">
               <motion.span
@@ -247,7 +279,8 @@ const ContactFormSection = () => {
               Send us a message
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {/* Name */}
               <motion.div
                 variants={animations.fadeInUp}
                 custom={1}
@@ -280,6 +313,7 @@ const ContactFormSection = () => {
                       borderColor: "#00c8ff",
                       boxShadow: "0 0 0 1px rgba(0, 200, 255, 0.3)",
                     }}
+                    autoComplete="off"
                   />
                   <motion.div
                     className="absolute top-0 left-0 h-full w-1 bg-[#00c8ff]/20 rounded-l-md"
@@ -290,6 +324,7 @@ const ContactFormSection = () => {
                 </div>
               </motion.div>
 
+              {/* Email */}
               <motion.div
                 variants={animations.fadeInUp}
                 custom={2}
@@ -322,6 +357,52 @@ const ContactFormSection = () => {
                       borderColor: "#00c8ff",
                       boxShadow: "0 0 0 1px rgba(0, 200, 255, 0.3)",
                     }}
+                    autoComplete="off"
+                  />
+                  <motion.div
+                    className="absolute top-0 left-0 h-full w-1 bg-[#00c8ff]/20 rounded-l-md"
+                    whileHover={{ width: 4, opacity: 1 }}
+                    whileFocus={{ width: 4, opacity: 1 }}
+                    initial={{ opacity: 0.3 }}
+                  />
+                </div>
+              </motion.div>
+
+              {/* Phone */}
+              <motion.div
+                variants={animations.fadeInUp}
+                custom={3}
+                className="md:col-span-1"
+              >
+                <label
+                  htmlFor="phone"
+                  className="block mb-2 text-sm font-medium text-gray-300 flex items-center"
+                >
+                  <motion.span
+                    className="inline-block w-1.5 h-1.5 rounded-full bg-[#00c8ff] mr-2"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.8 }}
+                  />
+                  Phone
+                </label>
+                <div className="relative">
+                  <motion.input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    value={formState.phone}
+                    onChange={handleInputChange}
+                    className="bg-[#1A1A1A] border border-[#2A2A2A] text-gray-100 text-sm rounded-md focus:ring-[#00c8ff] focus:border-[#00c8ff] block w-full p-3 pl-4"
+                    placeholder="Your phone number"
+                    animate={formControls}
+                    required
+                    aria-required="true"
+                    pattern="[0-9+\-() ]{7,20}"
+                    whileFocus={{
+                      borderColor: "#00c8ff",
+                      boxShadow: "0 0 0 1px rgba(0, 200, 255, 0.3)",
+                    }}
+                    autoComplete="off"
                   />
                   <motion.div
                     className="absolute top-0 left-0 h-full w-1 bg-[#00c8ff]/20 rounded-l-md"
@@ -351,7 +432,7 @@ const ContactFormSection = () => {
                   name="service"
                   value={formState.service}
                   onChange={handleInputChange}
-                  className="bg-[#1A1A1A] border border-[#2A2A2A] text-gray-100 text-sm rounded-md focus:ring-[#00c8ff] focus:border-[#00c8ff] block w-full p-3"
+                  className="appearance-none bg-[#1A1A1A] border border-[#2A2A2A] text-gray-100 text-sm rounded-md focus:ring-[#00c8ff] focus:border-[#00c8ff] block w-full p-3"
                   animate={formControls}
                   required
                   aria-required="true"
@@ -359,6 +440,7 @@ const ContactFormSection = () => {
                     borderColor: "#00c8ff",
                     boxShadow: "0 0 0 1px rgba(0, 200, 255, 0.3)",
                   }}
+                  autoComplete="off"
                 >
                   <option value="" disabled>
                     Select a service
@@ -383,7 +465,8 @@ const ContactFormSection = () => {
                   initial={{ opacity: 0.3 }}
                 />
                 <motion.div
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
+                  className="pointer-events-none absolute right-3 inset-y-3.5 flex items-center justify-center h-4 w-4"
+                  style={{ right: "0.75rem" }}
                   animate={{ y: [0, 2, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
@@ -391,7 +474,7 @@ const ContactFormSection = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="#00c8ff"
-                    className="w-4 h-4"
+                    className="w-4 h-4 mx-auto"
                   >
                     <path
                       fillRule="evenodd"
@@ -431,6 +514,7 @@ const ContactFormSection = () => {
                     borderColor: "#00c8ff",
                     boxShadow: "0 0 0 1px rgba(0, 200, 255, 0.3)",
                   }}
+                  autoComplete="off"
                 />
                 <motion.div
                   className="absolute top-0 left-0 h-full w-1 bg-[#00c8ff]/20 rounded-l-md"
@@ -666,14 +750,18 @@ const ContactFormSection = () => {
                 </h4>
                 <div className="flex space-x-2 md:space-x-3">
                   {/* Use the unified SocialMedia component for consistency */}
-                  <SocialMedia className="!space-x-2 md:!space-x-3" iconClass="w-4 h-4 md:w-5 md:h-5 text-[#00c8ff]" linkClass="p-2 md:p-3" />
+                  <SocialMedia
+                    className="!space-x-2 md:!space-x-3"
+                    iconClass="w-4 h-4 md:w-5 md:h-5 text-[#00c8ff]"
+                    linkClass="p-2 md:p-3"
+                  />
                 </div>
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Success message with animation */}
+        {/* Success/Error message with animation */}
         <AnimatePresence>
           {formStatus === "success" && (
             <motion.div
@@ -721,6 +809,56 @@ const ContactFormSection = () => {
                 <p className="text-gray-300 text-sm md:text-base">
                   Thank you for contacting UFTA. We'll respond to your inquiry
                   shortly.
+                </p>
+              </motion.div>
+            </motion.div>
+          )}
+          {formStatus === "error" && (
+            <motion.div
+              className="absolute inset-0 bg-[#141414]/95 flex items-center justify-center z-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                className="text-center"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 100 }}
+              >
+                <motion.div
+                  className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 rounded-full border-2 border-red-500 flex items-center justify-center"
+                  animate={{
+                    boxShadow: [
+                      "0 0 0 rgba(255, 0, 0, 0.3)",
+                      "0 0 20px rgba(255, 0, 0, 0.7)",
+                      "0 0 0 rgba(255, 0, 0, 0.3)",
+                    ],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 md:h-8 md:w-8 text-red-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </motion.div>
+                <h3 className="text-xl md:text-2xl text-white font-bold mb-2">
+                  Submission Failed
+                </h3>
+                <p className="text-gray-300 text-sm md:text-base">
+                  Sorry, there was a problem sending your message. Please try
+                  again later.
                 </p>
               </motion.div>
             </motion.div>

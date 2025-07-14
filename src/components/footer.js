@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { Link } from "gatsby";
 import SocialMedia from "./social-media";
@@ -7,41 +6,72 @@ const Footer = () => {
   return (
     <footer className="py-12 border-t border-gray-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div>
+        <div className="grid md:grid-cols-5 gap-2 sm:gap-3 text-center">
+          <div className="flex flex-col items-center">
             <h3 className="text-xl font-bold mb-4">UFTA</h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mb-4">
               Excellence in fitness education and training.
             </p>
           </div>
-          <div>
+          <div className="flex flex-col items-center">
             <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>
-                <Link to="/about" className="hover:text-white">
-                  About Us
-                </Link>
-              </li>
+            <ul className="space-y-1 text-xs text-gray-400">
               <li>
                 <Link to="/courses" className="hover:text-white">
                   Courses
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white">
-                  Contact
+                <Link to="/services" className="hover:text-white">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/events" className="hover:text-white">
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link to="/gallery" className="hover:text-white">
+                  Gallery
                 </Link>
               </li>
             </ul>
           </div>
-          <div>
+          <div className="flex flex-col items-center">
             <h4 className="font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-1 text-xs text-gray-400 mb-4">
               <li>bibhuuniversal@gmail.com</li>
               <li>+91 98640 47046</li>
+              <li>+91 98640 26682</li>
             </ul>
           </div>
-          <div>
+          <div className="flex flex-col items-center">
+            <h4 className="font-semibold mb-4">Services</h4>
+            <ul className="space-y-1 text-xs text-gray-400 mb-4">
+              <li>
+                <Link to="/courses" className="hover:text-white">
+                  Courses
+                </Link>
+              </li>
+              <li>
+                <Link to="/membership" className="hover:text-white">
+                  Membership
+                </Link>
+              </li>
+              <li>
+                <Link to="/job-placement" className="hover:text-white">
+                  Careers
+                </Link>
+              </li>{" "}
+              <li>
+                <Link to="/high-performance" className="hover:text-white">
+                  High Performance Clinic
+                </Link>
+              </li>{" "}
+            </ul>
+          </div>
+          <div className="flex flex-col items-center">
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <SocialMedia />
           </div>

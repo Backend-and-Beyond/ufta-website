@@ -89,7 +89,7 @@ const HighPerformanceServicesSection = () => {
         </svg>
       ),
       title: "Injury Rehabilitation & Reconditioning",
-      description: "UFTA's in-house Sports Medicine facilities are dedicated to the comprehensive management of injuries for both athletes and the general public. Led by specialists like Dr. Dipankar Bhattacharryya (Dean of Sports & Exercise Medicine) and Bibhu Moni Singha (PhD Scholar, Sports & Exercise Scientist with expertise in Rehabilitation & Reconditioning), we focus on a holistic approach to recovery.",
+      description: "UFTA's in-house Sports Medicine facilities are dedicated to the comprehensive management of injuries for both athletes and the general public. Led by specialists like Dr. Dipankar Bhattacharryya (Dean of Sports & Exercise Medicine) and Dr. Bibhu Moni Singha (Sports & Exercise Scientist with expertise in Rehabilitation & Reconditioning), we focus on a holistic approach to recovery.",
       features: [
         "Expert Assessment: Thorough evaluation to understand the nature and extent of the injury",
         "Non-Invasive Techniques: Prioritizing conservative and effective treatment methods",

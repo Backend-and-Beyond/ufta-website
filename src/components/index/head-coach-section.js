@@ -144,7 +144,7 @@ const HeadCoachSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               <div className="card p-3 md:p-4 rounded-sm">
                 <h4 className="font-semibold text-amber-400 mb-2 font-poppins text-sm md:text-base">
-                  mISCP (Level 8), IUSCA
+                  IUSCA (Level 8)
                 </h4>
                 <p className="text-gray-400 text-xs md:text-sm font-poppins">
                   Recognized as a top-tier expert in global S&C standards

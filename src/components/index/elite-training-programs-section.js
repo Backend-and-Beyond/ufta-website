@@ -44,46 +44,47 @@ const EliteTrainingProgramsSection = () => {
             variants={cardVariant}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
-              <div className="card-image relative">
-                <StaticImage
-                  src={PersonalTrainingImage}
-                  alt="Personal Training Certification"
-                  className="w-full h-full object-cover"
-                  width={400}
-                  height={250}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
-                {/* Sci-fi corner accents */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#00c8ff] opacity-60"></div>
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#00c8ff] opacity-60"></div>
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#00c8ff] opacity-60"></div>
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00c8ff] opacity-60"></div>
-              </div>
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
-                  Personal{" "}
-                  <span className="highlight-text">Training Certification</span>
-                </h3>
-                <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
-                  Comprehensive certification program that transforms passionate
-                  fitness enthusiasts into professional personal trainers ready
-                  for industry success.
-                </p>
-                {/* <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
+            <a href="/courses">
+              <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
+                <div className="card-image relative">
+                  <StaticImage
+                    src={PersonalTrainingImage}
+                    alt="Personal Training Certification"
+                    className="w-full h-full object-cover"
+                    width={400}
+                    height={250}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+                  {/* Sci-fi corner accents */}
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#00c8ff] opacity-60"></div>
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00c8ff] opacity-60"></div>
+                </div>
+                <div className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
+                    Advanced Diploma in{" "}
+                    <span className="highlight-text">Strength and Conditioning</span>
+                  </h3>
+                  <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
+                    Comprehensive certification program that transforms passionate
+                    fitness enthusiasts into professional personal trainers ready
+                    for industry success.
+                  </p>
+                  {/* <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
                   View Details →
                 </Link> */}
-              </div>
-              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
-                <span className="text-[#00c8ff]">Level 5</span>
-              </div>
-            </div>
+                </div>
+                <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
+                  <span className="text-[#00c8ff]">Advanced</span>
+                </div>
+              </div></a>
           </motion.div>
           <motion.div
             variants={cardVariant}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
+            <a href="/courses">            <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
               <div className="card-image relative">
                 <StaticImage
                   src={StrengthConditioningImage}
@@ -101,8 +102,8 @@ const EliteTrainingProgramsSection = () => {
               </div>
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
-                  Strength &{" "}
-                  <span className="highlight-text">Conditioning</span>
+                  Diploma in {" "}
+                  <span className="highlight-text">Professional Personal Training (Level 5)</span>
                 </h3>
                 <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
                   Advanced training in scientific principles and techniques to
@@ -114,47 +115,48 @@ const EliteTrainingProgramsSection = () => {
                 </Link> */}
               </div>
               <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
-                <span className="text-[#00c8ff]">Advanced</span>
+                <span className="text-[#00c8ff]">Level 5</span>
               </div>
-            </div>
+            </div></a>
           </motion.div>
           <motion.div
             variants={cardVariant}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
-              <div className="card-image relative">
-                <StaticImage
-                  src={SportsNutritionImage}
-                  alt="Sports Nutrition"
-                  className="w-full h-full object-cover"
-                  width={400}
-                  height={250}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
-                {/* Sci-fi corner accents */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#00c8ff] opacity-60"></div>
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#00c8ff] opacity-60"></div>
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#00c8ff] opacity-60"></div>
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00c8ff] opacity-60"></div>
-              </div>
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
-                  Sports <span className="highlight-text">Nutrition</span>
-                </h3>
-                <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
-                  Evidence-based nutritional strategies to enhance athletic
-                  performance, optimize recovery, and promote long-term health
-                  and wellness.
-                </p>
-                {/* <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
+            <a href="/courses">
+              <div className="bg-[#141414] border border-[#00c8ff]/30 hover:border-[#00c8ff]/60 overflow-hidden relative rounded-lg shadow-lg hover:shadow-[#00c8ff]/20 transition-all duration-300">
+                <div className="card-image relative">
+                  <StaticImage
+                    src={SportsNutritionImage}
+                    alt="Sports Nutrition"
+                    className="w-full h-full object-cover"
+                    width={400}
+                    height={250}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+                  {/* Sci-fi corner accents */}
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#00c8ff] opacity-60"></div>
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#00c8ff] opacity-60"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00c8ff] opacity-60"></div>
+                </div>
+                <div className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
+                    Advanced Diploma in <span className="highlight-text">Sports and Exercise Nutrition (Level 6)</span>
+                  </h3>
+                  <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
+                    Evidence-based nutritional strategies to enhance athletic
+                    performance, optimize recovery, and promote long-term health
+                    and wellness.
+                  </p>
+                  {/* <Link to="/courses" className="text-[#00c8ff] hover:text-[#00c8ff] opacity-80 hover:opacity-100 transition-opacity no-underline">
                   View Details →
                 </Link> */}
-              </div>
-              <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
-                <span className="text-[#00c8ff]">Specialized</span>
-              </div>
-            </div>
+                </div>
+                <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
+                  <span className="text-[#00c8ff]">Level 6</span>
+                </div>
+              </div></a>
           </motion.div>
         </motion.div>
         <motion.div className="text-center md:text-right mt-4 md:mt-6" variants={fadeInUp}>

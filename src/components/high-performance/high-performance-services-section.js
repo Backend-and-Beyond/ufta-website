@@ -522,7 +522,7 @@ const HighPerformanceServicesSection = () => {
           </div>
           <div className="lg:w-1/3 flex justify-end">
             <motion.a 
-              href="#contact" 
+              href="/contact" 
               className="inline-flex items-center gap-2 bg-[#00c8ff] text-black hover:bg-[#00c8ff]/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

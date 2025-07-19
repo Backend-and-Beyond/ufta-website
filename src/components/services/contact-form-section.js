@@ -426,6 +426,12 @@ const ContactFormSection = () => {
                   <option value="" disabled>
                     Select a service
                   </option>
+                  <option value="Gym Membership">
+                    Gym Membership
+                  </option>
+                  <option value="High Performance Clinic">
+                    High Performance Clinic"
+                  </option>
                   <option value="Strength & Conditioning">
                     Strength & Conditioning
                   </option>
@@ -438,6 +444,7 @@ const ContactFormSection = () => {
                   <option value="Gym Equipment">Gym Equipment</option>
                   <option value="Gym Franchise">Gym Franchise</option>
                   <option value="Merchandise">Merchandise</option>
+                  <option value="Others">Others</option>
                 </motion.select>
                 <motion.div
                   className="absolute top-0 left-0 h-full w-1 bg-[#00c8ff]/20 rounded-l-md"

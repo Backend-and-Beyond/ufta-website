@@ -434,7 +434,7 @@ const WelcomeToUftaSection = () => {
               {
                 title: "Our Legacy",
                 content:
-                  "Established in 2006, the Universal Fitness Training Academy (UFTA) stands as one of India’s leading institutions dedicated to advancing education in sports performance, exercise science, health, and fitness. With an unwavering commitment to academic and professional excellence, UFTA has successfully trained and certified over 2,500 professionals in the fields of strength and conditioning (S&amp;C), fitness, and nutrition.",
+                  "Established in 2006, the Universal Fitness Training Academy (UFTA) stands as one of India’s leading institutions dedicated to advancing education in sports performance, exercise science, health, and fitness. With an unwavering commitment to academic and professional excellence, UFTA has successfully trained and certified over 2,500 professionals in the fields of strength and conditioning (S&C), fitness, and nutrition.",
               },
               {
                 title: "Our Mission",

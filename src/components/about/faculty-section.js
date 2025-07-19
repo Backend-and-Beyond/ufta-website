@@ -9,28 +9,28 @@ const FacultySection = () => {
   // Create a mapping of images to use with StaticImage
   const getStaticImage = (imageName, altText, className) => {
     switch (imageName) {
-      case "../images/bhibhu.png":
+      case "../images/bibhu-faculty.jpg":
         return (
           <StaticImage
-            src="../../images/bhibhu.png"
+            src="../../images/bibhu-faculty.jpg"
             alt={altText}
             className={className}
             placeholder="blurred"
           />
         );
-      case "../images/faculty1.png":
+      case "../images/dipankar.jpeg":
         return (
           <StaticImage
-            src="../../images/faculty1.png"
+            src="../../images/dipankar.jpeg"
             alt={altText}
             className={className}
             placeholder="blurred"
           />
         );
-      case "../images/faculty2.png":
+      case "../images/sangeeta.jpg":
         return (
           <StaticImage
-            src="../../images/faculty2.png"
+            src="../../images/sangeeta.jpg"
             alt={altText}
             className={className}
             placeholder="blurred"
@@ -45,10 +45,40 @@ const FacultySection = () => {
             placeholder="blurred"
           />
         );
+
+        case "../images/archana.png":
+        return (
+          <StaticImage
+            src="../../images/archana.png"
+            alt={altText}
+            className={className}
+            placeholder="blurred"
+          />
+        );
+        
+        case "../images/alvi.png":
+        return (
+          <StaticImage
+            src="../../images/alvi.png"
+            alt={altText}
+            className={className}
+            placeholder="blurred"
+          />
+        );
+
+         case "../images/nandinee.jpg":
+        return (
+          <StaticImage
+            src="../../images/nandinee.jpg"
+            alt={altText}
+            className={className}
+            placeholder="blurred"
+          />
+        );
       default:
         return (
           <StaticImage
-            src="../../images/faculty1.png"
+            src="../../images/placeholder.jpg"
             alt={altText}
             className={className}
             placeholder="blurred"
@@ -62,37 +92,37 @@ const FacultySection = () => {
       name: "Dr. Bibhu Moni Singha",
       title: "Founder & Director, Sr. Director PROPTA U.S.A.",
       qualification: "M.Sc. S&C. 26+ yrs exp.",
-      image: "../images/bhibhu.png"
+      image: "../images/bibhu-faculty.jpg"
     },
     {
       name: "Dr. Dipankar Bhattacharryya",
       title: "Dean Sports & Ex. Medicine",
       qualification: "MBBS, PGDSM. 34+ yrs exp. Lifetime Award.",
-      image: "../images/faculty1.png"
+      image: "../images/dipankar.jpeg"
     },
     {
       name: "Sangeeta Bora",
       title: "Co-Founder & Director Admin",
       qualification: "PGDM, Fitness Entrepreneur.",
-      image: "../images/faculty2.png"
+      image: "../images/placeholder.jpg"
     },
     {
       name: "Alvi Yusuf",
       title: "Faculty, Nutrition & S&C",
       qualification: "B.Sc. Zoology, Cert. ST&C. 3+ yrs exp.",
-      image: "../images/faculty3.jpg"
+      image: "../images/alvi.png"
     },
     {
       name: "Archana Thakuria",
       title: "Faculty, S&C & Fitness",
       qualification: "B.E., Cert. ST&C. 7+ yrs exp.",
-      image: "../images/faculty1.png"
+      image: "../images/archana.png"
     },
     {
-      name: "More Expert Faculty",
-      title: "Diverse specialists & guest lecturers",
-      qualification: "Dedicated sports science professionals",
-      image: "../images/faculty2.png"
+      name: "Nandinee Kalita",
+      title: "Faculty, Fitness",
+      qualification: "Dedicated sports science professional",
+      image: "../images/nandinee.jpg"
     }
   ];
 

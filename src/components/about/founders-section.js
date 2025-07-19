@@ -2,7 +2,7 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { pageAnimations } from "../../utils/animations";
 import BibhuImage from "../../images/bhibhu.png";
-import SangeetaImage from "../../images/faculty2.png";
+import SangeetaImage from "../../images/placeholder.jpg";
 
 const FoundersSection = () => {
   const {
@@ -48,7 +48,7 @@ const FoundersSection = () => {
       ],
       image: BibhuImage,
       certifications: [
-        "Internaltionally Accredited S&C Coach",
+        "Internationally Accredited S&C Coach",
         "Sports & Exercise Nutritionist",
         "High Performance Olympic Weightlifting Coach",
         "Injury Rehab Specialist",

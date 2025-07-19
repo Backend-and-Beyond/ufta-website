@@ -34,12 +34,12 @@ const HighPerformanceTrainingSection = () => {
           </motion.div>
           <motion.div className="order-1 md:order-2 text-center md:text-left" variants={slideInRight}>
             <h2 className="text-2xl md:text-3xl font-bold section-heading mb-6 md:mb-8 font-poppins">
-              High Performance Clinic{" "}
-              <span className="highlight-text">Training Clinic</span>
+              High Performance{" "}
+              <span className="highlight-text">Sports Training </span>&<span className="highlight-text"> Rehabilitation Centre</span>
             </h2>
 
             <p className="text-gray-300 mb-4 md:mb-6 leading-relaxed font-poppins text-sm md:text-base">
-              Our specialized High Performance Clinic Clinic offers cutting-edge
+              Our specialized High Performance Sports Training & Rehabilitation Centre offers cutting-edge
               training methodologies for athletes seeking to maximize their
               performance potential.
             </p>

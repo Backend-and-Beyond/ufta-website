@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { pageAnimations } from "../../utils/animations";
 
 // Import actual gym images from gallery
-const PersonalTrainingImage = "../../../static/gallery-images/IMG-20250617-WA0032.jpg";
-const StrengthConditioningImage = "../../../static/gallery-images/IMG-20250617-WA0037.jpg";
-const SportsNutritionImage = "../../../static/gallery-images/IMG-20250617-WA0039.jpg";
+const PersonalTrainingImage = "../../images/postersnc.jpg";
+const StrengthConditioningImage = "../../images/posterppt.jpg";
+const SportsNutritionImage = "../../images/posternutrition.jpg";
 
 const EliteTrainingProgramsSection = () => {
   const { fadeIn, fadeInUp, staggerContainer, cardVariant } =
@@ -76,7 +76,7 @@ const EliteTrainingProgramsSection = () => {
                 </Link> */}
                 </div>
                 <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-black/70 backdrop-blur-sm text-xs px-2 md:px-3 py-1 rounded-sm border border-[#00c8ff]/30">
-                  <span className="text-[#00c8ff]">Advanced</span>
+                  <span className="text-[#00c8ff]">Level 6</span>
                 </div>
               </div></a>
           </motion.div>
@@ -103,7 +103,7 @@ const EliteTrainingProgramsSection = () => {
               <div className="p-4 md:p-6">
                 <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
                   Diploma in {" "}
-                  <span className="highlight-text">Professional Personal Training (Level 5)</span>
+                  <span className="highlight-text">Professional Personal Training</span>
                 </h3>
                 <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
                   Advanced training in scientific principles and techniques to
@@ -142,7 +142,7 @@ const EliteTrainingProgramsSection = () => {
                 </div>
                 <div className="p-4 md:p-6">
                   <h3 className="text-lg md:text-xl font-semibold mb-2 font-poppins">
-                    Advanced Diploma in <span className="highlight-text">Sports and Exercise Nutrition (Level 6)</span>
+                    Advanced Diploma in <span className="highlight-text">Sports and Exercise Nutrition</span>
                   </h3>
                   <p className="text-gray-400 mb-3 md:mb-4 font-poppins text-sm md:text-base">
                     Evidence-based nutritional strategies to enhance athletic

@@ -191,9 +191,9 @@ const CertificationsSection = () => {
                   </svg>
                 </div>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center w-full">
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#00c8ff]">Sports Nutrition</span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#00c8ff]">Sports Performance Nutrition Certification</span>
                 </div>
-                <div className="absolute top-4 right-4">
+{/*                 <div className="absolute top-4 right-4">
                   <motion.div 
                     className="flex items-center bg-[#00c8ff]/10 backdrop-blur-sm px-3 py-1 rounded-full border border-[#00c8ff]/30"
                     whileHover={{ scale: 1.05 }}
@@ -203,7 +203,7 @@ const CertificationsSection = () => {
                     </svg>
                     <span className="text-[#00c8ff] text-xs font-medium">8 Weeks</span>
                   </motion.div>
-                </div>
+                </div> */}
               </div>
               
               <div className="p-8">
@@ -214,10 +214,10 @@ const CertificationsSection = () => {
                     </div>
                     <h3 className="text-xl font-bold text-white group-hover:text-[#00c8ff] transition-colors duration-300">Sports Nutrition Specialist</h3>
                   </div>
-                  <div className="text-right">
+{/*                   <div className="text-right">
                     <p className="text-2xl font-bold text-[#00c8ff]">$1600</p>
                     <p className="text-sm text-gray-400">USD (approx.)</p>
-                  </div>
+                  </div> */}
                 </div>
                 
                 <p className="text-gray-300 mb-6">Comprehensive certification program focused on performance nutrition strategies for athletes. Learn to create customized nutrition plans for optimal performance, recovery, and health.</p>
@@ -282,9 +282,9 @@ const CertificationsSection = () => {
                   </svg>
                 </div>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center w-full">
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#00c8ff]">Personal Training</span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#00c8ff]">International Personal Trainer Certification</span>
                 </div>
-                <div className="absolute top-4 right-4">
+                {/* <div className="absolute top-4 right-4">
                   <motion.div 
                     className="flex items-center bg-[#00c8ff]/10 backdrop-blur-sm px-3 py-1 rounded-full border border-[#00c8ff]/30"
                     whileHover={{ scale: 1.05 }}
@@ -294,7 +294,7 @@ const CertificationsSection = () => {
                     </svg>
                     <span className="text-[#00c8ff] text-xs font-medium">6 Weeks</span>
                   </motion.div>
-                </div>
+                </div> */}
               </div>
               
               <div className="p-8">
@@ -305,10 +305,10 @@ const CertificationsSection = () => {
                     </div>
                     <h3 className="text-xl font-bold text-white group-hover:text-[#00c8ff] transition-colors duration-300">Certified Personal Trainer</h3>
                   </div>
-                  <div className="text-right">
+                  {/* <div className="text-right">
                     <p className="text-2xl font-bold text-[#00c8ff]">$1800</p>
                     <p className="text-sm text-gray-400">USD (approx.)</p>
-                  </div>
+                  </div> */}
                 </div>
                 
                 <p className="text-gray-300 mb-6">Foundation certification for aspiring international personal trainers. Master the science of exercise prescription, client assessment, and program design for diverse populations.</p>

@@ -67,11 +67,47 @@ const ApprovedProvidersSection = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <StaticImage
+              src="../../images/iusca-endorses.png"
+              alt="IUSCA"
+              className="max-h-8 md:max-h-12 max-w-[155px] object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+              width={155}
+              height={48}
+            />
+          </motion.div>
+
+          <motion.div
+            className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 md:p-6 flex items-center justify-center min-h-[100px] md:min-h-[140px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={providerCardVariant}
+            whileHover={{ y: -5, scale: 1.02 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <StaticImage
+              src="../../images/proptapng.webp"
+              alt="PROPTA"
+              className="max-h-16 md:max-h-20 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+              width={85}
+              height={85}
+            />
+          </motion.div>
+
+          <motion.div
+            className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 md:p-6 flex items-center justify-center min-h-[100px] md:min-h-[140px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={providerCardVariant}
+            whileHover={{ y: -5, scale: 1.02 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <StaticImage
               src="../../images/provider1.webp"
               alt="PROPTA USA"
-              className="max-h-8 md:max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+              className="max-h-16 md:max-h-20 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
               width={120}
-              height={48}
+              height={80}
             />
           </motion.div>
 
@@ -141,8 +177,8 @@ const ApprovedProvidersSection = () => {
             <StaticImage
               src="../../images/provider5.png"
               alt="International Body"
-              className="max-h-8 md:max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
-              width={120}
+              className="max-h-8 md:max-h-12 max-w-[155px] object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+              width={160}
               height={48}
             />
           </motion.div>

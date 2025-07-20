@@ -41,18 +41,22 @@ const FoundersSection = () => {
       degree: "IUSCA Certified S&C Coach",
       position: ["Founder & Director, UFTA"],
       specialty: [
-        "Sole Degree Accredition Representative, IUSCA (Pan India)",
-        "Senior Director & Examiner, PROPTA USA",
-        "External Expert (S&C) Somaiya Sports Academy, Mumbai",
-        "Franschise Spokesperson & Promoter, (North East Region), NITRRO Fitness",
+        "MSc ST&C",
+        "PGDip Fit & Nutrition",
+        "Cert. Anti-Doping Expert, IFBB Spain",
+        "CPT ACSM",
+        "CPT PF, USA",
+        "Body Composition Analyst, Inbody"
+
       ],
       image: BibhuImage,
       certifications: [
-        "Internationally Accredited S&C Coach",
-        "Sports & Exercise Nutritionist",
-        "High Performance Olympic Weightlifting Coach",
-        "Injury Rehab Specialist",
-        "CASES UK accredited Sport & Exercise Coach",
+        "Fit India Influencer, Govt. of India",
+        "Member of Advisory Board IUSCA & IJSC",
+        "CASES UK Accredited Sport & Exercise Scientist",
+        "Master Trainer S&C SPEFL-SC Govt. of India",
+        "Master Trainer TECHNOGYM, Italy",
+        "Master Trainer Bodybuilding & Fitness, IFBB Spain",
       ],
       message: [
         '"On behalf of team UFTA, I gladly welcome you. Since 2006, UFTA has pioneered education in nutrition, fitness, and health in India. We\'re excited to introduce degree programs like B.Sc. in Fitness & Athletic Conditioning to meet industry demands."',
@@ -231,9 +235,9 @@ const FoundersSection = () => {
                         {" "}
                         {founder.name.split(" ").slice(1).join(" ")}
                       </span>
-                      <span className="text-gray-400 text-lg ml-2">
+                      {/* <span className="text-gray-400 text-lg ml-2">
                         ({founder.degree})
-                      </span>
+                      </span> */}
                     </h3>
                     {Array.isArray(founder.position) ? (
                       founder.position.map((pos, i) => (

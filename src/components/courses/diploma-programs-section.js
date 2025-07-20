@@ -435,7 +435,7 @@ const DiplomaProgramsSection = () => {
             <div className="p-6">
               <div className="mb-4">
                 <span className="bg-[#00c8ff]/10 text-[#00c8ff] px-3 py-1 rounded-full text-sm font-medium border border-[#00c8ff]/30">
-                  Specialist
+                  Level 6
                 </span>
               </div>
               <p className="text-gray-400 mb-2 text-sm font-semibold">

@@ -1,5 +1,9 @@
 import * as React from "react"
 import { motion } from "framer-motion"
+import iuscaLogo from "../../images/logos/Affiliations/iusca.png"
+import proptaLogo from "../../images/logos/proptapng.webp"
+import casesLogo from "../../images/logos/CASES_logo.png"
+import nyshsiLogo from "../../images/logos/nyshsi-logo.png"
 
 const InternationalPartnersSection = () => {
   // Simple, non-blinking animation variants
@@ -34,7 +38,7 @@ const InternationalPartnersSection = () => {
     {
       id: "propta",
       name: "PROPTA USA",
-      logo: "propta-logo.png",
+      logo: proptaLogo,
       logoAlt: "PROPTA USA Logo",
       color: "from-red-500 to-red-600",
       borderColor: "border-red-500/30 hover:border-red-500/70",
@@ -54,7 +58,7 @@ const InternationalPartnersSection = () => {
     {
       id: "cases",
       name: "CASES UK",
-      logo: null,
+      logo: casesLogo,
       logoAlt: "CASES UK Partnership",
       color: "from-blue-500 to-blue-600",
       borderColor: "border-blue-500/30 hover:border-blue-500/70",
@@ -74,7 +78,7 @@ const InternationalPartnersSection = () => {
     {
       id: "nyshsi",
       name: "NYSHSI USA",
-      logo: null,
+      logo: nyshsiLogo,
       logoAlt: "NYSHSI USA Partnership",
       color: "from-green-500 to-green-600",
       borderColor: "border-green-500/30 hover:border-green-500/70",
@@ -92,7 +96,7 @@ const InternationalPartnersSection = () => {
     {
       id: "iusca",
       name: "IUSCA",
-      logo: null,
+      logo: iuscaLogo,
       logoAlt: "IUSCA Partnership",
       color: "from-purple-500 to-purple-600",
       borderColor: "border-purple-500/30 hover:border-purple-500/70",
@@ -114,13 +118,47 @@ const InternationalPartnersSection = () => {
     switch (partner.id) {
       case "propta":
         return (
-          <div className={`w-full h-32 bg-gradient-to-r ${partner.color} rounded-lg flex items-center justify-center text-white font-bold text-2xl`}>
-            PROPTA USA
+          <div className="w-full h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center p-4 border border-red-500/20">
+            <img 
+              src={proptaLogo} 
+              alt={partner.logoAlt}
+              className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+            />
+          </div>
+        );
+      case "iusca":
+        return (
+          <div className="w-full h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center p-4 border border-purple-500/20">
+            <img 
+              src={iuscaLogo} 
+              alt={partner.logoAlt}
+              className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+            />
+          </div>
+        );
+      case "cases":
+        return (
+          <div className="w-full h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center p-4 border border-blue-500/20">
+            <img 
+              src={casesLogo} 
+              alt={partner.logoAlt}
+              className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+            />
+          </div>
+        );
+      case "nyshsi":
+        return (
+          <div className="w-full h-32 bg-gradient-to-br from-white/90 to-gray-100/80 rounded-lg flex items-center justify-center p-4 border border-green-500/20 shadow-inner">
+            <img 
+              src={nyshsiLogo} 
+              alt={partner.logoAlt}
+              className="w-full h-full object-contain mix-blend-multiply group-hover:mix-blend-normal transition-all duration-300"
+            />
           </div>
         );
       default:
         return (
-          <div className={`w-full h-32 bg-gradient-to-r ${partner.color} rounded-lg flex items-center justify-center text-white font-bold text-2xl`}>
+          <div className={`w-full h-32 bg-gradient-to-r ${partner.color} rounded-lg flex items-center justify-center text-white font-bold text-xl p-4`}>
             {partner.name}
           </div>
         );
@@ -316,35 +354,74 @@ const InternationalPartnersSection = () => {
                     <div className={`absolute top-0 left-0 w-40 h-40 bg-gradient-to-br ${partner.color} rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-20`}></div>
                   </div>
 
-                  <div className="relative z-10">
-                    <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
-                      <span className="text-white">{partner.name.split(' ')[0]}</span>
-                      {partner.name.split(' ').length > 1 && (
-                        <span className={`text-gradient bg-gradient-to-r ${partner.color} bg-clip-text text-transparent`}> {partner.name.split(' ').slice(1).join(' ')}</span>
-                      )}
-                    </h3>
+                  {/* Two-row layout: Logo + Heading row, then Content row */}
+                  <div className="relative z-10 space-y-4">
+                    {/* First Row: Logo and Heading */}
+                    <div className="flex items-center gap-4">
+                      {/* Logo */}
+                      <div className="flex-shrink-0">
+                        {partner.logo ? (
+                          <motion.div 
+                            className="flex justify-center"
+                            whileHover={{ scale: 1.05 }}
+                          >
+                            <div className={`w-20 h-20 md:w-24 md:h-24 ${partner.id === 'nyshsi' ? 'bg-gradient-to-br from-white/95 to-gray-100/85' : 'bg-gradient-to-br from-white/10 to-white/5'} rounded-lg flex items-center justify-center p-3 border border-gray-600/30 group-hover:border-[#00c8ff]/50 transition-all duration-300`}>
+                              <img 
+                                src={partner.logo} 
+                                alt={partner.logoAlt}
+                                className={`w-full h-full object-contain ${partner.id === 'nyshsi' ? 'mix-blend-multiply' : 'filter brightness-90 group-hover:brightness-110'} transition-all duration-300`}
+                              />
+                            </div>
+                          </motion.div>
+                        ) : (
+                          <motion.div 
+                            className="flex justify-center"
+                            whileHover={{ scale: 1.05 }}
+                          >
+                            <div className={`w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br ${partner.color} rounded-lg flex items-center justify-center border border-gray-600/30 group-hover:border-[#00c8ff]/50 transition-all duration-300`}>
+                              <span className="text-white font-bold text-sm text-center leading-tight">
+                                {partner.name.split(' ')[0]}
+                              </span>
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
 
-                    <p className="leading-relaxed mb-3 md:mb-4 text-gray-300 text-sm md:text-base">
-                      {partner.description}
-                    </p>
+                      {/* Heading */}
+                      <div className="flex-1">
+                        <h3 className="text-xl md:text-2xl font-bold mb-1">
+                          <span className="text-white">{partner.name.split(' ')[0]}</span>
+                          {partner.name.split(' ').length > 1 && (
+                            <span className={`text-gradient bg-gradient-to-r ${partner.color} bg-clip-text text-transparent`}> {partner.name.split(' ').slice(1).join(' ')}</span>
+                          )}
+                        </h3>
+                      </div>
+                    </div>
 
-                    {/* Features List */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
-                      {partner.features.slice(0, 2).map((feature, idx) => (
-                        <motion.div
-                          key={idx}
-                          className="flex items-center space-x-2"
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 * idx }}
-                          viewport={{ once: true }}
-                        >
-                          <svg className="w-3 h-3 md:w-4 md:h-4 text-[#00c8ff] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span className="text-gray-300 text-xs md:text-sm">{feature}</span>
-                        </motion.div>
-                      ))}
+                    {/* Second Row: Content */}
+                    <div className="pt-2">
+                      <p className="leading-relaxed mb-3 md:mb-4 text-gray-300 text-sm md:text-base">
+                        {partner.description}
+                      </p>
+
+                      {/* Features List - Condensed */}
+                      <div className="space-y-1">
+                        {partner.features.slice(0, 2).map((feature, idx) => (
+                          <motion.div
+                            key={idx}
+                            className="flex items-center space-x-2"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * idx }}
+                            viewport={{ once: true }}
+                          >
+                            <svg className="w-3 h-3 text-[#00c8ff] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span className="text-gray-300 text-xs md:text-sm">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

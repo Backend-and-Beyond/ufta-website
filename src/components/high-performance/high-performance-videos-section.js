@@ -121,7 +121,7 @@ const HighPerformanceVideosSection = () => {
             >
               {/* Video Thumbnail/Embed */}
               <motion.div
-                className="relative aspect-w-16 aspect-h-9 group"
+                className="relative aspect-w-9 aspect-h-16 group"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
@@ -131,7 +131,7 @@ const HighPerformanceVideosSection = () => {
                   <motion.img
                     src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                     alt={video.title}
-                    className="w-full h-48 sm:h-56 object-cover"
+                    className="w-full h-64 sm:h-72 md:h-80 object-cover"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   />
@@ -282,7 +282,7 @@ const HighPerformanceVideosSection = () => {
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="relative max-w-6xl max-h-full w-full"
+            className="relative max-w-md sm:max-w-lg md:max-w-xl max-h-full w-full"
             initial={{ scale: 0.8, opacity: 0, y: 50 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 50 }}
@@ -321,11 +321,11 @@ const HighPerformanceVideosSection = () => {
               transition={{ delay: 0.1, duration: 0.3 }}
             >
               {/* Video */}
-              <div className="relative aspect-w-16 aspect-h-9">
+              <div className="relative aspect-w-9 aspect-h-16">
                 <motion.iframe
                   src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
                   title={selectedVideo.title}
-                  className="w-full h-64 sm:h-80 md:h-96"
+                  className="w-full h-96 sm:h-[28rem] md:h-[32rem]"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

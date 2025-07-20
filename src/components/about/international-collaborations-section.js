@@ -1,25 +1,40 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { pageAnimations } from "../../utils/animations"
+import proptaLogo from "../../images/propta-logo.png"
+import casesLogo from "../../images/logos/CASES_logo.png"
+import iuscaLogo from "../../images/logos/iusca.png"
 
 const InternationalCollaborationsSection = () => {
   const { staggerContainer, gentleFadeUp, cardVariant } = pageAnimations.standard;
 
   const collaborations = [
     {
+      id: "cases",
       title: "CASES UK",
+      logo: casesLogo,
+      color: "from-blue-500 to-blue-600",
       description: "Our affiliation with CASES UK underscores our commitment to promoting excellence through evidence-based practice on an international level."
     },
     {
+      id: "nyshsi",
       title: "NYSHSI U.S.A.",
+      logo: null,
+      color: "from-green-500 to-green-600",
       description: "Recognition as a 'Best Practices Partner' by NYSHSI U.S.A. reflects our dedication to upholding the highest standards in youth sports health and safety."
     },
     {
+      id: "propta",
       title: "PROPTA USA Network",
+      logo: proptaLogo,
+      color: "from-red-500 to-red-600",
       description: "Our partnership with PROPTA USA connects UFTA to a global network of fitness professionals, with certifications recognized in 199 countries."
     },
     {
+      id: "iusca",
       title: "IUSCA UK",
+      logo: iuscaLogo,
+      color: "from-purple-500 to-purple-600",
       description: "Our Founder's IUSCA UK certification brings global S&C expertise from an association partnered with 150+ top universities worldwide."
     }
   ];
@@ -62,12 +77,50 @@ const InternationalCollaborationsSection = () => {
         {collaborations.map((collab, index) => (
           <motion.div 
             key={index} 
-            className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-6"
+            className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-6 relative overflow-hidden group"
             variants={cardVariant}
             whileHover={{ y: -3, scale: 1.01 }}
             transition={{ duration: 0.2 }}
           >
-            <h3 className="text-xl font-bold mb-3">
+            {/* Background decoration */}
+            <div className="absolute inset-0 opacity-5">
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${collab.color} rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-30`}></div>
+            </div>
+
+            {/* Logo Section */}
+            {collab.logo ? (
+              <motion.div 
+                className="mb-6 flex justify-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-24 h-24 bg-gradient-to-br from-white/10 to-white/5 rounded-xl flex items-center justify-center p-4 border border-gray-600/30 group-hover:border-[#00c8ff]/50 transition-all duration-300 shadow-lg">
+                  <img 
+                    src={collab.logo} 
+                    alt={`${collab.title} Logo`}
+                    className="w-full h-full object-contain filter brightness-100 group-hover:brightness-110 transition-all duration-300"
+                    onError={(e) => {
+                      console.log(`Failed to load logo for ${collab.title}:`, e.target.src);
+                    }}
+                    onLoad={() => {
+                      console.log(`Successfully loaded logo for ${collab.title}`);
+                    }}
+                  />
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div 
+                className="mb-6 flex justify-center"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className={`w-24 h-24 bg-gradient-to-br ${collab.color} rounded-xl flex items-center justify-center border border-gray-600/30 group-hover:border-[#00c8ff]/50 transition-all duration-300 shadow-lg`}>
+                  <span className="text-white font-bold text-lg text-center">
+                    {collab.title.split(' ')[0]}
+                  </span>
+                </div>
+              </motion.div>
+            )}
+
+            <h3 className="text-xl font-bold mb-3 relative z-10">
               {collab.title.includes('UK') ? (
                 <>
                   <span className="text-white">{collab.title.split(' ')[0]}</span>{' '}
@@ -80,7 +133,7 @@ const InternationalCollaborationsSection = () => {
                 </>
               )}
             </h3>
-            <p className="leading-relaxed text-gray-300">{collab.description}</p>
+            <p className="leading-relaxed text-gray-300 relative z-10">{collab.description}</p>
           </motion.div>
         ))}
       </motion.div>

@@ -31,6 +31,20 @@ const AffiliationsSection = () => {
 
   const affiliations = [
     {
+      acronym: "IUSCA",
+      title: "IUSCA",
+      highlight: "IUSCA",
+      description: "International University Strength and Conditioning Association - Global strength and conditioning expertise.",
+      href: "https://iusca.org"
+    },
+    {
+      acronym: "NYSHSI",
+      title: "NYSHSI USA",
+      highlight: "USA",
+      description: "\"Best Practices Partner\" by National Youth Sports Health & Safety Institute U.S.A.",
+      href: "https://acsm.org/about/community-impact-programs/nyshsi/"
+    },
+    {
       acronym: "CASES UK",
       title: "CASES UK",
       highlight: "UK",
@@ -44,20 +58,12 @@ const AffiliationsSection = () => {
       description: "International Education Partner with Professional Personal Trainer Association (PROPTA).",
       href: "https://www.propta.com/"
     },
-
     {
       acronym: "NCSPE",
       title: "NCSPE",
       highlight: "NCSPE",
       description: "Supported by National Council of Sports Science & Physical Education (NCSPE).",
       href: "https://www.ncspe.in/"
-    },
-    {
-      acronym: "NYSHSI",
-      title: "NYSHSI USA",
-      highlight: "USA",
-      description: "\"Best Practices Partner\" by National Youth Sports Health & Safety Institute U.S.A.",
-      href: "https://acsm.org/about/community-impact-programs/nyshsi/"
     }
   ];
 
@@ -91,12 +97,18 @@ const AffiliationsSection = () => {
         </motion.h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-        {affiliations.map((affiliation, index) => (
-          <a href={affiliation.href} target="_blank" rel="noopener noreferrer" className="block">
+      <div className="space-y-6 md:space-y-8">
+        {/* First Row - Single Card (NYSHSI) */}
+        <div className="flex justify-center">
+          <a 
+            href={affiliations[0].href} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="block w-full max-w-xs" 
+            key={0}
+          >
             <motion.div
-              key={index}
-              className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-4 md:p-6 relative overflow-hidden group hover:border-[#00c8ff]"
+              className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-4 md:p-6 relative overflow-hidden group hover:border-[#00c8ff] w-full"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -106,32 +118,79 @@ const AffiliationsSection = () => {
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-50"></div>
 
-
               <motion.div
                 className="h-16 w-16 md:h-24 md:w-24 mx-auto mb-3 md:mb-5 bg-[#00c8ff]/10 rounded-full flex items-center justify-center text-[#00c8ff] font-bold text-xs md:text-sm border border-[#00c8ff]/30"
                 whileHover={{ rotate: 180 }}
                 transition={{ duration: 0.5 }}
               >
-                {affiliation.acronym}
+                {affiliations[0].acronym}
               </motion.div>
 
               <h3 className="text-base md:text-lg font-semibold text-center mb-2">
-                {affiliation.title.includes('&') ? (
+                {affiliations[0].title.includes('&') ? (
                   <>
-                    {affiliation.title.split('&')[0].trim()}&{' '}
-                    <span className="text-[#00c8ff]">{affiliation.title.split('&')[1].trim()}</span>
+                    {affiliations[0].title.split('&')[0].trim()}&{' '}
+                    <span className="text-[#00c8ff]">{affiliations[0].title.split('&')[1].trim()}</span>
                   </>
                 ) : (
                   <>
-                    {affiliation.title.split(' ').slice(0, -1).join(' ')}{' '}
-                    <span className="text-[#00c8ff]">{affiliation.highlight}</span>
+                    {affiliations[0].title.split(' ').slice(0, -1).join(' ')}{' '}
+                    <span className="text-[#00c8ff]">{affiliations[0].highlight}</span>
                   </>
                 )}
               </h3>
-              <p className="text-center text-xs md:text-sm text-gray-400">{affiliation.description}</p>
+              <p className="text-center text-xs md:text-sm text-gray-400">{affiliations[0].description}</p>
             </motion.div>
           </a>
-        ))}
+        </div>
+
+        {/* Second Row - Four Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+          {affiliations.slice(1).map((affiliation, index) => (
+            <a 
+              href={affiliation.href} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block w-full" 
+              key={index + 1}
+            >
+              <motion.div
+                className="bg-[#141414] border border-[#2A2A2A] rounded-lg p-4 md:p-6 relative overflow-hidden group hover:border-[#00c8ff] w-full"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariant}
+                whileHover={{ y: -5, scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#00c8ff] to-transparent opacity-50"></div>
+
+                <motion.div
+                  className="h-16 w-16 md:h-24 md:w-24 mx-auto mb-3 md:mb-5 bg-[#00c8ff]/10 rounded-full flex items-center justify-center text-[#00c8ff] font-bold text-xs md:text-sm border border-[#00c8ff]/30"
+                  whileHover={{ rotate: 180 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {affiliation.acronym}
+                </motion.div>
+
+                <h3 className="text-base md:text-lg font-semibold text-center mb-2">
+                  {affiliation.title.includes('&') ? (
+                    <>
+                      {affiliation.title.split('&')[0].trim()}&{' '}
+                      <span className="text-[#00c8ff]">{affiliation.title.split('&')[1].trim()}</span>
+                    </>
+                  ) : (
+                    <>
+                      {affiliation.title.split(' ').slice(0, -1).join(' ')}{' '}
+                      <span className="text-[#00c8ff]">{affiliation.highlight}</span>
+                    </>
+                  )}
+                </h3>
+                <p className="text-center text-xs md:text-sm text-gray-400">{affiliation.description}</p>
+              </motion.div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,7 @@
 import * as React from "react"
 import { motion } from "framer-motion"
+import rgUniversityLogo from "../../images/logos/University/Rajiv_Gandhi_University_Logo.png"
+import mssvUniversityLogo from "../../images/logos/University/Mahapurusha_Srimanta_Sankaradeva_Viswavidyalaya_logo.png"
 
 const UniversityApprovalsSection = ({ openModal }) => {
   // Simple, non-blinking animation variants
@@ -132,15 +134,17 @@ const UniversityApprovalsSection = ({ openModal }) => {
             <span className="text-[#00c8ff] font-semibold text-sm">UGC APPROVED</span>
           </motion.div>
 
-          {/* University Logo Placeholder */}
+          {/* University Logo */}
           <motion.div 
             className="relative mb-6 float-animation"
             whileHover={{ scale: 1.05, rotate: 5 }}
           >
-            <div className="w-20 h-20 bg-gradient-to-br from-[#00c8ff]/20 to-[#0099cc]/20 rounded-2xl flex items-center justify-center border border-[#00c8ff]/30 group-hover:border-[#00c8ff]/50 transition-colors duration-300">
-              <svg className="w-10 h-10 text-[#00c8ff]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-              </svg>
+            <div className="w-24 h-24 bg-gradient-to-br from-[#00c8ff]/10 to-[#0099cc]/10 rounded-2xl flex items-center justify-center border border-[#00c8ff]/20 group-hover:border-[#00c8ff]/40 transition-colors duration-300 p-2">
+              <img 
+                src={mssvUniversityLogo} 
+                alt="Mahapurusha Srimanta Sankaradeva Viswavidyalaya Logo"
+                className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+              />
             </div>
           </motion.div>
 
@@ -223,15 +227,17 @@ const UniversityApprovalsSection = ({ openModal }) => {
             <span className="text-green-400 font-semibold text-sm">CENTRAL UNIVERSITY</span>
           </motion.div>
 
-          {/* University Logo Placeholder */}
+          {/* University Logo */}
           <motion.div 
             className="relative mb-6 float-animation"
             whileHover={{ scale: 1.05, rotate: -5 }}
           >
-            <div className="w-20 h-20 bg-gradient-to-br from-green-500/20 to-green-400/20 rounded-2xl flex items-center justify-center border border-green-500/30 group-hover:border-green-500/50 transition-colors duration-300">
-              <svg className="w-10 h-10 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
-              </svg>
+            <div className="w-24 h-24 bg-gradient-to-br from-green-500/10 to-green-400/10 rounded-2xl flex items-center justify-center border border-green-500/20 group-hover:border-green-500/40 transition-colors duration-300 p-2">
+              <img 
+                src={rgUniversityLogo} 
+                alt="Rajiv Gandhi University Logo"
+                className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+              />
             </div>
           </motion.div>
 

@@ -1,30 +1,34 @@
 import * as React from "react"
 import { motion } from "framer-motion"
+import iuscaLogo from "../../images/logos/Affiliations/iusca.png"
+import proptaLogo from "../../images/logos/proptapng.webp"
+import casesLogo from "../../images/logos/CASES_logo.png"
+import nyshsiLogo from "../../images/logos/nyshsi-logo.png"
 
 const InternationalPartnersSection = () => {
   // Simple, non-blinking animation variants
   const fadeInVariant = {
     hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       transition: { duration: 0.6, ease: "easeOut" }
     }
   };
 
   const slideUpVariant = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       transition: { duration: 0.6, ease: "easeOut" }
     }
   };
 
   const cardVariant = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       transition: { duration: 0.5, ease: "easeOut" }
     }
   };
@@ -34,7 +38,7 @@ const InternationalPartnersSection = () => {
     {
       id: "propta",
       name: "PROPTA USA",
-      logo: "propta-logo.png",
+      logo: proptaLogo,
       logoAlt: "PROPTA USA Logo",
       color: "from-red-500 to-red-600",
       borderColor: "border-red-500/30 hover:border-red-500/70",
@@ -46,14 +50,15 @@ const InternationalPartnersSection = () => {
         "Official certification center in India",
         "Recognition in 199 countries",
         "Endorsed by top fitness bodies",
-        "Cutting-edge curriculum", 
+        "Cutting-edge curriculum",
         "International standards"
-      ]
+      ],
+      href: "https://www.propta.com/"
     },
     {
       id: "cases",
       name: "CASES UK",
-      logo: null,
+      logo: casesLogo,
       logoAlt: "CASES UK Partnership",
       color: "from-blue-500 to-blue-600",
       borderColor: "border-blue-500/30 hover:border-blue-500/70",
@@ -67,12 +72,13 @@ const InternationalPartnersSection = () => {
         "Professional networking opportunities",
         "Research collaboration",
         "Knowledge exchange programs"
-      ]
+      ],
+      href: "https://www.cases.org.uk/"
     },
     {
       id: "nyshsi",
-      name: "NYSHSI U.S.A.",
-      logo: null,
+      name: "NYSHSI USA",
+      logo: nyshsiLogo,
       logoAlt: "NYSHSI USA Partnership",
       color: "from-green-500 to-green-600",
       borderColor: "border-green-500/30 hover:border-green-500/70",
@@ -84,24 +90,26 @@ const InternationalPartnersSection = () => {
         "Safety-focused curriculum",
         "Age-appropriate training methods",
         "Holistic development approach"
-      ]
+      ],
+      href: "https://acsm.org/about/community-impact-programs/nyshsi/"
     },
     {
       id: "iusca",
-      name: "IUSCA UK",
-      logo: null,
-      logoAlt: "IUSCA UK Partnership", 
+      name: "IUSCA",
+      logo: iuscaLogo,
+      logoAlt: "IUSCA Partnership",
       color: "from-purple-500 to-purple-600",
       borderColor: "border-purple-500/30 hover:border-purple-500/70",
       type: "Education Partner",
-      description: "Our Founder's IUSCA UK certification brings global strength and conditioning expertise from an association partnered with over 150 top universities worldwide.",
+      description: "Our Founder's IUSCA certification brings global strength and conditioning expertise from an association partnered with over 150 top universities worldwide.",
       details: "This prestigious connection enables UFTA to incorporate world-class strength and conditioning principles and methodologies into our curriculum, ensuring our students receive training aligned with international best practices.",
       features: [
         "World-class S&C methodologies",
         "Connection to 150+ universities",
         "Research-backed training protocols",
         "International practitioner network"
-      ]
+      ],
+      href: "https://iusca.org"
     }
   ];
 
@@ -110,13 +118,47 @@ const InternationalPartnersSection = () => {
     switch (partner.id) {
       case "propta":
         return (
-          <div className={`w-full h-32 bg-gradient-to-r ${partner.color} rounded-lg flex items-center justify-center text-white font-bold text-2xl`}>
-            PROPTA USA
+          <div className="w-full h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center p-4 border border-red-500/20">
+            <img 
+              src={proptaLogo} 
+              alt={partner.logoAlt}
+              className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+            />
+          </div>
+        );
+      case "iusca":
+        return (
+          <div className="w-full h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center p-4 border border-purple-500/20">
+            <img 
+              src={iuscaLogo} 
+              alt={partner.logoAlt}
+              className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+            />
+          </div>
+        );
+      case "cases":
+        return (
+          <div className="w-full h-32 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center p-4 border border-blue-500/20">
+            <img 
+              src={casesLogo} 
+              alt={partner.logoAlt}
+              className="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+            />
+          </div>
+        );
+      case "nyshsi":
+        return (
+          <div className="w-full h-32 bg-gradient-to-br from-white/90 to-gray-100/80 rounded-lg flex items-center justify-center p-4 border border-green-500/20 shadow-inner">
+            <img 
+              src={nyshsiLogo} 
+              alt={partner.logoAlt}
+              className="w-full h-full object-contain mix-blend-multiply group-hover:mix-blend-normal transition-all duration-300"
+            />
           </div>
         );
       default:
         return (
-          <div className={`w-full h-32 bg-gradient-to-r ${partner.color} rounded-lg flex items-center justify-center text-white font-bold text-2xl`}>
+          <div className={`w-full h-32 bg-gradient-to-r ${partner.color} rounded-lg flex items-center justify-center text-white font-bold text-xl p-4`}>
             {partner.name}
           </div>
         );
@@ -128,24 +170,24 @@ const InternationalPartnersSection = () => {
   const collaborations = partners.filter(partner => partner.type === "Collaboration");
 
   return (
-    <section 
-      id="partners" 
+    <section
+      id="partners"
       className="py-12 md:py-16 px-4 md:px-6"
     >
       {/* Section Header */}
-      <motion.div 
+      <motion.div
         className="flex flex-col md:flex-row items-center justify-center mb-8 md:mb-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={slideUpVariant}
       >
-        <motion.svg 
-          className="w-8 h-8 md:w-10 md:h-10 md:mr-3 mb-2 md:mb-0 text-[#00c8ff]" 
-          xmlns="http://www.w3.org/2000/svg" 
-          fill="none" 
-          viewBox="0 0 24 24" 
-          strokeWidth="1.5" 
+        <motion.svg
+          className="w-8 h-8 md:w-10 md:h-10 md:mr-3 mb-2 md:mb-0 text-[#00c8ff]"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
           stroke="currentColor"
           whileHover={{ rotate: 5, scale: 1.05 }}
         >
@@ -154,7 +196,7 @@ const InternationalPartnersSection = () => {
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center relative">
             International <span className="text-[#00c8ff]">Partnerships</span>
-            <motion.span 
+            <motion.span
               className="absolute -top-3 md:-top-4 -right-5 md:-right-7 text-xs bg-gradient-to-r from-[#00c8ff] to-blue-600 px-2 py-0.5 rounded-full text-white hidden sm:block"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -181,9 +223,9 @@ const InternationalPartnersSection = () => {
           <span className="text-gray-300 text-sm md:text-base">Our certifications and partnerships span <span className="font-semibold">199 countries</span> worldwide</span>
         </div>
       </motion.div>
-      
+
       {/* Partners Categories */}
-{/*       <motion.div className="mb-8" variants={fadeInUp}>
+      {/*       <motion.div className="mb-8" variants={fadeInUp}>
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {["Education Partners", "Collaborations"].map((category, idx) => (
             <div key={idx} className="px-6 py-2 bg-[#141414] border border-[#2A2A2A] rounded-full">
@@ -196,7 +238,7 @@ const InternationalPartnersSection = () => {
       {/* Education Partners Section */}
       {educationPartners.length > 0 && (
         <>
-          <motion.div 
+          <motion.div
             className="mb-6 md:mb-10"
             initial="hidden"
             whileInView="visible"
@@ -206,74 +248,76 @@ const InternationalPartnersSection = () => {
             <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">Education Partners</h3>
             <p className="text-gray-400 text-sm md:text-base">Official educational institutions and certification bodies we partner with.</p>
           </motion.div>
-          
+
           <div className="space-y-8 md:space-y-12 mb-12 md:mb-16">
             {educationPartners.map((partner, index) => (
-              <motion.div 
-                key={partner.id}
-                className={`bg-[#141414] border ${partner.borderColor} rounded-xl p-4 md:p-8 relative overflow-hidden group`}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariant}
-                whileHover={{ y: -5 }}
-              >
-                {/* Background decoration */}
-                <div className="absolute inset-0 opacity-5">
-                  <div className={`absolute top-0 left-0 w-40 h-40 bg-gradient-to-br ${partner.color} rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-30`}></div>
-                  <div className={`absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl ${partner.color} rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-20`}></div>
-                </div>
-
-                {/* Content grid */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 relative z-10">
-                  {/* Logo/Image Area */}
-                  <div className="md:col-span-4 flex items-center justify-center p-2 md:p-4">
-                    <motion.div
-                      className="w-full flex items-center justify-center"
-                      whileHover={{ scale: 1.03, rotate: 0.5 }}
-                    >
-                      {renderPartnerLogo(partner)}
-                    </motion.div>
+              <a href={partner.href} target="_blank" rel="noopener noreferrer" key={partner.id} className="block group">
+                <motion.div
+                  key={partner.id}
+                  className={`bg-[#141414] border ${partner.borderColor} rounded-xl p-4 md:p-8 relative overflow-hidden group`}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={cardVariant}
+                  whileHover={{ y: -5 }}
+                >
+                  {/* Background decoration */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className={`absolute top-0 left-0 w-40 h-40 bg-gradient-to-br ${partner.color} rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-30`}></div>
+                    <div className={`absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl ${partner.color} rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-20`}></div>
                   </div>
-                  
-                  {/* Content Area */}
-                  <div className="md:col-span-8">
-                    <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
-                      <span className="text-white">{partner.name.split(' ')[0]}</span>
-                      {partner.name.split(' ').length > 1 && (
-                        <span className={`text-gradient bg-gradient-to-r ${partner.color} bg-clip-text text-transparent`}> {partner.name.split(' ').slice(1).join(' ')}</span>
-                      )}
-                    </h3>
-                    
-                    <p className="text-base md:text-lg leading-relaxed mb-3 md:mb-4 text-gray-300">
-                      {partner.description}
-                    </p>
-                    
-                    <p className="text-sm md:text-base leading-relaxed mb-4 md:mb-6 text-gray-400">
-                      {partner.details}
-                    </p>
 
-                    {/* Features List */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 mt-4">
-                      {partner.features.map((feature, idx) => (
-                        <motion.div 
-                          key={idx}
-                          className="flex items-center space-x-2"
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 * idx }}
-                          viewport={{ once: true }}
-                        >
-                          <svg className="w-4 h-4 md:w-5 md:h-5 text-[#00c8ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span className="text-gray-300 text-xs md:text-sm">{feature}</span>
-                        </motion.div>
-                      ))}
+                  {/* Content grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 relative z-10">
+                    {/* Logo/Image Area */}
+                    <div className="md:col-span-4 flex items-center justify-center p-2 md:p-4">
+                      <motion.div
+                        className="w-full flex items-center justify-center"
+                        whileHover={{ scale: 1.03, rotate: 0.5 }}
+                      >
+                        {renderPartnerLogo(partner)}
+                      </motion.div>
+                    </div>
+
+                    {/* Content Area */}
+                    <div className="md:col-span-8">
+                      <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
+                        <span className="text-white">{partner.name.split(' ')[0]}</span>
+                        {partner.name.split(' ').length > 1 && (
+                          <span className={`text-gradient bg-gradient-to-r ${partner.color} bg-clip-text text-transparent`}> {partner.name.split(' ').slice(1).join(' ')}</span>
+                        )}
+                      </h3>
+
+                      <p className="text-base md:text-lg leading-relaxed mb-3 md:mb-4 text-gray-300">
+                        {partner.description}
+                      </p>
+
+                      <p className="text-sm md:text-base leading-relaxed mb-4 md:mb-6 text-gray-400">
+                        {partner.details}
+                      </p>
+
+                      {/* Features List */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 mt-4">
+                        {partner.features.map((feature, idx) => (
+                          <motion.div
+                            key={idx}
+                            className="flex items-center space-x-2"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * idx }}
+                            viewport={{ once: true }}
+                          >
+                            <svg className="w-4 h-4 md:w-5 md:h-5 text-[#00c8ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span className="text-gray-300 text-xs md:text-sm">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </a>
             ))}
           </div>
         </>
@@ -282,7 +326,7 @@ const InternationalPartnersSection = () => {
       {/* Collaborations Section */}
       {collaborations.length > 0 && (
         <>
-          <motion.div 
+          <motion.div
             className="mb-6 md:mb-10"
             initial="hidden"
             whileInView="visible"
@@ -292,55 +336,96 @@ const InternationalPartnersSection = () => {
             <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">International Collaborations</h3>
             <p className="text-gray-400 text-sm md:text-base">Strategic partnerships that enhance our global reach and expertise.</p>
           </motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {collaborations.map((partner, index) => (
-              <motion.div 
-                key={partner.id}
-                className={`bg-[#141414] border ${partner.borderColor} rounded-lg p-4 md:p-6 relative overflow-hidden group`}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariant}
-                whileHover={{ y: -3, scale: 1.01 }}
-              >
-                {/* Background decoration */}
-                <div className="absolute inset-0 opacity-5">
-                  <div className={`absolute top-0 left-0 w-40 h-40 bg-gradient-to-br ${partner.color} rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-20`}></div>
-                </div>
-
-                <div className="relative z-10">
-                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
-                    <span className="text-white">{partner.name.split(' ')[0]}</span>
-                    {partner.name.split(' ').length > 1 && (
-                      <span className={`text-gradient bg-gradient-to-r ${partner.color} bg-clip-text text-transparent`}> {partner.name.split(' ').slice(1).join(' ')}</span>
-                    )}
-                  </h3>
-                  
-                  <p className="leading-relaxed mb-3 md:mb-4 text-gray-300 text-sm md:text-base">
-                    {partner.description}
-                  </p>
-
-                  {/* Features List */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-4">
-                    {partner.features.slice(0, 2).map((feature, idx) => (
-                      <motion.div 
-                        key={idx}
-                        className="flex items-center space-x-2"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 * idx }}
-                        viewport={{ once: true }}
-                      >
-                        <svg className="w-3 h-3 md:w-4 md:h-4 text-[#00c8ff] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-gray-300 text-xs md:text-sm">{feature}</span>
-                      </motion.div>
-                    ))}
+              <a href={partner.href} target="_blank" rel="noopener noreferrer" key={partner.id} className="block group">
+                <motion.div
+                  key={partner.id}
+                  className={`bg-[#141414] border ${partner.borderColor} rounded-lg p-4 md:p-6 relative overflow-hidden group`}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={cardVariant}
+                  whileHover={{ y: -3, scale: 1.01 }}
+                >
+                  {/* Background decoration */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className={`absolute top-0 left-0 w-40 h-40 bg-gradient-to-br ${partner.color} rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-20`}></div>
                   </div>
-                </div>
-              </motion.div>
+
+                  {/* Two-row layout: Logo + Heading row, then Content row */}
+                  <div className="relative z-10 space-y-4">
+                    {/* First Row: Logo and Heading */}
+                    <div className="flex items-center gap-4">
+                      {/* Logo */}
+                      <div className="flex-shrink-0">
+                        {partner.logo ? (
+                          <motion.div 
+                            className="flex justify-center"
+                            whileHover={{ scale: 1.05 }}
+                          >
+                            <div className={`w-20 h-20 md:w-24 md:h-24 ${partner.id === 'nyshsi' ? 'bg-gradient-to-br from-white/95 to-gray-100/85' : 'bg-gradient-to-br from-white/10 to-white/5'} rounded-lg flex items-center justify-center p-3 border border-gray-600/30 group-hover:border-[#00c8ff]/50 transition-all duration-300`}>
+                              <img 
+                                src={partner.logo} 
+                                alt={partner.logoAlt}
+                                className={`w-full h-full object-contain ${partner.id === 'nyshsi' ? 'mix-blend-multiply' : 'filter brightness-90 group-hover:brightness-110'} transition-all duration-300`}
+                              />
+                            </div>
+                          </motion.div>
+                        ) : (
+                          <motion.div 
+                            className="flex justify-center"
+                            whileHover={{ scale: 1.05 }}
+                          >
+                            <div className={`w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br ${partner.color} rounded-lg flex items-center justify-center border border-gray-600/30 group-hover:border-[#00c8ff]/50 transition-all duration-300`}>
+                              <span className="text-white font-bold text-sm text-center leading-tight">
+                                {partner.name.split(' ')[0]}
+                              </span>
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
+
+                      {/* Heading */}
+                      <div className="flex-1">
+                        <h3 className="text-xl md:text-2xl font-bold mb-1">
+                          <span className="text-white">{partner.name.split(' ')[0]}</span>
+                          {partner.name.split(' ').length > 1 && (
+                            <span className={`text-gradient bg-gradient-to-r ${partner.color} bg-clip-text text-transparent`}> {partner.name.split(' ').slice(1).join(' ')}</span>
+                          )}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Second Row: Content */}
+                    <div className="pt-2">
+                      <p className="leading-relaxed mb-3 md:mb-4 text-gray-300 text-sm md:text-base">
+                        {partner.description}
+                      </p>
+
+                      {/* Features List - Condensed */}
+                      <div className="space-y-1">
+                        {partner.features.slice(0, 2).map((feature, idx) => (
+                          <motion.div
+                            key={idx}
+                            className="flex items-center space-x-2"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * idx }}
+                            viewport={{ once: true }}
+                          >
+                            <svg className="w-3 h-3 text-[#00c8ff] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span className="text-gray-300 text-xs md:text-sm">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </a>
             ))}
           </div>
         </>

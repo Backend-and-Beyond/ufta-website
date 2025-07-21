@@ -229,14 +229,20 @@ const DiplomaProgramsSection = () => {
               </div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold text-center w-full">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#00c8ff]">
-                  Strength & Conditioning Coach
+                  Advanced Diploma in Strength & Conditioning
                 </span>
               </div>
             </div>
             <div className="p-6">
               <div className="mb-4">
                 <span className="bg-[#00c8ff]/10 text-[#00c8ff] px-3 py-1 rounded-full text-sm font-medium border border-[#00c8ff]/30">
-                  Advanced
+                  Level 2
+                </span>
+                <span className="bg-[#00c8ff]/10 text-[#00c8ff] px-3 ml-1 py-1 rounded-full text-sm font-medium border border-[#00c8ff]/30">
+                  Level 4
+                </span>
+                <span className="bg-[#00c8ff]/10 text-[#00c8ff] px-3 ml-1 py-1 rounded-full text-sm font-medium border border-[#00c8ff]/30">
+                  Level 6
                 </span>
               </div>
               <p className="text-gray-400 mb-2 text-sm font-semibold">
@@ -323,14 +329,14 @@ const DiplomaProgramsSection = () => {
               </div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold text-center w-full">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#00c8ff]">
-                  Professional Personal Trainer
+                  Diploma in Professional Personal Training
                 </span>
               </div>
             </div>
             <div className="p-6">
               <div className="mb-4">
                 <span className="bg-[#00c8ff]/10 text-[#00c8ff] px-3 py-1 rounded-full text-sm font-medium border border-[#00c8ff]/30">
-                  Professional
+                  Level 5
                 </span>
               </div>
               <p className="text-gray-400 mb-2 text-sm font-semibold">
@@ -422,14 +428,14 @@ const DiplomaProgramsSection = () => {
               </div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold text-center w-full">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#00c8ff]">
-                  Sports & Exercise Nutritionist
+                  Advanced Diploma in Sports & Exercise Nutrition
                 </span>
               </div>
             </div>
             <div className="p-6">
               <div className="mb-4">
                 <span className="bg-[#00c8ff]/10 text-[#00c8ff] px-3 py-1 rounded-full text-sm font-medium border border-[#00c8ff]/30">
-                  Specialist
+                  Level 6
                 </span>
               </div>
               <p className="text-gray-400 mb-2 text-sm font-semibold">
@@ -514,14 +520,14 @@ const DiplomaProgramsSection = () => {
               </div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold text-center w-full">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#00c8ff]">
-                  Sports Injury Rehab & Return to Performance
+                  Advance Diploma in Sports Injury Rehab & Return to Performance
                 </span>
               </div>
             </div>
             <div className="p-6">
               <div className="mb-4">
                 <span className="bg-[#00c8ff]/10 text-[#00c8ff] px-3 py-1 rounded-full text-sm font-medium border border-[#00c8ff]/30">
-                  Specialist
+                  Level 7
                 </span>
               </div>
               <p className="text-gray-400 mb-2 text-sm font-semibold">

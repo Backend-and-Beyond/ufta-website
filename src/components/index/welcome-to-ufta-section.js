@@ -245,10 +245,10 @@ const WelcomeToUftaSection = () => {
           className="text-center mb-16 md:mb-20"
           variants={staggerContainer}
         >
-          <div className="flex justify-center items-center flex-wrap h-16 md:h-24 mb-4 overflow-hidden">
+          <div className="flex justify-center items-center flex-wrap min-h-[4rem] md:min-h-[6rem] mb-4 overflow-visible">
             <AnimatePresence mode="wait">
               {isInView && (
-                <div className="flex justify-center items-baseline">
+                <div className="flex justify-center items-baseline flex-wrap">
                   {titleChars.map((char, i) => (
                     <motion.span
                       key={`${char}-${i}`}
@@ -257,7 +257,7 @@ const WelcomeToUftaSection = () => {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins inline-block mx-[1px] md:mx-[2px]"
+                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-poppins inline-block mx-[0.5px] sm:mx-[1px] md:mx-[2px]"
                       style={{
                         color: char !== " " ? "#00c8ff" : "transparent",
                         textShadow: "0 0 20px rgba(0, 200, 255, 0.3)",
@@ -434,7 +434,7 @@ const WelcomeToUftaSection = () => {
               {
                 title: "Our Legacy",
                 content:
-                  "Established in 2006, the Universal Fitness Training Academy (UFTA) stands as one of India’s leading institutions dedicated to advancing education in sports performance, exercise science, health, and fitness. With an unwavering commitment to academic and professional excellence, UFTA has successfully trained and certified over 2,500 professionals in the fields of strength and conditioning (S&amp;C), fitness, and nutrition.",
+                  "Established in 2006, the Universal Fitness Training Academy (UFTA) stands as one of India’s leading institutions dedicated to advancing education in sports performance, exercise science, health, and fitness. With an unwavering commitment to academic and professional excellence, UFTA has successfully trained and certified over 2,500 professionals in the fields of strength and conditioning (S&C), fitness, and nutrition.",
               },
               {
                 title: "Our Mission",

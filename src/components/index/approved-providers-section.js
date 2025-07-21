@@ -56,9 +56,9 @@ const ApprovedProvidersSection = () => {
         </div>
 
         {/* Provider Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 md:gap-6 mb-6 md:mb-8 max-w-2xl sm:max-w-3xl md:max-w-none mx-auto">
 
-          <a href="https://www.iusca.org/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
+          <a href="https://www.iusca.org/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[140px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
           >
             <motion.div
               initial="hidden"
@@ -71,16 +71,15 @@ const ApprovedProvidersSection = () => {
               <StaticImage
                 src="../../images/iusca-endorses.png"
                 alt="IUSCA"
-                className="max-h-8 md:max-h-12 max-w-[155px] object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                className="max-h-12 max-w-[155px] object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={155}
                 height={48}
               />
             </motion.div>
           </a>
 
-          <a href="https://www.propta.com/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
+          <a href="https://www.propta.com/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[140px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
             <motion.div
-              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 md:p-6 flex items-center justify-center min-h-[100px] md:min-h-[140px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -91,16 +90,15 @@ const ApprovedProvidersSection = () => {
               <StaticImage
                 src="../../images/proptapng.webp"
                 alt="PROPTA"
-                className="max-h-16 md:max-h-20 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                className="max-h-20 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={85}
                 height={85}
               />
             </motion.div>
           </a>
 
-          <a href="https://www.usaweightlifting.org/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
+          <a href="https://www.usaweightlifting.org/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[140px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
             <motion.div
-              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-4 md:p-6 flex items-center justify-center min-h-[100px] md:min-h-[140px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -111,16 +109,15 @@ const ApprovedProvidersSection = () => {
               <StaticImage
                 src="../../images/provider1.webp"
                 alt="PROPTA USA"
-                className="max-h-16 md:max-h-20 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                className="max-h-20 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={80}
               />
             </motion.div>
           </a>
 
-          <a href="https://www.nsca.com/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
+          <a href="https://www.nsca.com/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[140px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
             <motion.div
-              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -131,16 +128,15 @@ const ApprovedProvidersSection = () => {
               <StaticImage
                 src="../../images/provider2.png"
                 alt="UGC Approved"
-                className="max-h-8 md:max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                className=" md:max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={48}
               />
             </motion.div>
           </a>
 
-          <a href="https://www.nasm.org/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
+          <a href="https://www.nasm.org/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[140px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
             <motion.div
-              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -151,16 +147,15 @@ const ApprovedProvidersSection = () => {
               <StaticImage
                 src="../../images/provider3.png"
                 alt="CASES UK"
-                className="max-h-8 md:max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                className="md:max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={48}
               />
             </motion.div>
           </a>
 
-          <a href="https://www.afaa.com/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
+          <a href="https://www.afaa.com/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[140px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
             <motion.div
-              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -171,17 +166,16 @@ const ApprovedProvidersSection = () => {
               <StaticImage
                 src="../../images/provider4.png"
                 alt="University Partner"
-                className="max-h-8 md:max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                className="md:max-h-12 max-w-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={120}
                 height={48}
               />
             </motion.div>
           </a>
 
-          <a href="https://acsm.org/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
-
+          <a href="https://acsm.org/" target="_blank" className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[140px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden">
             <motion.div
-              className="bg-[#141414] border border-[#2A2A2A] rounded-xl p-3 md:p-4 flex items-center justify-center min-h-[80px] md:min-h-[120px] group hover:border-[#00c8ff]/30 relative overflow-hidden col-span-2 md:col-span-1"
+              className="col-span-2 md:col-span-1"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -192,7 +186,7 @@ const ApprovedProvidersSection = () => {
               <StaticImage
                 src="../../images/provider5.png"
                 alt="International Body"
-                className="max-h-8 md:max-h-12 max-w-[155px] object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                className="md:max-h-12 max-w-[155px] object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
                 width={160}
                 height={48}
               />

@@ -39,7 +39,7 @@ const FoundersSection = () => {
       initials: "BMS",
       name: "Dr. Bibhu Moni Singha",
       degree: "IUSCA Certified S&C Coach",
-      position: ["Founder & Director, UFTA"],
+      position: ["Level 8 mISCP IUSCA, USAW Level 2, CSCS, MPPT & CSN PROPTA USA"],
       specialty: [
         "MSc ST&C",
         "PGDip Fit & Nutrition",

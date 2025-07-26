@@ -67,9 +67,11 @@ const HeadCoachSection = () => {
               viewport={{ once: true, amount: 0.3 }}
               variants={slideInRightVariant}
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4 font-poppins">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-1 md:mb-2 font-poppins">
                 Dr. Bibhu Moni Singha
-              </h3>
+              </h3>  
+              <p className="text-gray-400 text-sm md:text-base font-poppins">Level 8 mISCP IUSCA, USAW Level 2, CSCS, MPPT & CSN PROPTA USA</p>
+              <br></br>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-3 md:mb-4 font-poppins ">
                 Dr. Bibhu Moni Singha is an Internationally Accredited Strength
                 & Conditioning Expert, High Performance Olympic Weightlifting

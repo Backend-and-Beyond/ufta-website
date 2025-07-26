@@ -41,6 +41,11 @@ const Footer = () => {
           <div className="flex flex-col items-center">
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-1 text-xs text-gray-400 mb-4">
+              <li>
+                <Link to="/head-coach" className="hover:text-white">
+                  Dr. Bibhu Moni Singha
+                </Link>
+              </li>
               <li>bibhuuniversal@gmail.com</li>
               <li>+91 98640 47046</li>
               <li>+91 98640 26682</li>

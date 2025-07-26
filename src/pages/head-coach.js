@@ -15,7 +15,7 @@ const HeadCoachPage = ({ location }) => {
       <Navigation location={location} />
 
       {/* Custom Hero Section */}
-      <motion.section 
+      <motion.section
         className="relative min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] xl:min-h-screen flex items-center bg-gradient-to-br from-[#0A0A0A] via-[#111111] to-[#1a1a1a] overflow-hidden"
         initial="hidden"
         animate="visible"
@@ -28,7 +28,7 @@ const HeadCoachPage = ({ location }) => {
 
         {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#00c8ff]/5 via-transparent to-amber-400/5"></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
           <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center">
             {/* Content */}
@@ -37,28 +37,22 @@ const HeadCoachPage = ({ location }) => {
               variants={slideInLeft}
             >
               <div className="space-y-2 sm:space-y-3 md:space-y-4">
-                <motion.div
-                  className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#00c8ff]/20 to-amber-400/20 rounded-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 border border-[#00c8ff]/30"
-                  variants={fadeInUp}
-                >
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#00c8ff] rounded-full animate-pulse"></span>
-                  <span className="text-[#00c8ff] font-medium text-xs sm:text-sm tracking-wide">DIRECTOR</span>
-                </motion.div>
+
 
                 <motion.h1
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white font-poppins leading-tight"
                   variants={fadeInUp}
                 >
-                  Dr. <span className="bg-gradient-to-r from-[#00c8ff] to-[#0099cc] bg-clip-text text-transparent">Bibhu</span>
+                  Dr. <span className="bg-gradient-to-r from-[#00c8ff] to-[#0099cc] bg-clip-text text-transparent">Bibhu Moni</span>
                   <br />
-                  <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Moni Singha</span>
+                  <span className="bg-gradient-to-r from-[#00c8ff] to-[#0099cc] bg-clip-text text-transparent">Singha</span>
                 </motion.h1>
 
                 <motion.p
                   className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 font-light leading-relaxed"
                   variants={fadeInUp}
                 >
-                  Internationally Accredited Strength & Conditioning Expert
+                 Level 8 mISCP IUSCA, USAW Level 2, CSCS, MPPT & CSN PROPTA USA
                 </motion.p>
 
                 <motion.div
@@ -68,6 +62,23 @@ const HeadCoachPage = ({ location }) => {
                   <span className="bg-[#181818] px-2 sm:px-3 py-1 rounded-full border border-gray-700 text-xs sm:text-sm">Sr. Director, PROPTA</span>
                   <span className="bg-[#181818] px-2 sm:px-3 py-1 rounded-full border border-gray-700 text-xs sm:text-sm">IUSCA Rep</span>
                   <span className="bg-[#181818] px-2 sm:px-3 py-1 rounded-full border border-gray-700 text-xs sm:text-sm">S&C Lead</span>
+
+                </motion.div>
+
+                <motion.div
+                  className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#00c8ff]/20 to-amber-400/20 rounded-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 border border-[#00c8ff]/30"
+                  variants={fadeInUp}
+                >
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#00c8ff] rounded-full animate-pulse"></span>
+                  <span className="text-[#00c8ff] font-medium text-xs sm:text-sm tracking-wide">Founder</span>
+                </motion.div>
+
+                <motion.div
+                  className="inline-flex ml-2 items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#00c8ff]/20 to-amber-400/20 rounded-full px-3 sm:px-4 md:px-6 py-1 sm:py-2 border border-[#00c8ff]/30"
+                  variants={fadeInUp}
+                >
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#00c8ff] rounded-full animate-pulse"></span>
+                  <span className="text-[#00c8ff] font-medium text-xs sm:text-sm tracking-wide">Director</span>
                 </motion.div>
               </div>
 
@@ -100,7 +111,7 @@ const HeadCoachPage = ({ location }) => {
                 {/* Gradient Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00c8ff]/20 via-transparent to-amber-400/20 rounded-3xl transform rotate-6"></div>
                 <div className="absolute inset-0 bg-gradient-to-tl from-[#00c8ff]/10 via-transparent to-amber-400/10 rounded-3xl transform -rotate-3"></div>
-                
+
                 {/* Main Image Container */}
                 <div className="relative bg-gradient-to-br from-[#1a1a1a] to-[#0F0F0F] rounded-3xl p-1 shadow-2xl">
                   <StaticImage
@@ -150,24 +161,24 @@ const HeadCoachPage = ({ location }) => {
                   <h2 className="text-3xl md:text-4xl font-bold text-white font-poppins mb-6">
                     About <span className="text-[#00c8ff]">Dr. Bibhu</span>
                   </h2>
-                  
+
                   <div className="text-gray-300 text-base md:text-lg leading-relaxed font-poppins space-y-4">
                     <p>
-                      <span className="font-bold text-[#00c8ff]">Dr. Bibhu Moni Singha</span> is an 
-                      <span className="font-bold"> award-winning</span>, <span className="font-bold">globally recognized</span>, and 
-                      <span className="font-bold text-[#00c8ff]"> internationally accredited Strength & Conditioning Expert</span>, 
-                      <span className="font-bold"> Sports & Exercise Nutritionist</span>, 
-                      <span className="font-bold"> High-Performance Olympic Weightlifting Coach</span>, 
-                      <span className="font-bold"> Injury Rehabilitation Specialist</span>, and 
+                      <span className="font-bold text-[#00c8ff]">Dr. Bibhu Moni Singha</span> is an
+                      <span className="font-bold"> award-winning</span>, <span className="font-bold">globally recognized</span>, and
+                      <span className="font-bold text-[#00c8ff]"> internationally accredited Strength & Conditioning Expert</span>,
+                      <span className="font-bold"> Sports & Exercise Nutritionist</span>,
+                      <span className="font-bold"> High-Performance Olympic Weightlifting Coach</span>,
+                      <span className="font-bold"> Injury Rehabilitation Specialist</span>, and
                       <span className="font-bold"> CASES UK Accredited Sport & Exercise Scientist</span>.
                     </p>
                     <p>
-                      His research article titled 
-                      <span className="italic font-bold text-[#00c8ff]"> "Age-Specific Considerations in Strength and Conditioning Programs: A Narrative Review"</span> 
+                      His research article titled
+                      <span className="italic font-bold text-[#00c8ff]"> "Age-Specific Considerations in Strength and Conditioning Programs: A Narrative Review"</span>
                       was selected for the <span className="font-bold text-[#00c8ff]">Applied Science Awards at the 7th SCS Annual Conference in Spain in 2024</span>.
                     </p>
                     <p>
-                      Dr. Bibhu has over <span className="font-bold">26 years</span> of comprehensive experience, with more than 
+                      Dr. Bibhu has over <span className="font-bold">26 years</span> of comprehensive experience, with more than
                       <span className="font-bold"> 93,000 hours</span> of work in the sports, fitness, and nutrition industry both in India and internationally.
                     </p>
                   </div>
@@ -530,12 +541,12 @@ const HeadCoachPage = ({ location }) => {
                 Transforming the Future of <span className="text-[#00c8ff]">Fitness</span> & <span className="text-amber-400">Sports Science</span>
               </h2>
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Dr. Bibhu is committed to bridging the gap between academia and athletic performance, 
-                collaborating with <span className="font-bold text-[#00c8ff]">150+ global universities</span> 
+                Dr. Bibhu is committed to bridging the gap between academia and athletic performance,
+                collaborating with <span className="font-bold text-[#00c8ff]">150+ global universities</span>
                 (including UCLA, Stanford, Yale via IUSCA) to elevate strength & conditioning education.
               </p>
-              
-              <div className="flex flex-wrap justify-center gap-4">
+
+              {/* <div className="flex flex-wrap justify-center gap-4">
                 <motion.button
                   className="bg-gradient-to-r from-[#00c8ff] to-[#0099cc] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
@@ -550,7 +561,7 @@ const HeadCoachPage = ({ location }) => {
                 >
                   View Certifications
                 </motion.button>
-              </div>
+              </div> */}
             </div>
           </div>
         </motion.section>
